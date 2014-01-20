@@ -82,6 +82,7 @@
     <Compile Include="Data\Joystick.cs" />
     <Compile Include="Data\JoystickFactory.cs" />
     <Compile Include="Data\PacketBuilder.cs" />
+    <Compile Include="Data\StateSender.cs" />
     <Compile Include="Presentation\JoystickTracker.cs">
       <SubType>Form</SubType>
     </Compile>

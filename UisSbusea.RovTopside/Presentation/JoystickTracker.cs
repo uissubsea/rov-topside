@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UisSubsea.RovTopside.Data;
+using System.IO.Ports;
 
 namespace UisSubsea.RovTopside.Presentation
 {
@@ -27,6 +28,8 @@ namespace UisSubsea.RovTopside.Presentation
         private Brush whiteBrush;
         private Brush blackBrush;
         private Font font;
+
+        private StateSender stateSender;
 
         public JoystickTracker()
         {
@@ -54,6 +57,9 @@ namespace UisSubsea.RovTopside.Presentation
 
             updateLabels();
 
+            if(stateSender != null)
+                stateSender.WriteState();
+
             //Repaint the form
             this.Invalidate();
         }
@@ -67,6 +73,9 @@ namespace UisSubsea.RovTopside.Presentation
         {
             joystick = new Joystick(this.Handle, 0, 250);
             joystick.Acquire();
+
+            string[] ports = SerialPort.GetPortNames();
+            cmbAvailablePorts.DataSource = ports;
 
             tmrRefreshStick.Enabled = true;
         }
@@ -173,6 +182,15 @@ namespace UisSubsea.RovTopside.Presentation
         private void JoystickTracker_FormClosing(object sender, FormClosingEventArgs e)
         {
             joystick.Unacquire();
+            stateSender.Dispose();
+        }
+
+        private void btnUsePort_Click(object sender, EventArgs e)
+        {
+            String port = cmbAvailablePorts.SelectedItem.ToString();
+            PacketBuilder pb = new PacketBuilder(joystick);
+            stateSender = new StateSender(port, pb);
+            btnUsePort.Enabled = false;
         }
     }
 }

@@ -36,6 +36,8 @@
             this.lblPitch = new System.Windows.Forms.Label();
             this.lblYaw = new System.Windows.Forms.Label();
             this.lblThrottle = new System.Windows.Forms.Label();
+            this.cmbAvailablePorts = new System.Windows.Forms.ComboBox();
+            this.btnUsePort = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trkYaw)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trkThrottle)).BeginInit();
             this.SuspendLayout();
@@ -101,11 +103,31 @@
             this.lblThrottle.TabIndex = 5;
             this.lblThrottle.Text = "Throttle";
             // 
+            // cmbAvailablePorts
+            // 
+            this.cmbAvailablePorts.FormattingEnabled = true;
+            this.cmbAvailablePorts.Location = new System.Drawing.Point(354, 247);
+            this.cmbAvailablePorts.Name = "cmbAvailablePorts";
+            this.cmbAvailablePorts.Size = new System.Drawing.Size(121, 21);
+            this.cmbAvailablePorts.TabIndex = 6;
+            // 
+            // btnUsePort
+            // 
+            this.btnUsePort.Location = new System.Drawing.Point(482, 244);
+            this.btnUsePort.Name = "btnUsePort";
+            this.btnUsePort.Size = new System.Drawing.Size(75, 23);
+            this.btnUsePort.TabIndex = 7;
+            this.btnUsePort.Text = "Use";
+            this.btnUsePort.UseVisualStyleBackColor = true;
+            this.btnUsePort.Click += new System.EventHandler(this.btnUsePort_Click);
+            // 
             // JoystickTracker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(742, 298);
+            this.Controls.Add(this.btnUsePort);
+            this.Controls.Add(this.cmbAvailablePorts);
             this.Controls.Add(this.lblThrottle);
             this.Controls.Add(this.lblYaw);
             this.Controls.Add(this.lblPitch);
@@ -113,6 +135,8 @@
             this.Controls.Add(this.trkThrottle);
             this.Controls.Add(this.trkYaw);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "JoystickTracker";
             this.Text = "Joystick Tracker";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.JoystickTracker_FormClosing);
@@ -133,6 +157,8 @@
         private System.Windows.Forms.Label lblPitch;
         private System.Windows.Forms.Label lblYaw;
         private System.Windows.Forms.Label lblThrottle;
+        private System.Windows.Forms.ComboBox cmbAvailablePorts;
+        private System.Windows.Forms.Button btnUsePort;
     }
 }
 
