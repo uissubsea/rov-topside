@@ -181,16 +181,23 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void JoystickTracker_FormClosing(object sender, FormClosingEventArgs e)
         {
-            joystick.Unacquire();
-            stateSender.Dispose();
+            if(joystick != null)
+                joystick.Unacquire();
+
+            if(stateSender != null)
+                stateSender.Dispose();
         }
 
         private void btnUsePort_Click(object sender, EventArgs e)
         {
             String port = cmbAvailablePorts.SelectedItem.ToString();
-            PacketBuilder pb = new PacketBuilder(joystick);
-            stateSender = new StateSender(port, pb);
-            btnUsePort.Enabled = false;
+            
+            if (!String.IsNullOrEmpty(port))
+            {
+                PacketBuilder pb = new PacketBuilder(joystick);
+                stateSender = new StateSender(port, pb);
+                btnUsePort.Enabled = false;
+            }           
         }
     }
 }
