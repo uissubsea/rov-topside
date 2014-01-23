@@ -20,10 +20,11 @@ namespace UisSubsea.RovTopside.Data
             port.Open();
         }
 
-        public void WriteState() 
+        public byte[] WriteState() 
         {
             byte[] state = packetBuilder.BuildJoystickStatePacket();
             port.Write(state, 0, state.Length);
+            return state;
         }
 
         public void Dispose()

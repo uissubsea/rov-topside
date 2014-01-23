@@ -38,6 +38,11 @@
             this.lblThrottle = new System.Windows.Forms.Label();
             this.cmbAvailablePorts = new System.Windows.Forms.ComboBox();
             this.btnUsePort = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lblOutput = new System.Windows.Forms.Label();
+            this.lblInput = new System.Windows.Forms.Label();
+            this.lblCom = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trkYaw)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trkThrottle)).BeginInit();
             this.SuspendLayout();
@@ -106,14 +111,14 @@
             // cmbAvailablePorts
             // 
             this.cmbAvailablePorts.FormattingEnabled = true;
-            this.cmbAvailablePorts.Location = new System.Drawing.Point(354, 247);
+            this.cmbAvailablePorts.Location = new System.Drawing.Point(412, 247);
             this.cmbAvailablePorts.Name = "cmbAvailablePorts";
             this.cmbAvailablePorts.Size = new System.Drawing.Size(121, 21);
             this.cmbAvailablePorts.TabIndex = 6;
             // 
             // btnUsePort
             // 
-            this.btnUsePort.Location = new System.Drawing.Point(482, 244);
+            this.btnUsePort.Location = new System.Drawing.Point(539, 245);
             this.btnUsePort.Name = "btnUsePort";
             this.btnUsePort.Size = new System.Drawing.Size(75, 23);
             this.btnUsePort.TabIndex = 7;
@@ -121,11 +126,59 @@
             this.btnUsePort.UseVisualStyleBackColor = true;
             this.btnUsePort.Click += new System.EventHandler(this.btnUsePort_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(60, 299);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(203, 124);
+            this.textBox1.TabIndex = 8;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(354, 299);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(203, 117);
+            this.textBox2.TabIndex = 9;
+            // 
+            // lblOutput
+            // 
+            this.lblOutput.AutoSize = true;
+            this.lblOutput.Location = new System.Drawing.Point(12, 299);
+            this.lblOutput.Name = "lblOutput";
+            this.lblOutput.Size = new System.Drawing.Size(42, 13);
+            this.lblOutput.TabIndex = 10;
+            this.lblOutput.Text = "Output:";
+            // 
+            // lblInput
+            // 
+            this.lblInput.AutoSize = true;
+            this.lblInput.Location = new System.Drawing.Point(314, 299);
+            this.lblInput.Name = "lblInput";
+            this.lblInput.Size = new System.Drawing.Size(34, 13);
+            this.lblInput.TabIndex = 11;
+            this.lblInput.Text = "Input:";
+            // 
+            // lblCom
+            // 
+            this.lblCom.AutoSize = true;
+            this.lblCom.Location = new System.Drawing.Point(351, 250);
+            this.lblCom.Name = "lblCom";
+            this.lblCom.Size = new System.Drawing.Size(55, 13);
+            this.lblCom.TabIndex = 12;
+            this.lblCom.Text = "COM-port:";
+            // 
             // JoystickTracker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(742, 298);
+            this.ClientSize = new System.Drawing.Size(742, 435);
+            this.Controls.Add(this.lblCom);
+            this.Controls.Add(this.lblInput);
+            this.Controls.Add(this.lblOutput);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnUsePort);
             this.Controls.Add(this.cmbAvailablePorts);
             this.Controls.Add(this.lblThrottle);
@@ -138,7 +191,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "JoystickTracker";
-            this.Text = "Joystick Tracker";
+            this.Text = " ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.JoystickTracker_FormClosing);
             this.Load += new System.EventHandler(this.JoystickTracker_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trkYaw)).EndInit();
@@ -159,6 +212,11 @@
         private System.Windows.Forms.Label lblThrottle;
         private System.Windows.Forms.ComboBox cmbAvailablePorts;
         private System.Windows.Forms.Button btnUsePort;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label lblOutput;
+        private System.Windows.Forms.Label lblInput;
+        private System.Windows.Forms.Label lblCom;
     }
 }
 
