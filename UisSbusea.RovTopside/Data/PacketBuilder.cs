@@ -45,14 +45,21 @@ namespace UisSubsea.RovTopside.Data
             };
         }
 
+        public byte[] BuildRovStatePacket()
+        {
+            return new byte[]{
+
+            };
+        }
+
         public byte ButtonsPressed()
         {
             int buttons = 0;
-            byte[] buttonsPressed = joystick.Buttons();
+            bool[] buttonsPressed = joystick.Buttons();
 
             for (int i = 0; i < 7; i++)
             {
-                if (buttonsPressed[i] != 0)
+                if (buttonsPressed[i])
                 {
                     int currentButton = (1 << i);
                     buttons |= currentButton;

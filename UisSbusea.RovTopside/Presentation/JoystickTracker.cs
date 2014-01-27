@@ -30,6 +30,7 @@ namespace UisSubsea.RovTopside.Presentation
         private Font font;
 
         private StateSender stateSender;
+        private StateReceiver stateReceiver;
 
         public JoystickTracker()
         {
@@ -39,6 +40,13 @@ namespace UisSubsea.RovTopside.Presentation
             whiteBrush = new SolidBrush(Color.White);
             blackBrush = new SolidBrush(Color.Black);
             font = new Font("Arial", 10);
+            stateReceiver = new StateReceiver();
+            stateReceiver.DataReceived += ComPort_DataReceived;
+        }
+
+        private void ComPort_DataReceived(object sender, DataReceivedEventArgs args)
+        {
+            txtInput.Text += args.Data + "\r\n";
         }
 
         private void refresh()
@@ -143,7 +151,7 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void drawButtons(Graphics g)
         {
-            byte[] buttons = joystick.Buttons();
+            bool[] buttons = joystick.Buttons();
 
             //Draw a maximum of 12 buttons
             //to prevent a lot of buttons never
@@ -158,7 +166,7 @@ namespace UisSubsea.RovTopside.Presentation
             for (int i = 0; i < numberOfButtonsToDraw; i++)
             {
                 //Highlight buttons that are pressed
-                if (buttons[i] != 0)
+                if (buttons[i])
                 {
                     g.FillEllipse(blackBrush, (350 + i * 30), 200, 20, 20);
                     g.DrawString((i + 1).ToString(), font, whiteBrush, new PointF((353 + i * 30.0F), 203.0F));
@@ -195,7 +203,7 @@ namespace UisSubsea.RovTopside.Presentation
             if (!String.IsNullOrEmpty(port))
             {
                 PacketBuilder pb = new PacketBuilder(joystick);
-                stateSender = new StateSender(port, pb);
+                stateSender = new StateSender(pb);
                 btnUsePort.Enabled = false;
             }           
         }

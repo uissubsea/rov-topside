@@ -13,11 +13,12 @@ namespace UisSubsea.RovTopside.Data
         private PacketBuilder packetBuilder;
         private SerialPort port;
 
-        public StateSender(String portName, PacketBuilder pb)
+        public StateSender(PacketBuilder pb)
         {
             this.packetBuilder = pb;
-            port = new SerialPort(portName, 9600, Parity.None, 8, StopBits.One);
-            port.Open();
+            port = SerialPortSingleton.Instance;
+            if (!port.IsOpen)
+                port.Open();
         }
 
         public byte[] WriteState() 

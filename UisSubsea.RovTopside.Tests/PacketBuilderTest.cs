@@ -32,12 +32,14 @@ namespace UisSubsea.RovTopside.Tests
             byte pov = pb.HatPov();
             Assert.IsTrue(AllowedPointOfViews.Contains(pov));
         }
+
         [TestMethod]
         public void TestRoll()
         {
             byte roll = pb.Roll();
             Assert.IsTrue(isValid(roll));
         }
+
         [TestMethod]
         public void TestPitch()
         {
@@ -45,12 +47,14 @@ namespace UisSubsea.RovTopside.Tests
             Assert.IsTrue(isValid(pitch));
 
         }
+
         [TestMethod]
         public void TestYaw()
         {
             byte yaw = pb.Yaw();
             Assert.IsTrue(isValid(yaw));
         }
+
         [TestMethod]
         public void tesThrottle()
         {

@@ -9,33 +9,39 @@ namespace UisSubsea.RovTopside.Data
 {
     public class StateReceiver
     {
-        private SerialPort serialport;
-        private static int bufSize = 2048;
         private static Byte[] buffer;
-       
+        private static SerialPort port;
 
-        public StateReceiver(SerialPort port)
+        public event EventHandler<DataReceivedEventArgs> DataReceived;
+
+        public StateReceiver()
         {
-          
-            buffer = new Byte[bufSize];
-    
+            port = SerialPortSingleton.Instance;
+
             if (!port.IsOpen)
             {
                 port.Open();
             }
-                serialport.DataReceived += serialPort_DataReceived;
-            
-          
+            port.DataReceived += port_DataReceived;
         }
-        private static void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
+
+        private void port_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            SerialPort port =  (SerialPort) sender;
+            SerialPort port = (SerialPort)sender;
             buffer = new Byte[port.BytesToRead];
-            port.Read(buffer, 0, bufSize);
+            port.Read(buffer, 0, buffer.Length);
+            DataReceivedEventArgs args = new DataReceivedEventArgs();
+            args.Data = buffer;
+            OnDataReceived(args);
         }
 
-        
-
-        
+        protected virtual void OnDataReceived(DataReceivedEventArgs e)
+        {
+            EventHandler<DataReceivedEventArgs> handler = DataReceived;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
     }
 }

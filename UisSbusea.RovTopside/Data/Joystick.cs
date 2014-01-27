@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.DirectX.DirectInput;
+using SharpDX.DirectInput;
 
 namespace UisSubsea.RovTopside.Data
 {
     public class Joystick : IJoystick
     {
-        private Device joystick;
+        private SharpDX.DirectInput.Joystick joystick;
         private InputRange range;
 
         public Joystick(IntPtr windowHandle)
@@ -28,7 +28,7 @@ namespace UisSubsea.RovTopside.Data
 
         public JoystickState State()
         {
-            return joystick.CurrentJoystickState;
+            return joystick.GetCurrentState();
         }
 
         public int Roll()
@@ -43,7 +43,7 @@ namespace UisSubsea.RovTopside.Data
 
         public int Yaw()
         {
-            return State().Rz;
+            return State().RotationZ;
         }
 
         public void Acquire()
@@ -61,17 +61,17 @@ namespace UisSubsea.RovTopside.Data
         public int Throttle()
         {
             //Capture throttle
-            int throttle = State().GetSlider()[0];
+            int throttle = State().Sliders[0];
             //Invert the throttle value.
             //By default it will go from range.Max to range.Min
             //We want it to go the other way.
-            return -(throttle - range.Max);
+            return - (throttle - range.Maximum);
         }
 
         public int PointOfView()
         {
             //Capture point-of-view hat
-            int pov = State().GetPointOfView()[0];
+            int pov = State().PointOfViewControllers[0];
 
             //Convert to degrees if hat is not in center
             if (pov != -1)
@@ -80,26 +80,29 @@ namespace UisSubsea.RovTopside.Data
             return pov;
         }
 
-        public byte[] Buttons()
+        public bool[] Buttons()
         {
             //Capture Buttons.
-            byte[] buttons = State().GetButtons();
+            bool[] buttons = State().Buttons;
             if (buttons != null)
                 return buttons;
             else
-                return new byte[128];
+                return new bool[128];
         }
 
         private void createJoystick()
         {
+            DirectInput directInput = new DirectInput();
+            Guid guid = Guid.Empty;
+
             //create joystick device.
             foreach (
                 DeviceInstance di in
-                Manager.GetDevices(
+                directInput.GetDevices(
                     DeviceClass.GameControl,
-                    EnumDevicesFlags.AttachedOnly))
+                    DeviceEnumerationFlags.AttachedOnly))
             {
-                joystick = new Device(di.InstanceGuid);
+                joystick = new SharpDX.DirectInput.Joystick(directInput, di.InstanceGuid);
                 break;
             }
 
@@ -114,19 +117,19 @@ namespace UisSubsea.RovTopside.Data
         private void configureJoystick(IntPtr windowHandle)
         {
             //Set joystick axis ranges.
-            foreach (DeviceObjectInstance doi in joystick.Objects)
+            foreach (DeviceObjectInstance doi in joystick.GetObjects())
             {
-                if ((doi.ObjectId & (int)DeviceObjectTypeFlags.Axis) != 0)
+                if (((int)doi.ObjectId & (int)DeviceObjectTypeFlags.Axis) != 0)
                 {
-                    joystick.Properties.SetRange(
-                        ParameterHow.ById,
-                        doi.ObjectId,
-                        range);
+                    var ir = joystick.GetObjectPropertiesById(doi.ObjectId);
+                    ir.Range = range;
                 }
             }
 
+            joystick.Properties.DeadZone = 2000;
+
             //Set joystick axis mode absolute.
-            joystick.Properties.AxisModeAbsolute = true;
+            joystick.Properties.AxisMode = DeviceAxisMode.Absolute;
 
             /*We can interact with the joystick even if the window
              * is not in focus or in the background (Background flag). We also let other
@@ -135,8 +138,8 @@ namespace UisSubsea.RovTopside.Data
              */
             joystick.SetCooperativeLevel(
                 windowHandle,
-                CooperativeLevelFlags.NonExclusive |
-                CooperativeLevelFlags.Background);
+                CooperativeLevel.NonExclusive |
+                CooperativeLevel.Background);
         }
     }
 }

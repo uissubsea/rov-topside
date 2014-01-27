@@ -12,7 +12,7 @@ namespace UisSubsea.RovTopside
         int Pitch();
         int Roll();
         int Yaw();
-        byte[] Buttons();
+        bool[] Buttons();
         int PointOfView();
     }
 }
