@@ -191,11 +191,13 @@
             this.Controls.Add(this.trkYaw);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "JoystickTracker";
             this.Text = "Joystick Debugger";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.JoystickTracker_FormClosing);
             this.Load += new System.EventHandler(this.JoystickTracker_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.JoystickTracker_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.trkYaw)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trkThrottle)).EndInit();
             this.ResumeLayout(false);

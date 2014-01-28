@@ -32,6 +32,8 @@ namespace UisSubsea.RovTopside.Presentation
         private StateSender stateSender;
         private StateReceiver stateReceiver;
 
+        private Boolean readyToSend;
+
         public JoystickTracker()
         {
             InitializeComponent();
@@ -51,7 +53,22 @@ namespace UisSubsea.RovTopside.Presentation
             {
                 txtInput.BeginInvoke((MethodInvoker)delegate() { txtInput.Text += (byte)b + " "; ;});
             }
-            txtInput.Text += "\r\n";
+            txtInput.BeginInvoke((MethodInvoker)delegate() { txtInput.Text += "\r\n"; ;});
+
+            readyToSend = true;
+        }
+
+        private void WriteState()
+        {
+            if (stateSender != null)
+            {
+                byte[] data = stateSender.WriteState();
+                foreach (byte b in data)
+                {
+                    txtInput.BeginInvoke((MethodInvoker)delegate() { txtOutput.Text += (byte)b + " "; ;});
+                }
+                txtInput.BeginInvoke((MethodInvoker)delegate() { txtOutput.Text += "\r\n"; ;});
+            }
         }
 
         private void refresh()
@@ -70,16 +87,6 @@ namespace UisSubsea.RovTopside.Presentation
 
             updateLabels();
 
-            if (stateSender != null)
-            {
-                byte[] data = stateSender.WriteState();
-                foreach (byte b in data)
-                {
-                    txtOutput.Text += (byte)b + " ";
-                }
-                txtOutput.Text += "\r\n";
-            }
-
             //Repaint the form
             this.Invalidate();
         }
@@ -91,7 +98,7 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void JoystickTracker_Load(object sender, EventArgs e)
         {
-            joystick = new Joystick(this.Handle, 0, 250);
+            joystick = new Joystick(this.Handle, 0, 250, Joystick.JoystickType.MainController);
             joystick.Acquire();
 
             string[] ports = SerialPort.GetPortNames();
@@ -219,5 +226,12 @@ namespace UisSubsea.RovTopside.Presentation
                 btnUsePort.Enabled = false;
             } 
         }
+
+        private void JoystickTracker_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.S && readyToSend)
+                WriteState();
+        }
+
     }
 }

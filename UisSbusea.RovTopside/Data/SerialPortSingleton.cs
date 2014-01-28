@@ -7,7 +7,16 @@ using System.IO.Ports;
 
 namespace UisSubsea.RovTopside.Data
 {
-    class SerialPortSingleton
+    /**
+     * A singleton pattern is used with the serial port
+     * because we will never use more than one port for
+     * communication. The com port name is hardcoded
+     * to make it easier to use. When you plug in your
+     * MCU (Micro Control Unit), go to device manager
+     * and make sure that the name is set to COM1.
+     * */
+
+    public class SerialPortSingleton
     {
         private static SerialPort instance;
         private const string portName = "COM1";

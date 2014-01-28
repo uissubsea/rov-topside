@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace UisSubsea.RovTopside.Data
 {
+    /**
+     * This class is responsible for packing
+     * the state of the joystick before sending
+     * it as a packet to the ROV's supernode.
+     * */
+
     public class PacketBuilder
     {
         private const byte startByte = 255;

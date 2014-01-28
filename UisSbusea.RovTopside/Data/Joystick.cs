@@ -9,20 +9,33 @@ namespace UisSubsea.RovTopside.Data
 {
     public class Joystick : IJoystick
     {
+        public enum JoystickType
+        {
+            MainController,
+            ManipulatorLeft,
+            ManipulatorRight
+        }
+
         private SharpDX.DirectInput.Joystick joystick;
         private InputRange range;
 
         public Joystick(IntPtr windowHandle)
         {
-            range = new InputRange(-100, 100);
-            createJoystick();
+            range = new InputRange(0, 250);
+            createJoystick(JoystickType.MainController);
+            configureJoystick(windowHandle);
+        }
+
+        public Joystick(IntPtr windowHandle, int rangeFrom, int rangeTo, JoystickType type) {
+            range = new InputRange(rangeFrom, rangeTo);
+            createJoystick(type);
             configureJoystick(windowHandle);
         }
 
         public Joystick(IntPtr windowHandle, int rangeFrom, int rangeTo)
         {
             range = new InputRange(rangeFrom, rangeTo);
-            createJoystick();
+            createJoystick(JoystickType.MainController);
             configureJoystick(windowHandle);
         }
 
@@ -90,21 +103,30 @@ namespace UisSubsea.RovTopside.Data
                 return new bool[128];
         }
 
-        private void createJoystick()
+        private void createJoystick(JoystickType type)
         {
             DirectInput directInput = new DirectInput();
             Guid guid = Guid.Empty;
 
-            //create joystick device.
-            foreach (
-                DeviceInstance di in
-                directInput.GetDevices(
-                    DeviceClass.GameControl,
-                    DeviceEnumerationFlags.AttachedOnly))
+            //Create joystick device.
+            //This process is called Direct Input Device Enumeration
+            IList<DeviceInstance> gameControls = directInput.GetDevices(
+                DeviceClass.GameControl, DeviceEnumerationFlags.AttachedOnly);
+
+            switch(type)
             {
-                joystick = new SharpDX.DirectInput.Joystick(directInput, di.InstanceGuid);
-                break;
+                case JoystickType.MainController:
+                    guid = gameControls[0].InstanceGuid;
+                    break;
+                case JoystickType.ManipulatorLeft:
+                    guid = gameControls[1].InstanceGuid;
+                    break;
+                case JoystickType.ManipulatorRight:
+                    guid = gameControls[2].InstanceGuid;
+                    break;
             }
+
+            joystick = new SharpDX.DirectInput.Joystick(directInput, guid);
 
             if (joystick == null)
             {

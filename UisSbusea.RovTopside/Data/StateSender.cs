@@ -17,6 +17,7 @@ namespace UisSubsea.RovTopside.Data
         {
             this.packetBuilder = pb;
             port = SerialPortSingleton.Instance;
+
             if (!port.IsOpen)
                 port.Open();
         }
