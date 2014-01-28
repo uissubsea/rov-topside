@@ -8,7 +8,6 @@ namespace UisSubsea.RovTopside.Tests
     [TestClass]
     public class PacketBuilderTest
     {
-
         private PacketBuilder pb;
         private byte[] AllowedPointOfViews = { 0, 1, 2, 4, 5, 6, 8, 9, 10 };
 
