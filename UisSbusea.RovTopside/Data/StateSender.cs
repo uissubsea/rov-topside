@@ -13,6 +13,9 @@ namespace UisSubsea.RovTopside.Data
         private PacketBuilder packetBuilder;
         private SerialPort port;
 
+        private const byte startByte = 255;
+        private const byte stopByte = 251;
+
         public StateSender(PacketBuilder pb)
         {
             this.packetBuilder = pb;
@@ -25,8 +28,13 @@ namespace UisSubsea.RovTopside.Data
         public byte[] WriteState() 
         {
             byte[] state = packetBuilder.BuildJoystickStatePacket();
-            port.Write(state, 0, state.Length);
-            return state;
+            byte[] complete = new byte[state.Length + 2];
+            state.CopyTo(complete, 1);
+            complete[0] = startByte;
+            complete[7] = stopByte;
+            
+            port.Write(complete, 0, complete.Length);
+            return complete;
         }
 
         public void Dispose()
