@@ -87,6 +87,9 @@ namespace UisSubsea.RovTopside.Presentation
 
             updateLabels();
 
+            if (readyToSend)
+                WriteState();
+
             //Repaint the form
             this.Invalidate();
         }
