@@ -46,6 +46,7 @@ namespace UisSubsea.RovTopside.Data
                 Roll(),
                 Pitch(),
                 Yaw(),
+                Throttle(),
                 ButtonsPressed(),
                 HatPov(),
                 stopByte
