@@ -116,17 +116,21 @@ namespace UisSubsea.RovTopside.Data
             switch(type)
             {
                 case JoystickType.MainController:
-                    guid = gameControls[0].InstanceGuid;
+                    if (gameControls.Count >= 1)
+                        guid = gameControls[0].InstanceGuid;
                     break;
                 case JoystickType.ManipulatorLeft:
-                    guid = gameControls[1].InstanceGuid;
+                    if (gameControls.Count >= 2)
+                        guid = gameControls[1].InstanceGuid;
                     break;
                 case JoystickType.ManipulatorRight:
-                    guid = gameControls[2].InstanceGuid;
+                    if (gameControls.Count >= 3)
+                        guid = gameControls[2].InstanceGuid;
                     break;
             }
 
-            joystick = new SharpDX.DirectInput.Joystick(directInput, guid);
+            if(guid != Guid.Empty)
+                joystick = new SharpDX.DirectInput.Joystick(directInput, guid);
 
             if (joystick == null)
             {
