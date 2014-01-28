@@ -51,9 +51,9 @@ namespace UisSubsea.RovTopside.Presentation
         {
             foreach (byte b in args.Data)
             {
-                txtInput.BeginInvoke((MethodInvoker)delegate() { txtInput.Text += (byte)b + " "; ;});
+                txtInput.BeginInvoke((MethodInvoker)delegate() { txtInput.AppendText((byte)b + " "); ;});
             }
-            txtInput.BeginInvoke((MethodInvoker)delegate() { txtInput.Text += "\r\n"; ;});
+            txtInput.BeginInvoke((MethodInvoker)delegate() { txtInput.AppendText("\r\n"); ;});
 
             readyToSend = true;
         }
@@ -65,9 +65,9 @@ namespace UisSubsea.RovTopside.Presentation
                 byte[] data = stateSender.WriteState();
                 foreach (byte b in data)
                 {
-                    txtInput.BeginInvoke((MethodInvoker)delegate() { txtOutput.Text += (byte)b + " "; ;});
+                    txtInput.BeginInvoke((MethodInvoker)delegate() { txtOutput.AppendText((byte)b + " "); ;});
                 }
-                txtInput.BeginInvoke((MethodInvoker)delegate() { txtOutput.Text += "\r\n"; ;});
+                txtInput.BeginInvoke((MethodInvoker)delegate() { txtOutput.AppendText("\r\n"); ;});
             }
         }
 
