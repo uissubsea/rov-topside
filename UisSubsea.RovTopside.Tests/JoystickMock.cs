@@ -37,16 +37,16 @@ namespace UisSubsea.RovTopside.Tests
             return r.Next(0, 251);
         }
 
-        public byte[] Buttons()
+        public bool[] Buttons()
         {
-            byte[] buttons = new byte[7];
+            bool[] buttons = new bool[7];
             for (int i = 0; i < 7; i++)
             {
                 int rnd = r.Next(0, 2);
                 if (rnd > 0)
-                    buttons[i] = 255;
+                    buttons[i] = true;
                 else
-                    buttons[i] = 0;
+                    buttons[i] = false;
             }
             return buttons;
         }

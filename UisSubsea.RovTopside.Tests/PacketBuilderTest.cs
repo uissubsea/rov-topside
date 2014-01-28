@@ -56,7 +56,7 @@ namespace UisSubsea.RovTopside.Tests
         }
 
         [TestMethod]
-        public void tesThrottle()
+        public void TestThrottle()
         {
             byte throttle = pb.Throttle();
             Assert.IsTrue(isValid(throttle));
