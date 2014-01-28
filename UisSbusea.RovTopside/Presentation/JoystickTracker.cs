@@ -32,8 +32,6 @@ namespace UisSubsea.RovTopside.Presentation
         private StateSender stateSender;
         private StateReceiver stateReceiver;
 
-        private PacketBuilder pb;
-
         public JoystickTracker()
         {
             InitializeComponent();
@@ -43,8 +41,8 @@ namespace UisSubsea.RovTopside.Presentation
             blackBrush = new SolidBrush(Color.Black);
             font = new Font("Arial", 10);
 
-            //stateReceiver = new StateReceiver();
-            //stateReceiver.DataReceived += ComPort_DataReceived;
+            stateReceiver = new StateReceiver();
+            stateReceiver.DataReceived += ComPort_DataReceived;
         }
 
         private void ComPort_DataReceived(object sender, DataReceivedEventArgs args)
@@ -71,19 +69,9 @@ namespace UisSubsea.RovTopside.Presentation
             if (stateSender != null)
             {
                 byte[] data = stateSender.WriteState();
-                for (int i = 0; i < data.Length; i++)
+                foreach (byte b in data)
                 {
-                    txtOutput.Text += (byte)data[i] + " ";
-                }
-                txtOutput.Text += "\r\n";
-            }
-
-            if (pb != null)
-            {
-                byte[] data = pb.BuildJoystickStatePacket();
-                for (int i = 0; i < data.Length; i++)
-                {
-                    txtOutput.Text += (byte)data[i] + " ";
+                    txtOutput.Text += (byte)b + " ";
                 }
                 txtOutput.Text += "\r\n";
             }
@@ -218,16 +206,14 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void btnUsePort_Click(object sender, EventArgs e)
         {
-            //String port = cmbAvailablePorts.SelectedItem.ToString();
+            String port = cmbAvailablePorts.SelectedItem.ToString();
             
-            /*if (!String.IsNullOrEmpty(port))
+            if (!String.IsNullOrEmpty(port))
             {
                 PacketBuilder pb = new PacketBuilder(joystick);
                 stateSender = new StateSender(pb);
                 btnUsePort.Enabled = false;
-            } */
-
-            pb = new PacketBuilder(joystick);
+            } 
         }
     }
 }

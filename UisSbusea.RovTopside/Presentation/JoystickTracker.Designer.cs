@@ -131,6 +131,7 @@
             this.txtOutput.Location = new System.Drawing.Point(60, 299);
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
+            this.txtOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtOutput.Size = new System.Drawing.Size(203, 124);
             this.txtOutput.TabIndex = 8;
             // 
@@ -139,6 +140,7 @@
             this.txtInput.Location = new System.Drawing.Point(354, 299);
             this.txtInput.Multiline = true;
             this.txtInput.Name = "txtInput";
+            this.txtInput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtInput.Size = new System.Drawing.Size(203, 117);
             this.txtInput.TabIndex = 9;
             // 
