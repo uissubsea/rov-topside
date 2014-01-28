@@ -47,7 +47,11 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void ComPort_DataReceived(object sender, DataReceivedEventArgs args)
         {
-            txtInput.Text += args.Data + "\r\n";
+            foreach (byte b in args.Data)
+            {
+                txtInput.Text += (byte)b + " ";
+            }
+            txtInput.Text += "\r\n";
         }
 
         private void refresh()
