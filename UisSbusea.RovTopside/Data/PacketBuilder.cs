@@ -14,8 +14,6 @@ namespace UisSubsea.RovTopside.Data
 
     public class PacketBuilder
     {
-        //private const byte startByte = 255;
-        //private const byte stopByte = 251;
 
         [Flags]
         private enum pointOfView : byte
@@ -42,14 +40,12 @@ namespace UisSubsea.RovTopside.Data
         public byte[] BuildJoystickStatePacket()
         {
             return new byte[]{
-              //  startByte,
                 Roll(),
                 Pitch(),
                 Yaw(),
                 Throttle(),
                 ButtonsPressed(),
                 HatPov(),
-               //stopByte
             };
         }
 
