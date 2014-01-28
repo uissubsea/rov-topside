@@ -36,11 +36,13 @@ namespace UisSubsea.RovTopside.Data
         public byte[] BuildJoystickStatePacket()
         {
             return new byte[]{
+                startByte,
                 Roll(),
                 Pitch(),
                 Yaw(),
                 ButtonsPressed(),
-                HatPov()
+                HatPov(),
+                stopByte
             };
         }
 
