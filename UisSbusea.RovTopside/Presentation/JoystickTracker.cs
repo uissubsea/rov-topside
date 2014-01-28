@@ -47,25 +47,34 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void ComPort_DataReceived(object sender, DataReceivedEventArgs args)
         {
-            foreach (byte b in args.Data)
+            if (InvokeRequired)
             {
-                txtInput.BeginInvoke((MethodInvoker)delegate() { txtInput.AppendText((byte)b + " "); ;});
+                this.Invoke(new Action(() => readRovState(args.Data)));
+                return;
             }
-            txtInput.BeginInvoke((MethodInvoker)delegate() { txtInput.AppendText("\r\n"); ;});
+        }
+
+        private void readRovState(byte[] data)
+        {
+            foreach (byte b in data)
+            {
+                txtInput.AppendText((byte)b + " ");
+            }
+            txtInput.AppendText("\r\n");
 
             readyToSend = true;
         }
 
-        private void WriteState()
+        private void writeState()
         {
             if (stateSender != null)
             {
                 byte[] data = stateSender.WriteState();
                 foreach (byte b in data)
                 {
-                    txtInput.BeginInvoke((MethodInvoker)delegate() { txtOutput.AppendText((byte)b + " "); ;});
+                    txtOutput.AppendText((byte)b + " ");
                 }
-                txtInput.BeginInvoke((MethodInvoker)delegate() { txtOutput.AppendText("\r\n"); ;});
+                txtOutput.AppendText("\r\n");
             }
         }
 
@@ -86,7 +95,7 @@ namespace UisSubsea.RovTopside.Presentation
             updateLabels();
 
             if (readyToSend && !manualSend)
-                WriteState();
+                writeState();
 
             //Repaint the form
             this.Invalidate();
@@ -242,7 +251,7 @@ namespace UisSubsea.RovTopside.Presentation
         private void JoystickTracker_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.S && readyToSend && manualSend)
-                WriteState();
+                writeState();
         }
 
         private void chkManualSend_CheckedChanged(object sender, EventArgs e)
