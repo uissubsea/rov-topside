@@ -31,7 +31,7 @@ namespace UisSubsea.RovTopside.Data
             byte[] complete = new byte[state.Length + 2];
             state.CopyTo(complete, 1);
             complete[0] = startByte;
-            complete[7] = stopByte;
+            complete[state.Length+1] = stopByte;
             
             port.Write(complete, 0, complete.Length);
             return complete;
