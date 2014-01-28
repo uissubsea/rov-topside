@@ -33,6 +33,7 @@ namespace UisSubsea.RovTopside.Presentation
         private StateReceiver stateReceiver;
 
         private Boolean readyToSend;
+        private Boolean manualRefresh;
 
         public JoystickTracker()
         {
@@ -87,7 +88,7 @@ namespace UisSubsea.RovTopside.Presentation
 
             updateLabels();
 
-            if (readyToSend)
+            if (readyToSend && !manualRefresh)
                 WriteState();
 
             //Repaint the form
@@ -232,8 +233,13 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void JoystickTracker_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.S && readyToSend)
+            if (e.KeyCode == Keys.S && readyToSend && manualRefresh)
                 WriteState();
+        }
+
+        private void chkManualRefresh_CheckedChanged(object sender, EventArgs e)
+        {
+            manualRefresh = chkManualRefresh.Checked;
         }
 
     }

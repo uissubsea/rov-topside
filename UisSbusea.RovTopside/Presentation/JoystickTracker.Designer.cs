@@ -43,6 +43,7 @@
             this.lblOutput = new System.Windows.Forms.Label();
             this.lblInput = new System.Windows.Forms.Label();
             this.lblCom = new System.Windows.Forms.Label();
+            this.chkManualRefresh = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.trkYaw)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trkThrottle)).BeginInit();
             this.SuspendLayout();
@@ -111,14 +112,14 @@
             // cmbAvailablePorts
             // 
             this.cmbAvailablePorts.FormattingEnabled = true;
-            this.cmbAvailablePorts.Location = new System.Drawing.Point(412, 247);
+            this.cmbAvailablePorts.Location = new System.Drawing.Point(350, 247);
             this.cmbAvailablePorts.Name = "cmbAvailablePorts";
             this.cmbAvailablePorts.Size = new System.Drawing.Size(121, 21);
             this.cmbAvailablePorts.TabIndex = 6;
             // 
             // btnUsePort
             // 
-            this.btnUsePort.Location = new System.Drawing.Point(539, 245);
+            this.btnUsePort.Location = new System.Drawing.Point(477, 245);
             this.btnUsePort.Name = "btnUsePort";
             this.btnUsePort.Size = new System.Drawing.Size(75, 23);
             this.btnUsePort.TabIndex = 7;
@@ -132,16 +133,16 @@
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
             this.txtOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtOutput.Size = new System.Drawing.Size(203, 124);
+            this.txtOutput.Size = new System.Drawing.Size(305, 124);
             this.txtOutput.TabIndex = 8;
             // 
             // txtInput
             // 
-            this.txtInput.Location = new System.Drawing.Point(354, 299);
+            this.txtInput.Location = new System.Drawing.Point(411, 299);
             this.txtInput.Multiline = true;
             this.txtInput.Name = "txtInput";
             this.txtInput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtInput.Size = new System.Drawing.Size(203, 117);
+            this.txtInput.Size = new System.Drawing.Size(319, 117);
             this.txtInput.TabIndex = 9;
             // 
             // lblOutput
@@ -156,7 +157,7 @@
             // lblInput
             // 
             this.lblInput.AutoSize = true;
-            this.lblInput.Location = new System.Drawing.Point(314, 299);
+            this.lblInput.Location = new System.Drawing.Point(371, 302);
             this.lblInput.Name = "lblInput";
             this.lblInput.Size = new System.Drawing.Size(34, 13);
             this.lblInput.TabIndex = 11;
@@ -165,17 +166,29 @@
             // lblCom
             // 
             this.lblCom.AutoSize = true;
-            this.lblCom.Location = new System.Drawing.Point(351, 250);
+            this.lblCom.Location = new System.Drawing.Point(289, 250);
             this.lblCom.Name = "lblCom";
             this.lblCom.Size = new System.Drawing.Size(55, 13);
             this.lblCom.TabIndex = 12;
             this.lblCom.Text = "COM-port:";
+            // 
+            // chkManualRefresh
+            // 
+            this.chkManualRefresh.AutoSize = true;
+            this.chkManualRefresh.Location = new System.Drawing.Point(604, 251);
+            this.chkManualRefresh.Name = "chkManualRefresh";
+            this.chkManualRefresh.Size = new System.Drawing.Size(96, 17);
+            this.chkManualRefresh.TabIndex = 14;
+            this.chkManualRefresh.Text = "Manual refresh";
+            this.chkManualRefresh.UseVisualStyleBackColor = true;
+            this.chkManualRefresh.CheckedChanged += new System.EventHandler(this.chkManualRefresh_CheckedChanged);
             // 
             // JoystickTracker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(742, 435);
+            this.Controls.Add(this.chkManualRefresh);
             this.Controls.Add(this.lblCom);
             this.Controls.Add(this.lblInput);
             this.Controls.Add(this.lblOutput);
@@ -221,6 +234,7 @@
         private System.Windows.Forms.Label lblOutput;
         private System.Windows.Forms.Label lblInput;
         private System.Windows.Forms.Label lblCom;
+        private System.Windows.Forms.CheckBox chkManualRefresh;
     }
 }
 
