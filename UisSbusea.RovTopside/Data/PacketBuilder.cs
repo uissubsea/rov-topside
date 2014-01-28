@@ -8,7 +8,6 @@ namespace UisSubsea.RovTopside.Data
 {
     public class PacketBuilder
     {
-
         private const byte startByte = 255;
         private const byte stopByte = 251;
 

@@ -8,5 +8,10 @@ namespace UisSubsea.RovTopside.Data
 {
     class RovState
     {
+        public int heading;
+        public int cameraTilt;
+        public double depth;
+        public Boolean error;
+
     }
 }
