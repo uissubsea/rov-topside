@@ -49,7 +49,7 @@ namespace UisSubsea.RovTopside.Presentation
         {
             foreach (byte b in args.Data)
             {
-                txtInput.Text += (byte)b + " ";
+                txtInput.BeginInvoke((MethodInvoker)delegate() { txtInput.Text += (byte)b + " "; ;});
             }
             txtInput.Text += "\r\n";
         }
