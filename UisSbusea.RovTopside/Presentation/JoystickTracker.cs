@@ -33,7 +33,7 @@ namespace UisSubsea.RovTopside.Presentation
         private StateReceiver stateReceiver;
 
         private Boolean readyToSend;
-        private Boolean manualRefresh;
+        private Boolean manualSend;
 
         public JoystickTracker()
         {
@@ -43,9 +43,6 @@ namespace UisSubsea.RovTopside.Presentation
             whiteBrush = new SolidBrush(Color.White);
             blackBrush = new SolidBrush(Color.Black);
             font = new Font("Arial", 10);
-
-            stateReceiver = new StateReceiver();
-            stateReceiver.DataReceived += ComPort_DataReceived;
         }
 
         private void ComPort_DataReceived(object sender, DataReceivedEventArgs args)
@@ -88,7 +85,7 @@ namespace UisSubsea.RovTopside.Presentation
 
             updateLabels();
 
-            if (readyToSend && !manualRefresh)
+            if (readyToSend && !manualSend)
                 WriteState();
 
             //Repaint the form
@@ -221,25 +218,36 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void btnUsePort_Click(object sender, EventArgs e)
         {
-            String port = cmbAvailablePorts.SelectedItem.ToString();
-            
-            if (!String.IsNullOrEmpty(port))
+            try
             {
-                PacketBuilder pb = new PacketBuilder(joystick);
-                stateSender = new StateSender(pb);
-                btnUsePort.Enabled = false;
-            } 
+                String port = cmbAvailablePorts.SelectedItem.ToString();
+
+                if (!String.IsNullOrEmpty(port))
+                {
+                    PacketBuilder pb = new PacketBuilder(joystick);
+                    stateSender = new StateSender(pb);
+                    btnUsePort.Enabled = false;
+
+                    stateReceiver = new StateReceiver();
+                    stateReceiver.DataReceived += ComPort_DataReceived;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No compatible device found!");
+            }
+            
         }
 
         private void JoystickTracker_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.S && readyToSend && manualRefresh)
+            if (e.KeyCode == Keys.S && readyToSend && manualSend)
                 WriteState();
         }
 
-        private void chkManualRefresh_CheckedChanged(object sender, EventArgs e)
+        private void chkManualSend_CheckedChanged(object sender, EventArgs e)
         {
-            manualRefresh = chkManualRefresh.Checked;
+            manualSend = chkManualSend.Checked;
         }
 
     }

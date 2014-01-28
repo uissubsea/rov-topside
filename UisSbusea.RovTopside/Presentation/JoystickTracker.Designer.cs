@@ -43,7 +43,7 @@
             this.lblOutput = new System.Windows.Forms.Label();
             this.lblInput = new System.Windows.Forms.Label();
             this.lblCom = new System.Windows.Forms.Label();
-            this.chkManualRefresh = new System.Windows.Forms.CheckBox();
+            this.chkManualSend = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.trkYaw)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trkThrottle)).BeginInit();
             this.SuspendLayout();
@@ -172,23 +172,23 @@
             this.lblCom.TabIndex = 12;
             this.lblCom.Text = "COM-port:";
             // 
-            // chkManualRefresh
+            // chkManualSend
             // 
-            this.chkManualRefresh.AutoSize = true;
-            this.chkManualRefresh.Location = new System.Drawing.Point(604, 251);
-            this.chkManualRefresh.Name = "chkManualRefresh";
-            this.chkManualRefresh.Size = new System.Drawing.Size(96, 17);
-            this.chkManualRefresh.TabIndex = 14;
-            this.chkManualRefresh.Text = "Manual refresh";
-            this.chkManualRefresh.UseVisualStyleBackColor = true;
-            this.chkManualRefresh.CheckedChanged += new System.EventHandler(this.chkManualRefresh_CheckedChanged);
+            this.chkManualSend.AutoSize = true;
+            this.chkManualSend.Location = new System.Drawing.Point(604, 251);
+            this.chkManualSend.Name = "chkManualSend";
+            this.chkManualSend.Size = new System.Drawing.Size(87, 17);
+            this.chkManualSend.TabIndex = 14;
+            this.chkManualSend.Text = "Manual send";
+            this.chkManualSend.UseVisualStyleBackColor = true;
+            this.chkManualSend.CheckedChanged += new System.EventHandler(this.chkManualSend_CheckedChanged);
             // 
             // JoystickTracker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(742, 435);
-            this.Controls.Add(this.chkManualRefresh);
+            this.Controls.Add(this.chkManualSend);
             this.Controls.Add(this.lblCom);
             this.Controls.Add(this.lblInput);
             this.Controls.Add(this.lblOutput);
@@ -234,7 +234,7 @@
         private System.Windows.Forms.Label lblOutput;
         private System.Windows.Forms.Label lblInput;
         private System.Windows.Forms.Label lblCom;
-        private System.Windows.Forms.CheckBox chkManualRefresh;
+        private System.Windows.Forms.CheckBox chkManualSend;
     }
 }
 
