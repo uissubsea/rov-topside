@@ -75,6 +75,7 @@
     <Compile Include="Data\Joystick.cs" />
     <Compile Include="Data\JoystickFactory.cs" />
     <Compile Include="Data\PacketBuilder.cs" />
+    <Compile Include="Data\RovStateBuilder.cs" />
     <Compile Include="Data\RovState.cs" />
     <Compile Include="Data\SerialPortSingleton.cs" />
     <Compile Include="Data\StateReceiver.cs" />

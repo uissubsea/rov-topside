@@ -6,18 +6,16 @@ using System.Threading.Tasks;
 
 namespace UisSubsea.RovTopside.Data
 {
-    class RovState
+    public class RovState
     {
         private int heading;
         private int cameraTilt;
-        private double depth;
         private Boolean error;
 
-        public RovState(int heading, int cameraTilt, double depth, Boolean error)
+        public RovState(int heading, int cameraTilt, Boolean error)
         {
             this.heading = heading;
             this.cameraTilt = cameraTilt;
-            this.depth = depth;
             this.error = error;
         }
 
@@ -34,14 +32,6 @@ namespace UisSubsea.RovTopside.Data
             get
             {
                 return cameraTilt;
-            }
-        }
-
-        public double Depth
-        {
-            get
-            {
-                return depth;
             }
         }
 
