@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace UisSubsea.RovTopside.Data
 {
-
+    /**
+     * Build an rov state object based
+     * on data received from the ROV
+     * */
     public static class RovStateBuilder
     {
-
-        private const double headingResolution = 1.44; // 250/360
+        private const double headingResolution = 1.44; // 360/250
         private const byte startByte = 251;
         private const byte stopByte = 255;
 
@@ -27,7 +29,6 @@ namespace UisSubsea.RovTopside.Data
             {
                 return new RovState(0, 0, false);
             }
-
         }
 
         private static Boolean error(byte statusByte)
