@@ -74,6 +74,7 @@
     <Compile Include="Data\IJoystick.cs" />
     <Compile Include="Data\Joystick.cs" />
     <Compile Include="Data\JoystickFactory.cs" />
+    <Compile Include="Data\JoystickType.cs" />
     <Compile Include="Data\PacketBuilder.cs" />
     <Compile Include="Data\RovStateBuilder.cs" />
     <Compile Include="Data\RovState.cs" />

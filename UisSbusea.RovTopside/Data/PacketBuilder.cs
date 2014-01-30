@@ -39,13 +39,38 @@ namespace UisSubsea.RovTopside.Data
 
         public byte[] BuildJoystickStatePacket()
         {
-            return new byte[]{
+            switch (joystick.Type)
+            {
+                case JoystickType.MainController:
+                    return FullPacket();
+                case JoystickType.ManipulatorLeft:
+                    return MinimalPacket();
+                case JoystickType.ManipulatorRight:
+                    return FullPacket();
+                default:
+                    return new byte[] { 251, 125, 125, 125, 0, 0, 0, 255 };
+            }
+        }
+
+        public byte[] FullPacket()
+        {
+            return new byte[]
+            {
                 Roll(),
                 Pitch(),
                 Yaw(),
                 Throttle(),
                 ButtonsPressed(),
                 HatPov(),
+            };
+        }
+
+        public byte[] MinimalPacket()
+        {
+            return new byte[] {
+                Roll(),
+                Pitch(),
+                ButtonsPressed()
             };
         }
 

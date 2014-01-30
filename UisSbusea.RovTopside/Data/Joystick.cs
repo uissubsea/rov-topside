@@ -9,34 +9,33 @@ namespace UisSubsea.RovTopside.Data
 {
     public class Joystick : IJoystick
     {
-        public enum JoystickType
-        {
-            MainController,
-            ManipulatorLeft,
-            ManipulatorRight
-        }
 
         private SharpDX.DirectInput.Joystick joystick;
         private InputRange range;
         private static IList<DeviceInstance> gameControls;
 
+        private JoystickType type;
+
         public Joystick(IntPtr windowHandle)
         {
             range = new InputRange(0, 250);
-            createJoystick(JoystickType.MainController);
+            type = JoystickType.MainController;
+            createJoystick();
             configureJoystick(windowHandle);
         }
 
         public Joystick(IntPtr windowHandle, int rangeFrom, int rangeTo, JoystickType type) {
             range = new InputRange(rangeFrom, rangeTo);
-            createJoystick(type);
+            this.type = type;
+            createJoystick();
             configureJoystick(windowHandle);
         }
 
         public Joystick(IntPtr windowHandle, int rangeFrom, int rangeTo)
         {
             range = new InputRange(rangeFrom, rangeTo);
-            createJoystick(JoystickType.MainController);
+            type = JoystickType.MainController;
+            createJoystick();
             configureJoystick(windowHandle);
         }
 
@@ -104,7 +103,7 @@ namespace UisSubsea.RovTopside.Data
                 return new bool[128];
         }
 
-        private void createJoystick(JoystickType type)
+        private void createJoystick()
         {
             DirectInput directInput = new DirectInput();
             Guid guid = Guid.Empty;
@@ -115,7 +114,7 @@ namespace UisSubsea.RovTopside.Data
                 gameControls = directInput.GetDevices(
                 DeviceClass.GameControl, DeviceEnumerationFlags.AttachedOnly);
 
-            switch(type)
+            switch(this.type)
             {
                 case JoystickType.MainController:
                     if (gameControls.Count >= 1)
@@ -172,6 +171,14 @@ namespace UisSubsea.RovTopside.Data
                 windowHandle,
                 CooperativeLevel.NonExclusive |
                 CooperativeLevel.Background);
+        }
+
+        public JoystickType Type
+        {
+            get
+            {
+                return this.type;
+            }
         }
     }
 }

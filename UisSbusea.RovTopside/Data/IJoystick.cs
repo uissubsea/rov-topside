@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UisSubsea.RovTopside
+namespace UisSubsea.RovTopside.Data
 {
     public interface IJoystick
     {
@@ -14,5 +14,6 @@ namespace UisSubsea.RovTopside
         int Yaw();
         bool[] Buttons();
         int PointOfView();
+        JoystickType Type;
     }
 }

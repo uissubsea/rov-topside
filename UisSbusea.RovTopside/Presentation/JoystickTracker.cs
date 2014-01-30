@@ -237,7 +237,7 @@ namespace UisSubsea.RovTopside.Presentation
              
                 if(numberOfJoysticksAttached== 3)
                 {
-                    joystickManipulatorLeft = new Joystick(this.Handle, 0, 250, Joystick.JoystickType.ManipulatorLeft);
+                    joystickManipulatorLeft = JoystickFactory.getManipulatorLeft(this.Handle);
                     joystickManipulatorRight = new Joystick(this.Handle, 0, 250, Joystick.JoystickType.ManipulatorRight);
                
                     joystickManipulatorLeft.Acquire();
