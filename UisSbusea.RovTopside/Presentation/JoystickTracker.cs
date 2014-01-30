@@ -234,12 +234,7 @@ namespace UisSubsea.RovTopside.Presentation
             {
                 String port = cmbAvailablePorts.SelectedItem.ToString();
                 numberOfJoysticksAttached = Joystick.getNumberOfJoysticks();
-               // if(numberOfJoysticksAttached == 1)
-                //{
-                    //joystick = new Joystick(this.Handle, 0, 250, Joystick.JoystickType.MainController);
-                    //joystick.Acquire();
-
-                //}
+             
                 if(numberOfJoysticksAttached== 3)
                 {
                     joystickManipulatorLeft = new Joystick(this.Handle, 0, 250, Joystick.JoystickType.ManipulatorLeft);
