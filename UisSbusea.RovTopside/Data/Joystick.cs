@@ -18,6 +18,7 @@ namespace UisSubsea.RovTopside.Data
 
         private SharpDX.DirectInput.Joystick joystick;
         private InputRange range;
+        private static IList<DeviceInstance> gameControls;
 
         public Joystick(IntPtr windowHandle)
         {
@@ -110,7 +111,8 @@ namespace UisSubsea.RovTopside.Data
 
             //Create joystick device.
             //This process is called Direct Input Device Enumeration
-            IList<DeviceInstance> gameControls = directInput.GetDevices(
+            //IList<DeviceInstance> 
+                gameControls = directInput.GetDevices(
                 DeviceClass.GameControl, DeviceEnumerationFlags.AttachedOnly);
 
             switch(type)
@@ -138,6 +140,10 @@ namespace UisSubsea.RovTopside.Data
                 throw new Exception("No joystick found.");
             }
 
+        }
+        public static int getNumberOfJoysticks()
+        {
+            return gameControls.Count;
         }
 
         private void configureJoystick(IntPtr windowHandle)

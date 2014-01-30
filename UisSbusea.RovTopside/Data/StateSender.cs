@@ -10,13 +10,13 @@ namespace UisSubsea.RovTopside.Data
     class StateSender : IDisposable
     {
 
-        private PacketBuilder packetBuilder;
+        private IList <PacketBuilder> packetBuilder;
         private SerialPort port;
 
         private const byte startByte = 255;
         private const byte stopByte = 251;
 
-        public StateSender(PacketBuilder pb)
+        public StateSender(IList <PacketBuilder> pb)
         {
             this.packetBuilder = pb;
             port = SerialPortSingleton.Instance;
@@ -27,15 +27,26 @@ namespace UisSubsea.RovTopside.Data
 
         public byte[] WriteState() 
         {
-            byte[] state = packetBuilder.BuildJoystickStatePacket();
-            byte[] complete = new byte[state.Length + 2];
-            state.CopyTo(complete, 1);
-            complete[0] = startByte;
-            complete[state.Length+1] = stopByte;
             
-            port.Write(complete, 0, complete.Length);
-            return complete;
+            List<byte> state = new List<byte>();
+           
+            state.Add(startByte);
+           
+            foreach( PacketBuilder builder in packetBuilder)
+            {
+                byte[] package = builder.BuildJoystickStatePacket();
+                foreach (byte b in package)
+                    state.Add(b);
+            }
+            
+            state.Add(stopByte);
+            byte[] finaleState = state.ToArray();
+            port.Write(finaleState, 0, state.Count);
+           System.Diagnostics.Debug.WriteLine("state count " + state.Count);
+           System.Diagnostics.Debug.WriteLine("finaleState" + finaleState.ToString());
+            return finaleState;
         }
+      
 
         public void Dispose()
         {

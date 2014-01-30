@@ -16,12 +16,15 @@ namespace UisSubsea.RovTopside.Presentation
     {
 
         private Joystick joystick;
+        private Joystick joystickManipulatorLeft;
+        private Joystick joystickManipulatorRight;
 
         private int roll = 125;
         private int pitch = 125;
         private int yaw = 125;
         private int throttlePercentage = 0;
         private int pov = -1;
+        private int numberOfJoysticksAttached = 0;
 
         //Create something we can draw with
         private Pen pen;
@@ -230,10 +233,37 @@ namespace UisSubsea.RovTopside.Presentation
             try
             {
                 String port = cmbAvailablePorts.SelectedItem.ToString();
+                numberOfJoysticksAttached = Joystick.getNumberOfJoysticks();
+               // if(numberOfJoysticksAttached == 1)
+                //{
+                    //joystick = new Joystick(this.Handle, 0, 250, Joystick.JoystickType.MainController);
+                    //joystick.Acquire();
 
+                //}
+                if(numberOfJoysticksAttached== 3)
+                {
+                    joystickManipulatorLeft = new Joystick(this.Handle, 0, 250, Joystick.JoystickType.ManipulatorLeft);
+                    joystickManipulatorRight = new Joystick(this.Handle, 0, 250, Joystick.JoystickType.ManipulatorRight);
+               
+                    joystickManipulatorLeft.Acquire();
+                    joystickManipulatorRight.Acquire();
+                }
+                
+               
                 if (!String.IsNullOrEmpty(port))
                 {
-                    PacketBuilder pb = new PacketBuilder(joystick);
+                    List<PacketBuilder> pb = new List<PacketBuilder>();
+                 
+                        pb.Add(new PacketBuilder(joystick));
+
+                        if (numberOfJoysticksAttached == 3)
+                        {
+                            pb.Add(new PacketBuilder(joystickManipulatorLeft));
+                            pb.Add(new PacketBuilder(joystickManipulatorRight));
+
+                        }
+                       
+                   
                     stateSender = new StateSender(pb);
                     btnUsePort.Enabled = false;
 
@@ -244,6 +274,7 @@ namespace UisSubsea.RovTopside.Presentation
             catch (Exception)
             {
                 MessageBox.Show("No compatible device found!");
+                
             }
             
         }
@@ -258,6 +289,8 @@ namespace UisSubsea.RovTopside.Presentation
         {
             manualSend = chkManualSend.Checked;
         }
+
+      
 
     }
 }
