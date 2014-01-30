@@ -223,6 +223,11 @@ namespace UisSubsea.RovTopside.Presentation
         {
             if(joystick != null)
                 joystick.Unacquire();
+            if(joystickManipulatorLeft != null)
+                joystickManipulatorLeft.Unacquire();
+            if(joystickManipulatorRight != null)
+                joystickManipulatorRight.Unacquire();
+                
 
             if(stateSender != null)
                 stateSender.Dispose();
@@ -249,12 +254,12 @@ namespace UisSubsea.RovTopside.Presentation
                 {
                     List<PacketBuilder> pb = new List<PacketBuilder>();
                  
-                        pb.Add(new PacketBuilder(joystick));
+                        pb.Add(new MainPacketBuilder(joystick));
 
                         if (numberOfJoysticksAttached == 3)
                         {
-                            pb.Add(new PacketBuilder(joystickManipulatorLeft));
-                            pb.Add(new PacketBuilder(joystickManipulatorRight));
+                            pb.Add(new ManipulatorLeftPacketBuilder(joystickManipulatorLeft));
+                            pb.Add(new ManipulatorRightPacketBuilder(joystickManipulatorRight));
 
                         }
                        

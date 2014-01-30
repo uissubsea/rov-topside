@@ -12,7 +12,7 @@ namespace UisSubsea.RovTopside.Data
      * it as a packet to the ROV's supernode.
      * */
 
-    public class PacketBuilder
+    public abstract class PacketBuilder
     {
 
         [Flags]
@@ -37,49 +37,7 @@ namespace UisSubsea.RovTopside.Data
             this.joystick = joystick;
         }
 
-        public byte[] BuildJoystickStatePacket()
-        {
-            switch (joystick.Type)
-            {
-                case JoystickType.MainController:
-                    return FullPacket();
-                case JoystickType.ManipulatorLeft:
-                    return MinimalPacket();
-                case JoystickType.ManipulatorRight:
-                    return FullPacket();
-                default:
-                    return new byte[] { 251, 125, 125, 125, 0, 0, 0, 255 };
-            }
-        }
-
-        public byte[] FullPacket()
-        {
-            return new byte[]
-            {
-                Roll(),
-                Pitch(),
-                Yaw(),
-                Throttle(),
-                ButtonsPressed(),
-                HatPov(),
-            };
-        }
-
-        public byte[] MinimalPacket()
-        {
-            return new byte[] {
-                Roll(),
-                Pitch(),
-                ButtonsPressed()
-            };
-        }
-
-        public byte[] BuildRovStatePacket()
-        {
-            return new byte[]{
-
-            };
-        }
+        public abstract byte[] BuildJoystickStatePacket();
 
         public byte ButtonsPressed()
         {

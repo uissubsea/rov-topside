@@ -14,6 +14,9 @@ namespace UisSubsea.RovTopside.Data
         int Yaw();
         bool[] Buttons();
         int PointOfView();
-        JoystickType Type;
+        JoystickType Type
+        {
+            get;
+        }
     }
 }
