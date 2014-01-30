@@ -111,7 +111,7 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void JoystickTracker_Load(object sender, EventArgs e)
         {
-            joystick = new Joystick(this.Handle, 0, 250, Joystick.JoystickType.MainController);
+            joystick = JoystickFactory.getMainController(this.Handle);
             joystick.Acquire();
 
             string[] ports = SerialPort.GetPortNames();
@@ -238,7 +238,7 @@ namespace UisSubsea.RovTopside.Presentation
                 if(numberOfJoysticksAttached== 3)
                 {
                     joystickManipulatorLeft = JoystickFactory.getManipulatorLeft(this.Handle);
-                    joystickManipulatorRight = new Joystick(this.Handle, 0, 250, Joystick.JoystickType.ManipulatorRight);
+                    joystickManipulatorRight = JoystickFactory.getManipulatorRight(this.Handle);
                
                     joystickManipulatorLeft.Acquire();
                     joystickManipulatorRight.Acquire();
