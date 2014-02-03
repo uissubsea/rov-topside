@@ -38,9 +38,14 @@ namespace UisSubsea.RovTopside.Presentation
         private Boolean readyToSend;
         private Boolean manualSend;
 
+        //Button to set reverse
+        private int buttonToUse = 10;
+        private MainPacketBuilder mainpacketbuilder;
+
         public JoystickTracker()
         {
             InitializeComponent();
+
 
             pen = new Pen(Color.Black);
             whiteBrush = new SolidBrush(Color.White);
@@ -99,6 +104,7 @@ namespace UisSubsea.RovTopside.Presentation
 
             if (readyToSend && !manualSend)
                 writeState();
+
 
             //Repaint the form
             this.Invalidate();
@@ -209,6 +215,11 @@ namespace UisSubsea.RovTopside.Presentation
                     g.DrawString((i + 1).ToString(), font, blackBrush, new PointF((353 + i * 30.0F), 203.0F));
                 }
             }
+            //Check for reverse button
+            if(buttons[9])
+            {
+                mainpacketbuilder.ToggleReverse();
+            }
         }
 
         private void updateLabels()
@@ -253,8 +264,9 @@ namespace UisSubsea.RovTopside.Presentation
                 if (!String.IsNullOrEmpty(port))
                 {
                     List<PacketBuilder> pb = new List<PacketBuilder>();
+                    mainpacketbuilder = new MainPacketBuilder(joystick);
                  
-                        pb.Add(new MainPacketBuilder(joystick));
+                        pb.Add(mainpacketbuilder);
 
                         if (numberOfJoysticksAttached == 3)
                         {

@@ -10,7 +10,7 @@ namespace UisSubsea.RovTopside.Data
     public class Joystick : IJoystick
     {
 
-        private SharpDX.DirectInput.Joystick joystick;
+        public SharpDX.DirectInput.Joystick joystick;
         private InputRange range;
         private static IList<DeviceInstance> gameControls;
 

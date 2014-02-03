@@ -54,7 +54,7 @@ namespace UisSubsea.RovTopside.Data
             }
             return (byte)buttons;
         }
-
+       
         public byte HatPov()
         {
             int angle = joystick.PointOfView();
