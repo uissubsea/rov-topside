@@ -40,8 +40,8 @@ namespace UisSubsea.RovTopside.Data
         }
 
         public JoystickState State()
-        {
-            return joystick.GetCurrentState();
+        {               
+            return joystick.GetCurrentState();          
         }
 
         public int Roll()

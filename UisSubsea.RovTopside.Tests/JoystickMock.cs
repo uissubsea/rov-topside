@@ -15,7 +15,7 @@ namespace UisSubsea.RovTopside.Tests
 
         public JoystickMock()
         {
-            r = new Random();
+             r = new Random();
         }
         
         public JoystickType Type

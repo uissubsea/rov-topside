@@ -7,7 +7,7 @@ using System.IO.Ports;
 
 namespace UisSubsea.RovTopside.Data
 {
-    public class StateReceiver
+    public class StateReceiver : IDisposable
     {
         private static Byte[] buffer;
         private static SerialPort port;
@@ -42,6 +42,12 @@ namespace UisSubsea.RovTopside.Data
             {
                 handler(this, e);
             }
+        }
+
+        public void Dispose()
+        {
+            if (port != null)
+                port.Dispose();
         }
     }
 }

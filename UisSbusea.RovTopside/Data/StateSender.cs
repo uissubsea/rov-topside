@@ -42,8 +42,6 @@ namespace UisSubsea.RovTopside.Data
             state.Add(stopByte);
             byte[] finaleState = state.ToArray();
             port.Write(finaleState, 0, state.Count);
-           System.Diagnostics.Debug.WriteLine("state count " + state.Count);
-           System.Diagnostics.Debug.WriteLine("finaleState" + finaleState.ToString());
             return finaleState;
         }
       
