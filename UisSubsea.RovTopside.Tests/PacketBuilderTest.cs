@@ -15,7 +15,7 @@ namespace UisSubsea.RovTopside.Tests
         public void Init()
         {
             IJoystick jm = new JoystickMock();
-            pb = new PacketBuilder(jm);
+            pb = new MainPacketBuilder(jm);
         }
 
         [TestMethod]

@@ -38,8 +38,6 @@ namespace UisSubsea.RovTopside.Presentation
         private Boolean readyToSend;
         private Boolean manualSend;
 
-        //Button to set reverse
-        private int buttonToUse = 10;
         private MainPacketBuilder mainpacketbuilder;
 
         public JoystickTracker()

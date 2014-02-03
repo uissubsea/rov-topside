@@ -11,10 +11,19 @@ namespace UisSubsea.RovTopside.Tests
     {
         private Random r;
         private int[] pov = { -1, 0, 45, 90, 125, 180, 225, 270, 315 };
+        private JoystickType type = JoystickType.MainController;
 
         public JoystickMock()
         {
             r = new Random();
+        }
+        
+        public JoystickType Type
+        {
+            get
+            {
+                return this.type;
+            }
         }
 
         public int Throttle()
