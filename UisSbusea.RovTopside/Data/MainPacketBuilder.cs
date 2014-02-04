@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UisSubsea.RovTopside.Data
 {
-   public class MainPacketBuilder : PacketBuilder
+    public class MainPacketBuilder : PacketBuilder
     {
         private IJoystick joystick;
         private int negativePitch, negativeRoll;
@@ -17,31 +17,30 @@ namespace UisSubsea.RovTopside.Data
 
         private byte roll, pitch;
 
-        public MainPacketBuilder(IJoystick joystick) : base(joystick) 
-        { 
-            this.joystick = joystick;      
+        public MainPacketBuilder(IJoystick joystick)
+            : base(joystick)
+        {
+            this.joystick = joystick;
         }
-        
+
         public void ToggleReverse()
         {
-            if(CheckNeutralPosition())
+            if (joystickIsInNeutral())
             {
-                if (reverse == false)
-                {
+                if (reverse)
+                    reverse = false;
+                else
                     reverse = true;
-                }
-                else reverse = false;
-
             }
         }
 
         public override byte[] BuildJoystickStatePacket()
-        {           
-           if(reverse)
-           {
-               roll = TransformRollToOpposite();
-               pitch = TransformPitchToOpposite();
-               return new byte[]
+        {
+            if (reverse)
+            {
+                roll = TransformRollToOpposite();
+                pitch = TransformPitchToOpposite();
+                return new byte[]
                {
                    roll,
                    pitch,
@@ -50,9 +49,9 @@ namespace UisSubsea.RovTopside.Data
                    ButtonsPressed(),
                    HatPov(),
                };
-           }
-           else
-           { 
+            }
+            else
+            {
                 return new byte[]
                 {
                     Roll(),
@@ -62,16 +61,15 @@ namespace UisSubsea.RovTopside.Data
                     ButtonsPressed(),
                     HatPov(),
                  };
-           }                        
+            }
         }
 
-        private Boolean CheckNeutralPosition()
+        private Boolean joystickIsInNeutral()
         {
             if (joystick.Pitch() == 125 && joystick.Roll() == 125)
-            {
                 return true;
-            }
-            else return false;
+            else
+                return false;
         }
 
         private byte TransformPitchToOpposite()
@@ -109,8 +107,8 @@ namespace UisSubsea.RovTopside.Data
             }
 
             return (byte)negativeRoll;
-            
+
         }
-       }
     }
+}
 
