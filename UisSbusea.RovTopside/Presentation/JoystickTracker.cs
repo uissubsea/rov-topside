@@ -53,11 +53,23 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void ComPort_DataReceived(object sender, DataReceivedEventArgs args)
         {
-            if (InvokeRequired)
+            try
             {
-                this.Invoke(new Action(() => readRovState(args.Data)));
-                return;
+                if (InvokeRequired)
+                {
+                    if (!this.IsDisposed)
+                    {
+                        this.Invoke(new Action(() => readRovState(args.Data)));
+                        return;
+                    }
+
+                }
             }
+            catch (ObjectDisposedException)
+            {
+                // NOT YET IMPLEMENTED
+            }
+
         }
 
         private void readRovState(byte[] data)
@@ -69,6 +81,8 @@ namespace UisSubsea.RovTopside.Presentation
             txtInput.AppendText("\r\n");
 
             readyToSend = true;
+
+
         }
 
         private void writeState()
@@ -121,6 +135,7 @@ namespace UisSubsea.RovTopside.Presentation
         {
             joystick = JoystickFactory.getMainController(this.Handle);
             joystick.Acquire();
+
 
             string[] ports = SerialPort.GetPortNames();
             cmbAvailablePorts.DataSource = ports;
@@ -217,6 +232,14 @@ namespace UisSubsea.RovTopside.Presentation
                     g.DrawString((i + 1).ToString(), font, blackBrush, new PointF((353 + i * 30.0F), 203.0F));
                 }
             }
+<<<<<<< HEAD
+=======
+            //Check for reverse button
+            if (buttons[9])
+            {
+                mainpacketbuilder.ToggleReverse();
+            }
+>>>>>>> 9f0ed11166770132ef1fa9d1bfabb945825e4915
         }
 
         private void updateLabels()
@@ -229,16 +252,18 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void JoystickTracker_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(joystick != null)
-                joystick.Unacquire();
-            if(joystickManipulatorLeft != null)
-                joystickManipulatorLeft.Unacquire();
-            if(joystickManipulatorRight != null)
-                joystickManipulatorRight.Unacquire();
-                
+            tmrRefreshStick.Stop();
+            stateReceiver.DataReceived -= ComPort_DataReceived;
 
-            if(stateSender != null)
-                stateSender.Dispose();
+            if (joystick != null)
+                joystick.Unacquire();
+            if (joystickManipulatorLeft != null)
+                joystickManipulatorLeft.Unacquire();
+            if (joystickManipulatorRight != null)
+                joystickManipulatorRight.Unacquire();
+
+            //System.Threading.Thread.Sleep(1000);
+           // SerialPortSingleton.Instance.Close();                        
         }
 
         private void btnUsePort_Click(object sender, EventArgs e)
@@ -247,32 +272,32 @@ namespace UisSubsea.RovTopside.Presentation
             {
                 String port = cmbAvailablePorts.SelectedItem.ToString();
                 numberOfJoysticksAttached = Joystick.getNumberOfJoysticks();
-             
-                if(numberOfJoysticksAttached== 3)
+
+                if (numberOfJoysticksAttached == 3)
                 {
                     joystickManipulatorLeft = JoystickFactory.getManipulatorLeft(this.Handle);
                     joystickManipulatorRight = JoystickFactory.getManipulatorRight(this.Handle);
-               
+
                     joystickManipulatorLeft.Acquire();
                     joystickManipulatorRight.Acquire();
                 }
-                
-               
+
+
                 if (!String.IsNullOrEmpty(port))
                 {
                     List<PacketBuilder> pb = new List<PacketBuilder>();
                     mainpacketbuilder = new MainPacketBuilder(joystick);
-                 
-                        pb.Add(mainpacketbuilder);
 
-                        if (numberOfJoysticksAttached == 3)
-                        {
-                            pb.Add(new ManipulatorLeftPacketBuilder(joystickManipulatorLeft));
-                            pb.Add(new ManipulatorRightPacketBuilder(joystickManipulatorRight));
+                    pb.Add(mainpacketbuilder);
 
-                        }
-                       
-                   
+                    if (numberOfJoysticksAttached == 3)
+                    {
+                        pb.Add(new ManipulatorLeftPacketBuilder(joystickManipulatorLeft));
+                        pb.Add(new ManipulatorRightPacketBuilder(joystickManipulatorRight));
+
+                    }
+
+
                     stateSender = new StateSender(pb);
                     btnUsePort.Enabled = false;
 
@@ -283,9 +308,9 @@ namespace UisSubsea.RovTopside.Presentation
             catch (Exception)
             {
                 MessageBox.Show("No compatible device found!");
-                
+
             }
-            
+
         }
 
         private void JoystickTracker_KeyDown(object sender, KeyEventArgs e)
@@ -299,7 +324,7 @@ namespace UisSubsea.RovTopside.Presentation
             manualSend = chkManualSend.Checked;
         }
 
-      
+
 
     }
 }
