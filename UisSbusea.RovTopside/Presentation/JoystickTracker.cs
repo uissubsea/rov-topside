@@ -232,14 +232,7 @@ namespace UisSubsea.RovTopside.Presentation
                     g.DrawString((i + 1).ToString(), font, blackBrush, new PointF((353 + i * 30.0F), 203.0F));
                 }
             }
-<<<<<<< HEAD
-=======
-            //Check for reverse button
-            if (buttons[9])
-            {
-                mainpacketbuilder.ToggleReverse();
-            }
->>>>>>> 9f0ed11166770132ef1fa9d1bfabb945825e4915
+
         }
 
         private void updateLabels()
