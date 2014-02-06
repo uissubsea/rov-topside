@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UisSubsea.RovTopside.Data;
 using System.IO.Ports;
+using System.Threading;
 
 namespace UisSubsea.RovTopside.Presentation
 {
@@ -39,6 +40,7 @@ namespace UisSubsea.RovTopside.Presentation
         private Boolean manualSend;
 
         private MainPacketBuilder mainpacketbuilder;
+        private Thread listener;
 
         public JoystickTracker()
         {
@@ -134,13 +136,41 @@ namespace UisSubsea.RovTopside.Presentation
         private void JoystickTracker_Load(object sender, EventArgs e)
         {
             joystick = JoystickFactory.getMainController(this.Handle);
-            joystick.Acquire();
-
+            System.Threading.WaitHandle handle = new System.Threading.AutoResetEvent(false);
+            
+            joystick.Acquire(handle);
+            InterruptListener interruptListener = new InterruptListener(handle);
+            interruptListener.JoystickStateChanged += JoystickState_Changed;
+            listener = new Thread(interruptListener.Listen);
+            listener.Start();
 
             string[] ports = SerialPort.GetPortNames();
             cmbAvailablePorts.DataSource = ports;
 
-            tmrRefreshStick.Enabled = true;
+            //tmrRefreshStick.Enabled = true;
+        }
+
+        private void JoystickState_Changed(object sender, EventArgs e)
+        {
+            if (joystick != null)
+            {
+                try
+                {
+                    if (InvokeRequired)
+                    {
+                        if (!this.IsDisposed)
+                        {
+                            this.Invoke(new Action(() => refresh()));
+                            return;
+                        }
+
+                    }
+                }
+                catch (ObjectDisposedException)
+                {
+                    // NOT YET IMPLEMENTED
+                }
+            }               
         }
 
         protected override void OnPaint(PaintEventArgs pe)
@@ -246,7 +276,8 @@ namespace UisSubsea.RovTopside.Presentation
         private void JoystickTracker_FormClosing(object sender, FormClosingEventArgs e)
         {
             tmrRefreshStick.Stop();
-            stateReceiver.DataReceived -= ComPort_DataReceived;
+            if(stateReceiver != null)
+                stateReceiver.DataReceived -= ComPort_DataReceived;
 
             if (joystick != null)
                 joystick.Unacquire();
@@ -254,6 +285,9 @@ namespace UisSubsea.RovTopside.Presentation
                 joystickManipulatorLeft.Unacquire();
             if (joystickManipulatorRight != null)
                 joystickManipulatorRight.Unacquire();
+
+            if (listener.IsAlive)
+                listener.Abort();
 
             //System.Threading.Thread.Sleep(1000);
            // SerialPortSingleton.Instance.Close();                        

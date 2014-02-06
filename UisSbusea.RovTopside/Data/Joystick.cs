@@ -65,6 +65,12 @@ namespace UisSubsea.RovTopside.Data
             joystick.Acquire();
         }
 
+        public void Acquire(System.Threading.WaitHandle handle)
+        {
+            joystick.SetNotification(handle);
+            joystick.Acquire();
+        }
+
         public void Unacquire()
         {
             //Unacquire device for capturing.

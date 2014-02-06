@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="Data\DataReceivedEventArgs.cs" />
     <Compile Include="Data\IJoystick.cs" />
+    <Compile Include="Data\InterruptListener.cs" />
     <Compile Include="Data\Joystick.cs" />
     <Compile Include="Data\JoystickFactory.cs" />
     <Compile Include="Data\JoystickType.cs" />
