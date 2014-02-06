@@ -120,17 +120,14 @@ namespace UisSubsea.RovTopside.Presentation
 
             updateLabels();
 
-            if (readyToSend && !manualSend)
-                writeState();
-
-
             //Repaint the form
             this.Invalidate();
         }
 
         private void tmrRefreshStick_Tick(object sender, EventArgs e)
         {
-            refresh();
+            if (readyToSend && !manualSend)
+                writeState();
         }
 
         private void JoystickTracker_Load(object sender, EventArgs e)
@@ -147,7 +144,7 @@ namespace UisSubsea.RovTopside.Presentation
             string[] ports = SerialPort.GetPortNames();
             cmbAvailablePorts.DataSource = ports;
 
-            //tmrRefreshStick.Enabled = true;
+            tmrRefreshStick.Enabled = true;
         }
 
         private void JoystickState_Changed(object sender, EventArgs e)
@@ -288,9 +285,7 @@ namespace UisSubsea.RovTopside.Presentation
 
             if (listener.IsAlive)
                 listener.Abort();
-
-            //System.Threading.Thread.Sleep(1000);
-           // SerialPortSingleton.Instance.Close();                        
+                       
         }
 
         private void btnUsePort_Click(object sender, EventArgs e)
