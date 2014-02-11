@@ -146,9 +146,10 @@ namespace UisSubsea.RovTopside.Data
             }
 
         }
-        public static int getNumberOfJoysticks()
+        public static int GetNumberOfJoysticks()
         {
-            return gameControls.Count;
+            return new DirectInput().GetDevices(
+                DeviceClass.GameControl, DeviceEnumerationFlags.AttachedOnly).Count;
         }
 
         private void configureJoystick(IntPtr windowHandle)

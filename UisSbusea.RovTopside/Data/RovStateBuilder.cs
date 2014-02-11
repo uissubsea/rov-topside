@@ -20,9 +20,9 @@ namespace UisSubsea.RovTopside.Data
         {
             if (packageIsValid(data))
             {
-                int hdg = heading(data[2]);
-                int camTilt = cameraTilt(data[3]);
-                Boolean err = error(data[4]);
+                int hdg = heading(data[1]);
+                int camTilt = cameraTilt(data[2]);
+                Boolean err = error(data[3]);
                 return new RovState(hdg, camTilt, err);
             }
             else

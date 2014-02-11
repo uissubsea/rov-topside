@@ -18,7 +18,7 @@ namespace UisSubsea.RovTopside.Tests
 
             int headingInDegrees = (int)(1.44 * (int)heading);
 
-            byte[] packet = new byte[] { startByte, status, heading, tilt, stopByte };
+            byte[] packet = new byte[] { startByte, heading, tilt, status, stopByte };
             RovState state = RovStateBuilder.BuildRovState(packet);
 
             System.Diagnostics.Debug.WriteLine(state.Error);

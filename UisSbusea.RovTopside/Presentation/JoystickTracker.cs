@@ -41,11 +41,11 @@ namespace UisSubsea.RovTopside.Presentation
 
         private MainPacketBuilder mainpacketbuilder;
         private Thread listener;
+        private Thread comThread;
 
         public JoystickTracker()
         {
             InitializeComponent();
-
 
             pen = new Pen(Color.Black);
             whiteBrush = new SolidBrush(Color.White);
@@ -64,7 +64,6 @@ namespace UisSubsea.RovTopside.Presentation
                         this.Invoke(new Action(() => readRovState(args.Data)));
                         return;
                     }
-
                 }
             }
             catch (ObjectDisposedException)
@@ -131,20 +130,52 @@ namespace UisSubsea.RovTopside.Presentation
         }
 
         private void JoystickTracker_Load(object sender, EventArgs e)
-        {
+        {         
             joystick = JoystickFactory.getMainController(this.Handle);
             System.Threading.WaitHandle handle = new System.Threading.AutoResetEvent(false);
-            
+
             joystick.Acquire(handle);
-            InterruptListener interruptListener = new InterruptListener(handle);
+
+            mainpacketbuilder = new MainPacketBuilder(joystick);
+
+            JoystickStateHolder stateStore = new JoystickStateHolder();
+
+            InterruptListener interruptListener = new InterruptListener(handle, mainpacketbuilder, stateStore);
             interruptListener.JoystickStateChanged += JoystickState_Changed;
             listener = new Thread(interruptListener.Listen);
+            listener.IsBackground = true;
             listener.Start();
 
-            string[] ports = SerialPort.GetPortNames();
-            cmbAvailablePorts.DataSource = ports;
+            CommunicationServer comServer = new CommunicationServer(stateStore);
+            comServer.RovStateReceived += RovState_Received;
+            comThread = new Thread(comServer.Serve);
+            comThread.IsBackground = true;
+            comThread.Start();
 
-            tmrRefreshStick.Enabled = true;
+            //string[] ports = SerialPort.GetPortNames();
+            //cmbAvailablePorts.DataSource = ports;
+
+            //tmrRefreshStick.Enabled = true;
+        }
+
+        private void RovState_Received(object sender, DataReceivedEventArgs e)
+        {
+            try
+            {
+                if (InvokeRequired)
+                {
+                    if (!this.IsDisposed)
+                    {
+                        this.Invoke(new Action(() => readRovState(e.Data)));
+                        return;
+                    }
+
+                }
+            }
+            catch (ObjectDisposedException)
+            {
+                // NOT YET IMPLEMENTED
+            }
         }
 
         private void JoystickState_Changed(object sender, EventArgs e)
@@ -167,7 +198,7 @@ namespace UisSubsea.RovTopside.Presentation
                 {
                     // NOT YET IMPLEMENTED
                 }
-            }               
+            }
         }
 
         protected override void OnPaint(PaintEventArgs pe)
@@ -272,8 +303,8 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void JoystickTracker_FormClosing(object sender, FormClosingEventArgs e)
         {
-            tmrRefreshStick.Stop();
-            if(stateReceiver != null)
+            //tmrRefreshStick.Stop();
+            if (stateReceiver != null)
                 stateReceiver.DataReceived -= ComPort_DataReceived;
 
             if (joystick != null)
@@ -283,9 +314,6 @@ namespace UisSubsea.RovTopside.Presentation
             if (joystickManipulatorRight != null)
                 joystickManipulatorRight.Unacquire();
 
-            if (listener.IsAlive)
-                listener.Abort();
-                       
         }
 
         private void btnUsePort_Click(object sender, EventArgs e)
@@ -293,7 +321,7 @@ namespace UisSubsea.RovTopside.Presentation
             try
             {
                 String port = cmbAvailablePorts.SelectedItem.ToString();
-                numberOfJoysticksAttached = Joystick.getNumberOfJoysticks();
+                numberOfJoysticksAttached = Joystick.GetNumberOfJoysticks();
 
                 if (numberOfJoysticksAttached == 3)
                 {
@@ -345,8 +373,5 @@ namespace UisSubsea.RovTopside.Presentation
         {
             manualSend = chkManualSend.Checked;
         }
-
-
-
     }
 }

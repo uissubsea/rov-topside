@@ -40,12 +40,11 @@ namespace UisSubsea.RovTopside.Data
             }
             
             state.Add(stopByte);
-            byte[] finaleState = state.ToArray();
-            port.Write(finaleState, 0, state.Count);
-            return finaleState;
+            byte[] stateArray = state.ToArray();
+            port.Write(stateArray, 0, stateArray.Length);
+            return stateArray;
         }
       
-
         public void Dispose()
         {
             if (port != null)

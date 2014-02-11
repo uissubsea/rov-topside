@@ -10,11 +10,16 @@ namespace UisSubsea.RovTopside.Data
     public class InterruptListener
     {
         private WaitHandle handle;
-        public event EventHandler JoystickStateChanged;
+        private PacketBuilder packetBuilder;
+        private JoystickStateHolder holder;
 
-        public InterruptListener(WaitHandle handle)
+        public EventHandler JoystickStateChanged;
+
+        public InterruptListener(WaitHandle handle, PacketBuilder pb, JoystickStateHolder holder)
         {
             this.handle = handle;
+            this.packetBuilder = pb;
+            this.holder = holder;
         }
 
         public void Listen()
@@ -22,7 +27,21 @@ namespace UisSubsea.RovTopside.Data
             while(true)
             {
                 handle.WaitOne();
-                OnJoystickStateChanged(new EventArgs());
+                //update state of joystick in joystick state class
+                byte[] packet = packetBuilder.BuildJoystickStatePacket();
+                switch(packetBuilder.Type)
+                {
+                    case (JoystickType.MainController):
+                        holder.Main = packet;
+                        OnJoystickStateChanged(new EventArgs());
+                        break;
+                    case (JoystickType.ManipulatorLeft):
+                        holder.ManipulatorLeft = packet;
+                        break;
+                    case (JoystickType.ManipulatorRight):
+                        holder.ManipulatorRight = packet;
+                        break;
+                }                 
             }
         }
 
@@ -33,6 +52,6 @@ namespace UisSubsea.RovTopside.Data
             {
                 handler(this, e);
             }
-        }
+        }      
     }
 }

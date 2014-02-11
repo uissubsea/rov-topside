@@ -29,7 +29,7 @@ namespace UisSubsea.RovTopside.Data
             {
                 if (instance == null)
                 {
-                    instance = new SerialPort(portName, 9600, Parity.None, 8, StopBits.One);
+                    instance = new SerialPort(portName, Constants.BaudRate, Parity.None, 8, StopBits.One);
                 }
                 return instance;
             }

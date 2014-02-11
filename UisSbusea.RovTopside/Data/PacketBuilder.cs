@@ -121,5 +121,13 @@ namespace UisSubsea.RovTopside.Data
             else
                 return false;
         }
+
+        public JoystickType Type
+        {
+            get
+            {
+                return joystick.Type;
+            }
+        }
     }
 }

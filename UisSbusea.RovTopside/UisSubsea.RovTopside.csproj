@@ -52,6 +52,18 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge">
+      <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video">
+      <HintPath>..\packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow">
+      <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.FFMPEG">
+      <HintPath>..\..\..\Visual Studio 2013\Projects\aforgeWebcamTutorial\aforgeWebcamTutorial\bin\x86\Debug\AForge.Video.FFMPEG.dll</HintPath>
+    </Reference>
     <Reference Include="SharpDX">
       <HintPath>..\packages\SharpDX.2.5.0\lib\net40\SharpDX.dll</HintPath>
     </Reference>
@@ -70,11 +82,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Camera.cs" />
+    <Compile Include="Data\CommunicationServer.cs" />
+    <Compile Include="Data\Constants.cs" />
     <Compile Include="Data\DataReceivedEventArgs.cs" />
     <Compile Include="Data\IJoystick.cs" />
     <Compile Include="Data\InterruptListener.cs" />
     <Compile Include="Data\Joystick.cs" />
     <Compile Include="Data\JoystickFactory.cs" />
+    <Compile Include="Data\JoystickStateHolder.cs" />
     <Compile Include="Data\JoystickType.cs" />
     <Compile Include="Data\MainPacketBuilder.cs" />
     <Compile Include="Data\ManipulatorLeftPacketBuilder.cs" />
@@ -91,10 +107,19 @@
     <Compile Include="Presentation\JoystickTracker.Designer.cs">
       <DependentUpon>JoystickTracker.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\PilotView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\PilotView.Designer.cs">
+      <DependentUpon>PilotView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Presentation\JoystickTracker.resx">
       <DependentUpon>JoystickTracker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\PilotView.resx">
+      <DependentUpon>PilotView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
