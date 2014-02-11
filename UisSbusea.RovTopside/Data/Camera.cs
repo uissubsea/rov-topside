@@ -14,7 +14,6 @@ namespace UisSubsea.RovTopside.Data
 {
     public class Camera : IDisposable
     {
-
         private VideoCaptureDevice camera;
         private PictureBox canvas;
         private Boolean isRecording;
