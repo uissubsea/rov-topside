@@ -62,7 +62,7 @@
       <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Video.FFMPEG">
-      <HintPath>..\..\..\Visual Studio 2013\Projects\aforgeWebcamTutorial\aforgeWebcamTutorial\bin\x86\Debug\AForge.Video.FFMPEG.dll</HintPath>
+      <HintPath>..\..\..\Visual Studio 2013\Projects\WebCamTest\WindowsFormsApplication1\bin\x86\Debug\AForge.Video.FFMPEG.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX">
       <HintPath>..\packages\SharpDX.2.5.0\lib\net40\SharpDX.dll</HintPath>
@@ -101,6 +101,12 @@
     <Compile Include="Data\SerialPortSingleton.cs" />
     <Compile Include="Data\StateReceiver.cs" />
     <Compile Include="Data\StateSender.cs" />
+    <Compile Include="Presentation\CoPilotView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\CoPilotView.Designer.cs">
+      <DependentUpon>CoPilotView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\JoystickTracker.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Presentation\CoPilotView.resx">
+      <DependentUpon>CoPilotView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\JoystickTracker.resx">
       <DependentUpon>JoystickTracker.cs</DependentUpon>
     </EmbeddedResource>

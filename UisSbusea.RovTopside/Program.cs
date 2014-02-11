@@ -18,7 +18,7 @@ namespace UisSubsea.RovTopside
         static void Main()
         {
             string[] ports = SerialPort.GetPortNames();
-            if (!ports.Contains("COM1") || Joystick.GetNumberOfJoysticks() == 0 || Camera.NumberOfCamerasConnected() < 2)
+            if (!ports.Contains("COM1") || Joystick.GetNumberOfJoysticks() == 0 || Camera.NumberOfCamerasConnected() < 1)
             {
                 MessageBox.Show("Make sure all neccessary devices are connected");
                 return;
@@ -26,7 +26,7 @@ namespace UisSubsea.RovTopside
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PilotView());
+            Application.Run(new CoPilotView());
         }
     }
 }
