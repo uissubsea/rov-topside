@@ -67,6 +67,7 @@
     <Reference Include="AGauge, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\x86\Debug\AGauge.dll</HintPath>
+    </Reference>
     <Reference Include="AGauge">
       <HintPath>..\..\..\Agauge\AGauge.dll</HintPath>
     </Reference>
