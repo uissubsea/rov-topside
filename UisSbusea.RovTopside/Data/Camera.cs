@@ -16,6 +16,7 @@ namespace UisSubsea.RovTopside.Data
     {
         private VideoCaptureDevice camera;
         private PictureBox canvas;
+        private List<PictureBox> canvases;
         private Boolean isRecording;
         private VideoFileWriter writer;
 
@@ -31,6 +32,14 @@ namespace UisSubsea.RovTopside.Data
             writer = new VideoFileWriter();
             this.canvas = canvas;
             this.camera.NewFrame += new NewFrameEventHandler(camera_NewFrame);
+        }
+
+        public Camera(int index, Size desiredResolution, List<PictureBox> canvases)
+        {
+            initializeCamera(index, desiredResolution);
+            writer = new VideoFileWriter();
+            this.canvas = canvas;
+            this.camera.NewFrame += new NewFrameEventHandler(multipleCamera_NewFrame);
         }
 
         public static int NumberOfCamerasConnected()
@@ -182,6 +191,31 @@ namespace UisSubsea.RovTopside.Data
 
             }
             canvas.Image = nextFrame;
+        }
+
+        private void multipleCamera_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            Bitmap nextFrame = (Bitmap)eventArgs.Frame.Clone();
+
+            if (isRecording)
+                writeFrame(nextFrame);
+
+            foreach (PictureBox pb in this.canvases)
+            {
+                if (pb.Image != null)
+                {
+                    try
+                    {
+                        if (pb.InvokeRequired)
+                        {
+                            pb.Invoke(new MethodInvoker(delegate() { pb.Image.Dispose(); }));
+                        }
+                    }
+                    catch (ObjectDisposedException) { }
+
+                }
+                pb.Image = nextFrame;
+            }        
         }
 
         private void writeFrame(Bitmap frame)
