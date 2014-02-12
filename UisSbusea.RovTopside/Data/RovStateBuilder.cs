@@ -13,8 +13,6 @@ namespace UisSubsea.RovTopside.Data
     public static class RovStateBuilder
     {
         private const double headingResolution = 1.44; // 360/250
-        private const byte startByte = 251;
-        private const byte stopByte = 255;
 
         public static RovState BuildRovState(byte[] data)
         {
@@ -54,7 +52,7 @@ namespace UisSubsea.RovTopside.Data
         private static Boolean packageIsValid(byte[] package)
         {
             if (package.Count() == 5)
-                if (package[0] == startByte && package[4] == stopByte)
+                if (package[0] == Constants.StartByte && package[4] == Constants.StopByte)
                     return true;
                 else
                     return false;

@@ -17,8 +17,7 @@ namespace UisSubsea.RovTopside.Data
 
         private byte roll, pitch;
 
-        public MainPacketBuilder(IJoystick joystick)
-            : base(joystick)
+        public MainPacketBuilder(IJoystick joystick) : base(joystick)
         {
             this.joystick = joystick;
         }

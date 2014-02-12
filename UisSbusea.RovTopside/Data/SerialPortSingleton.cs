@@ -19,7 +19,19 @@ namespace UisSubsea.RovTopside.Data
     public class SerialPortSingleton
     {
         private static SerialPort instance;
+
+        /**
+         * This must be equal to the port name of the connected
+         * super node
+         * */
         private const string portName = "COM1";
+
+        /**
+         * Make sure that this is equal to the baud rate of the
+         * connected super node, or else you wil experience errors
+         * in communication data!
+         * */
+        private const int BaudRate = 56000;
 
         private SerialPortSingleton() { }
 
@@ -29,7 +41,7 @@ namespace UisSubsea.RovTopside.Data
             {
                 if (instance == null)
                 {
-                    instance = new SerialPort(portName, Constants.BaudRate, Parity.None, 8, StopBits.One);
+                    instance = new SerialPort(portName, BaudRate, Parity.None, 8, StopBits.One);
                 }
                 return instance;
             }

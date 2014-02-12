@@ -13,7 +13,8 @@ namespace UisSubsea.RovTopside.Data
         public event EventHandler<DataReceivedEventArgs> RovStateReceived;
         
         private SerialPort port;
-        private List<byte> buffer;
+        private List<byte> inputBuffer;
+        private List<byte> outputBuffer;
         private JoystickStateHolder stateStore;
 
         public CommunicationServer(JoystickStateHolder stateStore)
@@ -24,7 +25,8 @@ namespace UisSubsea.RovTopside.Data
             if (!port.IsOpen)
                 port.Open();
 
-            buffer = new List<byte>(Constants.RovStatePacketSize);
+            inputBuffer = new List<byte>(Constants.InputBufferSize);
+            outputBuffer = new List<byte>(Constants.OutputBufferSize);
         }
 
         public void Serve()
@@ -52,7 +54,7 @@ namespace UisSubsea.RovTopside.Data
         }
 
         private void sendJoystickState()
-        {
+        { 
             List<byte> state = new List<byte>();
 
             state.Add(Constants.StartByte);
@@ -73,14 +75,14 @@ namespace UisSubsea.RovTopside.Data
 
         private void clearBuffer()
         {
-            buffer.Clear();
+            inputBuffer.Clear();
         }
 
         private void invokePacketReceived()
         {
             //invoke packet received event with array of bytes as arg
             DataReceivedEventArgs args = new DataReceivedEventArgs();
-            args.Data = buffer.ToArray();
+            args.Data = inputBuffer.ToArray();
             OnRovStateReceived(args);
         }
 
@@ -93,7 +95,7 @@ namespace UisSubsea.RovTopside.Data
                 if ((byte)data == Constants.StopByte)
                     stopByteReceived = true;
                 else
-                    buffer.Add((byte)data);
+                    inputBuffer.Add((byte)data);
             }
         }
 
