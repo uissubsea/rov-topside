@@ -9,13 +9,7 @@ namespace UisSubsea.RovTopside.Data
     public class MainPacketBuilder : PacketBuilder
     {
         private IJoystick joystick;
-        private int negativePitch, negativeRoll;
-
-        private int checkValueRoll = 0;
-        private int checkValuePitch = 0;
         private Boolean reverse;
-
-        private byte roll, pitch;
 
         public MainPacketBuilder(IJoystick joystick) : base(joystick)
         {
@@ -40,21 +34,17 @@ namespace UisSubsea.RovTopside.Data
 
             if (reverse)
             {
-                roll = TransformRollToOpposite();
-                pitch = TransformPitchToOpposite();
-                return new byte[]
-               {
-                   roll,
-                   pitch,
-                   Yaw(),
-                   Throttle(),
-                   ButtonsPressed(),
-                   HatPov(),
-               };
+                return buildReversePacket();
             }
             else
             {
-                return new byte[]
+                return buildPacket();
+            }
+        }
+
+        private byte[] buildPacket()
+        {
+            return new byte[]
                 {
                     Roll(),
                     Pitch(),
@@ -63,7 +53,19 @@ namespace UisSubsea.RovTopside.Data
                     ButtonsPressed(),
                     HatPov(),
                  };
-            }
+        }
+
+        private byte[] buildReversePacket()
+        {
+            return new byte[]
+               {
+                   reverseRoll(),
+                   reversePitch(),
+                   Yaw(),
+                   Throttle(),
+                   ButtonsPressed(),
+                   HatPov(),
+               };
         }
 
         private Boolean joystickIsInNeutral()
@@ -74,42 +76,32 @@ namespace UisSubsea.RovTopside.Data
                 return false;
         }
 
-        private byte TransformPitchToOpposite()
+        private byte reversePitch()
         {
-            int temp = joystick.Pitch();
-
-            checkValuePitch = temp - 125;
-            if (checkValuePitch > 0)
-            {
-                negativePitch = 125 - checkValuePitch;
-            }
-            else
-            {
-                checkValuePitch *= -1;
-                negativePitch = 125 + checkValuePitch;
-                checkValuePitch = 0;
-            }
-
-            return (byte)negativePitch;
+            return reverseStickAmplitude((byte)joystick.Pitch());
         }
-        private byte TransformRollToOpposite()
-        {
-            int temp = joystick.Roll();
 
-            checkValueRoll = temp - 125;
-            if (checkValueRoll > 0)
+        private byte reverseRoll()
+        {
+            return reverseStickAmplitude((byte)joystick.Roll());
+        }
+
+        private byte reverseStickAmplitude(byte axisPosition)
+        {
+            int amplitude = axisPosition - 125;
+
+            //If true, the stick is pulled backwards or pushed right
+            Boolean aimplitudeIsNegative = (amplitude > 0);
+
+            if (aimplitudeIsNegative)
             {
-                negativeRoll = 125 - checkValueRoll;
+                return (byte)(125 - amplitude);
             }
             else
             {
-                checkValueRoll *= -1;
-                negativeRoll = 125 + checkValueRoll;
-                checkValueRoll = 0;
-            }
-
-            return (byte)negativeRoll;
-
+                amplitude *= -1;
+                return (byte)(125 + amplitude);
+            };
         }
     }
 }
