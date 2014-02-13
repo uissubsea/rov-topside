@@ -42,9 +42,9 @@ namespace UisSubsea.RovTopside.Data
             this.camera.NewFrame += new NewFrameEventHandler(multipleCanvas_NewFrame);
         }
 
-        public static int NumberOfCamerasConnected()
+        public static FilterInfoCollection CamerasConnected()
         {
-            return new FilterInfoCollection(FilterCategory.VideoInputDevice).Count;
+            return new FilterInfoCollection(FilterCategory.VideoInputDevice);
         }
 
         public void ToggleRecording()
