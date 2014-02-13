@@ -13,7 +13,7 @@ namespace UisSubsea.RovTopside.Presentation
 {
     public partial class CoPilotView : Form
     {
-        private Camera camera1, camera2, camera;
+        private Camera camera1, camera2, camera3;
         private Size hd;
         private Size smallCamView;
         private Boolean fullScreen;
@@ -22,6 +22,8 @@ namespace UisSubsea.RovTopside.Presentation
         private ICollection<PictureBox> canvas;
         //If there is water leak in controllbox
         private Boolean leak;
+        private Boolean camera1off, camera2off;
+        private Boolean camera3off= true;
 
         public CoPilotView()
         {
@@ -32,6 +34,8 @@ namespace UisSubsea.RovTopside.Presentation
             //Set reselution on the camera
             hd = new Size(1280, 720);
             smallCamView = new Size(640, 360);
+            camera1off = false;
+            camera2off = false;           
 
             //Test
             canvas = new List<PictureBox>();
@@ -64,8 +68,8 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void CoPilotView_Load(object sender, EventArgs e)
         {
-            camera = new Camera(0, hd, canvas);
-            camera.Start();
+            //camera = new Camera(0, hd, canvas);
+           // camera.Start();
 
             numberOfCamera = Camera.CamerasConnected().Count;
             if(numberOfCamera == 2)
@@ -77,17 +81,22 @@ namespace UisSubsea.RovTopside.Presentation
             }
             else if(numberOfCamera == 3)
             {
-
+                camera1 = new Camera(0, hd, pictureBox1);
+                camera2 = new Camera(1, hd, pictureBox2);
+                camera1.Start();
+                camera2.Start();
+                
             }
            
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            camera.Dispose();
-            if (camera1 != null || camera2 != null)
+            //camera.Dispose();
+            if (camera1 != null || camera2 != null || camera3 != null)
             {
                 camera1.Dispose();
                 camera2.Dispose();
+                camera3.Dispose();
             }
         }
 
@@ -118,8 +127,26 @@ namespace UisSubsea.RovTopside.Presentation
             //switch between which camera to show in picturebox1 and picturebox2
             if (keyData == Keys.F1)
             {
+                if (camera3off == false)
+                {
+                    camera3.Stop();
+                    camera3off = true;
+                }
+                 if (camera1off == true)
+                 {
+                     camera1.Start();
+                    camera1off = false;
+                 }
+                 else if (camera2off == true)
+                 {
+                     camera2.Start();
+                     camera2off = false;
+                 }
+                    
+
                 if (pictureBox2.Visible == false)
                     pictureBox2.Visible = true;
+
                 if (camera1.Canvas==pictureBox1)
                 {
                     camera1.Canvas = pictureBox2;
@@ -135,7 +162,26 @@ namespace UisSubsea.RovTopside.Presentation
             //Switch between one camera. 
             if (keyData == Keys.F2)
             {
-                    if(camera2.Canvas == pictureBox1)
+                if(camera3off==false)
+                {                        
+                   camera3.Stop();
+                   camera3off = true;
+                }
+               
+                 if (camera1off == true)
+                 {
+                     camera1.Start();
+                     camera1off = false;
+                 }                
+
+                 if (camera2off == true)
+                 {
+                     camera2.Start();
+                     camera2off = false;
+
+                 }
+
+                    if (camera2.Canvas == pictureBox1)
                     {
                         camera2.Canvas = pictureBox2;
                         camera1.Canvas = pictureBox1;
@@ -146,11 +192,27 @@ namespace UisSubsea.RovTopside.Presentation
                         camera1.Canvas = pictureBox2;
                         camera2.Canvas = pictureBox1;
                         pictureBox2.Visible = false;
-                    } 
+                    }                        
             }        
             if(keyData == Keys.F3)
             {
-
+                    if(camera3off== true)
+                    {
+                        if(camera1.Canvas == pictureBox1)
+                        {
+                            camera1.Stop();
+                            camera1off = true;
+                        }
+                        else if (camera2.Canvas == pictureBox1)
+                        {
+                            camera2.Stop();
+                            camera2off = true;
+                        }
+                        camera3 = new Camera(2, hd, pictureBox1);
+                        camera3.Start();
+                        camera3off = false;
+                        pictureBox2.Visible = false;
+                    }              
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
