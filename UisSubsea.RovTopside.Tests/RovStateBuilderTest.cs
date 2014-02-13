@@ -10,19 +10,17 @@ namespace UisSubsea.RovTopside.Tests
         [TestMethod]
         public void TestBuildRovState()
         {
-            byte startByte = 251;
-            byte stopByte = 255;
             byte status = 1;
             byte heading = 250;
             byte tilt = 55;
 
             int headingInDegrees = (int)(1.44 * (int)heading);
 
-            byte[] packet = new byte[] { startByte, heading, tilt, status, stopByte };
+            byte[] packet = new byte[] { Constants.StartByte, heading, tilt, status, Constants.StopByte };
             RovState state = RovStateBuilder.BuildRovState(packet);
 
             System.Diagnostics.Debug.WriteLine(state.Error);
-            System.Diagnostics.Debug.WriteLine(headingInDegrees);
+            System.Diagnostics.Debug.WriteLine(state.Heading);
             System.Diagnostics.Debug.WriteLine(state.CameraTilt);
 
             Assert.IsTrue(state.Error);
