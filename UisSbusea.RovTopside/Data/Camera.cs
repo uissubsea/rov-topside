@@ -16,7 +16,7 @@ namespace UisSubsea.RovTopside.Data
     {
         private VideoCaptureDevice camera;
         private PictureBox canvas;
-        private List<PictureBox> canvases;
+        private ICollection<PictureBox> canvases;
         private Boolean isRecording;
         private VideoFileWriter writer;
 
@@ -34,7 +34,7 @@ namespace UisSubsea.RovTopside.Data
             this.camera.NewFrame += new NewFrameEventHandler(camera_NewFrame);
         }
 
-        public Camera(int index, Size desiredResolution, List<PictureBox> canvases)
+        public Camera(int index, Size desiredResolution, ICollection<PictureBox> canvases)
         {
             initializeCamera(index, desiredResolution);
             writer = new VideoFileWriter();

@@ -13,8 +13,8 @@ namespace UisSubsea.RovTopside.Data
         public event EventHandler<DataReceivedEventArgs> RovStateReceived;
         
         private SerialPort port;
-        private List<byte> inputBuffer;
-        private List<byte> outputBuffer;
+        private ICollection<byte> inputBuffer;
+        private ICollection<byte> outputBuffer;
         private JoystickStateHolder stateStore;
 
         public CommunicationServer(JoystickStateHolder stateStore)
