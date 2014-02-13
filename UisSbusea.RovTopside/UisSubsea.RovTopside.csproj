@@ -108,6 +108,7 @@
     <Compile Include="Data\SerialPortSingleton.cs" />
     <Compile Include="Data\StateReceiver.cs" />
     <Compile Include="Data\StateSender.cs" />
+    <Compile Include="Data\VideoRecorder.cs" />
     <Compile Include="Presentation\CoPilotView.cs">
       <SubType>Form</SubType>
     </Compile>

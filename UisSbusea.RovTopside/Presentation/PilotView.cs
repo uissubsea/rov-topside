@@ -22,27 +22,31 @@ namespace UisSubsea.RovTopside.Presentation
         private PointF pointFocusValue;
         private PointF pointAutoFocus;
         private PointF pointDataReceived;
+        private PointF pointStopwatch;
         private string overlayText = "Not recording";
         private string lastPacketReceived = "0";
         private Boolean fullScreen = false;
         private Camera camera;
         private int focus;
         private Boolean autofocus = true;
+        private System.Diagnostics.Stopwatch stopwatch;
 
         public PilotView()
         {
             font = new Font("Arial", 18);
             brush = new SolidBrush(Color.Red);
-            pointRecordingText = new PointF(30.0F, 30.0F);            
+            pointRecordingText = new PointF(30.0f, 30.0f);            
             pointAutoFocus = new PointF(30.0f, 70.0f);
-            pointFocusValue = new PointF(30.0f, 110.0F);
-            pointDataReceived = new PointF(30.0f, 150.0F);
+            pointFocusValue = new PointF(30.0f, 110.0f);
+            pointDataReceived = new PointF(30.0f, 150.0f);
+            pointStopwatch = new PointF(30.0f, 190.0f);
+            stopwatch = new System.Diagnostics.Stopwatch();
 
             InitializeComponent();
 
             pictureBoxVideo.Paint += new PaintEventHandler(PaintOverlay);
 
-            camera = new Camera(0, new Size(1280, 720), pictureBoxVideo);
+            camera = new Camera(1, new Size(1280, 720), pictureBoxVideo);
             camera.Start();
         }
 
@@ -58,7 +62,7 @@ namespace UisSubsea.RovTopside.Presentation
             JoystickStateHolder stateStore = new JoystickStateHolder();
 
             InterruptListener interruptListener = new InterruptListener(handle, mainPacketBuilder, stateStore);
-            //interruptListener.JoystickStateChanged += JoystickState_Changed;
+            interruptListener.JoystickStateChanged += JoystickState_Changed;
             Thread listener = new Thread(interruptListener.Listen);
             listener.IsBackground = true;
             listener.Start();
@@ -68,6 +72,40 @@ namespace UisSubsea.RovTopside.Presentation
             Thread comThread = new Thread(comServer.Serve);
             comThread.IsBackground = true;
             comThread.Start();
+        }
+
+        private void JoystickState_Changed(object sender, EventArgs e)
+        {
+            if (mainJoystick != null)
+            {
+                try
+                {
+                    if (InvokeRequired)
+                    {
+                        if (!this.IsDisposed)
+                        {
+                            this.Invoke(new Action(() => toggleStopWatch()));
+                            return;
+                        }
+
+                    }
+                }
+                catch (ObjectDisposedException)
+                {
+                    // NOT YET IMPLEMENTED
+                }
+            }
+        }
+
+        private void toggleStopWatch()
+        {
+            if (mainJoystick.Buttons()[11])
+            {
+                if (stopwatch.IsRunning)
+                    stopwatch.Stop();
+                else
+                    stopwatch.Start();
+            }         
         }
 
         private void RovState_Received(object sender, DataReceivedEventArgs e)
@@ -105,7 +143,11 @@ namespace UisSubsea.RovTopside.Presentation
             args.Graphics.DrawString(overlayText, font, brush, pointRecordingText);
             args.Graphics.DrawString("Autofocus: " + autofocus.ToString(), font, brush, pointAutoFocus);
             args.Graphics.DrawString("Focus value: " + focus.ToString(), font, brush, pointFocusValue);
-            args.Graphics.DrawString("ROV state: " + lastPacketReceived, font, brush, pointDataReceived);  
+            args.Graphics.DrawString("ROV state: " + lastPacketReceived, font, brush, pointDataReceived);
+
+            TimeSpan span = stopwatch.Elapsed;
+            String stopwatchString = string.Format("{0}:{1}", Math.Floor(span.TotalMinutes), span.ToString("ss"));
+            args.Graphics.DrawString("Timer: " + stopwatchString, font, brush, pointStopwatch);
         }
 
         private void PilotView_FormClosed(object sender, FormClosedEventArgs e)

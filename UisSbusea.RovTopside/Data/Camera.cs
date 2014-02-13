@@ -9,6 +9,7 @@ using AForge.Video;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Drawing.Imaging;
+using System.Threading;
 
 namespace UisSubsea.RovTopside.Data
 {
@@ -19,6 +20,8 @@ namespace UisSubsea.RovTopside.Data
         private ICollection<PictureBox> canvases;
         private Boolean isRecording;
         private VideoFileWriter writer;
+        private Queue<Bitmap> frameBuffer;
+        private Thread videoRecorder;
 
         public Camera(int index, Size desiredResolution)
         {
@@ -29,7 +32,7 @@ namespace UisSubsea.RovTopside.Data
         public Camera(int index, Size desiredResolution, PictureBox canvas)
         {
             initializeCamera(index, desiredResolution);
-            writer = new VideoFileWriter();
+            //writer = new VideoFileWriter();
             this.canvas = canvas;
             this.camera.NewFrame += new NewFrameEventHandler(camera_NewFrame);
         }
@@ -49,7 +52,21 @@ namespace UisSubsea.RovTopside.Data
 
         public void ToggleRecording()
         {
-            if (!isRecording)
+            if(!isRecording)
+            { 
+                frameBuffer = new Queue<Bitmap>();
+                videoRecorder = new Thread(new VideoRecorder(frameBuffer).Record);
+                videoRecorder.Start();
+                isRecording = true;
+            }
+            else
+            {
+                isRecording = false;
+                frameBuffer.Clear();
+                frameBuffer = null;
+                videoRecorder.Abort();
+            }
+            /*if (!isRecording)
             {
                 string filepath = Environment.CurrentDirectory;
                 String name = Guid.NewGuid().ToString() + ".avi";
@@ -61,7 +78,7 @@ namespace UisSubsea.RovTopside.Data
             {
                 isRecording = false;
                 writer.Close();
-            }
+            }*/
         }
 
         public void Snapshot()
@@ -184,7 +201,7 @@ namespace UisSubsea.RovTopside.Data
         {
             Bitmap nextFrame = (Bitmap)eventArgs.Frame.Clone();
 
-            recordFrame(nextFrame);
+            recordFrame((Bitmap)nextFrame.Clone());
 
             setNewFrame(this.canvas, nextFrame);
         }
@@ -204,7 +221,8 @@ namespace UisSubsea.RovTopside.Data
         private void recordFrame(Bitmap frame)
         {
             if (isRecording)
-                writeFrame(frame);
+                frameBuffer.Enqueue(frame);
+                //writeFrame(frame);
         }
 
         private void setNewFrame(PictureBox canvas, Bitmap frame)
@@ -224,7 +242,7 @@ namespace UisSubsea.RovTopside.Data
             canvas.Image = frame;
         }
 
-        private void writeFrame(Bitmap frame)
+        /*private void writeFrame(Bitmap frame)
         {
             if (writer.IsOpen)
             {
@@ -237,6 +255,6 @@ namespace UisSubsea.RovTopside.Data
                     MessageBox.Show("Access violation!");
                 }
             }
-        }
+        }*/
     }
 }

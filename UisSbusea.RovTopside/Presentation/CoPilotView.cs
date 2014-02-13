@@ -67,7 +67,7 @@ namespace UisSubsea.RovTopside.Presentation
             camera = new Camera(0, hd, canvas);
             camera.Start();
 
-            numberOfCamera = Camera.NumberOfCamerasConnected();
+            numberOfCamera = Camera.CamerasConnected().Count;
             if(numberOfCamera == 2)
             { 
                 camera1 = new Camera(0, hd, pictureBox1);
