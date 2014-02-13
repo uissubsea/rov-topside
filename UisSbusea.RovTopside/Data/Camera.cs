@@ -197,7 +197,7 @@ namespace UisSubsea.RovTopside.Data
 
             foreach (PictureBox pb in this.canvases)
             {
-                setNewFrame(pb, nextFrame);
+                setNewFrame(pb, (Bitmap)nextFrame.Clone());
             }        
         }
 

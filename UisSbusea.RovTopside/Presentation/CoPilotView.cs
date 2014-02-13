@@ -13,12 +13,13 @@ namespace UisSubsea.RovTopside.Presentation
 {
     public partial class CoPilotView : Form
     {
-        private Camera camera1, camera2;
+        private Camera camera1, camera2, camera;
         private Size hd;
         private Size smallCamView;
         private Boolean fullScreen;
         private System.Drawing.SolidBrush Brush;
         private int numberOfCamera;
+        private ICollection<PictureBox> canvas;
         //If there is water leak in controllbox
         private Boolean leak;
 
@@ -31,6 +32,11 @@ namespace UisSubsea.RovTopside.Presentation
             //Set reselution on the camera
             hd = new Size(1280, 720);
             smallCamView = new Size(640, 360);
+
+            //Test
+            canvas = new List<PictureBox>();
+            canvas.Add(pictureBox1);
+            canvas.Add(pictureBox2);
           
         }
         //Timer left in competition
@@ -58,6 +64,10 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void CoPilotView_Load(object sender, EventArgs e)
         {
+            camera = new Camera(0, hd, canvas);
+            camera.Start();
+
+            numberOfCamera = Camera.NumberOfCamerasConnected();
             if(numberOfCamera == 2)
             { 
                 camera1 = new Camera(0, hd, pictureBox1);
@@ -73,6 +83,7 @@ namespace UisSubsea.RovTopside.Presentation
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            camera.Dispose();
             if (camera1 != null || camera2 != null)
             {
                 camera1.Dispose();
