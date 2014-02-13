@@ -12,7 +12,7 @@ namespace UisSubsea.RovTopside.Data
     public class VideoRecorder
     {
 
-        Queue<Bitmap> frameBuffer;
+        private Queue<Bitmap> frameBuffer;
         private VideoFileWriter writer;
 
         public VideoRecorder(Queue<Bitmap> frameBuffer)
