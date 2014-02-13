@@ -17,23 +17,59 @@ namespace UisSubsea.RovTopside.Presentation
         private Size hd;
         private Size smallCamView;
         private Boolean fullScreen;
+        private System.Drawing.SolidBrush Brush;
+        private int numberOfCamera;
+        //If there is water leak in controllbox
+        private Boolean leak;
 
         public CoPilotView()
         {
             InitializeComponent();
-            this.WindowState = FormWindowState.Maximized;
-
+            this.WindowState = FormWindowState.Maximized; 
+            this.FormClosing += Form1_FormClosing;
+            activateTimer();
+            //Set reselution on the camera
             hd = new Size(1280, 720);
             smallCamView = new Size(640, 360);
-            this.FormClosing += Form1_FormClosing;
+          
+        }
+        //Timer left in competition
+        public void activateTimer()
+        {
+            lblTimer.Text = "15:00";
+        }
+        //Wil change color when there is a leak on the ROV. 
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            if(!leak)
+            {
+                Brush = new System.Drawing.SolidBrush(Color.Green);
+            }
+            else Brush = new System.Drawing.SolidBrush(Color.Red);
+
+            System.Drawing.Graphics formGraphics;
+            formGraphics = this.CreateGraphics();
+            formGraphics.FillRectangle(Brush, new Rectangle(1738,550, 100, 30));
+            Brush.Dispose();
+            formGraphics.Dispose();
+
         }
 
         private void CoPilotView_Load(object sender, EventArgs e)
         {
-            camera1 = new Camera(0, hd, pictureBox1);
-            camera2 = new Camera(1, hd, pictureBox2);
-            camera1.Start();
-            camera2.Start();
+            if(numberOfCamera == 2)
+            { 
+                camera1 = new Camera(0, hd, pictureBox1);
+                camera2 = new Camera(1, hd, pictureBox2);
+                camera1.Start();
+                camera2.Start();
+            }
+            else if(numberOfCamera == 3)
+            {
+
+            }
+           
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -51,6 +87,7 @@ namespace UisSubsea.RovTopside.Presentation
                 this.Close();
                 return true;
             }
+            //Fullscreen
             else if (keyData == Keys.F11)
             {
                 if (!fullScreen)
@@ -67,6 +104,7 @@ namespace UisSubsea.RovTopside.Presentation
                     this.WindowState = FormWindowState.Normal;
                 }
             }
+            //switch between which camera to show in picturebox1 and picturebox2
             if (keyData == Keys.F1)
             {
                 if (pictureBox2.Visible == false)
@@ -83,7 +121,7 @@ namespace UisSubsea.RovTopside.Presentation
                 }
         
             }
-               
+            //Switch between one camera. 
             if (keyData == Keys.F2)
             {
                     if(camera2.Canvas == pictureBox1)
@@ -99,6 +137,10 @@ namespace UisSubsea.RovTopside.Presentation
                         pictureBox2.Visible = false;
                     } 
             }        
+            if(keyData == Keys.F3)
+            {
+
+            }
             return base.ProcessCmdKey(ref msg, keyData);
         }
 

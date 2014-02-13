@@ -32,6 +32,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.aGauge2 = new System.Windows.Forms.AGauge();
             this.aGauge1 = new System.Windows.Forms.AGauge();
+            this.lblTimer = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -140,12 +141,24 @@
             this.aGauge1.Value = 0F;
             this.aGauge1.ValueInRangeChanged += new System.EventHandler<System.Windows.Forms.ValueInRangeChangedEventArgs>(this.aGauge1_ValueInRangeChanged);
             // 
+            // lblTimer
+            // 
+            this.lblTimer.AutoSize = true;
+            this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.ForeColor = System.Drawing.SystemColors.Info;
+            this.lblTimer.Location = new System.Drawing.Point(1738, 472);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(96, 25);
+            this.lblTimer.TabIndex = 5;
+            this.lblTimer.Text = "lblTimer";
+            // 
             // CoPilotView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowText;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.aGauge1);
             this.Controls.Add(this.aGauge2);
             this.Controls.Add(this.pictureBox2);
@@ -157,6 +170,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -166,5 +180,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.AGauge aGauge2;
         private System.Windows.Forms.AGauge aGauge1;
+        private System.Windows.Forms.Label lblTimer;
     }
 }
