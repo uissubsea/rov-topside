@@ -67,12 +67,12 @@
     <Reference Include="AForge.Video.FFMPEG">
       <HintPath>..\..\..\Visual Studio 2013\Projects\WebCamTest\WindowsFormsApplication1\bin\x86\Debug\AForge.Video.FFMPEG.dll</HintPath>
     </Reference>
+    <Reference Include="AGauge">
+      <HintPath>..\..\..\Agauge\AGauge.dll</HintPath>
+    </Reference>
     <Reference Include="AGauge, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\x86\Debug\AGauge.dll</HintPath>
-    </Reference>
-    <Reference Include="AGauge">
-      <HintPath>..\..\..\Agauge\AGauge.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX">
       <HintPath>..\packages\SharpDX.2.5.0\lib\net40\SharpDX.dll</HintPath>
