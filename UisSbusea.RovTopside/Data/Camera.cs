@@ -21,6 +21,7 @@ namespace UisSubsea.RovTopside.Data
         private Boolean isRecording;
         private Queue<Bitmap> frameBuffer;
         private Thread videoRecorder;
+        private Boolean handleEvents;
 
         public Camera(int index, Size desiredResolution)
         {
@@ -31,14 +32,14 @@ namespace UisSubsea.RovTopside.Data
         {
             initializeCamera(index, desiredResolution);
             this.canvas = canvas;
-            this.camera.NewFrame += new NewFrameEventHandler(camera_NewFrame);
+            setSingleCanvasEventHandler();
         }
 
         public Camera(int index, Size desiredResolution, ICollection<PictureBox> canvases)
         {
             initializeCamera(index, desiredResolution);
             this.canvases = canvases;
-            this.camera.NewFrame += new NewFrameEventHandler(multipleCanvas_NewFrame);
+            setMultipleCanvasEventHandler();
         }
 
         public static FilterInfoCollection CamerasConnected()
@@ -95,6 +96,10 @@ namespace UisSubsea.RovTopside.Data
             set
             {
                 this.canvas = value;
+
+                if (!handleEvents)
+                    setSingleCanvasEventHandler();
+
             }
         }
 
@@ -180,7 +185,7 @@ namespace UisSubsea.RovTopside.Data
             }
         }
 
-        private void camera_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        private void singleCanvas_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
             Bitmap nextFrame = (Bitmap)eventArgs.Frame.Clone();
 
@@ -205,7 +210,18 @@ namespace UisSubsea.RovTopside.Data
         {
             if (isRecording)
                 frameBuffer.Enqueue(frame);
-                //writeFrame(frame);
+        }
+
+        private void setSingleCanvasEventHandler()
+        {
+            handleEvents = true;
+            this.camera.NewFrame += new NewFrameEventHandler(singleCanvas_NewFrame);
+        }
+
+        private void setMultipleCanvasEventHandler()
+        {
+            handleEvents = true;
+            this.camera.NewFrame += new NewFrameEventHandler(multipleCanvas_NewFrame);
         }
 
         private void setNewFrame(PictureBox canvas, Bitmap frame)
