@@ -38,8 +38,8 @@ namespace UisSubsea.RovTopside.Data
         {
             initializeCamera(index, desiredResolution);
             writer = new VideoFileWriter();
-            this.canvas = canvas;
-            this.camera.NewFrame += new NewFrameEventHandler(multipleCamera_NewFrame);
+            this.canvases = canvases;
+            this.camera.NewFrame += new NewFrameEventHandler(multipleCanvas_NewFrame);
         }
 
         public static int NumberOfCamerasConnected()
@@ -139,6 +139,16 @@ namespace UisSubsea.RovTopside.Data
             camera.SetCameraProperty(CameraControlProperty.Focus, value, CameraControlFlags.Manual);
         }
 
+        public void AddCanvas(PictureBox canvas)
+        {
+            this.canvases.Add(canvas);
+        }
+
+        public Boolean RemoveCanvas(PictureBox canvas)
+        {
+            return this.canvases.Remove(canvas);
+        }
+
         private void initializeCamera(int index, Size desiredResolution)
         {
 
@@ -148,11 +158,10 @@ namespace UisSubsea.RovTopside.Data
             if (videosources != null)
             {
                 camera = new VideoCaptureDevice(videosources[index].MonikerString);
-                //videoSource.SetCameraProperty(CameraControlProperty.Focus, 0, CameraControlFlags.Auto);
 
                 try
                 {
-                    //Check if the video device provides a list of supported resolutions
+                    //Loop through the cameras supported resolutions
                     if (camera.VideoCapabilities.Length > 0)
                     {
                         //Search for desired resolution
@@ -175,9 +184,31 @@ namespace UisSubsea.RovTopside.Data
         {
             Bitmap nextFrame = (Bitmap)eventArgs.Frame.Clone();
 
-            if (isRecording)
-                writeFrame(nextFrame);
+            recordFrame(nextFrame);
 
+            setNewFrame(this.canvas, nextFrame);
+        }
+
+        private void multipleCanvas_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            Bitmap nextFrame = (Bitmap)eventArgs.Frame.Clone();
+
+            recordFrame(nextFrame);
+
+            foreach (PictureBox pb in this.canvases)
+            {
+                setNewFrame(pb, nextFrame);
+            }        
+        }
+
+        private void recordFrame(Bitmap frame)
+        {
+            if (isRecording)
+                writeFrame(frame);
+        }
+
+        private void setNewFrame(PictureBox canvas, Bitmap frame)
+        {
             if (canvas.Image != null)
             {
                 try
@@ -190,32 +221,7 @@ namespace UisSubsea.RovTopside.Data
                 catch (ObjectDisposedException) { }
 
             }
-            canvas.Image = nextFrame;
-        }
-
-        private void multipleCamera_NewFrame(object sender, NewFrameEventArgs eventArgs)
-        {
-            Bitmap nextFrame = (Bitmap)eventArgs.Frame.Clone();
-
-            if (isRecording)
-                writeFrame(nextFrame);
-
-            foreach (PictureBox pb in this.canvases)
-            {
-                if (pb.Image != null)
-                {
-                    try
-                    {
-                        if (pb.InvokeRequired)
-                        {
-                            pb.Invoke(new MethodInvoker(delegate() { pb.Image.Dispose(); }));
-                        }
-                    }
-                    catch (ObjectDisposedException) { }
-
-                }
-                pb.Image = nextFrame;
-            }        
+            canvas.Image = frame;
         }
 
         private void writeFrame(Bitmap frame)
