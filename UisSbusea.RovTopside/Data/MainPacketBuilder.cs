@@ -35,6 +35,9 @@ namespace UisSubsea.RovTopside.Data
 
         public override byte[] BuildJoystickStatePacket()
         {
+            if (joystick.Buttons()[9])
+                ToggleReverse();
+
             if (reverse)
             {
                 roll = TransformRollToOpposite();
