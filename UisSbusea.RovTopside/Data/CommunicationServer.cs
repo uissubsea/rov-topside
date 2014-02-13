@@ -50,37 +50,48 @@ namespace UisSubsea.RovTopside.Data
             waitForStartByte();
             bufferDataUntilStopByteReceived();
             invokePacketReceived();
-            clearBuffer();
+            clearInputBuffer();
         }
 
         private void sendJoystickState()
-        { 
-            List<byte> state = new List<byte>();
-
-            state.Add(Constants.StartByte);
-
-            foreach (byte b in stateStore.Main)
-                state.Add(b);
-            foreach (byte b in stateStore.ManipulatorLeft)
-                state.Add(b);
-            foreach (byte b in stateStore.ManipulatorRight)
-                state.Add(b);
-
-            state.Add(Constants.StopByte);
-
-            byte[] stateArray = state.ToArray();
-            port.Write(stateArray, 0, stateArray.Length);
-            
+        {
+            fillOutputBuffer();
+            sendJoystickStatePacket();
+            clearOutputBuffer();
         }
 
-        private void clearBuffer()
+        private void fillOutputBuffer()
+        {
+            outputBuffer.Add(Constants.StartByte);
+
+            foreach (byte b in stateStore.Main)
+                outputBuffer.Add(b);
+            foreach (byte b in stateStore.ManipulatorLeft)
+                outputBuffer.Add(b);
+            foreach (byte b in stateStore.ManipulatorRight)
+                outputBuffer.Add(b);
+
+            outputBuffer.Add(Constants.StopByte);
+        }
+
+        private void sendJoystickStatePacket()
+        {
+            byte[] stateArray = outputBuffer.ToArray();
+            port.Write(stateArray, 0, stateArray.Length);
+        }
+
+        private void clearInputBuffer()
         {
             inputBuffer.Clear();
         }
 
+        private void clearOutputBuffer()
+        {
+            outputBuffer.Clear();
+        }
+
         private void invokePacketReceived()
         {
-            //invoke packet received event with array of bytes as arg
             DataReceivedEventArgs args = new DataReceivedEventArgs();
             args.Data = inputBuffer.ToArray();
             OnRovStateReceived(args);
