@@ -19,20 +19,17 @@ namespace UisSubsea.RovTopside.Data
         private PictureBox canvas;
         private ICollection<PictureBox> canvases;
         private Boolean isRecording;
-        private VideoFileWriter writer;
         private Queue<Bitmap> frameBuffer;
         private Thread videoRecorder;
 
         public Camera(int index, Size desiredResolution)
         {
             initializeCamera(index, desiredResolution);
-            writer = new VideoFileWriter();
         }
 
         public Camera(int index, Size desiredResolution, PictureBox canvas)
         {
             initializeCamera(index, desiredResolution);
-            //writer = new VideoFileWriter();
             this.canvas = canvas;
             this.camera.NewFrame += new NewFrameEventHandler(camera_NewFrame);
         }
@@ -40,7 +37,6 @@ namespace UisSubsea.RovTopside.Data
         public Camera(int index, Size desiredResolution, ICollection<PictureBox> canvases)
         {
             initializeCamera(index, desiredResolution);
-            writer = new VideoFileWriter();
             this.canvases = canvases;
             this.camera.NewFrame += new NewFrameEventHandler(multipleCanvas_NewFrame);
         }
@@ -66,19 +62,6 @@ namespace UisSubsea.RovTopside.Data
                 frameBuffer = null;
                 videoRecorder.Abort();
             }
-            /*if (!isRecording)
-            {
-                string filepath = Environment.CurrentDirectory;
-                String name = Guid.NewGuid().ToString() + ".avi";
-                string filename = System.IO.Path.Combine(filepath, name);
-                writer.Open(filename, 1280, 720, 24, VideoCodec.MPEG2, 10000000);
-                isRecording = true;
-            }
-            else
-            {
-                isRecording = false;
-                writer.Close();
-            }*/
         }
 
         public void Snapshot()
@@ -241,20 +224,5 @@ namespace UisSubsea.RovTopside.Data
             }
             canvas.Image = frame;
         }
-
-        /*private void writeFrame(Bitmap frame)
-        {
-            if (writer.IsOpen)
-            {
-                try
-                {
-                    writer.WriteVideoFrame(frame);
-                }
-                catch (AccessViolationException)
-                {
-                    MessageBox.Show("Access violation!");
-                }
-            }
-        }*/
     }
 }
