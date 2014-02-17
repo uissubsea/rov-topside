@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UisSubsea.RovTopside", "UisSbusea.RovTopside\UisSubsea.RovTopside.csproj", "{D477D5A1-ED90-4CFD-A5E3-09B7B302B596}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UisSubsea.RovTopside", "UisSubsea.RovTopside\UisSubsea.RovTopside.csproj", "{D477D5A1-ED90-4CFD-A5E3-09B7B302B596}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UisSubsea.RovTopside.Tests", "UisSubsea.RovTopside.Tests\UisSubsea.RovTopside.Tests.csproj", "{0A5C883F-2178-4DEA-B379-B27C2BB5EFF2}"
 EndProject

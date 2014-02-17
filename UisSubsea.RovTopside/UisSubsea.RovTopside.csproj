@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>UisSubsea.RovTopside</RootNamespace>
-    <AssemblyName>UisSbusea.RovTopside</AssemblyName>
+    <AssemblyName>UisSubsea.RovTopside</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
