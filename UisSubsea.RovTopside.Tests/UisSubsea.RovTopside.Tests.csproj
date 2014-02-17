@@ -57,7 +57,7 @@
     <Compile Include="RovStateBuilderTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UisSbusea.RovTopside\UisSubsea.RovTopside.csproj">
+    <ProjectReference Include="..\UisSubsea.RovTopside\UisSubsea.RovTopside.csproj">
       <Project>{d477d5a1-ed90-4cfd-a5e3-09b7b302b596}</Project>
       <Name>UisSubsea.RovTopside</Name>
     </ProjectReference>

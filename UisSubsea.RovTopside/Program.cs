@@ -25,12 +25,9 @@ namespace UisSubsea.RovTopside
                 return;
             }     */
 
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new CoPilotView());
-            AForge.Video.DirectShow.FilterInfoCollection cameras = Camera.CamerasConnected();
-            for (int i = 0; i < cameras.Count; i++)
-                Console.WriteLine(cameras[i].MonikerString);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new CoPilotView());
         }
     }
 }
