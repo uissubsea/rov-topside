@@ -140,7 +140,7 @@ namespace UisSubsea.RovTopside.Presentation
 
             JoystickStateHolder stateStore = new JoystickStateHolder();
 
-            InterruptListener interruptListener = new InterruptListener(handle, mainpacketbuilder, stateStore);
+            JoystickStateListener interruptListener = new JoystickStateListener(handle, mainpacketbuilder, stateStore);
             interruptListener.JoystickStateChanged += JoystickState_Changed;
             listener = new Thread(interruptListener.Listen);
             listener.IsBackground = true;

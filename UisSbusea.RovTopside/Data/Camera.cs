@@ -154,6 +154,36 @@ namespace UisSubsea.RovTopside.Data
             return this.canvases.Remove(canvas);
         }
 
+        public Boolean SetResolution(Size desiredResolution)
+        {
+            Boolean desiredResolutionExists = false;
+
+            try
+            {
+                //Loop through the cameras supported resolutions
+                if (camera.VideoCapabilities.Length > 0)
+                {
+                    //Search for desired resolution
+                    for (int i = 0; i < camera.VideoCapabilities.Length; i++)
+                    {
+                        Size res = camera.VideoCapabilities[i].FrameSize;
+                        if (res.Width == desiredResolution.Width && res.Height == desiredResolution.Height)
+                        {
+                            camera.VideoResolution = camera.VideoCapabilities[i];
+                            desiredResolutionExists = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            catch 
+            {
+                return false;
+            }
+
+            return desiredResolutionExists;
+        }
+
         private void initializeCamera(int index, Size desiredResolution)
         {
 
@@ -163,25 +193,7 @@ namespace UisSubsea.RovTopside.Data
             if (videosources != null)
             {
                 camera = new VideoCaptureDevice(videosources[index].MonikerString);
-
-                try
-                {
-                    //Loop through the cameras supported resolutions
-                    if (camera.VideoCapabilities.Length > 0)
-                    {
-                        //Search for desired resolution
-                        for (int i = 0; i < camera.VideoCapabilities.Length; i++)
-                        {
-                            Size res = camera.VideoCapabilities[i].FrameSize;
-                            if (res.Width == desiredResolution.Width && res.Height == desiredResolution.Height)
-                            {
-                                camera.VideoResolution = camera.VideoCapabilities[i];
-                                break;
-                            }
-                        }
-                    }
-                }
-                catch { }
+                SetResolution(desiredResolution);
             }
         }
 

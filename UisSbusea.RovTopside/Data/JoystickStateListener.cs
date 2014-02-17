@@ -7,17 +7,19 @@ using System.Threading;
 
 namespace UisSubsea.RovTopside.Data
 {
-    public class InterruptListener
+    public class JoystickStateListener
     {
         private WaitHandle handle;
+        private Joystick joystick;
         private PacketBuilder packetBuilder;
         private JoystickStateHolder holder;
 
         public EventHandler JoystickStateChanged;
 
-        public InterruptListener(WaitHandle handle, PacketBuilder pb, JoystickStateHolder holder)
+        public JoystickStateListener(Joystick js, PacketBuilder pb, JoystickStateHolder holder)
         {
-            this.handle = handle;
+            this.joystick = js;
+            this.handle = js.WaitHandle;
             this.packetBuilder = pb;
             this.holder = holder;
         }
@@ -29,7 +31,7 @@ namespace UisSubsea.RovTopside.Data
                 handle.WaitOne();
                 //update state of joystick in joystick state class
                 byte[] packet = packetBuilder.BuildJoystickStatePacket();
-                switch(packetBuilder.Type)
+                switch(joystick.Type)
                 {
                     case (JoystickType.MainController):
                         holder.Main = packet;

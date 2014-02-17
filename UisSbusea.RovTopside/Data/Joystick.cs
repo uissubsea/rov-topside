@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SharpDX.DirectInput;
+using System.Threading;
 
 namespace UisSubsea.RovTopside.Data
 {
@@ -13,6 +14,7 @@ namespace UisSubsea.RovTopside.Data
         public SharpDX.DirectInput.Joystick joystick;
         private InputRange range;
         private static IList<DeviceInstance> gameControls;
+        private WaitHandle waitHandle;
 
         private JoystickType type;
 
@@ -65,10 +67,11 @@ namespace UisSubsea.RovTopside.Data
             joystick.Acquire();
         }
 
-        public void Acquire(System.Threading.WaitHandle handle)
+        public void Acquire(WaitHandle handle)
         {
             joystick.SetNotification(handle);
             joystick.Acquire();
+            this.waitHandle = handle;
         }
 
         public void Unacquire()
@@ -185,6 +188,14 @@ namespace UisSubsea.RovTopside.Data
             get
             {
                 return this.type;
+            }
+        }
+
+        public WaitHandle WaitHandle
+        {
+            get
+            {
+                return this.waitHandle;
             }
         }
     }

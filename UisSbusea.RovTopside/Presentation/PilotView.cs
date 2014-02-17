@@ -52,26 +52,36 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void PilotView_Load(object sender, EventArgs e)
         {
-            mainJoystick = JoystickFactory.getMainController(this.Handle);
-            System.Threading.WaitHandle handle = new System.Threading.AutoResetEvent(false);
-
-            mainJoystick.Acquire(handle);
-
-            mainPacketBuilder = new MainPacketBuilder(mainJoystick);
-
+            initializeMainJoystick();
             JoystickStateHolder stateStore = new JoystickStateHolder();
+            initializeMainJoystickStateListener(stateStore);
+            initializeCommunicationServer(stateStore);
+        }
 
-            InterruptListener interruptListener = new InterruptListener(handle, mainPacketBuilder, stateStore);
-            interruptListener.JoystickStateChanged += JoystickState_Changed;
-            Thread listener = new Thread(interruptListener.Listen);
-            listener.IsBackground = true;
-            listener.Start();
+        private void initializeMainJoystick()
+        {
+            WaitHandle handle = new AutoResetEvent(false);
+            mainJoystick = JoystickFactory.getMainController(this.Handle);
+            mainJoystick.Acquire(handle);
+        }
 
+        private void initializeCommunicationServer(JoystickStateHolder stateStore)
+        {
             CommunicationServer comServer = new CommunicationServer(stateStore);
             comServer.RovStateReceived += RovState_Received;
             Thread comThread = new Thread(comServer.Serve);
             comThread.IsBackground = true;
             comThread.Start();
+        } 
+
+        private void initializeMainJoystickStateListener(JoystickStateHolder stateStore)
+        {
+            mainPacketBuilder = new MainPacketBuilder(mainJoystick);         
+            JoystickStateListener interruptListener = new JoystickStateListener(mainJoystick, mainPacketBuilder, stateStore);
+            interruptListener.JoystickStateChanged += JoystickState_Changed;
+            Thread listener = new Thread(interruptListener.Listen);
+            listener.IsBackground = true;
+            listener.Start();      
         }
 
         private void JoystickState_Changed(object sender, EventArgs e)
