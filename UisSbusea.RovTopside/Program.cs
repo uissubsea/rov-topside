@@ -17,7 +17,7 @@ namespace UisSubsea.RovTopside
         [STAThread]
         static void Main()
         {
-            string[] ports = SerialPort.GetPortNames();
+            //string[] ports = SerialPort.GetPortNames();
            /* if (!ports.Contains("COM1") || Joystick.GetNumberOfJoysticks() == 0 
                 || Camera.CamerasConnected().Count < 1)
             {
@@ -25,9 +25,12 @@ namespace UisSubsea.RovTopside
                 return;
             }     */
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CoPilotView());
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new CoPilotView());
+            AForge.Video.DirectShow.FilterInfoCollection cameras = Camera.CamerasConnected();
+            for (int i = 0; i < cameras.Count; i++)
+                Console.WriteLine(cameras[i].MonikerString);
         }
     }
 }

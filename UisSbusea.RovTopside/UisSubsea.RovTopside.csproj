@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Camera.cs" />
+    <Compile Include="Data\CameraFactory.cs" />
     <Compile Include="Data\CommunicationServer.cs" />
     <Compile Include="Data\Constants.cs" />
     <Compile Include="Data\DataReceivedEventArgs.cs" />
