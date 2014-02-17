@@ -60,5 +60,14 @@ namespace UisSubsea.RovTopside.Data
          * ROV.
          * */
         public const int OutputBufferSize = JoystickStatePacketSize * NumberOfJoysticksNeeded;
+
+        /*
+         * These strings will be used to identify the cameras that
+         * are connected. Use these in camera factory to initialize 
+         * the correct cameras.
+         * */
+        public const string MicrosoftLifeCamMoniker = "vid_045e&pid_0772";
+        public const string LogitechC930eMoniker = "vid_046d&pid_0843";
+        public const string LogitechC920Moniker = "vid_046d&pid_082d";
     }
 }
