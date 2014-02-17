@@ -39,6 +39,7 @@ namespace UisSubsea.RovTopside.Data
          * The frame resolution we want our cameras to provide us with.
          * */
         public static Size DesiredResolution = new Size(1280, 720);
+        public static Size SmallCamView = new Size(640, 360);
 
         /**
          * One main controller to control the ROV

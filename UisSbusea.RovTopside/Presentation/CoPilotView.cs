@@ -33,8 +33,8 @@ namespace UisSubsea.RovTopside.Presentation
             this.FormClosing += Form1_FormClosing;
 
             //Set reselution on the camera
-            hd = new Size(1280, 720);
-            smallCamView = new Size(640, 360);
+            hd = Constants.DesiredResolution;
+            smallCamView = Constants.SmallCamView;
             camera1off = false;
             camera2off = false;
             camera3off = true;
@@ -132,8 +132,7 @@ namespace UisSubsea.RovTopside.Presentation
                  {
                      camera2.Start();
                      camera2off = false;
-                 }
-                    
+                 }               
 
                 if (pictureBox2.Visible == false)
                     pictureBox2.Visible = true;
