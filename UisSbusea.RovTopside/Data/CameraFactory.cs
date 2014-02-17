@@ -8,7 +8,7 @@ using AForge.Video.DirectShow;
 
 namespace UisSubsea.RovTopside.Data
 {
-    class CameraFactory
+    public class CameraFactory
     {
         private static Camera mainCamera;
         private static Camera manipulatorCamera;
