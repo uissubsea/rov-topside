@@ -8,34 +8,36 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UisSubsea.RovTopside.Data;
+using System.Diagnostics;
+using System.Threading;
 
 namespace UisSubsea.RovTopside.Presentation
 {
     public partial class CoPilotView : Form
     {
         private Camera camera1, camera2, camera3;
-        private Size hd;
-        private Size smallCamView;
+        private Size hd, smallCamView;
         private Boolean fullScreen;
         private System.Drawing.SolidBrush Brush;
         private int numberOfCamera;
-        private ICollection<PictureBox> canvas;
+        private ICollection<PictureBox> canvas; 
+        private Boolean camera1off, camera2off, camera3off;
         //If there is water leak in controllbox
         private Boolean leak;
-        private Boolean camera1off, camera2off;
-        private Boolean camera3off= true;
+      
 
         public CoPilotView()
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized; 
             this.FormClosing += Form1_FormClosing;
-            activateTimer();
+
             //Set reselution on the camera
             hd = new Size(1280, 720);
             smallCamView = new Size(640, 360);
             camera1off = false;
-            camera2off = false;           
+            camera2off = false;
+            camera3off = true;
 
             //Test
             canvas = new List<PictureBox>();
@@ -43,11 +45,7 @@ namespace UisSubsea.RovTopside.Presentation
             canvas.Add(pictureBox2);
           
         }
-        //Timer left in competition
-        public void activateTimer()
-        {
-            lblTimer.Text = "15:00";
-        }
+
         //Wil change color when there is a leak on the ROV. 
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -72,32 +70,25 @@ namespace UisSubsea.RovTopside.Presentation
            // camera.Start();
 
             numberOfCamera = Camera.CamerasConnected().Count;
-            if(numberOfCamera == 2)
+            if(numberOfCamera == 3)
             { 
                 camera1 = new Camera(0, hd, pictureBox1);
                 camera2 = new Camera(1, hd, pictureBox2);
                 camera1.Start();
                 camera2.Start();
             }
-            else if(numberOfCamera == 3)
-            {
-                camera1 = new Camera(0, hd, pictureBox1);
-                camera2 = new Camera(1, hd, pictureBox2);
-                camera1.Start();
-                camera2.Start();
-                
-            }
-           
+               
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //camera.Dispose();
-            if (camera1 != null || camera2 != null || camera3 != null)
-            {
-                camera1.Dispose();
+            if (camera1 != null)           
+                camera1.Dispose();     
+            
+            if (camera2 != null)            
                 camera2.Dispose();
-                camera3.Dispose();
-            }
+            
+            if (camera3 != null)
+                camera3.Dispose();            
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -137,7 +128,7 @@ namespace UisSubsea.RovTopside.Presentation
                      camera1.Start();
                     camera1off = false;
                  }
-                 else if (camera2off == true)
+                 if (camera2off == true)
                  {
                      camera2.Start();
                      camera2off = false;
@@ -150,15 +141,22 @@ namespace UisSubsea.RovTopside.Presentation
                 if (camera1.Canvas==pictureBox1)
                 {
                     camera1.Canvas = pictureBox2;
+                    setDesireResolution(camera1, smallCamView);
                     camera2.Canvas = pictureBox1;
+                    setDesireResolution(camera2,hd);
+               
                 }
                 else  if(camera1.Canvas==pictureBox2)
                 {
-                    camera1.Canvas = pictureBox1;
                     camera2.Canvas = pictureBox2;
+                    setDesireResolution(camera2, smallCamView);
+                    camera1.Canvas = pictureBox1;
+                    setDesireResolution(camera1, hd);
+                              
                 }
-        
+                   
             }
+            
             //Switch between one camera. 
             if (keyData == Keys.F2)
             {
@@ -178,7 +176,6 @@ namespace UisSubsea.RovTopside.Presentation
                  {
                      camera2.Start();
                      camera2off = false;
-
                  }
 
                     if (camera2.Canvas == pictureBox1)
@@ -196,8 +193,9 @@ namespace UisSubsea.RovTopside.Presentation
             }        
             if(keyData == Keys.F3)
             {
-                    if(camera3off== true)
-                    {
+                  if(camera3off== true)
+                    { 
+                        
                         if(camera1.Canvas == pictureBox1)
                         {
                             camera1.Stop();
@@ -208,18 +206,27 @@ namespace UisSubsea.RovTopside.Presentation
                             camera2.Stop();
                             camera2off = true;
                         }
+                        
                         camera3 = new Camera(2, hd, pictureBox1);
                         camera3.Start();
                         camera3off = false;
                         pictureBox2.Visible = false;
+                       
                     }              
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-        private void aGauge1_ValueInRangeChanged(object sender, ValueInRangeChangedEventArgs e)
+        public void setDesireResolution(Camera camera, Size Resolution)
         {
-
+            for (int i = 0; i < camera.Instance.VideoCapabilities.Length; i++)
+            {
+                Size res = camera.Instance.VideoCapabilities[i].FrameSize;
+                if (res.Width == Resolution.Width && res.Height == Resolution.Height)
+                    camera.Instance.VideoResolution = camera.Instance.VideoCapabilities[i];
+            }
+        }
+                  
         }
     }
-}
+
