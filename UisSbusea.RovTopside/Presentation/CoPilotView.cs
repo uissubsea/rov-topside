@@ -22,8 +22,7 @@ namespace UisSubsea.RovTopside.Presentation
         private ICollection<PictureBox> canvas;
         //If there is water leak in controllbox
         private Boolean leak;
-        private Boolean camera1off, camera2off;
-        private Boolean camera3off= true;
+        private Boolean camera1off, camera2off, camera3off;
 
         public CoPilotView()
         {
@@ -35,7 +34,8 @@ namespace UisSubsea.RovTopside.Presentation
             hd = new Size(1280, 720);
             smallCamView = new Size(640, 360);
             camera1off = false;
-            camera2off = false;           
+            camera2off = false;
+            camera3off = true;
 
             //Test
             canvas = new List<PictureBox>();
@@ -72,32 +72,25 @@ namespace UisSubsea.RovTopside.Presentation
            // camera.Start();
 
             numberOfCamera = Camera.CamerasConnected().Count;
-            if(numberOfCamera == 2)
+            if(numberOfCamera == 3)
             { 
                 camera1 = new Camera(0, hd, pictureBox1);
                 camera2 = new Camera(1, hd, pictureBox2);
                 camera1.Start();
                 camera2.Start();
             }
-            else if(numberOfCamera == 3)
-            {
-                camera1 = new Camera(0, hd, pictureBox1);
-                camera2 = new Camera(1, hd, pictureBox2);
-                camera1.Start();
-                camera2.Start();
-                
-            }
-           
+               
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //camera.Dispose();
-            if (camera1 != null || camera2 != null || camera3 != null)
-            {
-                camera1.Dispose();
+            if (camera1 != null)           
+                camera1.Dispose();     
+            
+            if (camera2 != null)            
                 camera2.Dispose();
-                camera3.Dispose();
-            }
+            
+            if (camera3 != null)
+                camera3.Dispose();            
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -137,7 +130,7 @@ namespace UisSubsea.RovTopside.Presentation
                      camera1.Start();
                     camera1off = false;
                  }
-                 else if (camera2off == true)
+                 if (camera2off == true)
                  {
                      camera2.Start();
                      camera2off = false;
@@ -178,7 +171,6 @@ namespace UisSubsea.RovTopside.Presentation
                  {
                      camera2.Start();
                      camera2off = false;
-
                  }
 
                     if (camera2.Canvas == pictureBox1)
@@ -196,8 +188,9 @@ namespace UisSubsea.RovTopside.Presentation
             }        
             if(keyData == Keys.F3)
             {
-                    if(camera3off== true)
-                    {
+                  if(camera3off== true)
+                    { 
+                        
                         if(camera1.Canvas == pictureBox1)
                         {
                             camera1.Stop();
@@ -208,10 +201,12 @@ namespace UisSubsea.RovTopside.Presentation
                             camera2.Stop();
                             camera2off = true;
                         }
+                        
                         camera3 = new Camera(2, hd, pictureBox1);
                         camera3.Start();
                         camera3off = false;
                         pictureBox2.Visible = false;
+                       
                     }              
             }
             return base.ProcessCmdKey(ref msg, keyData);
