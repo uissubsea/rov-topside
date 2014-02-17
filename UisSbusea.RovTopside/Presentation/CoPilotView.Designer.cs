@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.aGauge2 = new System.Windows.Forms.AGauge();
             this.aGauge1 = new System.Windows.Forms.AGauge();
             this.lblTimer = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -139,7 +141,6 @@
             this.aGauge1.TabIndex = 4;
             this.aGauge1.Text = "aGauge1";
             this.aGauge1.Value = 0F;
-            this.aGauge1.ValueInRangeChanged += new System.EventHandler<System.Windows.Forms.ValueInRangeChangedEventArgs>(this.aGauge1_ValueInRangeChanged);
             // 
             // lblTimer
             // 
@@ -151,6 +152,10 @@
             this.lblTimer.Size = new System.Drawing.Size(96, 25);
             this.lblTimer.TabIndex = 5;
             this.lblTimer.Text = "lblTimer";
+            // 
+            // timer1
+            // 
+     
             // 
             // CoPilotView
             // 
@@ -181,5 +186,6 @@
         private System.Windows.Forms.AGauge aGauge2;
         private System.Windows.Forms.AGauge aGauge1;
         private System.Windows.Forms.Label lblTimer;
+        private System.Windows.Forms.Timer timer1;
     }
 }
