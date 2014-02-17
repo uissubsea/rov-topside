@@ -186,11 +186,10 @@ namespace UisSubsea.RovTopside.Data
 
         private void initializeCamera(int index, Size desiredResolution)
         {
-
             FilterInfoCollection videosources = new FilterInfoCollection(FilterCategory.VideoInputDevice);
 
             //Check if atleast one video source is available
-            if (videosources != null)
+            if (videosources.Count > 0)
             {
                 camera = new VideoCaptureDevice(videosources[index].MonikerString);
                 SetResolution(desiredResolution);
@@ -210,7 +209,7 @@ namespace UisSubsea.RovTopside.Data
         {
             Bitmap nextFrame = (Bitmap)eventArgs.Frame.Clone();
 
-            recordFrame(nextFrame);
+            recordFrame((Bitmap)nextFrame.Clone());
 
             foreach (PictureBox pb in this.canvases)
             {
