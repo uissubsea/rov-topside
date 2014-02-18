@@ -14,7 +14,10 @@ namespace UisSubsea.RovTopside.Data
         private static Joystick mainController;
         private static Joystick manipulatorLeft;
         private static Joystick manipulatorRight;
+        
+
         private static IList<DeviceInstance> gameControls;
+        private static DirectInput directInput;
 
         public static Joystick getMainController(IntPtr windowHandle)
         {

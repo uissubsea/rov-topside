@@ -14,7 +14,7 @@ namespace UisSubsea.RovTopside.Presentation
 {
     public partial class PilotView : Form
     {
-        private Joystick mainJoystick, leftJoystick, RightJoystick;
+        private Joystick mainJoystick;
         private PacketBuilder mainPacketBuilder;
         private Font font;
         private Brush brush;
@@ -53,32 +53,16 @@ namespace UisSubsea.RovTopside.Presentation
         private void PilotView_Load(object sender, EventArgs e)
         {
             initializeMainJoystick();
-            //initializeLeftJoystick(); need more implementation
-            //inititalizeRightJoystick(); need more implementation
             JoystickStateHolder stateStore = new JoystickStateHolder();
             initializeMainJoystickStateListener(stateStore);
             initializeCommunicationServer(stateStore);
         }
-        //Main joystick for the pilot
+
         private void initializeMainJoystick()
         {
             WaitHandle handle = new AutoResetEvent(false);
             mainJoystick = JoystickFactory.getMainController(this.Handle);
             mainJoystick.Acquire(handle);
-        }
-        //Left joystick for the CoPilot
-        private void initializeLeftJoystick()
-        {
-            WaitHandle handle = new AutoResetEvent(false);
-            leftJoystick = JoystickFactory.getManipulatorLeft(this.Handle);
-            leftJoystick.Acquire(handle);
-        }
-        //Right joystick for the CoPilot
-        private void inititalizeRightJoystick()
-        {
-            WaitHandle handle = new AutoResetEvent(false);
-            RightJoystick = JoystickFactory.getManipulatorRight(this.Handle);
-            RightJoystick.Acquire(handle);
         }
 
         private void initializeCommunicationServer(JoystickStateHolder stateStore)
