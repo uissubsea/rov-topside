@@ -6,14 +6,15 @@ using System.Windows.Forms;
 using UisSubsea.RovTopside.Presentation;
 using System.IO.Ports;
 using UisSubsea.RovTopside.Data;
-
+using SharpDX.DirectInput;
+using AForge.Video.DirectShow;
 
 
 namespace UisSubsea.RovTopside
 {
     static class Program
     {
-        //private static IList<DeviceInstance> gameControls;
+        private static IList<DeviceInstance> gameControls;
 
         /// <summary>
         /// The main entry point for the application.
@@ -21,23 +22,33 @@ namespace UisSubsea.RovTopside
         [STAThread]
         static void Main()
         {
-            string[] ports = SerialPort.GetPortNames();
+            //string[] ports = SerialPort.GetPortNames();
            /* if (!ports.Contains("COM1") || Joystick.JoysticksAttached().Count == 0 
                 || Camera.CamerasConnected().Count < 1)
             {
                 MessageBox.Show("Make sure all neccessary devices are connected");
                 return;
-            }     
-            */
+            }     */
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new PilotView());
-            
-
-            
+             
+            //checkCam();
             
         }
-        /*private static void createJoystick()
+
+        private static void checkCam()
+        {
+            FilterInfoCollection connectedCameras = Camera.CamerasConnected();
+            for (int i = 0; i < connectedCameras.Count; i++)
+            {
+                String moniker = connectedCameras[i].MonikerString;
+                Console.WriteLine("Kamera " + i + " " + moniker);
+            }
+        }
+
+        private static void createJoystick()
         {
             DirectInput directInput = new DirectInput();
             Guid guid = Guid.Empty;
@@ -69,7 +80,7 @@ namespace UisSubsea.RovTopside
 
                     }
                             
-            }*/
+            }
 
     }
 }
