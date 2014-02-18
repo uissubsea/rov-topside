@@ -14,7 +14,7 @@ namespace UisSubsea.RovTopside.Data
         private static Camera manipulatorCamera;
         private static Camera rearCamera;
 
-        public Camera CreateMainCamera(PictureBox canvas)
+        public static Camera CreateMainCamera(PictureBox canvas)
         {
             if (CameraFactory.mainCamera != null)
                 return mainCamera;
@@ -23,7 +23,7 @@ namespace UisSubsea.RovTopside.Data
                     Constants.DesiredResolution, canvas);
         }
 
-        public Camera CreateManipulatorCamera(PictureBox canvas)
+        public static  Camera CreateManipulatorCamera(PictureBox canvas)
         {
             if (CameraFactory.manipulatorCamera != null)
                 return manipulatorCamera;
@@ -32,7 +32,7 @@ namespace UisSubsea.RovTopside.Data
                     Constants.DesiredResolution, canvas);
         }
 
-        public Camera CreateRearCamera(PictureBox canvas)
+        public static Camera CreateRearCamera(PictureBox canvas)
         {
             if (CameraFactory.rearCamera != null)
                 return rearCamera;
@@ -41,7 +41,7 @@ namespace UisSubsea.RovTopside.Data
                     Constants.DesiredResolution, canvas);
         }
 
-        private int getCameraIndex(String cameraMoniker)
+        private static  int getCameraIndex(String cameraMoniker)
         {
             FilterInfoCollection connectedCameras = Camera.CamerasConnected();
             for (int i = 0; i < connectedCameras.Count; i++)

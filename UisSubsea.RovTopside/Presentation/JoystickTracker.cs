@@ -105,6 +105,7 @@ namespace UisSubsea.RovTopside.Presentation
             if (joystick.Buttons()[9])
                 mainpacketbuilder.ToggleReverse();
 
+
             //Capture stick Position.
             roll = joystick.Roll();
             pitch = joystick.Pitch();

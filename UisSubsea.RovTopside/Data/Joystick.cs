@@ -15,14 +15,33 @@ namespace UisSubsea.RovTopside.Data
         private InputRange range;
         private static IList<DeviceInstance> gameControls;
         private WaitHandle waitHandle;
+        private static DirectInput directInput; 
 
         private JoystickType type;
+
+
 
         public Joystick(IntPtr windowHandle)
         {
             range = new InputRange(0, 250);
             type = JoystickType.MainController;
             createJoystick();
+            configureJoystick(windowHandle);
+        } 
+        
+        public Joystick(IntPtr windowHandle, int rangeFrom, int rangeTo)
+        {
+            range = new InputRange(rangeFrom, rangeTo);
+            type = JoystickType.MainController;
+            createJoystick();
+            configureJoystick(windowHandle);
+        }
+
+        public Joystick(IntPtr windowHandle, int index, JoystickType type)
+        {
+            range = new InputRange(0, 250);
+            this.type = type;
+            createJoystick(index);
             configureJoystick(windowHandle);
         }
 
@@ -33,13 +52,7 @@ namespace UisSubsea.RovTopside.Data
             configureJoystick(windowHandle);
         }
 
-        public Joystick(IntPtr windowHandle, int rangeFrom, int rangeTo)
-        {
-            range = new InputRange(rangeFrom, rangeTo);
-            type = JoystickType.MainController;
-            createJoystick();
-            configureJoystick(windowHandle);
-        }
+       
 
         public JoystickState State()
         {               
@@ -114,15 +127,15 @@ namespace UisSubsea.RovTopside.Data
 
         private void createJoystick()
         {
-            DirectInput directInput = new DirectInput();
+           // DirectInput directInput = new DirectInput();
             Guid guid = Guid.Empty;
 
             //Create joystick device.
             //This process is called Direct Input Device Enumeration
             //IList<DeviceInstance> 
-                gameControls = directInput.GetDevices(
-                DeviceClass.GameControl, DeviceEnumerationFlags.AttachedOnly);
-
+            //gameControls = directInput.GetDevices(
+             //   DeviceClass.GameControl, DeviceEnumerationFlags.AttachedOnly);
+            gameControls = JoysticksAttached();
             switch(this.type)
             {
                 case JoystickType.MainController:
@@ -149,6 +162,44 @@ namespace UisSubsea.RovTopside.Data
             }
 
         }
+
+        private void createJoystick(int index)
+        {
+            //DirectInput directInput = new DirectInput();
+           
+            //Create joystick device.
+            //This process is called Direct Input Device Enumeration
+            //IList<DeviceInstance> 
+            //gameControls = directInput.GetDevices(
+            //DeviceClass.GameControl, DeviceEnumerationFlags.AttachedOnly);      
+            
+            Guid guid = Guid.Empty;
+            gameControls = JoysticksAttached();
+            guid = gameControls[index].InstanceGuid;
+
+            if (guid != Guid.Empty)
+                joystick = new SharpDX.DirectInput.Joystick(directInput, guid);
+
+            if (joystick == null)
+            {
+                //Throw exception if joystick not found.
+                throw new Exception("No joystick found.");
+            }
+
+        }
+
+       public static IList<DeviceInstance> JoysticksAttached()
+        {
+            directInput = new DirectInput();
+            //Create joystick device.
+            //This process is called Direct Input Device Enumeration
+            //IList<DeviceInstance> 
+            gameControls = directInput.GetDevices(
+            DeviceClass.GameControl, DeviceEnumerationFlags.AttachedOnly);
+
+            return gameControls;
+        }
+
         public static int GetNumberOfJoysticks()
         {
             return new DirectInput().GetDevices(

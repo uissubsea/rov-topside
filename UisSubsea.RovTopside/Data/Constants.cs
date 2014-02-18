@@ -69,5 +69,15 @@ namespace UisSubsea.RovTopside.Data
         public const string MicrosoftLifeCamMoniker = "vid_045e&pid_0772";
         public const string LogitechC930eMoniker = "vid_046d&pid_0843";
         public const string LogitechC920Moniker = "vid_046d&pid_082d";
+        
+        /*
+         * These strings will be used to identify the joysticks that
+         * are connected. Use these in joystick factory to initialize
+         * the correct joysticks
+         * */
+        public const string LogitechExtreme3DProGuid = "8e25a690-8820";
+        public const string LogitechAttack3Guid = "a7625630-899c";
+        public const string thrustMasterGuid = "911883c0-87ff";
+
     }
 }
