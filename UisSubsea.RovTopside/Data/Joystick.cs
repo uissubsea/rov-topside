@@ -175,7 +175,7 @@ namespace UisSubsea.RovTopside.Data
             
             Guid guid = Guid.Empty;
             gameControls = JoysticksAttached();
-            guid = gameControls[index].InstanceGuid;
+            guid = gameControls[index].ProductGuid;
 
             if (guid != Guid.Empty)
                 joystick = new SharpDX.DirectInput.Joystick(directInput, guid);

@@ -54,10 +54,10 @@ namespace UisSubsea.RovTopside.Data
             gameControls = Joystick.JoysticksAttached();
             for (int i=0; i<gameControls.Count; i++)
             {
-                Guid guid = gameControls[i].InstanceGuid;
+                Guid guid = gameControls[i].ProductGuid;
                 string guidString = guid.ToString();
-                String instanceGuid = guidString.Substring(0, JoystickInstanceGuid.Length);
-                if (instanceGuid.Equals(JoystickInstanceGuid))
+                String productGuid = guidString.Substring(0, JoystickInstanceGuid.Length);
+                if (productGuid.Equals(JoystickInstanceGuid))
                     return i;
             }
             return -1;

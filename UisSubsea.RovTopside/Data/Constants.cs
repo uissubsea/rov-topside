@@ -75,9 +75,9 @@ namespace UisSubsea.RovTopside.Data
          * are connected. Use these in joystick factory to initialize
          * the correct joysticks
          * */
-        public const string LogitechExtreme3DProGuid = "8e25a690-8820";
-        public const string LogitechAttack3Guid = "a7625630-899c";
-        public const string thrustMasterGuid = "911883c0-87ff";
+        public const string LogitechExtreme3DProGuid = "c215046d";
+        public const string LogitechAttack3Guid = "c214046d";
+        public const string thrustMasterGuid = "b106044f";
 
     }
 }

@@ -6,14 +6,14 @@ using System.Windows.Forms;
 using UisSubsea.RovTopside.Presentation;
 using System.IO.Ports;
 using UisSubsea.RovTopside.Data;
-
+using SharpDX.DirectInput;
 
 
 namespace UisSubsea.RovTopside
 {
     static class Program
     {
-        //private static IList<DeviceInstance> gameControls;
+        private static IList<DeviceInstance> gameControls;
 
         /// <summary>
         /// The main entry point for the application.
@@ -35,9 +35,9 @@ namespace UisSubsea.RovTopside
             
 
             
-            
+            //createJoystick();
         }
-        /*private static void createJoystick()
+        private static void createJoystick()
         {
             DirectInput directInput = new DirectInput();
             Guid guid = Guid.Empty;
@@ -51,14 +51,14 @@ namespace UisSubsea.RovTopside
                     if (gameControls.Count >= 1)
                     {
                         guid = gameControls[0].InstanceGuid;
-                        Console.WriteLine("Joystick 1 verdi : " + gameControls[0].InstanceGuid);
+                        Console.WriteLine("Joystick 1 verdi : " + gameControls[0].ProductGuid);
 
                     }
                         
                     if (gameControls.Count >= 2)
                     { 
                         guid = gameControls[1].InstanceGuid;
-                    Console.WriteLine("Joystick 2 verdi : " + gameControls[1].InstanceGuid);
+                    Console.WriteLine("Joystick 2 verdi : " + gameControls[1].ProductGuid);
 
                     }
                        
@@ -69,7 +69,7 @@ namespace UisSubsea.RovTopside
 
                     }
                             
-            }*/
+            }
 
     }
 }
