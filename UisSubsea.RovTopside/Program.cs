@@ -52,21 +52,21 @@ namespace UisSubsea.RovTopside
 
                     if (gameControls.Count >= 1)
                     {
-                        guid = gameControls[0].InstanceGuid;
+                        guid = gameControls[0].ProductGuid;
                         Console.WriteLine("Joystick 1 verdi : " + gameControls[0].ProductGuid);
 
                     }
                         
                     if (gameControls.Count >= 2)
                     { 
-                        guid = gameControls[1].InstanceGuid;
+                        guid = gameControls[1].ProductGuid;
                     Console.WriteLine("Joystick 2 verdi : " + gameControls[1].ProductGuid);
 
                     }
                        
                     if (gameControls.Count >= 3)
                     { 
-                        guid = gameControls[2].InstanceGuid;
+                        guid = gameControls[2].ProductGuid;
                         Console.WriteLine("Joystick 3 verdi : " + gameControls[2].InstanceGuid);
 
                     }

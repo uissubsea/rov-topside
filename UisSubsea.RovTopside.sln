@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UisSubsea.RovTopside", "Uis
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UisSubsea.RovTopside.Tests", "UisSubsea.RovTopside.Tests\UisSubsea.RovTopside.Tests.csproj", "{0A5C883F-2178-4DEA-B379-B27C2BB5EFF2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UisSubsea.ShellDetector", "..\..\Visual Studio 2013\Projects\UisSubsea.ShellDetector\UisSubsea.ShellDetector\UisSubsea.ShellDetector.csproj", "{01CE2F0F-278E-4E0B-A587-AA742B1F1B3A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,16 @@ Global
 		{0A5C883F-2178-4DEA-B379-B27C2BB5EFF2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{0A5C883F-2178-4DEA-B379-B27C2BB5EFF2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{0A5C883F-2178-4DEA-B379-B27C2BB5EFF2}.Release|x86.ActiveCfg = Release|Any CPU
+		{01CE2F0F-278E-4E0B-A587-AA742B1F1B3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01CE2F0F-278E-4E0B-A587-AA742B1F1B3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01CE2F0F-278E-4E0B-A587-AA742B1F1B3A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{01CE2F0F-278E-4E0B-A587-AA742B1F1B3A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{01CE2F0F-278E-4E0B-A587-AA742B1F1B3A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{01CE2F0F-278E-4E0B-A587-AA742B1F1B3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01CE2F0F-278E-4E0B-A587-AA742B1F1B3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01CE2F0F-278E-4E0B-A587-AA742B1F1B3A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{01CE2F0F-278E-4E0B-A587-AA742B1F1B3A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{01CE2F0F-278E-4E0B-A587-AA742B1F1B3A}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
