@@ -43,9 +43,6 @@ namespace UisSubsea.RovTopside.Presentation
 
             //Test
             canvas = new List<PictureBox>();
-            //canvas.Add(pictureBox1);
-            //canvas.Add(pictureBox2);
-            //Pilot view
             pictureboxVideo = pb;
           
         }
@@ -70,9 +67,6 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void CoPilotView_Load(object sender, EventArgs e)
         {
-            //camera = new Camera(0, hd, canvas);
-           // camera.Start();
-
             numberOfCamera = Camera.CamerasConnected().Count;
             canvas.Add(pictureBox1);
             canvas.Add(pictureboxVideo);
