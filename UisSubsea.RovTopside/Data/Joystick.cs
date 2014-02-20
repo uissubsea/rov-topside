@@ -13,13 +13,8 @@ namespace UisSubsea.RovTopside.Data
 
         public SharpDX.DirectInput.Joystick joystick;
         private InputRange range;
-        private static IList<DeviceInstance> gameControls;
         private WaitHandle waitHandle;
-        private static DirectInput directInput; 
-
         private JoystickType type;
-
-
 
         public Joystick(IntPtr windowHandle)
         {
@@ -127,7 +122,7 @@ namespace UisSubsea.RovTopside.Data
 
         private void createJoystick()
         {
-           // DirectInput directInput = new DirectInput();
+            DirectInput directInput = new DirectInput();
             Guid guid = Guid.Empty;
 
             //Create joystick device.
@@ -137,7 +132,8 @@ namespace UisSubsea.RovTopside.Data
              //   DeviceClass.GameControl, DeviceEnumerationFlags.AttachedOnly);
             //Should use productguid instead of instanceguid. 
             //See createJoystick(int index) as an example
-            gameControls = JoysticksAttached();
+
+            IList<DeviceInstance> gameControls = JoysticksAttached();
             switch(this.type)
             {
                 case JoystickType.MainController:
@@ -167,7 +163,7 @@ namespace UisSubsea.RovTopside.Data
 
         private void createJoystick(int index)
         {
-            //DirectInput directInput = new DirectInput();
+            DirectInput directInput = new DirectInput();
            
             //Create joystick device.
             //This process is called Direct Input Device Enumeration
@@ -176,10 +172,8 @@ namespace UisSubsea.RovTopside.Data
             //DeviceClass.GameControl, DeviceEnumerationFlags.AttachedOnly);      
             
             Guid guid = Guid.Empty;
-            gameControls = JoysticksAttached();
             System.Diagnostics.Debug.WriteLine("createJoystickkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk " + index);
-            guid = gameControls[index].ProductGuid;
-            
+            guid = JoysticksAttached()[index].ProductGuid;
 
             if (guid != Guid.Empty)
                 joystick = new SharpDX.DirectInput.Joystick(directInput, guid);
@@ -194,14 +188,8 @@ namespace UisSubsea.RovTopside.Data
 
        public static IList<DeviceInstance> JoysticksAttached()
         {
-            directInput = new DirectInput();
-            //Create joystick device.
-            //This process is called Direct Input Device Enumeration
-            //IList<DeviceInstance> 
-            gameControls = directInput.GetDevices(
+            return new DirectInput().GetDevices(
             DeviceClass.GameControl, DeviceEnumerationFlags.AttachedOnly);
-
-            return gameControls;
         }
 
         public static int GetNumberOfJoysticks()
