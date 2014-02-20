@@ -23,6 +23,15 @@ namespace UisSubsea.RovTopside.Data
                     Constants.DesiredResolution, canvas);
         }
 
+        public static Camera CreateMainCamera(ICollection<PictureBox> canvas)
+        {
+            if (CameraFactory.mainCamera != null)
+                return mainCamera;
+            else return CameraFactory.mainCamera =
+                new Camera(getCameraIndex(Constants.LogitechC930eMoniker),
+                    Constants.DesiredResolution, canvas);
+        }
+
         public static  Camera CreateManipulatorCamera(PictureBox canvas)
         {
             if (CameraFactory.manipulatorCamera != null)

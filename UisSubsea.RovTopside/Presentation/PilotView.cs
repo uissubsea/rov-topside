@@ -15,7 +15,7 @@ namespace UisSubsea.RovTopside.Presentation
     public partial class PilotView : Form
     {
         private Joystick mainJoystick,leftJoystick, rightJoystick;
-        private PacketBuilder mainPacketBuilder;
+        private PacketBuilder mainPacketBuilder, leftPacketBuilder, rightPacketBuilder;
         private Font font;
         private Brush brush;
         private PointF pointRecordingText;
@@ -30,6 +30,7 @@ namespace UisSubsea.RovTopside.Presentation
         private int focus;
         private Boolean autofocus = true;
         private System.Diagnostics.Stopwatch stopwatch;
+        private CoPilotView copilotview;
 
         public PilotView()
         {
@@ -46,18 +47,27 @@ namespace UisSubsea.RovTopside.Presentation
 
             pictureBoxVideo.Paint += new PaintEventHandler(PaintOverlay);
 
-            camera = new Camera(1, new Size(1280, 720), pictureBoxVideo);
-            camera.Start();
+            //camera = CameraFactory.CreateMainCamera(pictureBoxVideo);//new Camera(1, new Size(1280, 720), pictureBoxVideo);
+            //camera.Start();
+        }
+        public PictureBox pilotPictureBox()
+        {
+            return pictureBoxVideo;
         }
 
         private void PilotView_Load(object sender, EventArgs e)
         {
             initializeMainJoystick();
-            //initializeLeftJoystick(); need more implementation
-            //inititalizeRightJoystick(); need more implementation
+            initializeLeftJoystick(); 
+            //inititalizeRightJoystick(); 
             JoystickStateHolder stateStore = new JoystickStateHolder();
             initializeMainJoystickStateListener(stateStore);
+            initializeLeftJoystickStateListener(stateStore);
             initializeCommunicationServer(stateStore);
+
+            //Initialize
+            copilotview = new CoPilotView(this.pictureBoxVideo);
+            copilotview.Show();
         }
         //Main joystick for the pilot
         private void initializeMainJoystick()
@@ -99,9 +109,20 @@ namespace UisSubsea.RovTopside.Presentation
             listener.IsBackground = true;
             listener.Start();      
         }
+        
+        private void initializeLeftJoystickStateListener(JoystickStateHolder statestore)
+        {
+            leftPacketBuilder = new ManipulatorLeftPacketBuilder(leftJoystick);
+            JoystickStateListener interruptListener = new JoystickStateListener(leftJoystick, leftPacketBuilder, statestore);
+            interruptListener.JoystickStateChanged += leftJoystickState_Changed;//Need more
+            Thread listener = new Thread(interruptListener.Listen);
+            listener.IsBackground = true;
+            listener.Start();
+        }
 
         private void JoystickState_Changed(object sender, EventArgs e)
         {
+
             if (mainJoystick != null)
             {
                 try
@@ -111,9 +132,9 @@ namespace UisSubsea.RovTopside.Presentation
                         if (!this.IsDisposed)
                         {
                             this.Invoke(new Action(() => toggleStopWatch()));
+                            //this.Invoke(new Action(() => changeCoPilotView()));
                             return;
                         }
-
                     }
                 }
                 catch (ObjectDisposedException)
@@ -122,7 +143,27 @@ namespace UisSubsea.RovTopside.Presentation
                 }
             }
         }
+        public void leftJoystickState_Changed(object sender, EventArgs e)
+            {
+                if(leftJoystick != null)
+                {
+                    System.Diagnostics.Debug.WriteLine("joystick er ikke null");
+                    try
+                    {
+                        if(InvokeRequired)
+                        {
+                            if(!this.IsDisposed)
+                            {
+                                this.Invoke(new Action(() => changeCoPilotView()));
+                                return;
+                            }
+                        }
+                    }
+                    catch (ObjectDisposedException) { }
+                }
 
+            }
+        
         private void toggleStopWatch()
         {
             if (mainJoystick.Buttons()[11])
@@ -132,6 +173,18 @@ namespace UisSubsea.RovTopside.Presentation
                 else
                     stopwatch.Start();
             }         
+        }
+
+        private void changeCoPilotView()
+        {
+            if(leftJoystick.Buttons()[8])
+                copilotview.changeToReversCam();
+            
+            else if(leftJoystick.Buttons()[9])
+                copilotview.changePrecisionView();
+            
+            else if(leftJoystick.Buttons()[10])           
+                copilotview.changeView();          
         }
 
         private void RovState_Received(object sender, DataReceivedEventArgs e)
@@ -180,6 +233,13 @@ namespace UisSubsea.RovTopside.Presentation
         {
             if (camera != null)
                 camera.Dispose();
+
+            try
+            {
+                copilotview.Close();
+            }
+            catch (Exception) {}
+           
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)

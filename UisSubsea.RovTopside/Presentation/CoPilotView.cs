@@ -24,9 +24,11 @@ namespace UisSubsea.RovTopside.Presentation
         private Boolean camera1off, camera2off, camera3off;
         //If there is water leak in controllbox
         private Boolean leak;
+        //Pilot
+        private PictureBox pictureboxVideo;
       
 
-        public CoPilotView()
+        public CoPilotView(PictureBox pb)
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized; 
@@ -41,8 +43,10 @@ namespace UisSubsea.RovTopside.Presentation
 
             //Test
             canvas = new List<PictureBox>();
-            canvas.Add(pictureBox1);
-            canvas.Add(pictureBox2);
+            //canvas.Add(pictureBox1);
+            //canvas.Add(pictureBox2);
+            //Pilot view
+            pictureboxVideo = pb;
           
         }
 
@@ -70,10 +74,13 @@ namespace UisSubsea.RovTopside.Presentation
            // camera.Start();
 
             numberOfCamera = Camera.CamerasConnected().Count;
+            canvas.Add(pictureBox1);
+            canvas.Add(pictureboxVideo);
+            
             if(numberOfCamera == 3)
-            { 
-                camera1 = new Camera(0, hd, pictureBox1);
-                camera2 = new Camera(1, hd, pictureBox2);
+            {
+                camera1 = CameraFactory.CreateMainCamera(canvas);//(pictureBox1);
+                camera2 = CameraFactory.CreateManipulatorCamera(pictureBox2);
                 camera1.Start();
                 camera2.Start();
             }
@@ -90,7 +97,121 @@ namespace UisSubsea.RovTopside.Presentation
             if (camera3 != null)
                 camera3.Dispose();            
         }
+        public void fullScreenView()
+        {
+            if (!fullScreen)
+            {
+                fullScreen = true;
+                this.WindowState = FormWindowState.Normal;
+                this.FormBorderStyle = FormBorderStyle.None;
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                fullScreen = false;
+                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
+        public void exitFullScreen()
+        {
+            this.Close();         
+        }
+        public void changePrecisionView()
+        {
+            if (camera3off == false)
+            {
+                camera3.Stop();
+                camera3off = true;
+            }
+            if (camera1off == true)
+            {
+                camera1.Start();
+                camera1off = false;
+            }
+            if (camera2off == true)
+            {
+                camera2.Start();
+                camera2off = false;
+            }
 
+            if (pictureBox2.Visible == false)
+                pictureBox2.Visible = true;
+
+            if (camera1.Canvas == pictureBox1)
+            {
+                camera1.Canvas = pictureBox2;
+                setDesireResolution(camera1, smallCamView);
+                camera2.Canvas = pictureBox1;
+                setDesireResolution(camera2, hd);
+
+            }
+            else if (camera1.Canvas == pictureBox2)
+            {
+                camera2.Canvas = pictureBox2;
+                setDesireResolution(camera2, smallCamView);
+                camera1.Canvas = pictureBox1;
+                setDesireResolution(camera1, hd);
+
+            }
+                   
+        }
+        public void changeView()
+        {
+            if (camera3off == false)
+            {
+                camera3.Stop();
+                camera3off = true;
+            }
+
+            if (camera1off == true)
+            {
+                camera1.Start();
+                camera1off = false;
+            }
+
+            if (camera2off == true)
+            {
+                camera2.Start();
+                camera2off = false;
+            }
+
+            if (camera2.Canvas == pictureBox1)
+            {
+                camera2.Canvas = pictureBox2;
+                camera1.Canvas = pictureBox1;
+                pictureBox2.Visible = false;
+            }
+            else
+            {
+                camera1.Canvas = pictureBox2;
+                camera2.Canvas = pictureBox1;
+                pictureBox2.Visible = false;
+            }         
+        }
+        public void changeToReversCam()
+        {
+            if (camera3off == true)
+            {
+
+                if (camera1.Canvas == pictureBox1)
+                {
+                    camera1.Stop();
+                    camera1off = true;
+                }
+                else if (camera2.Canvas == pictureBox1)
+                {
+                    camera2.Stop();
+                    camera2off = true;
+                }
+
+                camera3 = new Camera(2, hd, pictureBox1);
+                camera3.Start();
+                camera3off = false;
+                pictureBox2.Visible = false;
+
+            }             
+        }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == Keys.Escape)
@@ -205,8 +326,8 @@ namespace UisSubsea.RovTopside.Presentation
                             camera2.Stop();
                             camera2off = true;
                         }
-                        
-                        camera3 = new Camera(2, hd, pictureBox1);
+
+                        camera3 = CameraFactory.CreateRearCamera(pictureBox1);//new Camera(2, hd, pictureBox1);
                         camera3.Start();
                         camera3off = false;
                         pictureBox2.Visible = false;
@@ -215,7 +336,7 @@ namespace UisSubsea.RovTopside.Presentation
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
-
+        
         public void setDesireResolution(Camera camera, Size Resolution)
         {
             for (int i = 0; i < camera.Instance.VideoCapabilities.Length; i++)

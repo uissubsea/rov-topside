@@ -135,6 +135,8 @@ namespace UisSubsea.RovTopside.Data
             //IList<DeviceInstance> 
             //gameControls = directInput.GetDevices(
              //   DeviceClass.GameControl, DeviceEnumerationFlags.AttachedOnly);
+            //Should use productguid instead of instanceguid. 
+            //See createJoystick(int index) as an example
             gameControls = JoysticksAttached();
             switch(this.type)
             {
@@ -175,7 +177,9 @@ namespace UisSubsea.RovTopside.Data
             
             Guid guid = Guid.Empty;
             gameControls = JoysticksAttached();
+            System.Diagnostics.Debug.WriteLine("createJoystickkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk " + index);
             guid = gameControls[index].ProductGuid;
+            
 
             if (guid != Guid.Empty)
                 joystick = new SharpDX.DirectInput.Joystick(directInput, guid);

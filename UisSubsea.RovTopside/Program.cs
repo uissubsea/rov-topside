@@ -28,11 +28,13 @@ namespace UisSubsea.RovTopside
                 MessageBox.Show("Make sure all neccessary devices are connected");
                 return;
             }     
+           
             */
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new PilotView());
             
+           
 
             
             //createJoystick();
