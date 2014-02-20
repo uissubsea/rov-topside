@@ -30,6 +30,7 @@ namespace UisSubsea.RovTopside.Data
         public Camera(int index, Size desiredResolution, PictureBox canvas)
         {
             initializeCamera(index, desiredResolution);
+            this.canvases = new List<PictureBox>();
             this.canvases.Add(canvas);
         }
 

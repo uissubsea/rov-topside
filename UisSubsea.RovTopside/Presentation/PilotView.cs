@@ -47,8 +47,8 @@ namespace UisSubsea.RovTopside.Presentation
 
             pictureBoxVideo.Paint += new PaintEventHandler(PaintOverlay);
 
-            //camera = CameraFactory.CreateMainCamera(pictureBoxVideo);//new Camera(1, new Size(1280, 720), pictureBoxVideo);
-            //camera.Start();
+            camera = CameraFactory.CreateMainCamera(pictureBoxVideo);//new Camera(1, new Size(1280, 720), pictureBoxVideo);
+            camera.Start();
         }
         public PictureBox pilotPictureBox()
         {
@@ -66,7 +66,7 @@ namespace UisSubsea.RovTopside.Presentation
             initializeCommunicationServer(stateStore);
 
             //Initialize
-            copilotview = new CoPilotView(this.pictureBoxVideo);
+            copilotview = new CoPilotView();
             copilotview.Show();
         }
         //Main joystick for the pilot
@@ -177,14 +177,15 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void changeCoPilotView()
         {
-            if(leftJoystick.Buttons()[8])
-                copilotview.changeToReversCam();
+            //if(leftJoystick.Buttons()[8])
+             //   copilotview.changeToReversCam();
             
-            else if(leftJoystick.Buttons()[9])
+            //else 
+            if(leftJoystick.Buttons()[9])
                 copilotview.changePrecisionView();
             
-            else if(leftJoystick.Buttons()[10])           
-                copilotview.changeView();          
+           // else if(leftJoystick.Buttons()[10])           
+           //     copilotview.changeView();          
         }
 
         private void RovState_Received(object sender, DataReceivedEventArgs e)

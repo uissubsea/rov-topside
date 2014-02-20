@@ -24,11 +24,9 @@ namespace UisSubsea.RovTopside.Presentation
         private Boolean camera1off, camera2off, camera3off;
         //If there is water leak in controllbox
         private Boolean leak;
-        //Pilot
-        private PictureBox pictureboxVideo;
       
 
-        public CoPilotView(PictureBox pb)
+        public CoPilotView()
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized; 
@@ -40,10 +38,7 @@ namespace UisSubsea.RovTopside.Presentation
             camera1off = false;
             camera2off = false;
             camera3off = true;
-
-            //Test
-            canvas = new List<PictureBox>();
-            pictureboxVideo = pb;
+          
           
         }
 
@@ -68,12 +63,12 @@ namespace UisSubsea.RovTopside.Presentation
         private void CoPilotView_Load(object sender, EventArgs e)
         {
             numberOfCamera = Camera.CamerasConnected().Count;
-            canvas.Add(pictureBox1);
-            canvas.Add(pictureboxVideo);
+            //canvas.Add(pictureBox1);
+            //canvas.Add(pictureboxVideo);
             
             if(numberOfCamera == 3)
             {
-                camera1 = CameraFactory.CreateMainCamera(canvas);//(pictureBox1);
+                camera1 = CameraFactory.CreateMainCamera(pictureBox1);
                 camera2 = CameraFactory.CreateManipulatorCamera(pictureBox2);
                 camera1.Start();
                 camera2.Start();
@@ -132,6 +127,13 @@ namespace UisSubsea.RovTopside.Presentation
             if (pictureBox2.Visible == false)
                 pictureBox2.Visible = true;
 
+            if(camera1.CanvasesContains(pictureBox1))
+            {
+                camera1.RemoveCanvas(pictureBox1);
+                camera2.RemoveCanvas(pictureBox2);
+                camera1.AddCanvas(pictureBox2);
+                camera2.AddCanvas(pictureBox1);
+            }/*
             if (camera1.Canvas == pictureBox1)
             {
                 camera1.Canvas = pictureBox2;
@@ -139,7 +141,15 @@ namespace UisSubsea.RovTopside.Presentation
                 camera2.Canvas = pictureBox1;
                 setDesireResolution(camera2, hd);
 
-            }
+            }*/
+            else if(camera1.CanvasesContains(pictureBox2))
+            {
+                camera2.RemoveCanvas(pictureBox2);
+                camera1.RemoveCanvas(pictureBox1);
+                camera1.AddCanvas(pictureBox1);
+                camera2.AddCanvas(pictureBox2);
+                
+            }/*
             else if (camera1.Canvas == pictureBox2)
             {
                 camera2.Canvas = pictureBox2;
@@ -147,7 +157,7 @@ namespace UisSubsea.RovTopside.Presentation
                 camera1.Canvas = pictureBox1;
                 setDesireResolution(camera1, hd);
 
-            }
+            }*/
                    
         }
         public void changeView()
@@ -169,7 +179,8 @@ namespace UisSubsea.RovTopside.Presentation
                 camera2.Start();
                 camera2off = false;
             }
-
+        }
+            /*
             if (camera2.Canvas == pictureBox1)
             {
                 camera2.Canvas = pictureBox2;
@@ -330,7 +341,7 @@ namespace UisSubsea.RovTopside.Presentation
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
-        
+        */
         public void setDesireResolution(Camera camera, Size Resolution)
         {
             for (int i = 0; i < camera.Instance.VideoCapabilities.Length; i++)
