@@ -151,6 +151,11 @@ namespace UisSubsea.RovTopside.Data
             return this.canvases.Remove(canvas);
         }
 
+        public Boolean CanvasesContains(PictureBox canvas)
+        {
+            return canvases.Contains(canvas);
+        }
+
         public Boolean SetResolution(Size desiredResolution)
         {
             Boolean desiredResolutionExists = false;
