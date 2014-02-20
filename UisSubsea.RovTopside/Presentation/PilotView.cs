@@ -60,7 +60,7 @@ namespace UisSubsea.RovTopside.Presentation
             initializeMainJoystick();
             initializeLeftJoystick(); 
             //inititalizeRightJoystick(); 
-            JoystickStateHolder stateStore = new JoystickStateHolder();
+            JoystickStateStore stateStore = new JoystickStateStore();
             initializeMainJoystickStateListener(stateStore);
             initializeLeftJoystickStateListener(stateStore);
             initializeCommunicationServer(stateStore);
@@ -91,7 +91,7 @@ namespace UisSubsea.RovTopside.Presentation
             rightJoystick.Acquire(handle);
         }
 
-        private void initializeCommunicationServer(JoystickStateHolder stateStore)
+        private void initializeCommunicationServer(JoystickStateStore stateStore)
         {
             CommunicationServer comServer = new CommunicationServer(stateStore);
             comServer.RovStateReceived += RovState_Received;
@@ -100,7 +100,7 @@ namespace UisSubsea.RovTopside.Presentation
             comThread.Start();
         } 
 
-        private void initializeMainJoystickStateListener(JoystickStateHolder stateStore)
+        private void initializeMainJoystickStateListener(JoystickStateStore stateStore)
         {
             mainPacketBuilder = new MainPacketBuilder(mainJoystick);         
             JoystickStateListener interruptListener = new JoystickStateListener(mainJoystick, mainPacketBuilder, stateStore);
@@ -110,7 +110,7 @@ namespace UisSubsea.RovTopside.Presentation
             listener.Start();      
         }
         
-        private void initializeLeftJoystickStateListener(JoystickStateHolder statestore)
+        private void initializeLeftJoystickStateListener(JoystickStateStore statestore)
         {
             leftPacketBuilder = new ManipulatorLeftPacketBuilder(leftJoystick);
             JoystickStateListener interruptListener = new JoystickStateListener(leftJoystick, leftPacketBuilder, statestore);

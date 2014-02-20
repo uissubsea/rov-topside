@@ -15,9 +15,9 @@ namespace UisSubsea.RovTopside.Data
         private SerialPort port;
         private ICollection<byte> inputBuffer;
         private ICollection<byte> outputBuffer;
-        private JoystickStateHolder stateStore;
+        private JoystickStateStore stateStore;
 
-        public CommunicationServer(JoystickStateHolder stateStore)
+        public CommunicationServer(JoystickStateStore stateStore)
         {
             this.stateStore = stateStore;
             port = SerialPortSingleton.Instance;

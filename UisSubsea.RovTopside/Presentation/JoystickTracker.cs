@@ -139,7 +139,7 @@ namespace UisSubsea.RovTopside.Presentation
 
             mainpacketbuilder = new MainPacketBuilder(joystick);
 
-            JoystickStateHolder stateStore = new JoystickStateHolder();
+            JoystickStateStore stateStore = new JoystickStateStore();
 
             JoystickStateListener interruptListener = new JoystickStateListener(joystick, mainpacketbuilder, stateStore);
             interruptListener.JoystickStateChanged += JoystickState_Changed;

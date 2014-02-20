@@ -12,11 +12,11 @@ namespace UisSubsea.RovTopside.Data
         private WaitHandle handle;
         private Joystick joystick;
         private PacketBuilder packetBuilder;
-        private JoystickStateHolder holder;
+        private JoystickStateStore holder;
 
         public EventHandler JoystickStateChanged;
 
-        public JoystickStateListener(Joystick js, PacketBuilder pb, JoystickStateHolder holder)
+        public JoystickStateListener(Joystick js, PacketBuilder pb, JoystickStateStore holder)
         {
             this.joystick = js;
             this.handle = js.WaitHandle;
@@ -29,24 +29,12 @@ namespace UisSubsea.RovTopside.Data
             while(true)
             {
                 handle.WaitOne();
-                //update state of joystick in joystick state class
+               
                 byte[] packet = packetBuilder.BuildJoystickStatePacket();
+
+                holder.StoreState(packet, joystick.Type);
+
                 OnJoystickStateChanged(new EventArgs());
-                switch(joystick.Type)
-                {
-                    case (JoystickType.MainController):
-                        holder.Main = packet;
-                        OnJoystickStateChanged(new EventArgs());
-                        break;
-                    case (JoystickType.ManipulatorLeft):
-                        holder.ManipulatorLeft = packet;
-                        OnJoystickStateChanged(new EventArgs());
-                        break;
-                    case (JoystickType.ManipulatorRight):
-                        holder.ManipulatorRight = packet;
-                        OnJoystickStateChanged(new EventArgs());
-                        break;
-                }               
             }
         }
 

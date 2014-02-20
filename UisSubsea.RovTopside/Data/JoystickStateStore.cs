@@ -6,12 +6,19 @@ using System.Threading.Tasks;
 
 namespace UisSubsea.RovTopside.Data
 {
-    public class JoystickStateHolder
+    public class JoystickStateStore
     {
 
         private byte[] main = new byte[0];
         private byte[] manipulatorLeft = new byte[0];
         private byte[] manipulatorRight = new byte[0];
+
+        public JoystickStateStore()
+        {
+            main = new byte[0];
+            manipulatorLeft = new byte[0];
+            manipulatorRight = new byte[0];
+        }
 
         public byte[] Main
         {
@@ -46,6 +53,22 @@ namespace UisSubsea.RovTopside.Data
             set
             {
                 manipulatorRight = value;
+            }
+        }
+
+        public void StoreState(byte[] statePacket, JoystickType type)
+        {
+            switch(type)
+            {
+                case(JoystickType.MainController) : 
+                    Main = statePacket;
+                    break;
+                case (JoystickType.ManipulatorLeft) : 
+                    ManipulatorLeft = statePacket;
+                    break;
+                case (JoystickType.ManipulatorRight) :
+                    manipulatorRight = statePacket;
+                    break;
             }
         }
     }

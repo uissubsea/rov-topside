@@ -25,13 +25,15 @@ namespace UisSubsea.RovTopside.Data
         public Camera(int index, Size desiredResolution)
         {
             initializeCamera(index, desiredResolution);
+            canvases = new List<PictureBox>();
         }
 
         public Camera(int index, Size desiredResolution, PictureBox canvas)
         {
             initializeCamera(index, desiredResolution);
-            this.canvases = new List<PictureBox>();
-            this.canvases.Add(canvas);
+            canvases = new List<PictureBox>();
+            canvases.Add(canvas);
+            setEventHandler();
         }
 
         public Camera(int index, Size desiredResolution, ICollection<PictureBox> canvases)
@@ -134,7 +136,7 @@ namespace UisSubsea.RovTopside.Data
 
         public void AddCanvas(PictureBox canvas)
         {
-            this.canvases.Add(canvas);
+            canvases.Add(canvas);
 
             // Start handeling new frames if we are
             // not already doing
