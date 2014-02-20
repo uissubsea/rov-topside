@@ -31,6 +31,7 @@ namespace UisSubsea.RovTopside.Data
                 handle.WaitOne();
                 //update state of joystick in joystick state class
                 byte[] packet = packetBuilder.BuildJoystickStatePacket();
+                OnJoystickStateChanged(new EventArgs());
                 switch(joystick.Type)
                 {
                     case (JoystickType.MainController):
@@ -39,11 +40,13 @@ namespace UisSubsea.RovTopside.Data
                         break;
                     case (JoystickType.ManipulatorLeft):
                         holder.ManipulatorLeft = packet;
+                        OnJoystickStateChanged(new EventArgs());
                         break;
                     case (JoystickType.ManipulatorRight):
                         holder.ManipulatorRight = packet;
+                        OnJoystickStateChanged(new EventArgs());
                         break;
-                }                 
+                }               
             }
         }
 
