@@ -40,7 +40,6 @@
             this.pictureBoxVideo.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxVideo.Name = "pictureBoxVideo";
             this.pictureBoxVideo.Size = new System.Drawing.Size(1280, 720);
-            this.pictureBoxVideo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxVideo.TabIndex = 0;
             this.pictureBoxVideo.TabStop = false;
             // 

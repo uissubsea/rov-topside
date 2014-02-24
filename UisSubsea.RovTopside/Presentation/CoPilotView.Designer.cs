@@ -39,12 +39,12 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(-1, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(-4, -30);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1664, 1008);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.Size = new System.Drawing.Size(960, 720);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // aGauge2
             // 
@@ -54,7 +54,7 @@
             this.aGauge2.BaseArcSweep = 180;
             this.aGauge2.BaseArcWidth = 1;
             this.aGauge2.Center = new System.Drawing.Point(100, 100);
-            this.aGauge2.Location = new System.Drawing.Point(1675, 214);
+            this.aGauge2.Location = new System.Drawing.Point(1035, 214);
             this.aGauge2.MaxValue = 105F;
             this.aGauge2.MinValue = -75F;
             this.aGauge2.Name = "aGauge2";
@@ -97,7 +97,7 @@
             this.aGauge1.BaseArcSweep = 360;
             this.aGauge1.BaseArcWidth = 1;
             this.aGauge1.Center = new System.Drawing.Point(100, 100);
-            this.aGauge1.Location = new System.Drawing.Point(1675, 12);
+            this.aGauge1.Location = new System.Drawing.Point(1035, 12);
             this.aGauge1.MaxValue = 360F;
             this.aGauge1.MinValue = 0F;
             this.aGauge1.Name = "aGauge1";
@@ -136,7 +136,7 @@
             this.lblTimer.AutoSize = true;
             this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimer.ForeColor = System.Drawing.SystemColors.Info;
-            this.lblTimer.Location = new System.Drawing.Point(1738, 472);
+            this.lblTimer.Location = new System.Drawing.Point(1121, 449);
             this.lblTimer.Name = "lblTimer";
             this.lblTimer.Size = new System.Drawing.Size(96, 25);
             this.lblTimer.TabIndex = 5;
@@ -147,7 +147,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowText;
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.aGauge1);
             this.Controls.Add(this.aGauge2);

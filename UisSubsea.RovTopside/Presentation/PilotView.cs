@@ -44,6 +44,7 @@ namespace UisSubsea.RovTopside.Presentation
             stopwatch = new System.Diagnostics.Stopwatch();
 
             InitializeComponent();
+            copilotview = new CoPilotView();
 
             pictureBoxVideo.Paint += new PaintEventHandler(PaintOverlay);
 
@@ -296,6 +297,6 @@ namespace UisSubsea.RovTopside.Presentation
             }              
 
             return base.ProcessCmdKey(ref msg, keyData);
-        }
+        }      
     }
 }

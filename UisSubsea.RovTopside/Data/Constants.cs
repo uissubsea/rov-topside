@@ -40,7 +40,7 @@ namespace UisSubsea.RovTopside.Data
          * */
         public static Size DesiredResolution = new Size(1280, 720);
         public static Size SmallCamView = new Size(640, 360);
-        public static Size lowResolution = new Size(800, 600);
+        public static Size lowResolution = new Size(960, 720);
 
         /**
          * One main controller to control the ROV
