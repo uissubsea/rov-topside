@@ -51,7 +51,7 @@ namespace UisSubsea.RovTopside.Presentation
         private void CoPilotView_Load(object sender, EventArgs e)
         {
             camera1 = CameraFactory.CreateManipulatorCamera();
-            camera1.AddCanvas(pictureBox1);
+            camera1.Canvas = pictureBox1;
             camera1.Start();
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

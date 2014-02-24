@@ -48,7 +48,7 @@ namespace UisSubsea.RovTopside.Presentation
             pictureBoxVideo.Paint += new PaintEventHandler(PaintOverlay);
 
             camera = CameraFactory.CreateMainCamera();
-            camera.AddCanvas(pictureBoxVideo); 
+            camera.Canvas = pictureBoxVideo; 
             camera.Start();
         }
         public PictureBox pilotPictureBox()
@@ -67,8 +67,7 @@ namespace UisSubsea.RovTopside.Presentation
             initializeCommunicationServer(stateStore);
 
             //Initialize
-            copilotview = new CoPilotView();
-            copilotview.Show();
+            new Thread(() => {Application.Run(new CoPilotView()); }).Start();
         }
         //Main joystick for the pilot
         private void initializeMainJoystick()
