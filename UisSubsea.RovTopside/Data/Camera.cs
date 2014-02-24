@@ -181,7 +181,9 @@ namespace UisSubsea.RovTopside.Data
 
             recordFrame((Bitmap)nextFrame.Clone());
 
-            setNewFrame(canvas, nextFrame);
+            Bitmap fullHDFrame = ImageUtils.ResizeBitmap(nextFrame, 1.5f);
+
+            setNewFrame(canvas, fullHDFrame);
         }
 
         private void setNewFrame(PictureBox canvas, Bitmap frame)
