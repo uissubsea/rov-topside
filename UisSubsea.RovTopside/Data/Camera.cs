@@ -136,38 +136,6 @@ namespace UisSubsea.RovTopside.Data
             camera.SetCameraProperty(CameraControlProperty.Focus, value, CameraControlFlags.Manual);
         }
 
-
-        public void AddCanvas(PictureBox canvas)
-        {
-            lock(canvases)
-            {
-                canvases.Add(canvas);
-
-                // Start handeling new frames if we are
-                // not already doing
-                if (!handleEvents)
-                    setEventHandler();
-            }           
-        }
-
-        public Boolean RemoveCanvas(PictureBox canvas)
-        {
-            lock(canvases)
-            {
-                // Stop handeling new frames if we remove all
-                // canvases
-                if (canvases.Count == 1 && handleEvents)
-                    removeEventHandler();
-
-                return this.canvases.Remove(canvas);
-            }       
-        }
-
-        public Boolean CanvasesContains(PictureBox canvas)
-        {
-            return canvases.Contains(canvas);
-        }
-
         public Boolean SetResolution(Size desiredResolution)
         {
             Boolean desiredResolutionExists = false;
