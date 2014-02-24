@@ -14,40 +14,31 @@ namespace UisSubsea.RovTopside.Data
         private static Camera manipulatorCamera;
         private static Camera rearCamera;
 
-        public static Camera CreateMainCamera(PictureBox canvas)
+        public static Camera CreateMainCamera()
         {
             if (CameraFactory.mainCamera != null)
                 return mainCamera;
             else return CameraFactory.mainCamera = 
                 new Camera(getCameraIndex(Constants.LogitechC930eMoniker), 
-                    Constants.DesiredResolution, canvas);
+                    Constants.DesiredResolution);
         }
 
-        public static Camera CreateMainCamera(ICollection<PictureBox> canvas)
-        {
-            if (CameraFactory.mainCamera != null)
-                return mainCamera;
-            else return CameraFactory.mainCamera =
-                new Camera(getCameraIndex(Constants.LogitechC930eMoniker),
-                    Constants.DesiredResolution, canvas);
-        }
-
-        public static  Camera CreateManipulatorCamera(PictureBox canvas)
+        public static  Camera CreateManipulatorCamera()
         {
             if (CameraFactory.manipulatorCamera != null)
                 return manipulatorCamera;
             else return CameraFactory.manipulatorCamera = 
                 new Camera(getCameraIndex(Constants.LogitechC920Moniker), 
-                    Constants.DesiredResolution, canvas);
+                    Constants.DesiredResolution);
         }
 
-        public static Camera CreateRearCamera(PictureBox canvas)
+        public static Camera CreateRearCamera()
         {
             if (CameraFactory.rearCamera != null)
                 return rearCamera;
             else return CameraFactory.rearCamera = 
                 new Camera(getCameraIndex(Constants.MicrosoftLifeCamMoniker), 
-                    Constants.DesiredResolution, canvas);
+                    Constants.DesiredResolution);
         }
 
         private static  int getCameraIndex(String cameraMoniker)
