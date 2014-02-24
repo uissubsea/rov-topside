@@ -25,8 +25,7 @@ namespace UisSubsea.RovTopside.Presentation
         public CoPilotView()
         {
             InitializeComponent();
-            this.WindowState = FormWindowState.Maximized;
-            this.FormClosing += Form1_FormClosing;
+            fullScreenView();
 
         }
 
@@ -63,6 +62,17 @@ namespace UisSubsea.RovTopside.Presentation
         }
         public void fullScreenView()
         {
+            
+            
+           
+        }
+        public void exitFullScreen()
+        {
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
             if (!fullScreen)
             {
                 fullScreen = true;
@@ -76,17 +86,8 @@ namespace UisSubsea.RovTopside.Presentation
                 this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
                 this.WindowState = FormWindowState.Normal;
             }
-        }
-        public void exitFullScreen()
-        {
-            this.Close();
-        }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        }    
     }
 }
 

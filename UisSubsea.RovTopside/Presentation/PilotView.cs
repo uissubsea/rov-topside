@@ -250,6 +250,7 @@ namespace UisSubsea.RovTopside.Presentation
                     this.WindowState = FormWindowState.Normal;
                     this.FormBorderStyle = FormBorderStyle.None;
                     this.WindowState = FormWindowState.Maximized;
+
                 }
                 else
                 {
