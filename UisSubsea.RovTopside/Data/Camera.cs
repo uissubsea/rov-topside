@@ -134,6 +134,7 @@ namespace UisSubsea.RovTopside.Data
             camera.SetCameraProperty(CameraControlProperty.Focus, value, CameraControlFlags.Manual);
         }
 
+        [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.Synchronized)]
         public void AddCanvas(PictureBox canvas)
         {
             canvases.Add(canvas);
@@ -144,6 +145,7 @@ namespace UisSubsea.RovTopside.Data
                 setEventHandler();
         }
 
+        [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.Synchronized)]
         public Boolean RemoveCanvas(PictureBox canvas)
         {
             // Stop handeling new frames if we remove all
