@@ -110,7 +110,8 @@ namespace UisSubsea.RovTopside.Presentation
         {
             if (camera3off == false)
             {
-                camera3.Stop();
+                //camera3.Stop();
+                camera3.RemoveCanvas(pictureBox1);
                 camera3off = true;
             }         
 
@@ -134,12 +135,12 @@ namespace UisSubsea.RovTopside.Presentation
             }
             if (camera1off == true)
             {
-                camera1.Start();
+                //camera1.Start();
                 camera1off = false;
             }
             if (camera2off == true)
             {
-                camera2.Start();
+                //camera2.Start();
                 camera2off = false;
             }
             
@@ -149,7 +150,8 @@ namespace UisSubsea.RovTopside.Presentation
         {
             if (camera3off == false)
             {
-                camera3.Stop();
+                //camera3.Stop();
+                camera3.RemoveCanvas(pictureBox1);
                 camera3off = true;
             }
          
@@ -173,13 +175,13 @@ namespace UisSubsea.RovTopside.Presentation
             }          
             if (camera1off == true)
             {
-                camera1.Start();
+                //camera1.Start();
                 camera1off = false;
             }
 
             if (camera2off == true)
             {
-                camera2.Start();
+                //camera2.Start();
                 camera2off = false;
             }
         }
