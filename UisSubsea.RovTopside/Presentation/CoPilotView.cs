@@ -63,13 +63,13 @@ namespace UisSubsea.RovTopside.Presentation
         private void CoPilotView_Load(object sender, EventArgs e)
         {
             numberOfCamera = Camera.CamerasConnected().Count;
-            //canvas.Add(pictureBox1);
-            //canvas.Add(pictureboxVideo);
             
             if(numberOfCamera == 3)
             {
-                camera1 = CameraFactory.CreateMainCamera(pictureBox1);
-                camera2 = CameraFactory.CreateManipulatorCamera(pictureBox2);
+                camera1 = CameraFactory.CreateMainCamera();
+                camera1.AddCanvas(pictureBox1);
+                camera2 = CameraFactory.CreateManipulatorCamera();
+                camera2.AddCanvas(pictureBox2);
                 camera1.Start();
                 camera2.Start();
             }
@@ -179,18 +179,22 @@ namespace UisSubsea.RovTopside.Presentation
                 camera2.Start();
                 camera2off = false;
             }
-        }
-            /*
-            if (camera2.Canvas == pictureBox1)
+        
+           
+            if (camera2.CanvasesContains(pictureBox1))
             {
-                camera2.Canvas = pictureBox2;
-                camera1.Canvas = pictureBox1;
+                camera2.RemoveCanvas(pictureBox1);
+                camera1.RemoveCanvas(pictureBox2);
+                camera2.AddCanvas(pictureBox2);
+                camera1.AddCanvas(pictureBox1);              
                 pictureBox2.Visible = false;
             }
             else
             {
-                camera1.Canvas = pictureBox2;
-                camera2.Canvas = pictureBox1;
+                camera2.RemoveCanvas(pictureBox2);
+                camera1.RemoveCanvas(pictureBox1);
+                camera2.AddCanvas(pictureBox1);
+                camera1.AddCanvas(pictureBox2);
                 pictureBox2.Visible = false;
             }         
         }
@@ -199,25 +203,26 @@ namespace UisSubsea.RovTopside.Presentation
             if (camera3off == true)
             {
 
-                if (camera1.Canvas == pictureBox1)
+                if (camera1.CanvasesContains(pictureBox1))
                 {
                     camera1.Stop();
                     camera1off = true;
                 }
-                else if (camera2.Canvas == pictureBox1)
+                else if (camera2.CanvasesContains(pictureBox1))
                 {
                     camera2.Stop();
                     camera2off = true;
                 }
 
-                camera3 = new Camera(2, hd, pictureBox1);
+                camera3 = CameraFactory.CreateRearCamera();
+                camera3.AddCanvas(pictureBox1);
                 camera3.Start();
                 camera3off = false;
                 pictureBox2.Visible = false;
 
             }             
         }
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+       /* protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == Keys.Escape)
             {
