@@ -16,7 +16,7 @@ namespace UisSubsea.RovTopside.Data
     public class Camera : IDisposable
     {
         private VideoCaptureDevice camera;
-        private ICollection<PictureBox> canvases;
+        private PictureBox canvas;
         private Boolean isRecording;
         private Queue<Bitmap> frameBuffer;
         private Thread videoRecorder;
@@ -25,22 +25,28 @@ namespace UisSubsea.RovTopside.Data
         public Camera(int index, Size desiredResolution)
         {
             initializeCamera(index, desiredResolution);
-            canvases = new List<PictureBox>();
         }
 
         public Camera(int index, Size desiredResolution, PictureBox canvas)
         {
             initializeCamera(index, desiredResolution);
-            canvases = new List<PictureBox>();
-            canvases.Add(canvas);
+            this.canvas = canvas;
             setEventHandler();
         }
 
-        public Camera(int index, Size desiredResolution, ICollection<PictureBox> canvases)
+        public PictureBox Canvas
         {
-            initializeCamera(index, desiredResolution);
-            this.canvases = canvases;
-            setEventHandler();
+            get
+            {
+                return canvas;
+            }
+            set
+            {
+                lock(canvas)
+                {
+                    setCanvas(value);
+                }
+            }
         }
 
         public static FilterInfoCollection CamerasConnected()
@@ -70,15 +76,11 @@ namespace UisSubsea.RovTopside.Data
         {
             string filepath = Environment.CurrentDirectory;
 
-            foreach (PictureBox canvas in canvases)
-            {
-                Bitmap current = (Bitmap)canvas.Image.Clone();
-                String name = Guid.NewGuid().ToString() + ".jpg";
-                string filename = System.IO.Path.Combine(filepath, name);
-                current.Save(filename, ImageFormat.Jpeg);
-                current.Dispose();
-            }
-
+            Bitmap current = (Bitmap)canvas.Image.Clone();
+            String name = Guid.NewGuid().ToString() + ".jpg";
+            string filename = System.IO.Path.Combine(filepath, name);
+            current.Save(filename, ImageFormat.Jpeg);
+            current.Dispose();
         }
 
         public void Dispose()
@@ -134,43 +136,6 @@ namespace UisSubsea.RovTopside.Data
             camera.SetCameraProperty(CameraControlProperty.Focus, value, CameraControlFlags.Manual);
         }
 
-        public void AddCanvas(PictureBox canvas)
-        {
-            /* Lock on the canvas list to prevent modifying 
-            the list while it is used by the new frame
-            event handler*/
-            lock(canvases)
-            {
-                canvases.Add(canvas);
-
-                // Start handeling new frames if we are
-                // not already doing
-                if (!handleEvents)
-                    setEventHandler();
-            }           
-        }
-
-        public Boolean RemoveCanvas(PictureBox canvas)
-        {
-            /* Lock on the canvas list to prevent modifying 
-            the list while it is used by the new frame
-            event handler*/
-            lock(canvases)
-            {
-                // Stop handeling new frames if we remove all
-                // canvases
-                if (canvases.Count == 1 && handleEvents)
-                    removeEventHandler();
-
-                return this.canvases.Remove(canvas);
-            }       
-        }
-
-        public Boolean CanvasesContains(PictureBox canvas)
-        {
-            return canvases.Contains(canvas);
-        }
-
         public Boolean SetResolution(Size desiredResolution)
         {
             Boolean desiredResolutionExists = false;
@@ -219,26 +184,7 @@ namespace UisSubsea.RovTopside.Data
 
             recordFrame((Bitmap)nextFrame.Clone());
 
-            for (int i = 0; i < canvases.Count; i++)
-                setNewFrame(canvases.ElementAt(i), (Bitmap)nextFrame.Clone());
-        }
-
-        private void recordFrame(Bitmap frame)
-        {
-            if (isRecording)
-                frameBuffer.Enqueue(frame);
-        }
-
-        private void setEventHandler()
-        {
-            handleEvents = true;
-            this.camera.NewFrame += new NewFrameEventHandler(camera_NewFrame);
-        }
-
-        private void removeEventHandler()
-        {
-            handleEvents = false;
-            this.camera.NewFrame -= camera_NewFrame;
+            setNewFrame(canvas, nextFrame);
         }
 
         private void setNewFrame(PictureBox canvas, Bitmap frame)
@@ -260,6 +206,36 @@ namespace UisSubsea.RovTopside.Data
 
             }
             canvas.Image = frame;
+        }
+
+        private void recordFrame(Bitmap frame)
+        {
+            if (isRecording)
+                frameBuffer.Enqueue(frame);
+        }
+
+
+        private void setCanvas(PictureBox canvas)
+        {
+            if (handleEvents && canvas == null)
+                removeEventHandler();
+
+            this.canvas = canvas;
+            
+            if (!handleEvents)
+                setEventHandler();
+        }
+
+        private void setEventHandler()
+        {
+            handleEvents = true;
+            this.camera.NewFrame += new NewFrameEventHandler(camera_NewFrame);
+        }
+
+        private void removeEventHandler()
+        {
+            handleEvents = false;
+            this.camera.NewFrame -= camera_NewFrame;
         }
     }
 }
