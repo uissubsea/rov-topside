@@ -42,10 +42,7 @@ namespace UisSubsea.RovTopside.Data
             }
             set
             {
-                lock(canvas)
-                {
-                    setCanvas(value);
-                }
+                setCanvas(value);
             }
         }
 
