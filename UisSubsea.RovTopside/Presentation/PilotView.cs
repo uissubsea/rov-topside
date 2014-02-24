@@ -65,6 +65,10 @@ namespace UisSubsea.RovTopside.Presentation
             initializeMainJoystickStateListener(stateStore);
             initializeLeftJoystickStateListener(stateStore);
             initializeCommunicationServer(stateStore);
+
+            //Initialize
+            copilotview = new CoPilotView();
+            copilotview.Show();
         }
         //Main joystick for the pilot
         private void initializeMainJoystick()
