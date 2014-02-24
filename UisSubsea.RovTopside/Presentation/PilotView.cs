@@ -240,8 +240,7 @@ namespace UisSubsea.RovTopside.Presentation
             {
                 copilotview.Close();
             }
-            catch (Exception) {}
-           
+            catch (Exception) {}           
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
