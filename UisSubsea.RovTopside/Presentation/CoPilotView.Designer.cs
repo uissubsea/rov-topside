@@ -152,6 +152,7 @@
             this.Controls.Add(this.aGauge1);
             this.Controls.Add(this.aGauge2);
             this.Controls.Add(this.pictureBox1);
+            this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.SystemColors.WindowText;
             this.Name = "CoPilotView";
             this.Text = "CoPilotView";

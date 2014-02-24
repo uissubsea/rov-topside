@@ -51,6 +51,7 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.pictureBoxVideo);
+            this.DoubleBuffered = true;
             this.Name = "PilotView";
             this.Text = "ROV Pilot";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PilotView_FormClosed);
