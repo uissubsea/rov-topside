@@ -241,6 +241,10 @@ namespace UisSubsea.RovTopside.Data
                     {
                         canvas.Invoke(new MethodInvoker(delegate() { canvas.Image.Dispose(); }));
                     }
+                    else
+                    {
+                        canvas.Image.Dispose();
+                    }
                 }
                 catch (ObjectDisposedException) { }
 
