@@ -129,10 +129,11 @@ namespace UisSubsea.RovTopside.Presentation
 
             if(camera1.CanvasesContains(pictureBox1))
             {
-                camera1.RemoveCanvas(pictureBox1);
-                camera2.RemoveCanvas(pictureBox2);
                 camera1.AddCanvas(pictureBox2);
                 camera2.AddCanvas(pictureBox1);
+                camera1.RemoveCanvas(pictureBox1);
+                camera2.RemoveCanvas(pictureBox2);
+                
             }/*
             if (camera1.Canvas == pictureBox1)
             {
@@ -168,6 +169,27 @@ namespace UisSubsea.RovTopside.Presentation
                 camera3off = true;
             }
 
+           
+        
+           
+            if (camera2.CanvasesContains(pictureBox1))
+            {
+                camera2.AddCanvas(pictureBox2);
+                camera1.AddCanvas(pictureBox1);
+                camera2.RemoveCanvas(pictureBox1);
+                camera1.RemoveCanvas(pictureBox2);
+                              
+                pictureBox2.Visible = false;
+            }
+            else
+            {
+                camera2.AddCanvas(pictureBox1);
+                camera1.AddCanvas(pictureBox2);
+                camera2.RemoveCanvas(pictureBox2);
+                camera1.RemoveCanvas(pictureBox1);
+                
+                pictureBox2.Visible = false;
+            }          
             if (camera1off == true)
             {
                 camera1.Start();
@@ -179,24 +201,6 @@ namespace UisSubsea.RovTopside.Presentation
                 camera2.Start();
                 camera2off = false;
             }
-        
-           
-            if (camera2.CanvasesContains(pictureBox1))
-            {
-                camera2.RemoveCanvas(pictureBox1);
-                camera1.RemoveCanvas(pictureBox2);
-                camera2.AddCanvas(pictureBox2);
-                camera1.AddCanvas(pictureBox1);              
-                pictureBox2.Visible = false;
-            }
-            else
-            {
-                camera2.RemoveCanvas(pictureBox2);
-                camera1.RemoveCanvas(pictureBox1);
-                camera2.AddCanvas(pictureBox1);
-                camera1.AddCanvas(pictureBox2);
-                pictureBox2.Visible = false;
-            }         
         }
         public void changeToReversCam()
         {
