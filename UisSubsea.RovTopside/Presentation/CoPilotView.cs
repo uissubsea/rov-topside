@@ -87,7 +87,7 @@ namespace UisSubsea.RovTopside.Presentation
             
             if (camera3 != null)
                 camera3.Dispose();
-              s
+              
         }
         public void fullScreenView()
         {
