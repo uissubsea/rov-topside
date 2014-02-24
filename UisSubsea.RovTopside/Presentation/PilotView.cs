@@ -178,15 +178,15 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void changeCoPilotView()
         {
-            //if(leftJoystick.Buttons()[8])
-             //   copilotview.changeToReversCam();
+            if(leftJoystick.Buttons()[8])
+               copilotview.changeToReversCam();
             
-            //else 
+            else 
             if(leftJoystick.Buttons()[9])
                 copilotview.changePrecisionView();
             
-           // else if(leftJoystick.Buttons()[10])           
-           //     copilotview.changeView();          
+            else if(leftJoystick.Buttons()[10])           
+                copilotview.changeView();          
         }
 
         private void RovState_Received(object sender, DataReceivedEventArgs e)
