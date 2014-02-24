@@ -72,6 +72,8 @@ namespace UisSubsea.RovTopside.Presentation
                 camera2.AddCanvas(pictureBox2);
                 camera1.Start();
                 camera2.Start();
+                camera3 = CameraFactory.CreateRearCamera();
+                camera3.Start();
             }
                
         }
@@ -110,7 +112,6 @@ namespace UisSubsea.RovTopside.Presentation
         {
             if (camera3off == false)
             {
-                //camera3.Stop();
                 camera3.RemoveCanvas(pictureBox1);
                 camera3off = true;
             }         
@@ -135,12 +136,10 @@ namespace UisSubsea.RovTopside.Presentation
             }
             if (camera1off == true)
             {
-                //camera1.Start();
                 camera1off = false;
             }
             if (camera2off == true)
             {
-                //camera2.Start();
                 camera2off = false;
             }
             
@@ -149,8 +148,7 @@ namespace UisSubsea.RovTopside.Presentation
         public void changeView()
         {
             if (camera3off == false)
-            {
-                //camera3.Stop();
+            {           
                 camera3.RemoveCanvas(pictureBox1);
                 camera3off = true;
             }
@@ -174,14 +172,12 @@ namespace UisSubsea.RovTopside.Presentation
                 pictureBox2.Visible = false;
             }          
             if (camera1off == true)
-            {
-                //camera1.Start();
+            {         
                 camera1off = false;
             }
 
             if (camera2off == true)
             {
-                //camera2.Start();
                 camera2off = false;
             }
         }
@@ -192,20 +188,18 @@ namespace UisSubsea.RovTopside.Presentation
 
                 if (camera1.CanvasesContains(pictureBox1))
                 {
-                    //camera1.Stop();
                     camera1.RemoveCanvas(pictureBox1);
                     camera1off = true;
                 }
                 else if (camera2.CanvasesContains(pictureBox1))
                 {
                     camera2.CanvasesContains(pictureBox2);
-                    //camera2.Stop();
                     camera2off = true;
                 }
 
-                camera3 = CameraFactory.CreateRearCamera();
+                //camera3 = CameraFactory.CreateRearCamera();
                 camera3.AddCanvas(pictureBox1);
-                camera3.Start();
+                //camera3.Start();
                 camera3off = false;
                 pictureBox2.Visible = false;
 
