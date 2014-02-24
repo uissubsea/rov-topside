@@ -131,8 +131,8 @@ namespace UisSubsea.RovTopside.Presentation
         }
 
         private void JoystickTracker_Load(object sender, EventArgs e)
-        {         
-            joystick = JoystickFactory.getMainController(this.Handle);
+        {
+            joystick = new Joystick(this.Handle, 0, 250);
             System.Threading.WaitHandle handle = new System.Threading.AutoResetEvent(false);
 
             joystick.Acquire(handle);
