@@ -213,10 +213,8 @@ namespace UisSubsea.RovTopside.Data
 
             recordFrame((Bitmap)nextFrame.Clone());
 
-            foreach (PictureBox pb in canvases)
-            {
-                setNewFrame(pb, (Bitmap)nextFrame.Clone());
-            }
+            for (int i = 0; i < canvases.Count; i++)
+                setNewFrame(canvases.ElementAt(i), (Bitmap)nextFrame.Clone());
         }
 
         private void recordFrame(Bitmap frame)
