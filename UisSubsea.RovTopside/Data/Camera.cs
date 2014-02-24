@@ -136,9 +136,6 @@ namespace UisSubsea.RovTopside.Data
 
         public void AddCanvas(PictureBox canvas)
         {
-            /* Lock on the canvas list to prevent modifying 
-            the list while it is used by the new frame
-            event handler*/
             lock(canvases)
             {
                 canvases.Add(canvas);
@@ -152,9 +149,6 @@ namespace UisSubsea.RovTopside.Data
 
         public Boolean RemoveCanvas(PictureBox canvas)
         {
-            /* Lock on the canvas list to prevent modifying 
-            the list while it is used by the new frame
-            event handler*/
             lock(canvases)
             {
                 // Stop handeling new frames if we remove all

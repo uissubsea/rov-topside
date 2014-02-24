@@ -30,13 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.aGauge2 = new System.Windows.Forms.AGauge();
             this.aGauge1 = new System.Windows.Forms.AGauge();
             this.lblTimer = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -47,15 +45,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(1023, 648);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(640, 360);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
             // 
             // aGauge2
             // 
@@ -153,10 +142,6 @@
             this.lblTimer.TabIndex = 5;
             this.lblTimer.Text = "lblTimer";
             // 
-            // timer1
-            // 
-     
-            // 
             // CoPilotView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -166,14 +151,12 @@
             this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.aGauge1);
             this.Controls.Add(this.aGauge2);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.ForeColor = System.Drawing.SystemColors.WindowText;
             this.Name = "CoPilotView";
             this.Text = "CoPilotView";
             this.Load += new System.EventHandler(this.CoPilotView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,7 +165,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.AGauge aGauge2;
         private System.Windows.Forms.AGauge aGauge1;
         private System.Windows.Forms.Label lblTimer;
