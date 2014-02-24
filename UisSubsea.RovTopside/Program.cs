@@ -32,10 +32,7 @@ namespace UisSubsea.RovTopside
             */
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            new CoPilotView().Show();
-            new PilotView().Show();
-            Application.Run();
+            Application.Run(new PilotView());
             
            
 
