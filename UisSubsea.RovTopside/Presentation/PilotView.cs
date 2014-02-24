@@ -115,7 +115,7 @@ namespace UisSubsea.RovTopside.Presentation
         {
             leftPacketBuilder = new ManipulatorLeftPacketBuilder(leftJoystick);
             JoystickStateListener interruptListener = new JoystickStateListener(leftJoystick, leftPacketBuilder, statestore);
-            interruptListener.JoystickStateChanged += leftJoystickState_Changed;//Need more
+            interruptListener.JoystickStateChanged += leftJoystickState_Changed;
             Thread listener = new Thread(interruptListener.Listen);
             listener.IsBackground = true;
             listener.Start();

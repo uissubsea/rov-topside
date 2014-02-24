@@ -112,17 +112,7 @@ namespace UisSubsea.RovTopside.Presentation
             {
                 camera3.Stop();
                 camera3off = true;
-            }
-            if (camera1off == true)
-            {
-                camera1.Start();
-                camera1off = false;
-            }
-            if (camera2off == true)
-            {
-                camera2.Start();
-                camera2off = false;
-            }
+            }         
 
             if (pictureBox2.Visible == false)
                 pictureBox2.Visible = true;
@@ -134,31 +124,25 @@ namespace UisSubsea.RovTopside.Presentation
                 camera1.RemoveCanvas(pictureBox1);
                 camera2.RemoveCanvas(pictureBox2);
                 
-            }/*
-            if (camera1.Canvas == pictureBox1)
-            {
-                camera1.Canvas = pictureBox2;
-                setDesireResolution(camera1, smallCamView);
-                camera2.Canvas = pictureBox1;
-                setDesireResolution(camera2, hd);
-
-            }*/
+            }
             else if(camera1.CanvasesContains(pictureBox2))
             {
                 camera2.RemoveCanvas(pictureBox2);
                 camera1.RemoveCanvas(pictureBox1);
                 camera1.AddCanvas(pictureBox1);
-                camera2.AddCanvas(pictureBox2);
-                
-            }/*
-            else if (camera1.Canvas == pictureBox2)
+                camera2.AddCanvas(pictureBox2);               
+            }
+            if (camera1off == true)
             {
-                camera2.Canvas = pictureBox2;
-                setDesireResolution(camera2, smallCamView);
-                camera1.Canvas = pictureBox1;
-                setDesireResolution(camera1, hd);
-
-            }*/
+                camera1.Start();
+                camera1off = false;
+            }
+            if (camera2off == true)
+            {
+                camera2.Start();
+                camera2off = false;
+            }
+            
                    
         }
         public void changeView()
@@ -168,10 +152,7 @@ namespace UisSubsea.RovTopside.Presentation
                 camera3.Stop();
                 camera3off = true;
             }
-
-           
-        
-           
+         
             if (camera2.CanvasesContains(pictureBox1))
             {
                 camera2.AddCanvas(pictureBox2);
@@ -209,12 +190,14 @@ namespace UisSubsea.RovTopside.Presentation
 
                 if (camera1.CanvasesContains(pictureBox1))
                 {
-                    camera1.Stop();
+                    //camera1.Stop();
+                    camera1.RemoveCanvas(pictureBox1);
                     camera1off = true;
                 }
                 else if (camera2.CanvasesContains(pictureBox1))
                 {
-                    camera2.Stop();
+                    camera2.CanvasesContains(pictureBox2);
+                    //camera2.Stop();
                     camera2off = true;
                 }
 
