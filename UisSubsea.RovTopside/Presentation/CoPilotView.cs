@@ -86,7 +86,8 @@ namespace UisSubsea.RovTopside.Presentation
                 camera2.Dispose();
             
             if (camera3 != null)
-                camera3.Dispose();            
+                camera3.Dispose();
+              
         }
         public void fullScreenView()
         {
@@ -113,27 +114,12 @@ namespace UisSubsea.RovTopside.Presentation
             if (camera3off == false)
             {
                 camera3.RemoveCanvas(pictureBox1);
-                camera3off = true;
-            }         
-
-            if (pictureBox2.Visible == false)
-                pictureBox2.Visible = true;
-
-            if(camera1.CanvasesContains(pictureBox1))
-            {
-                camera1.AddCanvas(pictureBox2);
-                camera2.AddCanvas(pictureBox1);
-                camera1.RemoveCanvas(pictureBox1);
-                camera2.RemoveCanvas(pictureBox2);
-                
-            }
-            else if(camera1.CanvasesContains(pictureBox2))
-            {
-                camera2.RemoveCanvas(pictureBox2);
-                camera1.RemoveCanvas(pictureBox1);
+                //Need to set canvas after changing from reverse cam to multiple cam
                 camera1.AddCanvas(pictureBox1);
-                camera2.AddCanvas(pictureBox2);               
+                camera2.AddCanvas(pictureBox2);
+                camera3off = true;
             }
+ 
             if (camera1off == true)
             {
                 camera1off = false;
@@ -141,36 +127,37 @@ namespace UisSubsea.RovTopside.Presentation
             if (camera2off == true)
             {
                 camera2off = false;
+            }         
+
+            if (pictureBox2.Visible == false)
+                pictureBox2.Visible = true;
+
+            if(camera1.CanvasesContains(pictureBox1))
+            {               
+                camera1.RemoveCanvas(pictureBox1);
+                camera2.RemoveCanvas(pictureBox2);
+                camera1.AddCanvas(pictureBox2);
+                camera2.AddCanvas(pictureBox1);
+                
             }
-            
-                   
+            else if(camera1.CanvasesContains(pictureBox2))
+            {
+                camera2.RemoveCanvas(pictureBox1);
+                camera1.RemoveCanvas(pictureBox2);
+                camera1.AddCanvas(pictureBox1);
+                camera2.AddCanvas(pictureBox2);               
+            }                 
         }
+       
         public void changeView()
         {
             if (camera3off == false)
             {           
                 camera3.RemoveCanvas(pictureBox1);
-                camera3off = true;
-            }
-         
-            if (camera2.CanvasesContains(pictureBox1))
-            {
-                camera2.AddCanvas(pictureBox2);
                 camera1.AddCanvas(pictureBox1);
-                camera2.RemoveCanvas(pictureBox1);
-                camera1.RemoveCanvas(pictureBox2);
-                              
-                pictureBox2.Visible = false;
-            }
-            else
-            {
-                camera2.AddCanvas(pictureBox1);
-                camera1.AddCanvas(pictureBox2);
-                camera2.RemoveCanvas(pictureBox2);
-                camera1.RemoveCanvas(pictureBox1);
-                
-                pictureBox2.Visible = false;
-            }          
+                camera3off = true;
+            } 
+            
             if (camera1off == true)
             {         
                 camera1off = false;
@@ -180,6 +167,27 @@ namespace UisSubsea.RovTopside.Presentation
             {
                 camera2off = false;
             }
+         
+            if (camera2.CanvasesContains(pictureBox1))
+            {
+                
+                camera2.RemoveCanvas(pictureBox1);
+                camera1.RemoveCanvas(pictureBox2);
+                camera2.AddCanvas(pictureBox2);
+                camera1.AddCanvas(pictureBox1);
+                              
+                pictureBox2.Visible = false;
+            }
+            else
+            {
+                
+                camera2.RemoveCanvas(pictureBox2);
+                camera1.RemoveCanvas(pictureBox1);
+                camera2.AddCanvas(pictureBox1);
+                camera1.AddCanvas(pictureBox2);
+                
+                pictureBox2.Visible = false;
+            }                    
         }
         public void changeToReversCam()
         {
@@ -188,12 +196,22 @@ namespace UisSubsea.RovTopside.Presentation
 
                 if (camera1.CanvasesContains(pictureBox1))
                 {
-                    camera1.RemoveCanvas(pictureBox1);
+                    camera1.RemoveCanvas(pictureBox1);                  
                     camera1off = true;
                 }
                 else if (camera2.CanvasesContains(pictureBox1))
                 {
-                    camera2.CanvasesContains(pictureBox2);
+                    camera2.RemoveCanvas(pictureBox1);
+                    camera2off = true;
+                }
+                if(camera1.CanvasesContains(pictureBox2))
+                {
+                    camera1.RemoveCanvas(pictureBox2);
+                    camera1off = true;
+                }
+                else if (camera2.CanvasesContains(pictureBox2))
+                {
+                    camera2.RemoveCanvas(pictureBox2);
                     camera2off = true;
                 }
 
@@ -204,140 +222,6 @@ namespace UisSubsea.RovTopside.Presentation
                 pictureBox2.Visible = false;
 
             }             
-        }
-       /* protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            if (keyData == Keys.Escape)
-            {
-                this.Close();
-                return true;
-            }
-            //Fullscreen
-            else if (keyData == Keys.F11)
-            {
-                if (!fullScreen)
-                {
-                    fullScreen = true;
-                    this.WindowState = FormWindowState.Normal;
-                    this.FormBorderStyle = FormBorderStyle.None;
-                    this.WindowState = FormWindowState.Maximized;
-                }
-                else
-                {
-                    fullScreen = false;
-                    this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
-                    this.WindowState = FormWindowState.Normal;
-                }
-            }
-            //switch between which camera to show in picturebox1 and picturebox2
-            if (keyData == Keys.F1)
-            {
-                if (camera3off == false)
-                {
-                    camera3.Stop();
-                    camera3off = true;
-                }
-                 if (camera1off == true)
-                 {
-                     camera1.Start();
-                    camera1off = false;
-                 }
-                 if (camera2off == true)
-                 {
-                     camera2.Start();
-                     camera2off = false;
-                 }               
-
-                if (pictureBox2.Visible == false)
-                    pictureBox2.Visible = true;
-
-                if (camera1.Canvas==pictureBox1)
-                {
-                    camera1.Canvas = pictureBox2;
-                    setDesireResolution(camera1, smallCamView);
-                    camera2.Canvas = pictureBox1;
-                    setDesireResolution(camera2,hd);
-               
-                }
-                else  if(camera1.Canvas==pictureBox2)
-                {
-                    camera2.Canvas = pictureBox2;
-                    setDesireResolution(camera2, smallCamView);
-                    camera1.Canvas = pictureBox1;
-                    setDesireResolution(camera1, hd);
-                              
-                }
-                   
-            }
-            
-            //Switch between one camera. 
-            if (keyData == Keys.F2)
-            {
-                if(camera3off==false)
-                {                        
-                   camera3.Stop();
-                   camera3off = true;
-                }
-               
-                 if (camera1off == true)
-                 {
-                     camera1.Start();
-                     camera1off = false;
-                 }                
-
-                 if (camera2off == true)
-                 {
-                     camera2.Start();
-                     camera2off = false;
-                 }
-
-                    if (camera2.Canvas == pictureBox1)
-                    {
-                        camera2.Canvas = pictureBox2;
-                        camera1.Canvas = pictureBox1;
-                        pictureBox2.Visible = false;
-                    }
-                    else
-                    {
-                        camera1.Canvas = pictureBox2;
-                        camera2.Canvas = pictureBox1;
-                        pictureBox2.Visible = false;
-                    }                        
-            }        
-            if(keyData == Keys.F3)
-            {
-                  if(camera3off== true)
-                    { 
-                        
-                        if(camera1.Canvas == pictureBox1)
-                        {
-                            camera1.Stop();
-                            camera1off = true;
-                        }
-                        else if (camera2.Canvas == pictureBox1)
-                        {
-                            camera2.Stop();
-                            camera2off = true;
-                        }
-
-                        camera3 = CameraFactory.CreateRearCamera(pictureBox1);//new Camera(2, hd, pictureBox1);
-                        camera3.Start();
-                        camera3off = false;
-                        pictureBox2.Visible = false;
-                       
-                    }              
-            }
-            return base.ProcessCmdKey(ref msg, keyData);
-        }
-        */
-        public void setDesireResolution(Camera camera, Size Resolution)
-        {
-            for (int i = 0; i < camera.Instance.VideoCapabilities.Length; i++)
-            {
-                Size res = camera.Instance.VideoCapabilities[i].FrameSize;
-                if (res.Width == Resolution.Width && res.Height == Resolution.Height)
-                    camera.Instance.VideoResolution = camera.Instance.VideoCapabilities[i];
-            }
         }
                   
         }
