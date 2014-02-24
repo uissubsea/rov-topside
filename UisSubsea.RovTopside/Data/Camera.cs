@@ -50,8 +50,8 @@ namespace UisSubsea.RovTopside.Data
 
         public void ToggleRecording()
         {
-            if(!isRecording)
-            { 
+            if (!isRecording)
+            {
                 frameBuffer = new Queue<Bitmap>();
                 videoRecorder = new Thread(new VideoRecorder(frameBuffer).Record);
                 videoRecorder.Start();
@@ -78,7 +78,7 @@ namespace UisSubsea.RovTopside.Data
                 current.Save(filename, ImageFormat.Jpeg);
                 current.Dispose();
             }
-            
+
         }
 
         public void Dispose()
@@ -136,28 +136,22 @@ namespace UisSubsea.RovTopside.Data
 
         public void AddCanvas(PictureBox canvas)
         {
-            lock(canvases)
-            {
-                canvases.Add(canvas);
+            canvases.Add(canvas);
 
-                // Start handeling new frames if we are
-                // not already doing
-                if (!handleEvents)
-                    setEventHandler();
-            }       
+            // Start handeling new frames if we are
+            // not already doing
+            if (!handleEvents)
+                setEventHandler();
         }
 
         public Boolean RemoveCanvas(PictureBox canvas)
         {
-            lock(canvases)
-            {
-                // Stop handeling new frames if we remove all
-                // canvases
-                if (canvases.Count == 1 && handleEvents)
-                    removeEventHandler();
+            // Stop handeling new frames if we remove all
+            // canvases
+            if (canvases.Count == 1 && handleEvents)
+                removeEventHandler();
 
-                return this.canvases.Remove(canvas);
-            }     
+            return this.canvases.Remove(canvas);
         }
 
         public Boolean CanvasesContains(PictureBox canvas)
@@ -187,7 +181,7 @@ namespace UisSubsea.RovTopside.Data
                     }
                 }
             }
-            catch 
+            catch
             {
                 return false;
             }
@@ -213,13 +207,11 @@ namespace UisSubsea.RovTopside.Data
 
             recordFrame((Bitmap)nextFrame.Clone());
 
-            lock (canvases)
+            List<PictureBox> clone = new List<PictureBox>(canvases);
+            foreach (PictureBox pb in clone)
             {
-                foreach (PictureBox pb in this.canvases)
-                {
-                    setNewFrame(pb, (Bitmap)nextFrame.Clone());
-                }
-            }                
+                setNewFrame(pb, (Bitmap)nextFrame.Clone());
+            }
         }
 
         private void recordFrame(Bitmap frame)
