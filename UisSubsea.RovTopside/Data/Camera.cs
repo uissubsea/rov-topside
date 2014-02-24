@@ -136,22 +136,28 @@ namespace UisSubsea.RovTopside.Data
 
         public void AddCanvas(PictureBox canvas)
         {
-            canvases.Add(canvas);
+            lock(canvases)
+            {
+                canvases.Add(canvas);
 
-            // Start handeling new frames if we are
-            // not already doing
-            if (!handleEvents)
-                setEventHandler();
+                // Start handeling new frames if we are
+                // not already doing
+                if (!handleEvents)
+                    setEventHandler();
+            }           
         }
 
         public Boolean RemoveCanvas(PictureBox canvas)
         {
-            // Stop handeling new frames if we remove all
-            // canvases
-            if (canvases.Count == 1 && handleEvents)
-                removeEventHandler();
+            lock(canvases)
+            {
+                // Stop handeling new frames if we remove all
+                // canvases
+                if (canvases.Count == 1 && handleEvents)
+                    removeEventHandler();
 
-            return this.canvases.Remove(canvas);
+                return this.canvases.Remove(canvas);
+            }       
         }
 
         public Boolean CanvasesContains(PictureBox canvas)
@@ -207,8 +213,7 @@ namespace UisSubsea.RovTopside.Data
 
             recordFrame((Bitmap)nextFrame.Clone());
 
-            List<PictureBox> clone = new List<PictureBox>(canvases);
-            foreach (PictureBox pb in clone)
+            foreach (PictureBox pb in canvases)
             {
                 setNewFrame(pb, (Bitmap)nextFrame.Clone());
             }
