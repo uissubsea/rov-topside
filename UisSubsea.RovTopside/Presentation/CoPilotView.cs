@@ -223,16 +223,6 @@ namespace UisSubsea.RovTopside.Presentation
 
             }             
         }
-       
-        public void setDesireResolution(Camera camera, Size Resolution)
-        {
-            for (int i = 0; i < camera.Instance.VideoCapabilities.Length; i++)
-            {
-                Size res = camera.Instance.VideoCapabilities[i].FrameSize;
-                if (res.Width == Resolution.Width && res.Height == Resolution.Height)
-                    camera.Instance.VideoResolution = camera.Instance.VideoCapabilities[i];
-            }
-        }
                   
         }
     }
