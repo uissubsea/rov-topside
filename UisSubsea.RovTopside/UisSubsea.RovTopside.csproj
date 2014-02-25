@@ -93,6 +93,8 @@
     <Compile Include="Data\CommunicationServer.cs" />
     <Compile Include="Data\Constants.cs" />
     <Compile Include="Data\DataReceivedEventArgs.cs" />
+    <Compile Include="Logic\GaugeHandler.cs" />
+    <Compile Include="Logic\IGaugeHandler.cs" />
     <Compile Include="Data\IJoystick.cs" />
     <Compile Include="Data\JoystickStateListener.cs" />
     <Compile Include="Data\Joystick.cs" />
