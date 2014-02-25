@@ -93,6 +93,7 @@
     <Compile Include="Data\CommunicationServer.cs" />
     <Compile Include="Data\Constants.cs" />
     <Compile Include="Data\DataReceivedEventArgs.cs" />
+    <Compile Include="Logic\CoPilotViewHandler.cs" />
     <Compile Include="Data\IJoystick.cs" />
     <Compile Include="Data\JoystickStateListener.cs" />
     <Compile Include="Data\Joystick.cs" />
@@ -111,6 +112,7 @@
     <Compile Include="Data\VideoRecorder.cs" />
     <Compile Include="Logic\IRovStateHandler.cs" />
     <Compile Include="Logic\MainController.cs" />
+    <Compile Include="Logic\PilotViewHandler.cs" />
     <Compile Include="Logic\RovStateReceivedHandler.cs" />
     <Compile Include="Presentation\CoPilotView.cs">
       <SubType>Form</SubType>
