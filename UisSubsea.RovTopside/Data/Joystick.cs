@@ -172,7 +172,6 @@ namespace UisSubsea.RovTopside.Data
             //DeviceClass.GameControl, DeviceEnumerationFlags.AttachedOnly);      
             
             Guid guid = Guid.Empty;
-            System.Diagnostics.Debug.WriteLine("createJoystickkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk " + index);
             guid = JoysticksAttached()[index].ProductGuid;
 
             if (guid != Guid.Empty)
