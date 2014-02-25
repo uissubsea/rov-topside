@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UisSubsea.RovTopside.Logic
 {
-    interface CoPilotViewHandler
+    interface ICoPilotViewHandler
     {
         void SetHeading(int heading);
         void SetFrontCameraAngle(int angle);

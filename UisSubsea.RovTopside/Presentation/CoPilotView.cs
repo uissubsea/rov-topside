@@ -14,7 +14,7 @@ using UisSubsea.RovTopside.Logic;
 
 namespace UisSubsea.RovTopside.Presentation
 {
-    public partial class CoPilotView : Form, IRovStateHandler
+    public partial class CoPilotView : Form, ICoPilotViewHandler
     {
         private Camera camera1;
         private Boolean fullScreen;
