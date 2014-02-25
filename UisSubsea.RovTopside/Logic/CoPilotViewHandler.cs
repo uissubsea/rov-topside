@@ -8,5 +8,11 @@ namespace UisSubsea.RovTopside.Logic
 {
     interface CoPilotViewHandler
     {
+        void SetHeading(int heading);
+        void SetFrontCameraAngle(int angle);
+        void SetRearCameraAngle(int angle);
+        void SetDepth(double depth);
+        void SetLaserDistanceMeasured(double distance);
+        void setSensorState(bool sensorstate);
     }
 }

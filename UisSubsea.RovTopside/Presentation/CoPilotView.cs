@@ -26,7 +26,7 @@ namespace UisSubsea.RovTopside.Presentation
         public CoPilotView()
         {
             InitializeComponent();
-            frontCamGauge.Value = 45;    
+            SetDepth(12);           
         }
 
         //Wil change color when there is a leak on the ROV. 
@@ -41,7 +41,7 @@ namespace UisSubsea.RovTopside.Presentation
 
             System.Drawing.Graphics formGraphics;
             formGraphics = this.CreateGraphics();
-            formGraphics.FillRectangle(Brush, new Rectangle(1100, 550, 100, 30));
+            formGraphics.FillRectangle(Brush, new Rectangle(1075, 620, 100, 30));
             Brush.Dispose();
             formGraphics.Dispose();
         }
@@ -90,7 +90,29 @@ namespace UisSubsea.RovTopside.Presentation
         {
             rearCamGauge.Value = angle;
         }
-        
+        void SetDepth(double depth)
+        {
+            depthTrackBar1.Value =((int)depth * -1)/10;
+            lblTextDepth.Text = depth.ToString();
+        }
+        void SetLaserDistanceMeasured(double distance)
+        {
+            lblTextDistance.Text = distance.ToString();
+        }
+        void setSensorState(bool sensorstate)
+        {
+            if(sensorstate)
+            {
+                leak = false;
+                Invalidate();
+
+            }
+            else
+            {
+                leak = true;
+                Invalidate();
+            }
+        }      
 
     }
 }

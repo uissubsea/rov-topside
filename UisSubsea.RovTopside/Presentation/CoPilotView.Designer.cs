@@ -35,12 +35,17 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.rearCamGauge = new System.Windows.Forms.AGauge();
+            this.depthTrackBar1 = new System.Windows.Forms.TrackBar();
+            this.lblTextDepth = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblTextDistance = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.depthTrackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(-4, -30);
+            this.pictureBox1.Location = new System.Drawing.Point(-4, -29);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(960, 720);
             this.pictureBox1.TabIndex = 0;
@@ -55,7 +60,7 @@
             this.frontCamGauge.BaseArcWidth = 1;
             this.frontCamGauge.Center = new System.Drawing.Point(100, 100);
             this.frontCamGauge.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frontCamGauge.Location = new System.Drawing.Point(1076, 185);
+            this.frontCamGauge.Location = new System.Drawing.Point(1078, 217);
             this.frontCamGauge.MaxValue = 105F;
             this.frontCamGauge.MinValue = -75F;
             this.frontCamGauge.Name = "frontCamGauge";
@@ -99,7 +104,7 @@
             this.headingGauge.BaseArcWidth = 1;
             this.headingGauge.Center = new System.Drawing.Point(100, 100);
             this.headingGauge.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.headingGauge.Location = new System.Drawing.Point(1056, 12);
+            this.headingGauge.Location = new System.Drawing.Point(962, 13);
             this.headingGauge.MaxValue = 359F;
             this.headingGauge.MinValue = 0F;
             this.headingGauge.Name = "headingGauge";
@@ -154,7 +159,7 @@
             this.rearCamGauge.BaseArcSweep = 180;
             this.rearCamGauge.BaseArcWidth = 1;
             this.rearCamGauge.Center = new System.Drawing.Point(100, 100);
-            this.rearCamGauge.Location = new System.Drawing.Point(962, 185);
+            this.rearCamGauge.Location = new System.Drawing.Point(962, 217);
             this.rearCamGauge.MaxValue = 30F;
             this.rearCamGauge.MinValue = -150F;
             this.rearCamGauge.Name = "rearCamGauge";
@@ -188,12 +193,64 @@
             this.rearCamGauge.Text = "RearCam";
             this.rearCamGauge.Value = 0F;
             // 
+            // depthTrackBar1
+            // 
+            this.depthTrackBar1.Enabled = false;
+            this.depthTrackBar1.Location = new System.Drawing.Point(1207, 49);
+            this.depthTrackBar1.Maximum = 0;
+            this.depthTrackBar1.Minimum = -60;
+            this.depthTrackBar1.Name = "depthTrackBar1";
+            this.depthTrackBar1.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.depthTrackBar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.depthTrackBar1.Size = new System.Drawing.Size(45, 162);
+            this.depthTrackBar1.SmallChange = 0;
+            this.depthTrackBar1.TabIndex = 0;
+            this.depthTrackBar1.TickFrequency = 0;
+            this.depthTrackBar1.TickStyle = System.Windows.Forms.TickStyle.Both;
+            // 
+            // lblTextDepth
+            // 
+            this.lblTextDepth.AutoSize = true;
+            this.lblTextDepth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextDepth.ForeColor = System.Drawing.Color.Red;
+            this.lblTextDepth.Location = new System.Drawing.Point(1208, 30);
+            this.lblTextDepth.Name = "lblTextDepth";
+            this.lblTextDepth.Size = new System.Drawing.Size(44, 16);
+            this.lblTextDepth.TabIndex = 9;
+            this.lblTextDepth.Text = "Depth";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(1163, 435);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 16);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Distance:";
+            // 
+            // lblTextDistance
+            // 
+            this.lblTextDistance.AutoSize = true;
+            this.lblTextDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextDistance.ForeColor = System.Drawing.Color.Red;
+            this.lblTextDistance.Location = new System.Drawing.Point(1233, 435);
+            this.lblTextDistance.Name = "lblTextDistance";
+            this.lblTextDistance.Size = new System.Drawing.Size(15, 16);
+            this.lblTextDistance.TabIndex = 11;
+            this.lblTextDistance.Text = "0";
+            // 
             // CoPilotView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowText;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.lblTextDistance);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTextDepth);
+            this.Controls.Add(this.depthTrackBar1);
             this.Controls.Add(this.rearCamGauge);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.headingGauge);
@@ -205,7 +262,9 @@
             this.Text = "CoPilotView";
             this.Load += new System.EventHandler(this.CoPilotView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.depthTrackBar1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -217,5 +276,9 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.AGauge rearCamGauge;
+        private System.Windows.Forms.TrackBar depthTrackBar1;
+        private System.Windows.Forms.Label lblTextDepth;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTextDistance;
     }
 }
