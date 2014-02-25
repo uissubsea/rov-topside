@@ -99,7 +99,7 @@
             this.aGauge1.BaseArcWidth = 1;
             this.aGauge1.Center = new System.Drawing.Point(100, 100);
             this.aGauge1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aGauge1.Location = new System.Drawing.Point(1071, 3);
+            this.aGauge1.Location = new System.Drawing.Point(1056, 12);
             this.aGauge1.MaxValue = 359F;
             this.aGauge1.MinValue = 0F;
             this.aGauge1.Name = "aGauge1";
