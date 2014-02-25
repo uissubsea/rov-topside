@@ -10,10 +10,11 @@ using System.Windows.Forms;
 using UisSubsea.RovTopside.Data;
 using System.Diagnostics;
 using System.Threading;
+using UisSubsea.RovTopside.Logic;
 
 namespace UisSubsea.RovTopside.Presentation
 {
-    public partial class CoPilotView : Form, IGaugeHandler
+    public partial class CoPilotView : Form, IRovStateHandler
     {
         private Camera camera1;
         private Boolean fullScreen;
@@ -25,7 +26,7 @@ namespace UisSubsea.RovTopside.Presentation
         public CoPilotView()
         {
             InitializeComponent();
-            aGauge2.Value = 45;    
+            frontCamGauge.Value = 45;    
         }
 
         //Wil change color when there is a leak on the ROV. 
@@ -76,14 +77,18 @@ namespace UisSubsea.RovTopside.Presentation
             }
 
         }
-        public void heading(int heading)
+
+        public void SetHeading(int heading)
         {
-            aGauge1.Value = heading;
-            aGauge1.Scale(new SizeF(new PointF(0,5f)));
+            headingGauge.Value = heading;
         }
-        public void cameraTilt(int tilt)
+        public void SetFrontCameraAngle(int angle)
+        { 
+            frontCamGauge.Value = angle;
+        }
+        public void SetRearCameraAngle(int angle)
         {
-            aGauge2.Value = tilt;
+            rearCamGauge.Value = angle;
         }
         
 
