@@ -14,9 +14,9 @@ using UisSubsea.RovTopside.Logic;
 
 namespace UisSubsea.RovTopside.Presentation
 {
-    public partial class CoPilotView : Form, IRovStateHandler
+    public partial class CoPilotView : Form, ICoPilotViewHandler
     {
-        private Camera camera1;
+        private Camera camera;
         private Boolean fullScreen;
         private System.Drawing.SolidBrush Brush;
         //If there is water leak in controllbox
@@ -26,7 +26,7 @@ namespace UisSubsea.RovTopside.Presentation
         public CoPilotView()
         {
             InitializeComponent();
-            frontCamGauge.Value = 45;    
+            SetDepth(12);           
         }
 
         //Wil change color when there is a leak on the ROV. 
@@ -41,22 +41,22 @@ namespace UisSubsea.RovTopside.Presentation
 
             System.Drawing.Graphics formGraphics;
             formGraphics = this.CreateGraphics();
-            formGraphics.FillRectangle(Brush, new Rectangle(1100, 550, 100, 30));
+            formGraphics.FillRectangle(Brush, new Rectangle(1075, 620, 100, 30));
             Brush.Dispose();
             formGraphics.Dispose();
         }
 
         private void CoPilotView_Load(object sender, EventArgs e)
         {
-            camera1 = CameraFactory.CreateManipulatorCamera();
-            camera1.Canvas = pictureBox1;
-            camera1.Start();
+            camera = CameraFactory.CreateManipulatorCamera();
+            camera.Canvas = videoPictureBox;
+            camera.Start();
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (camera1 != null)
+            if (camera != null)
             {
-                camera1.Stop();
+                camera.Stop();
             }
         }
 
@@ -77,7 +77,7 @@ namespace UisSubsea.RovTopside.Presentation
             }
 
         }
-
+        //UI updates
         public void SetHeading(int heading)
         {
             headingGauge.Value = heading;
@@ -90,7 +90,37 @@ namespace UisSubsea.RovTopside.Presentation
         {
             rearCamGauge.Value = angle;
         }
-        
+        void SetDepth(double depth)
+        {
+            depthTrackBar1.Value =((int)depth * -1)/10;
+            lblTextDepth.Text = depth.ToString();
+        }
+        void SetLaserDistanceMeasured(double distance)
+        {
+            lblTextDistance.Text = distance.ToString();
+        }
+        void setSensorState(bool sensorstate)
+        {
+            if(sensorstate)
+            {
+                leak = false;
+                Invalidate();
+
+            }
+            else
+            {
+                leak = true;
+                Invalidate();
+            }
+        }
+        //Get called from CamController
+        public void setCamera(Camera camera)
+        {
+            this.camera.Stop();
+            this.camera = camera;
+            this.camera.Canvas = videoPictureBox;
+            this.camera.Start();
+        }
 
     }
 }

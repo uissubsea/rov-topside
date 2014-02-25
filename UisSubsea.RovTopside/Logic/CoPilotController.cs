@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace UisSubsea.RovTopside.Logic
 {
-    interface CoPilotViewHandler
+    class CoPilotController
     {
+
     }
 }
