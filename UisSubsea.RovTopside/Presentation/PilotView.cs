@@ -32,6 +32,9 @@ namespace UisSubsea.RovTopside.Presentation
         private System.Diagnostics.Stopwatch stopwatch;
         private CoPilotView copilotview;
 
+        private IList<Screen> screens;
+
+
         public PilotView()
         {
             font = new Font("Arial", 18);
@@ -42,9 +45,12 @@ namespace UisSubsea.RovTopside.Presentation
             pointDataReceived = new PointF(30.0f, 150.0f);
             pointStopwatch = new PointF(30.0f, 190.0f);
             stopwatch = new System.Diagnostics.Stopwatch();
+            //screens = new List<Screen>();
+            //ScreenAttached(); 
+            copilotview = new CoPilotView();
+            //setFullscreen(); 
 
             InitializeComponent();
-            copilotview = new CoPilotView();
 
             pictureBoxVideo.Paint += new PaintEventHandler(PaintOverlay);
 
@@ -52,6 +58,23 @@ namespace UisSubsea.RovTopside.Presentation
             camera.Canvas = pictureBoxVideo; 
             camera.Start();
         }
+
+        private void ScreenAttached()
+        {
+            foreach(var screen in Screen.AllScreens)
+            {
+                screens.Add(screen);
+            }
+        }
+
+        private void setFullscreen()
+        {
+            var pilotScreen = Screen.FromControl(this);
+            var coPilotScreen = Screen.AllScreens.FirstOrDefault(s => s != pilotScreen) ?? pilotScreen;
+            copilotview.Left = coPilotScreen.WorkingArea.Left + 120;
+            copilotview.Top = coPilotScreen.WorkingArea.Top + 120;        
+        }
+
         public PictureBox pilotPictureBox()
         {
             return pictureBoxVideo;
@@ -59,6 +82,7 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void PilotView_Load(object sender, EventArgs e)
         {
+
             initializeMainJoystick();
             initializeLeftJoystick(); 
             //inititalizeRightJoystick(); 
@@ -147,8 +171,7 @@ namespace UisSubsea.RovTopside.Presentation
         public void leftJoystickState_Changed(object sender, EventArgs e)
             {
                 if(leftJoystick != null)
-                {
-                    System.Diagnostics.Debug.WriteLine("joystick er ikke null");
+                {                 
                     try
                     {
                         if(InvokeRequired)
@@ -192,7 +215,6 @@ namespace UisSubsea.RovTopside.Presentation
                         this.Invoke(new Action(() => readRovState(e.Data)));
                         return;
                     }
-
                 }
             }
             catch (ObjectDisposedException)

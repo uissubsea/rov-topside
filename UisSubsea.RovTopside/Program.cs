@@ -33,12 +33,14 @@ namespace UisSubsea.RovTopside
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new PilotView());
-            
+        
            
 
             
             //createJoystick();
         }
+
+       
         private static void createJoystick()
         {
             DirectInput directInput = new DirectInput();
