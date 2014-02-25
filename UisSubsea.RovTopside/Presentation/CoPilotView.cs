@@ -13,7 +13,7 @@ using System.Threading;
 
 namespace UisSubsea.RovTopside.Presentation
 {
-    public partial class CoPilotView : Form
+    public partial class CoPilotView : Form, IGaugeHandler
     {
         private Camera camera1;
         private Boolean fullScreen;
@@ -25,8 +25,7 @@ namespace UisSubsea.RovTopside.Presentation
         public CoPilotView()
         {
             InitializeComponent();
-            fullScreenView();
-
+            aGauge2.Value = 45;    
         }
 
         //Wil change color when there is a leak on the ROV. 
@@ -41,10 +40,9 @@ namespace UisSubsea.RovTopside.Presentation
 
             System.Drawing.Graphics formGraphics;
             formGraphics = this.CreateGraphics();
-            formGraphics.FillRectangle(Brush, new Rectangle(1738, 550, 100, 30));
+            formGraphics.FillRectangle(Brush, new Rectangle(1100, 550, 100, 30));
             Brush.Dispose();
             formGraphics.Dispose();
-
         }
 
         private void CoPilotView_Load(object sender, EventArgs e)
@@ -59,16 +57,6 @@ namespace UisSubsea.RovTopside.Presentation
             {
                 camera1.Stop();
             }
-        }
-        public void fullScreenView()
-        {
-            
-            
-           
-        }
-        public void exitFullScreen()
-        {
-            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -87,7 +75,18 @@ namespace UisSubsea.RovTopside.Presentation
                 this.WindowState = FormWindowState.Normal;
             }
 
-        }    
+        }
+        public void heading(int heading)
+        {
+            aGauge1.Value = heading;
+            aGauge1.Scale(new SizeF(new PointF(0,5f)));
+        }
+        public void cameraTilt(int tilt)
+        {
+            aGauge2.Value = tilt;
+        }
+        
+
     }
 }
 
