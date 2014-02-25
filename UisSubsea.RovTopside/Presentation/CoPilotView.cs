@@ -16,7 +16,7 @@ namespace UisSubsea.RovTopside.Presentation
 {
     public partial class CoPilotView : Form, ICoPilotViewHandler
     {
-        private Camera camera1;
+        private Camera camera;
         private Boolean fullScreen;
         private System.Drawing.SolidBrush Brush;
         //If there is water leak in controllbox
@@ -48,15 +48,15 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void CoPilotView_Load(object sender, EventArgs e)
         {
-            camera1 = CameraFactory.CreateManipulatorCamera();
-            camera1.Canvas = pictureBox1;
-            camera1.Start();
+            camera = CameraFactory.CreateManipulatorCamera();
+            camera.Canvas = videoPictureBox;
+            camera.Start();
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (camera1 != null)
+            if (camera != null)
             {
-                camera1.Stop();
+                camera.Stop();
             }
         }
 
@@ -77,7 +77,7 @@ namespace UisSubsea.RovTopside.Presentation
             }
 
         }
-
+        //UI updates
         public void SetHeading(int heading)
         {
             headingGauge.Value = heading;
@@ -112,7 +112,15 @@ namespace UisSubsea.RovTopside.Presentation
                 leak = true;
                 Invalidate();
             }
-        }      
+        }
+        //Get called from CamController
+        public void setCamera(Camera camera)
+        {
+            this.camera.Stop();
+            this.camera = camera;
+            this.camera.Canvas = videoPictureBox;
+            this.camera.Start();
+        }
 
     }
 }

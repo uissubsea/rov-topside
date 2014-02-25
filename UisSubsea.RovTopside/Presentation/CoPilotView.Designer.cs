@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.videoPictureBox = new System.Windows.Forms.PictureBox();
             this.frontCamGauge = new System.Windows.Forms.AGauge();
             this.headingGauge = new System.Windows.Forms.AGauge();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -39,17 +39,17 @@
             this.lblTextDepth = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblTextDistance = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.videoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.depthTrackBar1)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // videoPictureBox
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(-4, -29);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(960, 720);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.videoPictureBox.Location = new System.Drawing.Point(-4, -29);
+            this.videoPictureBox.Name = "videoPictureBox";
+            this.videoPictureBox.Size = new System.Drawing.Size(960, 720);
+            this.videoPictureBox.TabIndex = 0;
+            this.videoPictureBox.TabStop = false;
             // 
             // frontCamGauge
             // 
@@ -255,13 +255,13 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.headingGauge);
             this.Controls.Add(this.frontCamGauge);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.videoPictureBox);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.SystemColors.WindowText;
             this.Name = "CoPilotView";
             this.Text = "CoPilotView";
             this.Load += new System.EventHandler(this.CoPilotView_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.videoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.depthTrackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -270,7 +270,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox videoPictureBox;
         private System.Windows.Forms.AGauge frontCamGauge;
         private System.Windows.Forms.AGauge headingGauge;
         private System.Windows.Forms.Timer timer1;
