@@ -18,7 +18,7 @@ namespace UisSubsea.RovTopside.Logic
 
         public MainController()
         {
-            initializeComponents();          
+            initializeComponents();
         }
 
         private void initializeComponents()
@@ -35,7 +35,7 @@ namespace UisSubsea.RovTopside.Logic
             Thread comThread = new Thread(comServer.Serve);
             comThread.IsBackground = true;
             comThread.Start();
-            //new DataReceivedHandler(comServer, pilotView);
+            //new RovStateReceivedHandler(comServer, (IOverlayHandler)pilotView, );
         }
 
         private void initializeJoystickListeners(JoystickStateStore stateStore)

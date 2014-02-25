@@ -110,9 +110,8 @@
     <Compile Include="Data\StateReceiver.cs" />
     <Compile Include="Data\StateSender.cs" />
     <Compile Include="Data\VideoRecorder.cs" />
-    <Compile Include="Logic\IRovStateHandler.cs" />
     <Compile Include="Logic\MainController.cs" />
-    <Compile Include="Logic\PilotViewHandler.cs" />
+    <Compile Include="Logic\IOverlayHandler.cs" />
     <Compile Include="Logic\RovStateReceivedHandler.cs" />
     <Compile Include="Presentation\CoPilotView.cs">
       <SubType>Form</SubType>

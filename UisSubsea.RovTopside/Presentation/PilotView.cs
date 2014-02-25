@@ -13,7 +13,7 @@ using UisSubsea.RovTopside.Logic;
 
 namespace UisSubsea.RovTopside.Presentation
 {
-    public partial class PilotView : Form, IRovStateHandler
+    public partial class PilotView : Form, IOverlayHandler
     {
         private Joystick mainJoystick,leftJoystick, rightJoystick;
         private PacketBuilder mainPacketBuilder, leftPacketBuilder, rightPacketBuilder;
@@ -34,6 +34,8 @@ namespace UisSubsea.RovTopside.Presentation
         private CoPilotView copilotview;
         private int heading;
         private int frontCameraAngle;
+        private int rearCameraAngle;
+        private double depth;
 
         private IList<Screen> screens;
 
@@ -327,39 +329,23 @@ namespace UisSubsea.RovTopside.Presentation
 
         public void SetHeading(int heading)
         {
-            try
-            {
-                if (InvokeRequired)
-                {
-                    if (!this.IsDisposed)
-                    {
-                        this.Invoke(new Action(() => this.heading = heading));
-                        return;
-                    }
-                }
-            }
-            catch (ObjectDisposedException) {}
+            this.Invoke(new Action(() => this.heading = heading));
         }
 
         public void SetFrontCameraAngle(int angle)
         {
-            try
-            {
-                if (InvokeRequired)
-                {
-                    if (!this.IsDisposed)
-                    {
-                        this.Invoke(new Action(() => this.frontCameraAngle = angle));
-                        return;
-                    }
-                }
-            }
-            catch (ObjectDisposedException) {}
+
+            this.Invoke(new Action(() => this.frontCameraAngle = angle));
         }
 
         public void SetRearCameraAngle(int angle)
         {
-            throw new NotImplementedException();
+            this.Invoke(new Action(() => this.rearCameraAngle = angle));
+        }
+
+        public void SetDepth(double depth)
+        {
+            this.Invoke(new Action(() => this.depth = depth));
         }
     }
 }

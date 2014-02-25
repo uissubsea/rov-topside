@@ -21,6 +21,7 @@ namespace UisSubsea.RovTopside.Data
         private Queue<Bitmap> frameBuffer;
         private Thread videoRecorder;
         private Boolean handleEvents;
+        private String cameraMoniker;
 
         public Camera(int index, Size desiredResolution)
         {
@@ -233,6 +234,16 @@ namespace UisSubsea.RovTopside.Data
         {
             handleEvents = false;
             this.camera.NewFrame -= camera_NewFrame;
+        }
+
+        public override bool Equals(Object obj)
+        {
+            // Check for null values and compare run-time types.
+            if (obj == null || this.GetType() != obj.GetType())
+                return false;
+
+            Camera cam = (Camera)obj;
+            return (this.cameraMoniker.Equals(cam.cameraMoniker));
         }
     }
 }
