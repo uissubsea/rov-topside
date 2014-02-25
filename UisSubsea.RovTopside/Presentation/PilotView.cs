@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UisSubsea.RovTopside.Data;
 using System.Threading;
+using UisSubsea.RovTopside.Logic;
 
 namespace UisSubsea.RovTopside.Presentation
 {
-    public partial class PilotView : Form
+    public partial class PilotView : Form, IRovStateHandler
     {
         private Joystick mainJoystick,leftJoystick, rightJoystick;
         private PacketBuilder mainPacketBuilder, leftPacketBuilder, rightPacketBuilder;
@@ -31,6 +32,8 @@ namespace UisSubsea.RovTopside.Presentation
         private Boolean autofocus = true;
         private System.Diagnostics.Stopwatch stopwatch;
         private CoPilotView copilotview;
+        private int heading;
+        private int frontCameraAngle;
 
         private IList<Screen> screens;
 
@@ -320,6 +323,43 @@ namespace UisSubsea.RovTopside.Presentation
             }              
 
             return base.ProcessCmdKey(ref msg, keyData);
-        }      
+        }
+
+        public void SetHeading(int heading)
+        {
+            try
+            {
+                if (InvokeRequired)
+                {
+                    if (!this.IsDisposed)
+                    {
+                        this.Invoke(new Action(() => this.heading = heading));
+                        return;
+                    }
+                }
+            }
+            catch (ObjectDisposedException) {}
+        }
+
+        public void SetFrontCameraAngle(int angle)
+        {
+            try
+            {
+                if (InvokeRequired)
+                {
+                    if (!this.IsDisposed)
+                    {
+                        this.Invoke(new Action(() => this.frontCameraAngle = angle));
+                        return;
+                    }
+                }
+            }
+            catch (ObjectDisposedException) {}
+        }
+
+        public void SetRearCameraAngle(int angle)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -109,6 +109,9 @@
     <Compile Include="Data\StateReceiver.cs" />
     <Compile Include="Data\StateSender.cs" />
     <Compile Include="Data\VideoRecorder.cs" />
+    <Compile Include="Logic\IRovStateHandler.cs" />
+    <Compile Include="Logic\MainController.cs" />
+    <Compile Include="Logic\RovStateReceivedHandler.cs" />
     <Compile Include="Presentation\CoPilotView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,9 +165,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Logic\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>

@@ -79,7 +79,7 @@ namespace UisSubsea.RovTopside.Logic
                 mainPacketBuilder, stateStore);
 
             RunInBackgroundThread(stateListener.Listen);
-            //new JoystickStateChangedListener(stateListener);
+            //new JoystickStateChangedListener(stateListener); 
         }
 
         private void initializeJoysticks()
