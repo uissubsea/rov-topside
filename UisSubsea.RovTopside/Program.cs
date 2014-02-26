@@ -6,6 +6,8 @@ using System.Windows.Forms;
 using UisSubsea.RovTopside.Presentation;
 using System.IO.Ports;
 using UisSubsea.RovTopside.Data;
+using UisSubsea.RovTopside.Logic;
+
 using SharpDX.DirectInput;
 
 
@@ -32,7 +34,7 @@ namespace UisSubsea.RovTopside
             */
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PilotView());
+            //Application.Run(new MainController());
         
            
 
