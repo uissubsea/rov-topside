@@ -11,10 +11,10 @@ namespace UisSubsea.RovTopside.Logic
     {
         private CommunicationServer comServer;
         private IOverlayHandler overlayHandler;
-        private IRovStateHandler gaugeHandler;
+        private int gaugeHandler;
 
         public RovStateReceivedHandler(CommunicationServer comServer, 
-            IOverlayHandler overlayHandler, IRovStateHandler gaugeHandler)
+            IOverlayHandler overlayHandler, int gaugeHandler)
         {
             this.comServer = comServer;
             this.overlayHandler = overlayHandler;
@@ -38,8 +38,8 @@ namespace UisSubsea.RovTopside.Logic
             overlayHandler.SetHeading(state.Heading);
             overlayHandler.SetFrontCameraAngle(state.CameraTilt);
 
-            gaugeHandler.SetHeading(state.Heading);
-            gaugeHandler.SetFrontCameraAngle(state.CameraTilt);
+            //gaugeHandler.SetHeading(state.Heading);
+            //gaugeHandler.SetFrontCameraAngle(state.CameraTilt);
         }
 
     }
