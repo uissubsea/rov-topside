@@ -10,7 +10,6 @@ namespace UisSubsea.RovTopside.Logic
     {
         void ToggleRecording();
         void Snapshot();
-        void Reverse();
         void ChangePilotCamera();
         void ChangeCoPilotCamera();
     }

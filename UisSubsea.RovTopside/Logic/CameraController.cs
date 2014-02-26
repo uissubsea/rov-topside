@@ -8,7 +8,7 @@ using UisSubsea.RovTopside.Data;
 
 namespace UisSubsea.RovTopside.Logic
 {
-    class CameraController
+    class CameraController : ICameraHandler
     {
         private ICamera mainCamera, manipulatorCamera, rearCamera;
         private IView pilotView, coPilotView;
