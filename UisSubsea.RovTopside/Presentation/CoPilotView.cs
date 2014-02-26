@@ -135,7 +135,7 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.camera.displayCameraProperties(IntPtr.Zero);
+            //this.camera.displayCameraProperties(IntPtr.Zero);
         }
 
     }
