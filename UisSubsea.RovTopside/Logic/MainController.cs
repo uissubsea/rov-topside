@@ -43,6 +43,9 @@ namespace UisSubsea.RovTopside.Logic
                 (ICoPilotViewHandler)coPilotView, (IOverlayHandler)pilotView);
 
             initializeCommunicationServer(stateStore);
+
+            pilotView.Show();
+            coPilotView.Show();
         }
 
         private void initializeCommunicationServer(JoystickStateStore stateStore)
