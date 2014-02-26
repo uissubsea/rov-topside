@@ -5,16 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AForge.Video.DirectShow;
+using UisSubsea.RovTopside.Logic;
 
 namespace UisSubsea.RovTopside.Data
 {
     public class CameraFactory
     {
-        private static Camera mainCamera;
-        private static Camera manipulatorCamera;
-        private static Camera rearCamera;
+        private static ICamera mainCamera;
+        private static ICamera manipulatorCamera;
+        private static ICamera rearCamera;
 
-        public static Camera GetMainCamera()
+        public static ICamera GetMainCamera()
         {
             if (CameraFactory.mainCamera != null)
                 return mainCamera;
@@ -23,7 +24,7 @@ namespace UisSubsea.RovTopside.Data
                     Constants.DesiredResolution);
         }
 
-        public static  Camera GetManipulatorCamera()
+        public static ICamera GetManipulatorCamera()
         {
             if (CameraFactory.manipulatorCamera != null)
                 return manipulatorCamera;
@@ -32,7 +33,7 @@ namespace UisSubsea.RovTopside.Data
                     Constants.LowResolution);
         }
 
-        public static Camera GetRearCamera()
+        public static ICamera GetRearCamera()
         {
             if (CameraFactory.rearCamera != null)
                 return rearCamera;
