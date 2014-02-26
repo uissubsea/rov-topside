@@ -10,12 +10,58 @@ namespace UisSubsea.RovTopside.Logic
 {
     class CameraController
     {
-        private Camera
+        private ICamera mainCamera, manipulatorCamera, rearCamera;
+        private IView pilotView, coPilotView;
 
-        public CameraController(PilotView pilotView, CoPilotView coPilotView, Camera mainCamera,
-            Camera manipulatorCamera, Camera rearCamera)
+        public CameraController(IView pilotView, IView coPilotView, ICamera mainCamera,
+            ICamera manipulatorCamera, ICamera rearCamera)
         {
+            this.pilotView = pilotView;
+            this.coPilotView = coPilotView;
+            this.mainCamera = mainCamera;
+            this.manipulatorCamera = manipulatorCamera;
+            this.rearCamera = rearCamera;
+        }
 
+        public void ToggleRecording()
+        {
+            pilotView.GetCamera().ToggleRecording();
+            coPilotView.GetCamera().ToggleRecording();
+        }
+        public void Snapshot()
+        {
+            pilotView.GetCamera().Snapshot();
+            coPilotView.GetCamera().Snapshot();
+        }
+
+        public void ChangePilotCam()
+        {
+            if(pilotView.GetCamera().Equals(mainCamera))
+            { 
+                if(coPilotView.GetCamera().Equals(rearCamera))           
+                        coPilotView.SetCamera(manipulatorCamera);
+            
+                pilotView.SetCamera(rearCamera);
+            }
+            else
+            {
+                pilotView.SetCamera(mainCamera);
+            }
+           
+        }
+        public void ChangeCoPilotCam()
+        {
+            if (coPilotView.GetCamera().Equals(manipulatorCamera))
+            {
+                if (pilotView.GetCamera().Equals(rearCamera))  
+                    return; 
+
+                coPilotView.SetCamera(rearCamera);
+            }
+            else
+                coPilotView.SetCamera(manipulatorCamera);
+           
+                
         }
     }
 }
