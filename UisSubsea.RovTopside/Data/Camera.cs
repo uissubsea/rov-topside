@@ -218,7 +218,7 @@ namespace UisSubsea.RovTopside.Data
 
         private void setCanvas(PictureBox canvas)
         {
-            if (handleEvents)// && canvas == null)
+            if (handleEvents && canvas == null)
                 removeEventHandler();
 
             this.canvas = canvas;
