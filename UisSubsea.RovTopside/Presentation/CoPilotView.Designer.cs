@@ -41,6 +41,7 @@
             this.lblTextDistance = new System.Windows.Forms.Label();
             this.pilotCameraSetting = new System.Windows.Forms.Button();
             this.coPilotCameraSettings = new System.Windows.Forms.Button();
+            this.lblTextValueDepth = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.videoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.depthTrackBar1)).BeginInit();
             this.SuspendLayout();
@@ -198,9 +199,9 @@
             // depthTrackBar1
             // 
             this.depthTrackBar1.Enabled = false;
-            this.depthTrackBar1.Location = new System.Drawing.Point(962, 507);
+            this.depthTrackBar1.Location = new System.Drawing.Point(1024, 507);
             this.depthTrackBar1.Maximum = 0;
-            this.depthTrackBar1.Minimum = -60;
+            this.depthTrackBar1.Minimum = -600;
             this.depthTrackBar1.Name = "depthTrackBar1";
             this.depthTrackBar1.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.depthTrackBar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -213,13 +214,13 @@
             // lblTextDepth
             // 
             this.lblTextDepth.AutoSize = true;
-            this.lblTextDepth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextDepth.Font = new System.Drawing.Font("Castellar", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTextDepth.ForeColor = System.Drawing.Color.Red;
-            this.lblTextDepth.Location = new System.Drawing.Point(963, 488);
+            this.lblTextDepth.Location = new System.Drawing.Point(962, 485);
             this.lblTextDepth.Name = "lblTextDepth";
-            this.lblTextDepth.Size = new System.Drawing.Size(44, 16);
+            this.lblTextDepth.Size = new System.Drawing.Size(52, 19);
             this.lblTextDepth.TabIndex = 9;
-            this.lblTextDepth.Text = "Depth";
+            this.lblTextDepth.Text = "cm: ";
             // 
             // label1
             // 
@@ -263,12 +264,24 @@
             this.coPilotCameraSettings.UseVisualStyleBackColor = true;
             this.coPilotCameraSettings.Click += new System.EventHandler(this.button3_Click);
             // 
+            // lblTextValueDepth
+            // 
+            this.lblTextValueDepth.AutoSize = true;
+            this.lblTextValueDepth.Font = new System.Drawing.Font("Castellar", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextValueDepth.ForeColor = System.Drawing.Color.Red;
+            this.lblTextValueDepth.Location = new System.Drawing.Point(1020, 485);
+            this.lblTextValueDepth.Name = "lblTextValueDepth";
+            this.lblTextValueDepth.Size = new System.Drawing.Size(76, 19);
+            this.lblTextValueDepth.TabIndex = 14;
+            this.lblTextValueDepth.Text = "label2";
+            // 
             // CoPilotView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowText;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.lblTextValueDepth);
             this.Controls.Add(this.coPilotCameraSettings);
             this.Controls.Add(this.pilotCameraSetting);
             this.Controls.Add(this.lblTextDistance);
@@ -306,5 +319,6 @@
         private System.Windows.Forms.Label lblTextDistance;
         private System.Windows.Forms.Button pilotCameraSetting;
         private System.Windows.Forms.Button coPilotCameraSettings;
+        private System.Windows.Forms.Label lblTextValueDepth;
     }
 }

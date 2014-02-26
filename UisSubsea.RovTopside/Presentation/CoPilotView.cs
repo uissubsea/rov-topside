@@ -27,7 +27,7 @@ namespace UisSubsea.RovTopside.Presentation
         public CoPilotView()
         {
             InitializeComponent();
-            
+            SetDepth(300);            
         }
 
         //Wil change color when there is a leak on the ROV. 
@@ -42,7 +42,7 @@ namespace UisSubsea.RovTopside.Presentation
 
             System.Drawing.Graphics formGraphics;
             formGraphics = this.CreateGraphics();
-            formGraphics.FillRectangle(Brush, new Rectangle(1075, 620, 100, 30));
+            formGraphics.FillRectangle(Brush, new Rectangle(1075, 620, 80, 30));
             Brush.Dispose();
             formGraphics.Dispose();
         }
@@ -93,12 +93,17 @@ namespace UisSubsea.RovTopside.Presentation
         }
         public void SetDepth(double depth)
         {                      
-          if(depth>6)
+          if(depth>600 && depth <= 1200)
             {
-                depthTrackBar1.Minimum = -120;
+                depthTrackBar1.Minimum = -1200;
             }
-            depthTrackBar1.Value =((int)depth * -1)/10;
-            lblTextDepth.Text = depth.ToString();
+          else if(depth>1200)
+          {
+              depthTrackBar1.Minimum = -3000;
+          }
+            depthTrackBar1.Value =(int)depth * -1;
+            lblTextValueDepth.Text = depth.ToString();
+            lblTextDepth.Text = "cm: ";
         }
         public void SetLaserDistanceMeasured(double distance)
         {
