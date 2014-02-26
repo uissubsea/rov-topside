@@ -94,6 +94,7 @@
     <Compile Include="Data\Constants.cs" />
     <Compile Include="Data\DataReceivedEventArgs.cs" />
     <Compile Include="Logic\ICamera.cs" />
+    <Compile Include="Logic\CameraController.cs" />
     <Compile Include="Logic\CoPilotController.cs" />
     <Compile Include="Logic\ICoPilotViewHandler.cs" />
     <Compile Include="Data\IJoystick.cs" />
