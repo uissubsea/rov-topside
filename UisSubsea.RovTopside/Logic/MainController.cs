@@ -65,13 +65,6 @@ namespace UisSubsea.RovTopside.Logic
             RunInBackgroundThread(stateListener.Listen);
         }
 
-        private void RunInBackgroundThread(ThreadStart methodToRun)
-        {
-            Thread worker = new Thread(methodToRun);
-            worker.IsBackground = true;
-            worker.Start();
-        }
-
         private void initializePilotJoystickListener(JoystickStateStore stateStore)
         {
             MainPacketBuilder mainPacketBuilder = new MainPacketBuilder(pilotJoystick);
@@ -110,5 +103,11 @@ namespace UisSubsea.RovTopside.Logic
             coPilotRightJoystick.Acquire(handle);
         }
 
+        private void RunInBackgroundThread(ThreadStart methodToRun)
+        {
+            Thread worker = new Thread(methodToRun);
+            worker.IsBackground = true;
+            worker.Start();
+        }
     }
 }
