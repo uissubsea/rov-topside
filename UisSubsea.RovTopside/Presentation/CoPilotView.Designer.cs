@@ -39,6 +39,8 @@
             this.lblTextDepth = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblTextDistance = new System.Windows.Forms.Label();
+            this.pilotCameraSetting = new System.Windows.Forms.Button();
+            this.coPilotCameraSettings = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.videoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.depthTrackBar1)).BeginInit();
             this.SuspendLayout();
@@ -104,7 +106,7 @@
             this.headingGauge.BaseArcWidth = 1;
             this.headingGauge.Center = new System.Drawing.Point(100, 100);
             this.headingGauge.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.headingGauge.Location = new System.Drawing.Point(962, 13);
+            this.headingGauge.Location = new System.Drawing.Point(962, 22);
             this.headingGauge.MaxValue = 359F;
             this.headingGauge.MinValue = 0F;
             this.headingGauge.Name = "headingGauge";
@@ -143,7 +145,7 @@
             this.button1.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(1177, 646);
+            this.button1.Location = new System.Drawing.Point(1173, 646);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
@@ -196,7 +198,7 @@
             // depthTrackBar1
             // 
             this.depthTrackBar1.Enabled = false;
-            this.depthTrackBar1.Location = new System.Drawing.Point(1207, 49);
+            this.depthTrackBar1.Location = new System.Drawing.Point(962, 507);
             this.depthTrackBar1.Maximum = 0;
             this.depthTrackBar1.Minimum = -60;
             this.depthTrackBar1.Name = "depthTrackBar1";
@@ -213,7 +215,7 @@
             this.lblTextDepth.AutoSize = true;
             this.lblTextDepth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTextDepth.ForeColor = System.Drawing.Color.Red;
-            this.lblTextDepth.Location = new System.Drawing.Point(1208, 30);
+            this.lblTextDepth.Location = new System.Drawing.Point(963, 488);
             this.lblTextDepth.Name = "lblTextDepth";
             this.lblTextDepth.Size = new System.Drawing.Size(44, 16);
             this.lblTextDepth.TabIndex = 9;
@@ -224,7 +226,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(1163, 435);
+            this.label1.Location = new System.Drawing.Point(1149, 176);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 16);
             this.label1.TabIndex = 10;
@@ -235,11 +237,31 @@
             this.lblTextDistance.AutoSize = true;
             this.lblTextDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTextDistance.ForeColor = System.Drawing.Color.Red;
-            this.lblTextDistance.Location = new System.Drawing.Point(1233, 435);
+            this.lblTextDistance.Location = new System.Drawing.Point(1219, 176);
             this.lblTextDistance.Name = "lblTextDistance";
             this.lblTextDistance.Size = new System.Drawing.Size(15, 16);
             this.lblTextDistance.TabIndex = 11;
             this.lblTextDistance.Text = "0";
+            // 
+            // pilotCameraSetting
+            // 
+            this.pilotCameraSetting.Location = new System.Drawing.Point(1173, 588);
+            this.pilotCameraSetting.Name = "pilotCameraSetting";
+            this.pilotCameraSetting.Size = new System.Drawing.Size(75, 23);
+            this.pilotCameraSetting.TabIndex = 12;
+            this.pilotCameraSetting.Text = "Pilot";
+            this.pilotCameraSetting.UseVisualStyleBackColor = true;
+            this.pilotCameraSetting.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // coPilotCameraSettings
+            // 
+            this.coPilotCameraSettings.Location = new System.Drawing.Point(1173, 617);
+            this.coPilotCameraSettings.Name = "coPilotCameraSettings";
+            this.coPilotCameraSettings.Size = new System.Drawing.Size(75, 23);
+            this.coPilotCameraSettings.TabIndex = 13;
+            this.coPilotCameraSettings.Text = "CoPilot";
+            this.coPilotCameraSettings.UseVisualStyleBackColor = true;
+            this.coPilotCameraSettings.Click += new System.EventHandler(this.button3_Click);
             // 
             // CoPilotView
             // 
@@ -247,6 +269,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowText;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.coPilotCameraSettings);
+            this.Controls.Add(this.pilotCameraSetting);
             this.Controls.Add(this.lblTextDistance);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblTextDepth);
@@ -280,5 +304,7 @@
         private System.Windows.Forms.Label lblTextDepth;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTextDistance;
+        private System.Windows.Forms.Button pilotCameraSetting;
+        private System.Windows.Forms.Button coPilotCameraSettings;
     }
 }

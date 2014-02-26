@@ -21,12 +21,13 @@ namespace UisSubsea.RovTopside.Presentation
         private System.Drawing.SolidBrush Brush;
         //If there is water leak in controllbox
         private Boolean leak;
+        //Used to change settings on pilotcam
 
 
         public CoPilotView()
         {
             InitializeComponent();
-            SetDepth(12);           
+            
         }
 
         //Wil change color when there is a leak on the ROV. 
@@ -90,16 +91,21 @@ namespace UisSubsea.RovTopside.Presentation
         {
             rearCamGauge.Value = angle;
         }
-        void SetDepth(double depth)
-        {
+        public void SetDepth(double depth)
+        {                      
+          if(depth>6)
+            {
+                depthTrackBar1.Minimum = -120;
+            }
             depthTrackBar1.Value =((int)depth * -1)/10;
             lblTextDepth.Text = depth.ToString();
         }
-        void SetLaserDistanceMeasured(double distance)
+        public void SetLaserDistanceMeasured(double distance)
         {
             lblTextDistance.Text = distance.ToString();
+            if (distance > 0) { }//Add warning light when laser in use
         }
-        void setSensorState(bool sensorstate)
+        public void setSensorState(bool sensorstate)
         {
             if(sensorstate)
             {
@@ -116,10 +122,20 @@ namespace UisSubsea.RovTopside.Presentation
         //Get called from CamController
         public void setCamera(Camera camera)
         {
-            this.camera.Stop();
+            this.camera.Dispose();
             this.camera = camera;
             this.camera.Canvas = videoPictureBox;
             this.camera.Start();
+        }
+        //getcamera
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.camera.displayCameraProperties(IntPtr.Zero);
         }
 
     }

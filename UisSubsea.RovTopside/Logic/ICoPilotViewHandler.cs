@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace UisSubsea.RovTopside.Logic
 {
-    interface ICoPilotViewHandler
+    
+    public interface ICoPilotViewHandler
     {
         void SetHeading(int heading);
         void SetFrontCameraAngle(int angle);
@@ -14,5 +15,6 @@ namespace UisSubsea.RovTopside.Logic
         void SetDepth(double depth);
         void SetLaserDistanceMeasured(double distance);
         void setSensorState(bool sensorstate);
+
     }
 }
