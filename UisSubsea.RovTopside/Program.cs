@@ -8,14 +8,14 @@ using System.IO.Ports;
 using UisSubsea.RovTopside.Data;
 using UisSubsea.RovTopside.Logic;
 
-using SharpDX.DirectInput;
+
 
 
 namespace UisSubsea.RovTopside
 {
     static class Program
     {
-        private static IList<DeviceInstance> gameControls;
+        //private static IList<DeviceInstance> gameControls;
 
         /// <summary>
         /// The main entry point for the application.
@@ -24,26 +24,27 @@ namespace UisSubsea.RovTopside
         static void Main()
         {
             string[] ports = SerialPort.GetPortNames();
-           /* if (!ports.Contains("COM1") || Joystick.JoysticksAttached().Count == 0 
-                || Camera.CamerasConnected().Count < 1)
+            if (!ports.Contains("COM1") || Joystick.JoysticksAttached().Count < 3 
+                || Camera.CamerasConnected().Count < 2)
             {
                 MessageBox.Show("Make sure all neccessary devices are connected");
                 return;
             }     
            
-            */
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new MainController());
-        
-           
+
+            new MainController();
+            Application.Run();
 
             
             //createJoystick();
         }
 
        
-        private static void createJoystick()
+        /*private static void createJoystick()
         {
             DirectInput directInput = new DirectInput();
             Guid guid = Guid.Empty;
@@ -75,7 +76,7 @@ namespace UisSubsea.RovTopside
 
                     }
                             
-            }
+            }*/
 
     }
 }

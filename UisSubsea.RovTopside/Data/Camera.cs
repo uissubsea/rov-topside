@@ -48,14 +48,6 @@ namespace UisSubsea.RovTopside.Data
             }
         }
 
-        public Boolean IsRecording
-        {
-            get 
-            { 
-                return isRecording;
-            }
-        }
-
         public static FilterInfoCollection CamerasConnected()
         {
             return new FilterInfoCollection(FilterCategory.VideoInputDevice);
@@ -226,7 +218,7 @@ namespace UisSubsea.RovTopside.Data
 
         private void setCanvas(PictureBox canvas)
         {
-            if (handleEvents && canvas == null)
+            if (handleEvents)// && canvas == null)
                 removeEventHandler();
 
             this.canvas = canvas;

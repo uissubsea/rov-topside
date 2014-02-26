@@ -49,7 +49,7 @@ namespace UisSubsea.RovTopside.Logic
 
         private void coPilotLeftStick_StateChanged(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         private void pilotStick_StateChanged(object sender, EventArgs e)
@@ -70,7 +70,7 @@ namespace UisSubsea.RovTopside.Logic
 
         private Boolean changeCoPilotCamera()
         {
-            return coPilotRightStick.Joystick.Buttons()[2];
+            return coPilotRightStick.Joystick.Buttons()[1];
         }
 
         private Boolean toggleRecording()

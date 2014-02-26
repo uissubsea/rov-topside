@@ -68,29 +68,29 @@ namespace UisSubsea.RovTopside.Logic
         {
             ManipulatorRightPacketBuilder rightPacketBuilder =
                 new ManipulatorRightPacketBuilder(coPilotRightJoystick);
-            JoystickStateListener stateListener = new JoystickStateListener(coPilotRightJoystick,
+            coPilotRightStickListener = new JoystickStateListener(coPilotRightJoystick,
                 rightPacketBuilder, stateStore);
 
-            RunInBackgroundThread(stateListener.Listen);
+            RunInBackgroundThread(coPilotRightStickListener.Listen);
         }
 
         private void initializeCoPilotLeftJoystickListener(JoystickStateStore stateStore)
         {
             ManipulatorLeftPacketBuilder leftPacketBuilder =
                 new ManipulatorLeftPacketBuilder(coPilotLeftJoystick);
-            JoystickStateListener stateListener = new JoystickStateListener(coPilotLeftJoystick,
+            coPilotLeftStickListener = new JoystickStateListener(coPilotLeftJoystick,
                 leftPacketBuilder, stateStore);
 
-            RunInBackgroundThread(stateListener.Listen);
+            RunInBackgroundThread(coPilotLeftStickListener.Listen);
         }
 
         private void initializePilotJoystickListener(JoystickStateStore stateStore)
         {
             MainPacketBuilder mainPacketBuilder = new MainPacketBuilder(pilotJoystick);
-            JoystickStateListener stateListener = new JoystickStateListener(pilotJoystick,
+            pilotStickListener = new JoystickStateListener(pilotJoystick,
                 mainPacketBuilder, stateStore);
 
-            RunInBackgroundThread(stateListener.Listen);
+            RunInBackgroundThread(pilotStickListener.Listen);
             //new JoystickStateChangedListener(stateListener); 
         }
 
