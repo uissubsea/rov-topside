@@ -14,7 +14,7 @@ namespace UisSubsea.RovTopside.Data
         private static Camera manipulatorCamera;
         private static Camera rearCamera;
 
-        public static Camera CreateMainCamera()
+        public static Camera GetMainCamera()
         {
             if (CameraFactory.mainCamera != null)
                 return mainCamera;
@@ -23,7 +23,7 @@ namespace UisSubsea.RovTopside.Data
                     Constants.DesiredResolution);
         }
 
-        public static  Camera CreateManipulatorCamera()
+        public static  Camera GetManipulatorCamera()
         {
             if (CameraFactory.manipulatorCamera != null)
                 return manipulatorCamera;
@@ -32,7 +32,7 @@ namespace UisSubsea.RovTopside.Data
                     Constants.lowResolution);
         }
 
-        public static Camera CreateRearCamera()
+        public static Camera GetRearCamera()
         {
             if (CameraFactory.rearCamera != null)
                 return rearCamera;

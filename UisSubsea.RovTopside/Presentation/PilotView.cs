@@ -59,7 +59,7 @@ namespace UisSubsea.RovTopside.Presentation
 
             pictureBoxVideo.Paint += new PaintEventHandler(PaintOverlay);
 
-            camera = CameraFactory.CreateMainCamera();
+            camera = CameraFactory.GetMainCamera();
             camera.Canvas = pictureBoxVideo; 
             camera.Start();
         }
