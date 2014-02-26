@@ -10,10 +10,11 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Drawing.Imaging;
 using System.Threading;
+using UisSubsea.RovTopside.Logic;
 
 namespace UisSubsea.RovTopside.Data
 {
-    public class Camera : IDisposable
+    public class Camera : IDisposable, ICamera
     {
         private VideoCaptureDevice camera;
         private PictureBox canvas;
