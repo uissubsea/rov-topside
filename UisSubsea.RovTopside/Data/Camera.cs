@@ -48,6 +48,14 @@ namespace UisSubsea.RovTopside.Data
             }
         }
 
+        public Boolean IsRecording
+        {
+            get 
+            { 
+                return isRecording;
+            }
+        }
+
         public static FilterInfoCollection CamerasConnected()
         {
             return new FilterInfoCollection(FilterCategory.VideoInputDevice);
