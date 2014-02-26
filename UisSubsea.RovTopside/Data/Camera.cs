@@ -58,6 +58,7 @@ namespace UisSubsea.RovTopside.Data
             {
                 frameBuffer = new Queue<Bitmap>();
                 videoRecorder = new Thread(new VideoRecorder(frameBuffer).Record);
+                videoRecorder.IsBackground = true;
                 videoRecorder.Start();
                 isRecording = true;
             }
@@ -172,6 +173,7 @@ namespace UisSubsea.RovTopside.Data
             if (videosources.Count > 0)
             {
                 camera = new VideoCaptureDevice(videosources[index].MonikerString);
+                cameraMoniker = videosources[index].MonikerString;
                 SetResolution(desiredResolution);
             }
         }
