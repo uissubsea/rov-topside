@@ -45,6 +45,14 @@ namespace UisSubsea.RovTopside.Data
             {
                 handler(this, e);
             }
-        }      
+        }
+      
+        public Joystick Joystick
+        {
+            get
+            {
+                return this.joystick;
+            }
+        }
     }
 }

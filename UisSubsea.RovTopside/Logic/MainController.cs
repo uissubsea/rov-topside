@@ -85,21 +85,21 @@ namespace UisSubsea.RovTopside.Logic
         private void initializeCoPilotRightJoystick()
         {
             WaitHandle handle = new AutoResetEvent(false);
-            pilotJoystick = JoystickFactory.getMainController(pilotView.Handle);
+            pilotJoystick = JoystickFactory.GetMainController(pilotView.Handle);
             pilotJoystick.Acquire(handle);
         }
 
         private void initializeCoPilotLeftJoystick()
         {
             WaitHandle handle = new AutoResetEvent(false);
-            coPilotLeftJoystick = JoystickFactory.getManipulatorLeft(pilotView.Handle);
+            coPilotLeftJoystick = JoystickFactory.GetManipulatorLeft(pilotView.Handle);
             coPilotLeftJoystick.Acquire(handle);
         }
 
         private void initializePilotJoystick()
         {
             WaitHandle handle = new AutoResetEvent(false);
-            coPilotRightJoystick = JoystickFactory.getManipulatorRight(pilotView.Handle);
+            coPilotRightJoystick = JoystickFactory.GetManipulatorRight(pilotView.Handle);
             coPilotRightJoystick.Acquire(handle);
         }
 

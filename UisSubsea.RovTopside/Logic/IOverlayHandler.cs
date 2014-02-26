@@ -12,5 +12,7 @@ namespace UisSubsea.RovTopside.Logic
         void SetFrontCameraAngle(int angle);
         void SetRearCameraAngle(int angle);
         void SetDepth(double depth);
+        void VerticalLeverIsNeutral(Boolean isNeutral);
+        void ToggleStopwatch();
     }
 }

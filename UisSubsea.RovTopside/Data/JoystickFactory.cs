@@ -17,7 +17,7 @@ namespace UisSubsea.RovTopside.Data
         
         private static IList<DeviceInstance> gameControls;
 
-        public static Joystick getMainController(IntPtr windowHandle)
+        public static Joystick GetMainController(IntPtr windowHandle)
         {
             if (JoystickFactory.mainController != null)
                 return mainController;
@@ -27,7 +27,15 @@ namespace UisSubsea.RovTopside.Data
                     JoystickType.MainController);
         }
 
-        public static Joystick getManipulatorLeft(IntPtr windowHandle)
+        public static Joystick GetMainController()
+        {
+            if (mainController != null)
+                return mainController;
+            else
+                throw new NotSupportedException("Joystick not initialized");
+        }
+
+        public static Joystick GetManipulatorLeft(IntPtr windowHandle)
         {
             if (JoystickFactory.manipulatorLeft != null)
                 return manipulatorLeft;
@@ -37,7 +45,7 @@ namespace UisSubsea.RovTopside.Data
                     JoystickType.ManipulatorLeft);
         }
 
-        public static Joystick getManipulatorRight(IntPtr windowHandle)
+        public static Joystick GetManipulatorRight(IntPtr windowHandle)
         {
             if (JoystickFactory.manipulatorRight != null)
                 return manipulatorRight;
