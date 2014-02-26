@@ -29,7 +29,7 @@ namespace UisSubsea.RovTopside.Data
                 return manipulatorCamera;
             else return CameraFactory.manipulatorCamera = 
                 new Camera(getCameraIndex(Constants.LogitechC920Moniker), 
-                    Constants.lowResolution);
+                    Constants.LowResolution);
         }
 
         public static Camera GetRearCamera()

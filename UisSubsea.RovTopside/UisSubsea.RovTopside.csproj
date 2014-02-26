@@ -93,6 +93,7 @@
     <Compile Include="Data\CommunicationServer.cs" />
     <Compile Include="Data\Constants.cs" />
     <Compile Include="Data\DataReceivedEventArgs.cs" />
+    <Compile Include="Logic\ICamera.cs" />
     <Compile Include="Logic\CoPilotController.cs" />
     <Compile Include="Logic\ICoPilotViewHandler.cs" />
     <Compile Include="Data\IJoystick.cs" />
@@ -111,6 +112,7 @@
     <Compile Include="Data\StateReceiver.cs" />
     <Compile Include="Data\StateSender.cs" />
     <Compile Include="Data\VideoRecorder.cs" />
+    <Compile Include="Logic\IView.cs" />
     <Compile Include="Logic\MainController.cs" />
     <Compile Include="Logic\IOverlayHandler.cs" />
     <Compile Include="Logic\RovStateReceivedHandler.cs" />
