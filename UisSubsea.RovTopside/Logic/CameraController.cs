@@ -34,7 +34,7 @@ namespace UisSubsea.RovTopside.Logic
             coPilotView.GetCamera().Snapshot();
         }
 
-        public void ChangePilotCam()
+        public void ChangePilotCamera()
         {
             if(pilotView.GetCamera().Equals(mainCamera))
             { 
@@ -49,7 +49,7 @@ namespace UisSubsea.RovTopside.Logic
             }
            
         }
-        public void ChangeCoPilotCam()
+        public void ChangeCoPilotCamera()
         {
             if (coPilotView.GetCamera().Equals(manipulatorCamera))
             {

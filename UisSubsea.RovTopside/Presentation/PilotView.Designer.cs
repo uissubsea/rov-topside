@@ -54,7 +54,6 @@
             this.Name = "PilotView";
             this.Text = "ROV Pilot";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PilotView_FormClosed);
-            this.Load += new System.EventHandler(this.PilotView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVideo)).EndInit();
             this.ResumeLayout(false);
 

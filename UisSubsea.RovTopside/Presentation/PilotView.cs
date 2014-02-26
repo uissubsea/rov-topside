@@ -13,10 +13,8 @@ using UisSubsea.RovTopside.Logic;
 
 namespace UisSubsea.RovTopside.Presentation
 {
-    public partial class PilotView : Form, IOverlayHandler
+    public partial class PilotView : Form, IOverlayHandler, IView
     {
-        private Joystick mainJoystick,leftJoystick, rightJoystick;
-        private PacketBuilder mainPacketBuilder, leftPacketBuilder, rightPacketBuilder;
         private Font font;
         private Brush brush;
         private PointF pointRecordingText;
@@ -24,24 +22,24 @@ namespace UisSubsea.RovTopside.Presentation
         private PointF pointAutoFocus;
         private PointF pointDataReceived;
         private PointF pointStopwatch;
+        private PointF pointVerticalLeverIsNeutral;
         private string overlayText = "Not recording";
         private string lastPacketReceived = "0";
         private Boolean fullScreen = false;
-        private Camera camera;
+        private Boolean verticalLeverIsNeutral = false;
+        private ICamera camera;
         private int focus;
         private Boolean autofocus = true;
         private System.Diagnostics.Stopwatch stopwatch;
-        private CoPilotView copilotview;
         private int heading;
         private int frontCameraAngle;
         private int rearCameraAngle;
         private double depth;
 
-        private IList<Screen> screens;
-
-
-        public PilotView()
+        public PilotView(ICamera camera)
         {
+            InitializeComponent();
+
             font = new Font("Arial", 18);
             brush = new SolidBrush(Color.Red);
             pointRecordingText = new PointF(30.0f, 30.0f);            
@@ -49,193 +47,22 @@ namespace UisSubsea.RovTopside.Presentation
             pointFocusValue = new PointF(30.0f, 110.0f);
             pointDataReceived = new PointF(30.0f, 150.0f);
             pointStopwatch = new PointF(30.0f, 190.0f);
-            stopwatch = new System.Diagnostics.Stopwatch();
-            //screens = new List<Screen>();
-            //ScreenAttached(); 
-            copilotview = new CoPilotView();
-            //setFullscreen(); 
-
-            InitializeComponent();
+            pointVerticalLeverIsNeutral = new PointF(30.0f, 230.0f);
+            stopwatch = new System.Diagnostics.Stopwatch(); 
 
             pictureBoxVideo.Paint += new PaintEventHandler(PaintOverlay);
 
-            camera = CameraFactory.GetMainCamera();
-            camera.Canvas = pictureBoxVideo; 
-            camera.Start();
+            this.camera = camera;
+            this.camera.Canvas = pictureBoxVideo; 
+            this.camera.Start();
         }
 
-        private void ScreenAttached()
-        {
-            foreach(var screen in Screen.AllScreens)
-            {
-                screens.Add(screen);
-            }
-        }
-
-        private void setFullscreen()
-        {
-            var pilotScreen = Screen.FromControl(this);
-            var coPilotScreen = Screen.AllScreens.FirstOrDefault(s => s != pilotScreen) ?? pilotScreen;
-            copilotview.Left = coPilotScreen.WorkingArea.Left + 120;
-            copilotview.Top = coPilotScreen.WorkingArea.Top + 120;        
-        }
-
-        public PictureBox pilotPictureBox()
-        {
-            return pictureBoxVideo;
-        }
-
-        private void PilotView_Load(object sender, EventArgs e)
-        {
-
-            initializeMainJoystick();
-            initializeLeftJoystick(); 
-            //inititalizeRightJoystick(); 
-            JoystickStateStore stateStore = new JoystickStateStore();
-            initializeMainJoystickStateListener(stateStore);
-            initializeLeftJoystickStateListener(stateStore);
-            initializeCommunicationServer(stateStore);
-
-            //Initialize
-            new Thread(() => {Application.Run(new CoPilotView()); }).Start();
-        }
-        //Main joystick for the pilot
-        private void initializeMainJoystick()
-        {
-            WaitHandle handle = new AutoResetEvent(false);
-            mainJoystick = JoystickFactory.GetMainController(this.Handle);
-            mainJoystick.Acquire(handle);
-        }
-        //Left joystick for the CoPilot
-        private void initializeLeftJoystick()
-        {
-            WaitHandle handle = new AutoResetEvent(false);
-            leftJoystick = JoystickFactory.GetManipulatorLeft(this.Handle);
-            leftJoystick.Acquire(handle);
-        }
-        //Right joystick for the CoPilot
-        private void inititalizeRightJoystick()
-        {
-            WaitHandle handle = new AutoResetEvent(false);
-            rightJoystick = JoystickFactory.GetManipulatorRight(this.Handle);
-            rightJoystick.Acquire(handle);
-        }
-
-        private void initializeCommunicationServer(JoystickStateStore stateStore)
-        {
-            CommunicationServer comServer = new CommunicationServer(stateStore);
-            comServer.RovStateReceived += RovState_Received;
-            Thread comThread = new Thread(comServer.Serve);
-            comThread.IsBackground = true;
-            comThread.Start();
-        } 
-
-        private void initializeMainJoystickStateListener(JoystickStateStore stateStore)
-        {
-            mainPacketBuilder = new MainPacketBuilder(mainJoystick);         
-            JoystickStateListener interruptListener = new JoystickStateListener(mainJoystick, mainPacketBuilder, stateStore);
-            interruptListener.JoystickStateChanged += JoystickState_Changed;
-            Thread listener = new Thread(interruptListener.Listen);
-            listener.IsBackground = true;
-            listener.Start();      
-        }
-        
-        private void initializeLeftJoystickStateListener(JoystickStateStore statestore)
-        {
-            leftPacketBuilder = new ManipulatorLeftPacketBuilder(leftJoystick);
-            JoystickStateListener interruptListener = new JoystickStateListener(leftJoystick, leftPacketBuilder, statestore);
-            interruptListener.JoystickStateChanged += leftJoystickState_Changed;
-            Thread listener = new Thread(interruptListener.Listen);
-            listener.IsBackground = true;
-            listener.Start();
-        }
-
-        private void JoystickState_Changed(object sender, EventArgs e)
-        {
-
-            if (mainJoystick != null)
-            {
-                try
-                {
-                    if (InvokeRequired)
-                    {
-                        if (!this.IsDisposed)
-                        {
-                            this.Invoke(new Action(() => toggleStopWatch()));
-                            //this.Invoke(new Action(() => changeCoPilotView()));
-                            return;
-                        }
-                    }
-                }
-                catch (ObjectDisposedException)
-                {
-                    // NOT YET IMPLEMENTED
-                }
-            }
-        }
-        public void leftJoystickState_Changed(object sender, EventArgs e)
-            {
-                if(leftJoystick != null)
-                {                 
-                    try
-                    {
-                        if(InvokeRequired)
-                        {
-                            if(!this.IsDisposed)
-                            {
-                                this.Invoke(new Action(() => changeCoPilotView()));
-                                return;
-                            }
-                        }
-                    }
-                    catch (ObjectDisposedException) { }
-                }
-
-            }
-        
         private void toggleStopWatch()
         {
-            if (mainJoystick.Buttons()[11])
-            {
-                if (stopwatch.IsRunning)
-                    stopwatch.Stop();
-                else
-                    stopwatch.Start();
-            }         
-        }
-
-        private void changeCoPilotView()
-        {
-         
-        }
-
-        private void RovState_Received(object sender, DataReceivedEventArgs e)
-        {
-            try
-            {
-                if (InvokeRequired)
-                {
-                    if (!this.IsDisposed)
-                    {
-                        this.Invoke(new Action(() => readRovState(e.Data)));
-                        return;
-                    }
-                }
-            }
-            catch (ObjectDisposedException)
-            {
-                // NOT YET IMPLEMENTED
-            }
-        }
-
-        private void readRovState(byte[] data)
-        {
-            String packet = "";
-            foreach (byte b in data)
-            {
-                packet += (byte)b + " ";
-            }
-            lastPacketReceived = packet;
+            if (stopwatch.IsRunning)
+                stopwatch.Stop();
+            else
+                stopwatch.Start();       
         }
 
         private void PaintOverlay(object sender, PaintEventArgs args)
@@ -248,18 +75,13 @@ namespace UisSubsea.RovTopside.Presentation
             TimeSpan span = stopwatch.Elapsed;
             String stopwatchString = string.Format("{0}:{1}", Math.Floor(span.TotalMinutes), span.ToString("ss"));
             args.Graphics.DrawString("Timer: " + stopwatchString, font, brush, pointStopwatch);
+            args.Graphics.DrawString("Neutral: " + verticalLeverIsNeutral, font, brush, pointVerticalLeverIsNeutral);
         }
 
         private void PilotView_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (camera != null)
-                camera.Dispose();
-
-            try
-            {
-                copilotview.Close();
-            }
-            catch (Exception) {}           
+                camera.Dispose();           
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -286,44 +108,6 @@ namespace UisSubsea.RovTopside.Presentation
                     this.WindowState = FormWindowState.Normal;
                 }
             }
-            else if (keyData == Keys.S)
-            {
-                camera.Snapshot();
-            }
-            else if (keyData == Keys.V)
-            {
-                camera.ToggleRecording();
-                if (camera.IsRecording)
-                    overlayText = "Recording";
-                else
-                    overlayText = "Not recording";
-            }
-            else if (keyData == Keys.Up)
-            {
-                if (autofocus)
-                    autofocus = false;
-
-                if (focus < 40)
-                {
-                    focus++;
-                    camera.SetFocus(focus);
-                }
-            }
-            else if (keyData == Keys.Down)
-            {
-                if (focus > 0)
-                {
-                    focus--;
-                    camera.SetFocus(focus);
-                }
-            }
-            else if (keyData == Keys.A)
-            {
-                autofocus = true;
-                focus = 0;
-                camera.AutoFocus();
-            }              
-
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
@@ -346,6 +130,29 @@ namespace UisSubsea.RovTopside.Presentation
         public void SetDepth(double depth)
         {
             this.Invoke(new Action(() => this.depth = depth));
+        }
+
+        public void VerticalLeverIsNeutral(bool isNeutral)
+        {
+            this.Invoke(new Action(() => this.verticalLeverIsNeutral = isNeutral));
+        }
+
+        public void ToggleStopwatch()
+        {
+            this.Invoke(new Action(() => toggleStopWatch()));
+        }
+
+        public ICamera GetCamera()
+        {
+            return this.camera;
+        }
+
+        public void SetCamera(ICamera camera)
+        {
+            this.camera.Stop();
+            this.camera = camera;
+            this.camera.Canvas = pictureBoxVideo;
+            this.camera.Start();
         }
     }
 }

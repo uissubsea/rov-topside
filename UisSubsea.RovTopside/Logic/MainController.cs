@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UisSubsea.RovTopside.Data;
+using UisSubsea.RovTopside.Presentation;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -12,9 +13,13 @@ namespace UisSubsea.RovTopside.Logic
     public class MainController
     {
         private Form pilotView;
+        private Form coPilotView;
         private Joystick pilotJoystick;
         private Joystick coPilotLeftJoystick;
         private Joystick coPilotRightJoystick;
+        private TopSideJoystickActionController topSideActionController;
+        private JoystickStateListener pilotStickListener, coPilotLeftStickListener, coPilotRightStickListener;
+        private ICameraHandler cameraController;
 
         public MainController()
         {
@@ -23,9 +28,20 @@ namespace UisSubsea.RovTopside.Logic
 
         private void initializeComponents()
         {
+            pilotView = new PilotView(CameraFactory.GetMainCamera());
+            coPilotView = new CoPilotView(CameraFactory.GetManipulatorCamera());
+
             initializeJoysticks();
             JoystickStateStore stateStore = new JoystickStateStore();
             initializeJoystickListeners(stateStore);
+
+            cameraController = new CameraController((IView)pilotView, (IView)coPilotView,
+                CameraFactory.GetMainCamera(), CameraFactory.GetManipulatorCamera(), CameraFactory.GetRearCamera());
+
+            topSideActionController = new TopSideJoystickActionController(pilotStickListener,
+                coPilotLeftStickListener, coPilotRightStickListener, cameraController,
+                (ICoPilotViewHandler)coPilotView, (IOverlayHandler)pilotView);
+
             initializeCommunicationServer(stateStore);
         }
 
