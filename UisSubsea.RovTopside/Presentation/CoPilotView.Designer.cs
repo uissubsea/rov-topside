@@ -335,7 +335,6 @@
             this.ForeColor = System.Drawing.SystemColors.WindowText;
             this.Name = "CoPilotView";
             this.Text = "CoPilotView";
-            this.Load += new System.EventHandler(this.CoPilotView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.videoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.depthTrackBar1)).EndInit();
             this.ResumeLayout(false);
