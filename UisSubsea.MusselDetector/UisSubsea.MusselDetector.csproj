@@ -41,6 +41,9 @@
     <Reference Include="AForge.Math">
       <HintPath>..\packages\AForge.Math.2.2.5\lib\AForge.Math.dll</HintPath>
     </Reference>
+    <Reference Include="AForge.Video.FFMPEG">
+      <HintPath>..\UisSbusea.RovTopside\bin\x86\Debug\AForge.Video.FFMPEG.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

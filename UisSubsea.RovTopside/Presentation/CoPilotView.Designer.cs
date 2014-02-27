@@ -54,7 +54,6 @@
             this.videoPictureBox.Location = new System.Drawing.Point(-4, -29);
             this.videoPictureBox.Name = "videoPictureBox";
             this.videoPictureBox.Size = new System.Drawing.Size(960, 720);
-            this.videoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.videoPictureBox.TabIndex = 0;
             this.videoPictureBox.TabStop = false;
             // 
