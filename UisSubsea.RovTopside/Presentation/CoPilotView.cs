@@ -103,8 +103,12 @@ namespace UisSubsea.RovTopside.Presentation
             {
                 depthTrackBar1.Minimum = -3000;
             }
-            //this.Invoke(new Action(() =>{depthTrackBar1.Value = (int)depth * -1; lblTextValueDepth.Text = depth.ToString();}));
-            depthTrackBar1.Value = (int)depth * -1;          
+            this.Invoke(new Action(() =>
+            {
+                depthTrackBar1.Value = (int)depth * -1; 
+                lblTextValueDepth.Text = depth.ToString();
+            }));
+                     
           
             lblTextDepth.Text = "cm: ";
         }
@@ -133,14 +137,10 @@ namespace UisSubsea.RovTopside.Presentation
         //Get called from CamController
         public void SetCamera(ICamera camera)
         {
-            //this.Invoke(new Action(() =>
-            //    {
                     this.camera.Stop();
                     this.camera = camera;
                     this.camera.Canvas = videoPictureBox;
                     this.camera.Start();
-
-               // }));
            
         }
 
