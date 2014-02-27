@@ -91,20 +91,6 @@ namespace UisSubsea.RovTopside.Data
             image.Dispose();           
         }
 
-        private Bitmap currentFrame()
-        {
-            if (canvas.InvokeRequired)
-            {
-                return (Bitmap)canvas.Invoke(
-                  new Func<Bitmap>(() => (Bitmap)canvas.Image.Clone())
-                );
-            }
-            else
-            {
-                return (Bitmap)canvas.Image.Clone();
-            }
-        }
-
         public void Dispose()
         {
             //Stop and free the webcam object 
