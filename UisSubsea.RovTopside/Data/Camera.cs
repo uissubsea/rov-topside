@@ -240,13 +240,13 @@ namespace UisSubsea.RovTopside.Data
         private void setEventHandler()
         {
             handleEvents = true;
-            this.camera.NewFrame += camera_NewFrame;
+            this.camera.NewFrame += new NewFrameEventHandler(camera_NewFrame);
         }
 
         private void removeEventHandler()
         {
             handleEvents = false;
-            this.camera.NewFrame -= camera_NewFrame;
+            this.camera.NewFrame -= (NewFrameEventHandler)camera_NewFrame;
         }
 
         public override bool Equals(Object obj)
