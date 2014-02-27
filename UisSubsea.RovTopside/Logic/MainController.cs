@@ -12,7 +12,7 @@ namespace UisSubsea.RovTopside.Logic
 {
     public class MainController
     {
-        private Form pilotView;
+        public Form pilotView;
         private Form coPilotView;
         private Joystick pilotJoystick;
         private Joystick coPilotLeftJoystick;

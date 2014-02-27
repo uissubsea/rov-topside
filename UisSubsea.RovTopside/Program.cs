@@ -33,8 +33,8 @@ namespace UisSubsea.RovTopside
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new MainController());
 
-            new MainController();
-            Application.Run();
+            MainController main = new MainController();
+            Application.Run(main.pilotView);
 
             
             //createJoystick();
