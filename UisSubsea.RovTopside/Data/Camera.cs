@@ -221,20 +221,12 @@ namespace UisSubsea.RovTopside.Data
         private void setCanvas(PictureBox canvas)
         {
             if (handleEvents && canvas == null)
-            {
-                System.Diagnostics.Debug.WriteLine("SET CANVAS: handleEvents && canvas == null ");
-                removeEventHandler();
-            }
-                
+                removeEventHandler();           
 
             this.canvas = canvas;
             
             if (!handleEvents)
-            {
-                System.Diagnostics.Debug.WriteLine("SET CANVAS: !handleEvents");
-                setEventHandler();
-            }
-                
+                setEventHandler();             
         }
 
         private void setEventHandler()
