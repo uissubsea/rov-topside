@@ -165,7 +165,7 @@
             this.rearCamGauge.BaseArcSweep = 180;
             this.rearCamGauge.BaseArcWidth = 1;
             this.rearCamGauge.Center = new System.Drawing.Point(100, 100);
-            this.rearCamGauge.Location = new System.Drawing.Point(962, -16);
+            this.rearCamGauge.Location = new System.Drawing.Point(958, -16);
             this.rearCamGauge.MaxValue = 30F;
             this.rearCamGauge.MinValue = -150F;
             this.rearCamGauge.Name = "rearCamGauge";
@@ -202,7 +202,7 @@
             // depthTrackBar1
             // 
             this.depthTrackBar1.Enabled = false;
-            this.depthTrackBar1.Location = new System.Drawing.Point(972, 339);
+            this.depthTrackBar1.Location = new System.Drawing.Point(981, 339);
             this.depthTrackBar1.Maximum = 0;
             this.depthTrackBar1.Minimum = -600;
             this.depthTrackBar1.Name = "depthTrackBar1";
@@ -219,7 +219,7 @@
             this.lblTextDepth.AutoSize = true;
             this.lblTextDepth.Font = new System.Drawing.Font("Castellar", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTextDepth.ForeColor = System.Drawing.Color.Red;
-            this.lblTextDepth.Location = new System.Drawing.Point(969, 320);
+            this.lblTextDepth.Location = new System.Drawing.Point(978, 320);
             this.lblTextDepth.Name = "lblTextDepth";
             this.lblTextDepth.Size = new System.Drawing.Size(63, 16);
             this.lblTextDepth.TabIndex = 9;
@@ -230,7 +230,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Castellar", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(969, 269);
+            this.label1.Location = new System.Drawing.Point(978, 269);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 16);
             this.label1.TabIndex = 10;

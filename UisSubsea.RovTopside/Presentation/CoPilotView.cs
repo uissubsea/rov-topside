@@ -76,8 +76,10 @@ namespace UisSubsea.RovTopside.Presentation
         //UI updates
         public void SetHeading(int heading)
         {
-            this.Invoke(new Action(() =>headingGauge.Value = heading));
-            this.Invoke(new Action(() => headingLabelText.Text = heading.ToString()));
+            this.Invoke(new Action(() =>{
+            headingGauge.Value = heading;
+            headingLabelText.Text = heading.ToString();
+            }));
 
         }
 
@@ -95,16 +97,15 @@ namespace UisSubsea.RovTopside.Presentation
         {
             if (depth > 600 && depth <= 1200)
             {
-                this.Invoke(new Action(() =>depthTrackBar1.Minimum = -1200));
+                depthTrackBar1.Minimum = -1200;
             }
             else if (depth > 1200)
             {
-                this.Invoke(new Action(() => depthTrackBar1.Minimum = -3000));
+                depthTrackBar1.Minimum = -3000;
             }
-            //this.Invoke(new Action(() =>depthTrackBar1.Value = (int)depth * -1));
-            depthTrackBar1.Value = (int)depth * -1;
-            //this.Invoke(new Action(() =>lblTextValueDepth.Text = depth.ToString()));
-            lblTextValueDepth.Text = depth.ToString();
+            //this.Invoke(new Action(() =>{depthTrackBar1.Value = (int)depth * -1; lblTextValueDepth.Text = depth.ToString();}));
+            depthTrackBar1.Value = (int)depth * -1;          
+          
             lblTextDepth.Text = "cm: ";
         }
 
