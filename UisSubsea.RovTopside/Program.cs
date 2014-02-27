@@ -9,8 +9,6 @@ using UisSubsea.RovTopside.Data;
 using UisSubsea.RovTopside.Logic;
 
 
-
-
 namespace UisSubsea.RovTopside
 {
     static class Program
