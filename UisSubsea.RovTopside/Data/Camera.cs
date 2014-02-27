@@ -88,7 +88,7 @@ namespace UisSubsea.RovTopside.Data
             String name = Guid.NewGuid().ToString() + ".jpg";
             string filename = System.IO.Path.Combine(filepath, name);
             image.Save(filename, ImageFormat.Jpeg);
-            image.Dispose();           
+            image.Dispose();
         }
 
         public void Dispose()
@@ -191,43 +191,37 @@ namespace UisSubsea.RovTopside.Data
 
         private void camera_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
-            try
-            {
-                Bitmap nextFrame = (Bitmap)eventArgs.Frame.Clone();
 
-                if (snapshot)
-                    saveSnapshot((Bitmap)nextFrame.Clone());
+            Bitmap nextFrame = (Bitmap)eventArgs.Frame.Clone();
 
-                if (isRecording)
-                    recordFrame((Bitmap)nextFrame.Clone());
+            if (snapshot)
+                saveSnapshot((Bitmap)nextFrame.Clone());
 
-                setNewFrame(canvas, nextFrame);
-            }
-            catch (Exception)
-            { }
-            
+            if (isRecording)
+                recordFrame((Bitmap)nextFrame.Clone());
+
+            setNewFrame(canvas, nextFrame);
         }
 
         private void setNewFrame(PictureBox canvas, Bitmap frame)
         {
-            try
+            if (canvas.Image != null)
             {
-                if (canvas.InvokeRequired)
+                try
                 {
-                    if (canvas.Image != null)
-                        canvas.Invoke(new Action(() => canvas.Image.Dispose()));
-
-                    canvas.Invoke(new Action(() => canvas.Image = frame));
-                }
-                else
-                 {
-                    if(canvas.Image != null)
+                    if (canvas.InvokeRequired)
+                    {
+                        canvas.Invoke(new MethodInvoker(delegate() { canvas.Image.Dispose(); }));
+                    }
+                    else
+                    {
                         canvas.Image.Dispose();
-
-                    canvas.Image = frame;
+                    }
                 }
+                catch (ObjectDisposedException) { }
+
             }
-            catch (Exception) { }
+            canvas.Image = frame;
         }
 
         private void recordFrame(Bitmap frame)
