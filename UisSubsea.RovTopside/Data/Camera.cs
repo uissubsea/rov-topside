@@ -202,8 +202,10 @@ namespace UisSubsea.RovTopside.Data
                     canvas.Invoke(new Action(() => canvas.Image = frame));
                 }
                 else
-                {
-                    canvas.Image.Dispose();
+                 {
+                    if(canvas.Image != null)
+                        canvas.Image.Dispose();
+
                     canvas.Image = frame;
                 }
             }
