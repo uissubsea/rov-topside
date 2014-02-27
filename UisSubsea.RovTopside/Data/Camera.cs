@@ -221,7 +221,7 @@ namespace UisSubsea.RovTopside.Data
                     canvas.Image = frame;
                 }
             }
-            catch (ObjectDisposedException) { }
+            catch (Exception) { }
         }
 
         private void recordFrame(Bitmap frame)
