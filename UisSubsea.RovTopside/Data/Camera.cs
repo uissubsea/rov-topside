@@ -23,6 +23,7 @@ namespace UisSubsea.RovTopside.Data
         private Thread videoRecorder;
         private Boolean handleEvents;
         private String cameraMoniker;
+        private Boolean snapshot;
 
         public Camera(int index, Size desiredResolution)
         {
@@ -74,13 +75,20 @@ namespace UisSubsea.RovTopside.Data
 
         public void Snapshot()
         {
+            snapshot = true;
+        }
+
+        private void saveSnapshot(Bitmap image)
+        {
+            snapshot = false;
+
             string filepath = Environment.CurrentDirectory;
 
-            Bitmap current = currentFrame();
+            //Bitmap current = currentFrame();
             String name = Guid.NewGuid().ToString() + ".jpg";
             string filename = System.IO.Path.Combine(filepath, name);
-            current.Save(filename, ImageFormat.Jpeg);
-            current.Dispose();
+            image.Save(filename, ImageFormat.Jpeg);
+            image.Dispose();           
         }
 
         private Bitmap currentFrame()
@@ -198,6 +206,9 @@ namespace UisSubsea.RovTopside.Data
         private void camera_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
             Bitmap nextFrame = (Bitmap)eventArgs.Frame.Clone();
+
+            if (snapshot)
+                saveSnapshot((Bitmap)nextFrame.Clone());
 
             recordFrame((Bitmap)nextFrame.Clone());
 
