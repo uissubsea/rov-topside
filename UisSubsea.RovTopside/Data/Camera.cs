@@ -120,6 +120,7 @@ namespace UisSubsea.RovTopside.Data
         {
             removeEventHandler();
             camera.SignalToStop();
+            canvas = null;
         }
 
         public void AutoFocus()
@@ -221,7 +222,7 @@ namespace UisSubsea.RovTopside.Data
         {
             if (handleEvents && canvas == null)
             {
-                System.Diagnostics.Debug.WriteLine("SET CANVAS: handleEvents && canvas == null");
+                System.Diagnostics.Debug.WriteLine("SET CANVAS: handleEvents && canvas == null ");
                 removeEventHandler();
             }
                 
