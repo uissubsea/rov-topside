@@ -118,6 +118,7 @@ namespace UisSubsea.RovTopside.Data
 
         public void Stop()
         {
+            removeEventHandler();
             camera.SignalToStop();
         }
 
