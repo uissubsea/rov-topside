@@ -40,9 +40,19 @@ namespace UisSubsea.RovTopside.Logic
             if(pilotView.GetCamera().Equals(mainCamera))
             { 
                 if(coPilotView.GetCamera().Equals(rearCamera))                             
-                    setCamera(coPilotView, manipulatorCamera);                                                                               
-                    
-                setCamera(pilotView, rearCamera);                            
+                    setCamera(coPilotView, manipulatorCamera);
+
+                setCamera(pilotView, rearCamera);
+
+                /*if (pilotView.GetCamera().Equals(rearCamera))
+                {
+                    setCamera(pilotView, rearCamera);
+                    System.Diagnostics.Debug.WriteLine("gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg");
+                }
+
+                if(pilotView.GetCamera().HandleEvents())
+                    System.Diagnostics.Debug.WriteLine("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
+                 */
             }
             else
             {
