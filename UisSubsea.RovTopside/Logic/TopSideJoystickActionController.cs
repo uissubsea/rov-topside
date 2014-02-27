@@ -65,37 +65,37 @@ namespace UisSubsea.RovTopside.Logic
 
         private Boolean changePilotCamera()
         {
-            return pilotStick.Joystick.Buttons()[2];
+            return pilotStick.Joystick.Buttons()[JoystickActionButtons.ChangePilotCamera];
         }
 
         private Boolean changeCoPilotCamera()
         {
-            return coPilotRightStick.Joystick.Buttons()[1];
+            return coPilotRightStick.Joystick.Buttons()[JoystickActionButtons.ChangeCoPilotCamera];
         }
 
         private Boolean toggleRecording()
         {
-            return coPilotRightStick.Joystick.Buttons()[5];
+            return coPilotRightStick.Joystick.Buttons()[JoystickActionButtons.ToggleRecording];
         }
 
         private Boolean snapshot()
         {
-            return coPilotRightStick.Joystick.Buttons()[4];
+            return coPilotRightStick.Joystick.Buttons()[JoystickActionButtons.Snapshot];
         }
 
         private Boolean toggleStopwatch()
         {
-            return pilotStick.Joystick.Buttons()[4];
+            return pilotStick.Joystick.Buttons()[JoystickActionButtons.ToggleStopwatch];
         }
 
         private Boolean reverse()
         {
-            return JoystickFactory.GetMainController().Buttons()[1];
+            return pilotStick.Joystick.Buttons()[JoystickActionButtons.Reverse];
         }
 
         private Boolean VerticalLeverIsNeutral()
         {
-            return JoystickFactory.GetMainController().Throttle() == 125;
+            return pilotStick.Joystick.Throttle() == 125;
         }
     }
 }

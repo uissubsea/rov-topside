@@ -37,7 +37,7 @@ namespace UisSubsea.RovTopside.Logic
 
             cameraController = new CameraController((IView)pilotView, (IView)coPilotView,
                 CameraFactory.GetMainCamera(), CameraFactory.GetManipulatorCamera(), CameraFactory.GetRearCamera());
-
+             
             topSideActionController = new TopSideJoystickActionController(pilotStickListener,
                 coPilotLeftStickListener, coPilotRightStickListener, cameraController,
                 (ICoPilotViewHandler)coPilotView, (IOverlayHandler)pilotView);

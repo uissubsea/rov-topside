@@ -17,12 +17,13 @@ namespace UisSubsea.RovTopside.Presentation
     {
         private Font font;
         private Brush brush;
+        private Pen pen;
         private PointF pointRecordingText;
         private PointF pointFocusValue;
         private PointF pointAutoFocus;
         private PointF pointDataReceived;
         private PointF pointStopwatch;
-        private PointF pointVerticalLeverIsNeutral;
+        private Rectangle boundsVerticalLeverIsNeutral;
         private string overlayText = "Not recording";
         private string lastPacketReceived = "0";
         private Boolean fullScreen = false;
@@ -47,7 +48,8 @@ namespace UisSubsea.RovTopside.Presentation
             pointFocusValue = new PointF(30.0f, 110.0f);
             pointDataReceived = new PointF(30.0f, 150.0f);
             pointStopwatch = new PointF(30.0f, 190.0f);
-            pointVerticalLeverIsNeutral = new PointF(30.0f, 230.0f);
+            boundsVerticalLeverIsNeutral = new Rectangle(30, 230, 50, 50);
+            pen = new Pen(new SolidBrush(Color.Green));
             stopwatch = new System.Diagnostics.Stopwatch(); 
 
             pictureBoxVideo.Paint += new PaintEventHandler(PaintOverlay);
@@ -75,7 +77,9 @@ namespace UisSubsea.RovTopside.Presentation
             TimeSpan span = stopwatch.Elapsed;
             String stopwatchString = string.Format("{0}:{1}", Math.Floor(span.TotalMinutes), span.ToString("ss"));
             args.Graphics.DrawString("Timer: " + stopwatchString, font, brush, pointStopwatch);
-            args.Graphics.DrawString("Neutral: " + verticalLeverIsNeutral, font, brush, pointVerticalLeverIsNeutral);
+
+            if (verticalLeverIsNeutral)
+                args.Graphics.DrawEllipse(pen, boundsVerticalLeverIsNeutral);
         }
 
         private void PilotView_FormClosed(object sender, FormClosedEventArgs e)
