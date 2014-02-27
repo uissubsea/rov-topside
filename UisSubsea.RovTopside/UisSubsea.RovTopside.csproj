@@ -115,6 +115,7 @@
     <Compile Include="Data\StateSender.cs" />
     <Compile Include="Data\VideoRecorder.cs" />
     <Compile Include="Logic\IView.cs" />
+    <Compile Include="Logic\JoystickActionButtons.cs" />
     <Compile Include="Logic\MainController.cs" />
     <Compile Include="Logic\IOverlayHandler.cs" />
     <Compile Include="Logic\RovStateReceivedHandler.cs" />
