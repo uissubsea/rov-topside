@@ -191,15 +191,21 @@ namespace UisSubsea.RovTopside.Data
 
         private void camera_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
-            Bitmap nextFrame = (Bitmap)eventArgs.Frame.Clone();
+            try
+            {
+                Bitmap nextFrame = (Bitmap)eventArgs.Frame.Clone();
 
-            if (snapshot)
-                saveSnapshot((Bitmap)nextFrame.Clone());
+                if (snapshot)
+                    saveSnapshot((Bitmap)nextFrame.Clone());
 
-            if(isRecording)
-                recordFrame((Bitmap)nextFrame.Clone());
+                if (isRecording)
+                    recordFrame((Bitmap)nextFrame.Clone());
 
-            setNewFrame(canvas, nextFrame);
+                setNewFrame(canvas, nextFrame);
+            }
+            catch (Exception)
+            { }
+            
         }
 
         private void setNewFrame(PictureBox canvas, Bitmap frame)
