@@ -335,6 +335,7 @@
             this.ForeColor = System.Drawing.SystemColors.WindowText;
             this.Name = "CoPilotView";
             this.Text = "CoPilotView";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(Form1_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.videoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.depthTrackBar1)).EndInit();
             this.ResumeLayout(false);

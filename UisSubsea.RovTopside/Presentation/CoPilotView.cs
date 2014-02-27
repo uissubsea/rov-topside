@@ -47,8 +47,9 @@ namespace UisSubsea.RovTopside.Presentation
             formGraphics.Dispose();
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void Form1_FormClosing(object sender, FormClosedEventArgs e)
         {
+            System.Diagnostics.Debug.WriteLine("CO-PILOT VIEW CLOSED");
             if (camera != null)
                 camera.Dispose();
 
