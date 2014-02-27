@@ -76,11 +76,25 @@ namespace UisSubsea.RovTopside.Data
         {
             string filepath = Environment.CurrentDirectory;
 
-            Bitmap current = (Bitmap)canvas.Image.Clone();
+            Bitmap current = currentFrame();
             String name = Guid.NewGuid().ToString() + ".jpg";
             string filename = System.IO.Path.Combine(filepath, name);
             current.Save(filename, ImageFormat.Jpeg);
             current.Dispose();
+        }
+
+        private Bitmap currentFrame()
+        {
+            if (canvas.InvokeRequired)
+            {
+                return (Bitmap)canvas.Invoke(
+                  new Func<Bitmap>(() => (Bitmap)canvas.Image.Clone())
+                );
+            }
+            else
+            {
+                return (Bitmap)canvas.Image.Clone();
+            }
         }
 
         public void Dispose()
