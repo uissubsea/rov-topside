@@ -38,21 +38,17 @@ namespace UisSubsea.RovTopside.Logic
         public void ChangePilotCamera()
         {
             if(pilotView.GetCamera().Equals(mainCamera))
-            { 
-                if(coPilotView.GetCamera().Equals(rearCamera))                             
-                    setCamera(coPilotView, manipulatorCamera);
-
-                setCamera(pilotView, rearCamera);
-
-                /*if (pilotView.GetCamera().Equals(rearCamera))
+            {
+                if (coPilotView.GetCamera().Equals(rearCamera))
                 {
-                    setCamera(pilotView, rearCamera);
-                    System.Diagnostics.Debug.WriteLine("gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg");
-                }
+                    
+                    setCamera(coPilotView, manipulatorCamera);
+                    //Important  let the camera stop before next line of code
+                    while (rearCamera.Instance.IsRunning) { }
+        
 
-                if(pilotView.GetCamera().HandleEvents())
-                    System.Diagnostics.Debug.WriteLine("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
-                 */
+                }
+                 setCamera(pilotView, rearCamera);                                         
             }
             else
             {

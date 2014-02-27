@@ -149,10 +149,15 @@ namespace UisSubsea.RovTopside.Presentation
 
         public void SetCamera(ICamera camera)
         {
-            this.camera.Stop();
-            this.camera = camera;
-            this.camera.Canvas = pictureBoxVideo;
-            this.camera.Start();
+            //this.Invoke(new Action(() => 
+            //    {
+                    this.camera.Stop();
+                    this.camera = camera;
+                    this.camera.Canvas = pictureBoxVideo;
+                    this.camera.Start();
+
+           //     }));
+            
         }
     }
 }
