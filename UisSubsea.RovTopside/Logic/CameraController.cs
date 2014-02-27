@@ -40,13 +40,10 @@ namespace UisSubsea.RovTopside.Logic
             if(pilotView.GetCamera().Equals(mainCamera))
             {
                 if (coPilotView.GetCamera().Equals(rearCamera))
-                {
-                    
+                {                    
                     setCamera(coPilotView, manipulatorCamera);
                     //Important  let the camera stop before next line of code
                     while (rearCamera.Instance.IsRunning) { }
-        
-
                 }
                  setCamera(pilotView, rearCamera);                                         
             }
