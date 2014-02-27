@@ -40,13 +40,13 @@ namespace UisSubsea.RovTopside.Logic
             if(pilotView.GetCamera().Equals(mainCamera))
             { 
                 if(coPilotView.GetCamera().Equals(rearCamera))                             
-                    checkIsRecording(coPilotView,manipulatorCamera);                                                                               
+                    setCamera(coPilotView, manipulatorCamera);                                                                               
                     
-                checkIsRecording(pilotView, rearCamera);                            
+                setCamera(pilotView, CameraFactory.GetRearCamera());                            
             }
             else
             {
-                checkIsRecording(pilotView,mainCamera);
+                setCamera(pilotView,mainCamera);
             }           
         }
 
@@ -57,15 +57,15 @@ namespace UisSubsea.RovTopside.Logic
                 if (pilotView.GetCamera().Equals(rearCamera))
                     return;
 
-                checkIsRecording(coPilotView,rearCamera);
+                setCamera(coPilotView,rearCamera);
             }
             else
             {
-                checkIsRecording(coPilotView, manipulatorCamera);
+                setCamera(coPilotView, manipulatorCamera);
             }           
         }
         
-        private void checkIsRecording(IView view, ICamera camera)
+        private void setCamera(IView view, ICamera camera)
         {
             if (view.GetCamera().IsRecording)
             {
