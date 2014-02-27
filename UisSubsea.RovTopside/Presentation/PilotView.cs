@@ -85,7 +85,9 @@ namespace UisSubsea.RovTopside.Presentation
         private void PilotView_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (camera != null)
-                camera.Dispose();           
+                camera.Dispose();
+
+            Application.Exit();
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)

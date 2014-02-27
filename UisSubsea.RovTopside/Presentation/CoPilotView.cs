@@ -50,9 +50,9 @@ namespace UisSubsea.RovTopside.Presentation
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (camera != null)
-            {
                 camera.Dispose();
-            }
+
+            Application.Exit();
         }
 
         private void button1_Click(object sender, EventArgs e)
