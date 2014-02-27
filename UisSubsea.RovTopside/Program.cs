@@ -34,18 +34,7 @@ namespace UisSubsea.RovTopside
             //Application.Run(new MainController());
 
             new MainController();
-
-            try
-            {
-                Application.Run();
-            }
-            catch (ArgumentException)
-            {
-
-            }
-            
-
-
+            Application.Run();
 
             
             //createJoystick();

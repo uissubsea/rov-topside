@@ -205,22 +205,27 @@ namespace UisSubsea.RovTopside.Data
 
         private void setNewFrame(PictureBox canvas, Bitmap frame)
         {
-            if (canvas.Image != null)
+            try
             {
-                try
+                if (canvas.InvokeRequired)
                 {
-                    if (canvas.InvokeRequired)
+                    canvas.BeginInvoke(new MethodInvoker(delegate()
                     {
-                        canvas.BeginInvoke(new MethodInvoker(delegate() { canvas.Image.Dispose(); }));
-                    }
-                    else
-                    {
-                        canvas.Image.Dispose();
-                    }
+                        setFrame(canvas, frame);
+                    }));
                 }
-                catch (ObjectDisposedException) { }
-
+                else
+                {
+                    setFrame(canvas, frame);
+                }
             }
+            catch (Exception) { }
+        }
+
+        private void setFrame(PictureBox canvas, Bitmap frame)
+        {
+            if (canvas.Image != null)
+                canvas.Image.Dispose();
             canvas.Image = frame;
         }
 
