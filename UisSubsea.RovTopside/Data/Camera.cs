@@ -192,23 +192,22 @@ namespace UisSubsea.RovTopside.Data
 
         private void setNewFrame(PictureBox canvas, Bitmap frame)
         {
-            if (canvas.Image != null)
+            try
             {
-                try
+                if (canvas.InvokeRequired)
                 {
-                    if (canvas.InvokeRequired)
-                    {
-                        canvas.Invoke(new MethodInvoker(delegate() { canvas.Image.Dispose(); }));
-                    }
-                    else
-                    {
-                        canvas.Image.Dispose();
-                    }
-                }
-                catch (ObjectDisposedException) { }
+                    if (canvas.Image != null)
+                        canvas.Invoke(new Action(() => canvas.Image.Dispose()));
 
+                    canvas.Invoke(new Action(() => canvas.Image = frame));
+                }
+                else
+                {
+                    canvas.Image.Dispose();
+                    canvas.Image = frame;
+                }
             }
-            canvas.Image = frame;
+            catch (ObjectDisposedException) { }
         }
 
         private void recordFrame(Bitmap frame)
@@ -221,12 +220,12 @@ namespace UisSubsea.RovTopside.Data
         private void setCanvas(PictureBox canvas)
         {
             if (handleEvents && canvas == null)
-                removeEventHandler();           
+                removeEventHandler();
 
             this.canvas = canvas;
-            
+
             if (!handleEvents)
-                setEventHandler();             
+                setEventHandler();
         }
 
         private void setEventHandler()
