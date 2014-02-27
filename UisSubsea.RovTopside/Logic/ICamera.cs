@@ -20,5 +20,6 @@ namespace UisSubsea.RovTopside.Logic
         void Start();
         void Stop();
         void ToggleRecording();
+        void CameraDisplayProperties();
     }
 }

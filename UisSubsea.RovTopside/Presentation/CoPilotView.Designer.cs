@@ -42,6 +42,9 @@
             this.pilotCameraSetting = new System.Windows.Forms.Button();
             this.coPilotCameraSettings = new System.Windows.Forms.Button();
             this.lblTextValueDepth = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.headingLabelText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.videoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.depthTrackBar1)).BeginInit();
             this.SuspendLayout();
@@ -63,7 +66,7 @@
             this.frontCamGauge.BaseArcWidth = 1;
             this.frontCamGauge.Center = new System.Drawing.Point(100, 100);
             this.frontCamGauge.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frontCamGauge.Location = new System.Drawing.Point(1078, 217);
+            this.frontCamGauge.Location = new System.Drawing.Point(1078, -16);
             this.frontCamGauge.MaxValue = 105F;
             this.frontCamGauge.MinValue = -75F;
             this.frontCamGauge.Name = "frontCamGauge";
@@ -107,7 +110,7 @@
             this.headingGauge.BaseArcWidth = 1;
             this.headingGauge.Center = new System.Drawing.Point(100, 100);
             this.headingGauge.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.headingGauge.Location = new System.Drawing.Point(962, 22);
+            this.headingGauge.Location = new System.Drawing.Point(1078, 201);
             this.headingGauge.MaxValue = 359F;
             this.headingGauge.MinValue = 0F;
             this.headingGauge.Name = "headingGauge";
@@ -146,7 +149,7 @@
             this.button1.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(1173, 646);
+            this.button1.Location = new System.Drawing.Point(1173, 602);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
@@ -162,7 +165,7 @@
             this.rearCamGauge.BaseArcSweep = 180;
             this.rearCamGauge.BaseArcWidth = 1;
             this.rearCamGauge.Center = new System.Drawing.Point(100, 100);
-            this.rearCamGauge.Location = new System.Drawing.Point(962, 217);
+            this.rearCamGauge.Location = new System.Drawing.Point(962, -16);
             this.rearCamGauge.MaxValue = 30F;
             this.rearCamGauge.MinValue = -150F;
             this.rearCamGauge.Name = "rearCamGauge";
@@ -199,7 +202,7 @@
             // depthTrackBar1
             // 
             this.depthTrackBar1.Enabled = false;
-            this.depthTrackBar1.Location = new System.Drawing.Point(1024, 507);
+            this.depthTrackBar1.Location = new System.Drawing.Point(972, 339);
             this.depthTrackBar1.Maximum = 0;
             this.depthTrackBar1.Minimum = -600;
             this.depthTrackBar1.Name = "depthTrackBar1";
@@ -214,39 +217,39 @@
             // lblTextDepth
             // 
             this.lblTextDepth.AutoSize = true;
-            this.lblTextDepth.Font = new System.Drawing.Font("Castellar", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextDepth.Font = new System.Drawing.Font("Castellar", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTextDepth.ForeColor = System.Drawing.Color.Red;
-            this.lblTextDepth.Location = new System.Drawing.Point(962, 485);
+            this.lblTextDepth.Location = new System.Drawing.Point(969, 320);
             this.lblTextDepth.Name = "lblTextDepth";
-            this.lblTextDepth.Size = new System.Drawing.Size(52, 19);
+            this.lblTextDepth.Size = new System.Drawing.Size(63, 16);
             this.lblTextDepth.TabIndex = 9;
-            this.lblTextDepth.Text = "cm: ";
+            this.lblTextDepth.Text = "Depth: ";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Castellar", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(1149, 176);
+            this.label1.Location = new System.Drawing.Point(969, 269);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 16);
+            this.label1.Size = new System.Drawing.Size(82, 16);
             this.label1.TabIndex = 10;
             this.label1.Text = "Distance:";
             // 
             // lblTextDistance
             // 
             this.lblTextDistance.AutoSize = true;
-            this.lblTextDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextDistance.Font = new System.Drawing.Font("Castellar", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTextDistance.ForeColor = System.Drawing.Color.Red;
-            this.lblTextDistance.Location = new System.Drawing.Point(1219, 176);
+            this.lblTextDistance.Location = new System.Drawing.Point(1057, 269);
             this.lblTextDistance.Name = "lblTextDistance";
-            this.lblTextDistance.Size = new System.Drawing.Size(15, 16);
+            this.lblTextDistance.Size = new System.Drawing.Size(17, 16);
             this.lblTextDistance.TabIndex = 11;
             this.lblTextDistance.Text = "0";
             // 
             // pilotCameraSetting
             // 
-            this.pilotCameraSetting.Location = new System.Drawing.Point(1173, 588);
+            this.pilotCameraSetting.Location = new System.Drawing.Point(1173, 544);
             this.pilotCameraSetting.Name = "pilotCameraSetting";
             this.pilotCameraSetting.Size = new System.Drawing.Size(75, 23);
             this.pilotCameraSetting.TabIndex = 12;
@@ -256,7 +259,7 @@
             // 
             // coPilotCameraSettings
             // 
-            this.coPilotCameraSettings.Location = new System.Drawing.Point(1173, 617);
+            this.coPilotCameraSettings.Location = new System.Drawing.Point(1173, 573);
             this.coPilotCameraSettings.Name = "coPilotCameraSettings";
             this.coPilotCameraSettings.Size = new System.Drawing.Size(75, 23);
             this.coPilotCameraSettings.TabIndex = 13;
@@ -267,13 +270,45 @@
             // lblTextValueDepth
             // 
             this.lblTextValueDepth.AutoSize = true;
-            this.lblTextValueDepth.Font = new System.Drawing.Font("Castellar", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTextValueDepth.Font = new System.Drawing.Font("Castellar", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTextValueDepth.ForeColor = System.Drawing.Color.Red;
-            this.lblTextValueDepth.Location = new System.Drawing.Point(1020, 485);
+            this.lblTextValueDepth.Location = new System.Drawing.Point(1057, 320);
             this.lblTextValueDepth.Name = "lblTextValueDepth";
-            this.lblTextValueDepth.Size = new System.Drawing.Size(76, 19);
+            this.lblTextValueDepth.Size = new System.Drawing.Size(17, 16);
             this.lblTextValueDepth.TabIndex = 14;
-            this.lblTextValueDepth.Text = "label2";
+            this.lblTextValueDepth.Text = "0";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(1033, 91);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 12);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Rear camera";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(1153, 91);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 12);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Front camera";
+            // 
+            // headingLabelText
+            // 
+            this.headingLabelText.AutoSize = true;
+            this.headingLabelText.ForeColor = System.Drawing.Color.Red;
+            this.headingLabelText.Location = new System.Drawing.Point(1170, 320);
+            this.headingLabelText.Name = "headingLabelText";
+            this.headingLabelText.Size = new System.Drawing.Size(13, 13);
+            this.headingLabelText.TabIndex = 17;
+            this.headingLabelText.Text = "0";
             // 
             // CoPilotView
             // 
@@ -281,6 +316,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowText;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.headingLabelText);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTextValueDepth);
             this.Controls.Add(this.coPilotCameraSettings);
             this.Controls.Add(this.pilotCameraSetting);
@@ -297,6 +335,7 @@
             this.ForeColor = System.Drawing.SystemColors.WindowText;
             this.Name = "CoPilotView";
             this.Text = "CoPilotView";
+            this.Load += new System.EventHandler(this.CoPilotView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.videoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.depthTrackBar1)).EndInit();
             this.ResumeLayout(false);
@@ -319,5 +358,8 @@
         private System.Windows.Forms.Button pilotCameraSetting;
         private System.Windows.Forms.Button coPilotCameraSettings;
         private System.Windows.Forms.Label lblTextValueDepth;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label headingLabelText;
     }
 }

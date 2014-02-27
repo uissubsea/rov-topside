@@ -21,15 +21,13 @@ namespace UisSubsea.RovTopside.Presentation
         private System.Drawing.SolidBrush Brush;
         //If there is water leak in controllbox
         private Boolean leak;
-        //Used to change settings on pilotcam
 
         public CoPilotView(ICamera camera)
         {
             InitializeComponent();
-
             this.camera = camera;
             this.camera.Canvas = videoPictureBox;
-            this.camera.Start();
+            this.camera.Start(); 
         }
 
         //Wil change color when there is a leak on the ROV. 
@@ -78,30 +76,34 @@ namespace UisSubsea.RovTopside.Presentation
         //UI updates
         public void SetHeading(int heading)
         {
-            headingGauge.Value = heading;
+            this.Invoke(new Action(() =>headingGauge.Value = heading));
+            this.Invoke(new Action(() => headingLabelText.Text = heading.ToString()));
+
         }
 
         public void SetFrontCameraAngle(int angle)
         {
-            frontCamGauge.Value = angle;
+            this.Invoke(new Action(() =>frontCamGauge.Value = angle));
         }
 
         public void SetRearCameraAngle(int angle)
         {
-            rearCamGauge.Value = angle;
+            this.Invoke(new Action(() => rearCamGauge.Value = angle));
         }
 
         public void SetDepth(double depth)
         {
             if (depth > 600 && depth <= 1200)
             {
-                depthTrackBar1.Minimum = -1200;
+                this.Invoke(new Action(() =>depthTrackBar1.Minimum = -1200));
             }
             else if (depth > 1200)
             {
-                depthTrackBar1.Minimum = -3000;
+                this.Invoke(new Action(() => depthTrackBar1.Minimum = -3000));
             }
+            //this.Invoke(new Action(() =>depthTrackBar1.Value = (int)depth * -1));
             depthTrackBar1.Value = (int)depth * -1;
+            //this.Invoke(new Action(() =>lblTextValueDepth.Text = depth.ToString()));
             lblTextValueDepth.Text = depth.ToString();
             lblTextDepth.Text = "cm: ";
         }
@@ -116,13 +118,13 @@ namespace UisSubsea.RovTopside.Presentation
         {
             if (sensorstate)
             {
-                leak = false;
+                this.Invoke(new Action(() => leak = false));
                 Invalidate();
 
             }
             else
             {
-                leak = true;
+                this.Invoke(new Action(() =>leak = true));
                 Invalidate();
             }
         }
@@ -139,12 +141,11 @@ namespace UisSubsea.RovTopside.Presentation
         //getcamera
         private void button2_Click(object sender, EventArgs e)
         {
-
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //this.camera.displayCameraProperties(IntPtr.Zero);
+            camera.CameraDisplayProperties();
         }
 
         public ICamera GetCamera()
