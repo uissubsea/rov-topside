@@ -42,7 +42,7 @@ namespace UisSubsea.RovTopside.Logic
                 if(coPilotView.GetCamera().Equals(rearCamera))                             
                     setCamera(coPilotView, manipulatorCamera);                                                                               
                     
-                setCamera(pilotView, CameraFactory.GetRearCamera());                            
+                setCamera(pilotView, rearCamera);                            
             }
             else
             {
