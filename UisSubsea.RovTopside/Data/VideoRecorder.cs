@@ -15,14 +15,14 @@ namespace UisSubsea.RovTopside.Data
         private Queue<Bitmap> frameBuffer;
         private VideoFileWriter writer;
 
-        public VideoRecorder(Queue<Bitmap> frameBuffer)
+        public VideoRecorder(Queue<Bitmap> frameBuffer, Size resolution)
         {
             this.frameBuffer = frameBuffer;
             this.writer = new VideoFileWriter();
             string filepath = Environment.CurrentDirectory;
             String name = Guid.NewGuid().ToString() + ".avi";
             string filename = System.IO.Path.Combine(filepath, name);
-            writer.Open(filename, 1280, 720, 24, VideoCodec.MPEG2, 10000000);
+            writer.Open(filename, resolution.Width, resolution.Height, 24, VideoCodec.MPEG2, 10000000);
         }
 
         public void Record()

@@ -59,7 +59,7 @@ namespace UisSubsea.RovTopside.Data
             if (!isRecording)
             {
                 frameBuffer = new Queue<Bitmap>();
-                videoRecorder = new Thread(new VideoRecorder(frameBuffer).Record);
+                videoRecorder = new Thread(new VideoRecorder(frameBuffer, camera.VideoResolution.FrameSize).Record);
                 videoRecorder.IsBackground = true;
                 videoRecorder.Start();
                 isRecording = true;
