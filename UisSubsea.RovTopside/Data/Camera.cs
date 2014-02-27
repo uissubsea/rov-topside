@@ -196,7 +196,8 @@ namespace UisSubsea.RovTopside.Data
             if (snapshot)
                 saveSnapshot((Bitmap)nextFrame.Clone());
 
-            recordFrame((Bitmap)nextFrame.Clone());
+            if(isRecording)
+                recordFrame((Bitmap)nextFrame.Clone());
 
             setNewFrame(canvas, nextFrame);
         }
@@ -225,8 +226,7 @@ namespace UisSubsea.RovTopside.Data
 
         private void recordFrame(Bitmap frame)
         {
-            if (isRecording)
-                frameBuffer.Enqueue(frame);
+            frameBuffer.Enqueue(frame);
         }
 
 
