@@ -70,6 +70,7 @@ namespace UisSubsea.RovTopside.Data
                 frameBuffer.Clear();
                 frameBuffer = null;
                 videoRecorder.Abort();
+                while (videoRecorder.IsAlive) { }
             }
         }
 
