@@ -148,6 +148,9 @@ namespace UisSubsea.RovTopside.Data
 
         public Boolean SetResolution(Size desiredResolution)
         {
+            if (IsRecording)
+                return false;
+
             Boolean desiredResolutionExists = false;
 
             try
