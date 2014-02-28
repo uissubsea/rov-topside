@@ -29,6 +29,22 @@ namespace UisSubsea.RovTopside.Data
             }
         }
 
+        public static RovState BuildRovStateComplet(byte[] data)
+        {
+            if (packageIsValid(data))
+            {
+                int hdg = heading(data[1]);
+                int frontCamTilt = cameraTilt(data[2]);
+                int rearCamTilt = cameraTilt(data[4]);
+                Boolean err = error(data[3]);
+                int distance = distanceRov(data[5]);
+                int depth = depthRov(data[6]);
+                return new RovState(hdg, depth, distance, rearCamTilt, frontCamTilt, err);
+            }
+            else
+                return new RovState(0, 0, 0, 0, 0, false);
+        }
+
         private static Boolean error(byte statusByte)
         {
             if ((1 & statusByte) == 1)
@@ -58,6 +74,19 @@ namespace UisSubsea.RovTopside.Data
                     return false;
             else
                 return false;
+        }
+        
+        private static int depthRov(byte rovDepth)
+        {
+            int depth = rovDepth;
+
+            return depth; 
+        }
+
+        private static int distanceRov(byte rovDistance)
+        {
+            int distance = rovDistance;
+            return distance;
         }
 
     }
