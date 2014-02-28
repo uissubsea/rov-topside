@@ -211,12 +211,14 @@
     <None Include="Resources\HeadingIndicator_Background.bmp" />
     <None Include="Resources\HeadingIndicator_Aircraft.bmp" />
     <None Include="Resources\Bandeau_Dérouleur.bmp" />
-    <None Include="Resources\Altimeter_Background.bmp" />
     <None Include="Resources\AirSpeedNeedle.bmp" />
     <None Include="Resources\AirSpeedIndicator_Background.bmp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\VerticalSpeedNeedle.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Altimeter_Background.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
