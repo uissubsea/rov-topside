@@ -33,9 +33,6 @@ namespace UisSubsea.RovTopside.Presentation
         private Brush blackBrush;
         private Font font;
 
-        private StateSender stateSender;
-        private StateReceiver stateReceiver;
-
         private Boolean readyToSend;
         private Boolean manualSend;
 
@@ -86,19 +83,6 @@ namespace UisSubsea.RovTopside.Presentation
 
         }
 
-        private void writeState()
-        {
-            if (stateSender != null)
-            {
-                byte[] data = stateSender.WriteState();
-                foreach (byte b in data)
-                {
-                    txtOutput.AppendText((byte)b + " ");
-                }
-                txtOutput.AppendText("\r\n");
-            }
-        }
-
         private void refresh()
         {
             //Reverse
@@ -122,12 +106,6 @@ namespace UisSubsea.RovTopside.Presentation
 
             //Repaint the form
             this.Invalidate();
-        }
-
-        private void tmrRefreshStick_Tick(object sender, EventArgs e)
-        {
-            if (readyToSend && !manualSend)
-                writeState();
         }
 
         private void JoystickTracker_Load(object sender, EventArgs e)
@@ -304,17 +282,12 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void JoystickTracker_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //tmrRefreshStick.Stop();
-            if (stateReceiver != null)
-                stateReceiver.DataReceived -= ComPort_DataReceived;
-
             if (joystick != null)
                 joystick.Unacquire();
             if (joystickManipulatorLeft != null)
                 joystickManipulatorLeft.Unacquire();
             if (joystickManipulatorRight != null)
                 joystickManipulatorRight.Unacquire();
-
         }
 
         private void btnUsePort_Click(object sender, EventArgs e)
@@ -347,13 +320,6 @@ namespace UisSubsea.RovTopside.Presentation
                         pb.Add(new ManipulatorRightPacketBuilder(joystickManipulatorRight));
 
                     }
-
-
-                    stateSender = new StateSender(pb);
-                    btnUsePort.Enabled = false;
-
-                    stateReceiver = new StateReceiver();
-                    stateReceiver.DataReceived += ComPort_DataReceived;
                 }
             }
             catch (Exception)
@@ -361,18 +327,6 @@ namespace UisSubsea.RovTopside.Presentation
                 MessageBox.Show("No compatible device found!");
 
             }
-
-        }
-
-        private void JoystickTracker_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.S && readyToSend && manualSend)
-                writeState();
-        }
-
-        private void chkManualSend_CheckedChanged(object sender, EventArgs e)
-        {
-            manualSend = chkManualSend.Checked;
         }
     }
 }

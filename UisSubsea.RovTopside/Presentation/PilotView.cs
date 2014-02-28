@@ -43,19 +43,19 @@ namespace UisSubsea.RovTopside.Presentation
 
             font = new Font("Arial", 18);
             redBrush = new SolidBrush(Color.Red);
-            pointRecordingText = new PointF(30.0f, 30.0f);            
+            pointRecordingText = new PointF(30.0f, 30.0f);
             pointAutoFocus = new PointF(30.0f, 70.0f);
             pointFocusValue = new PointF(30.0f, 110.0f);
             pointDataReceived = new PointF(30.0f, 150.0f);
             pointStopwatch = new PointF(30.0f, 190.0f);
             boundsVerticalLeverIsNeutral = new Rectangle(30, 230, 20, 20);
             greenBrush = new SolidBrush(Color.Green);
-            stopwatch = new System.Diagnostics.Stopwatch(); 
+            stopwatch = new System.Diagnostics.Stopwatch();
 
             pictureBoxVideo.Paint += new PaintEventHandler(PaintOverlay);
 
             this.camera = camera;
-            this.camera.Canvas = pictureBoxVideo; 
+            this.camera.Canvas = pictureBoxVideo;
             this.camera.Start();
         }
 
@@ -64,7 +64,7 @@ namespace UisSubsea.RovTopside.Presentation
             if (stopwatch.IsRunning)
                 stopwatch.Stop();
             else
-                stopwatch.Start();       
+                stopwatch.Start();
         }
 
         private void PaintOverlay(object sender, PaintEventArgs args)
@@ -163,10 +163,10 @@ namespace UisSubsea.RovTopside.Presentation
 
         public void SetCamera(ICamera camera)
         {
-                    this.camera.Stop();
-                    this.camera = camera;
-                    this.camera.Canvas = pictureBoxVideo;
-                    this.camera.Start();        
+            this.camera.Stop();
+            this.camera = camera;
+            this.camera.Canvas = pictureBoxVideo;
+            this.camera.Start();
         }
     }
 }
