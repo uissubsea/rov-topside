@@ -24,7 +24,8 @@ namespace UisSubsea.RovTopside.Data
             string filename = System.IO.Path.Combine(filepath, name);
             try
             {
-                writer.Open(filename, resolution.Width, resolution.Height, 24, VideoCodec.MPEG2, 10000000);
+                if (!writer.IsOpen)
+                    writer.Open(filename, resolution.Width, resolution.Height, 24, VideoCodec.MPEG2, 10000000);
             }
             catch (AccessViolationException)
             {
