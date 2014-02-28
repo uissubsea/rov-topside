@@ -74,10 +74,16 @@ namespace UisSubsea.RovTopside.Logic
             {
                 view.GetCamera().ToggleRecording();
                 view.SetCamera(camera);
+                while(!view.GetCamera().Instance.IsRunning){}
                 view.GetCamera().ToggleRecording();
             }
             else
+            {
                 view.SetCamera(camera);
+                while (!view.GetCamera().Instance.IsRunning) { }
+
+            }
+                
         }
     }
 }
