@@ -187,7 +187,7 @@
             // trackBar1
             // 
             this.trackBar1.Location = new System.Drawing.Point(1020, 396);
-            this.trackBar1.Maximum = 600;
+            this.trackBar1.Maximum = 1000;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.trackBar1.Size = new System.Drawing.Size(45, 104);
