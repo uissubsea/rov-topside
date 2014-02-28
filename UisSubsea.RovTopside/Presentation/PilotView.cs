@@ -119,7 +119,15 @@ namespace UisSubsea.RovTopside.Presentation
 
         public void SetHeading(int heading)
         {
-            this.Invoke(new Action(() => this.heading = heading));
+            if (this.InvokeRequired)
+            {
+                this.BeginInvoke(new MethodInvoker(delegate()
+                    {
+                        this.heading = heading;
+                    }));
+                return;
+            }
+            this.heading = heading;
         }
 
         public void SetFrontCameraAngle(int angle)
@@ -140,7 +148,7 @@ namespace UisSubsea.RovTopside.Presentation
 
         public void VerticalLeverIsNeutral(bool isNeutral)
         {
-            this.Invoke(new Action(() => this.verticalLeverIsNeutral = isNeutral));
+            this.verticalLeverIsNeutral = isNeutral;
         }
 
         public void ToggleStopwatch()
