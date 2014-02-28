@@ -65,12 +65,14 @@ namespace UisSubsea.RovTopside.Logic
 
         private Boolean changePilotCamera()
         {
-            return pilotStick.Joystick.Buttons()[JoystickActionButtons.ChangePilotCamera];
+            return (pilotStick.Joystick.Buttons()[JoystickActionButtons.ChangePilotCamera]
+                && AllAxisesAreInNeutral(pilotStick.Joystick));
         }
 
         private Boolean changeCoPilotCamera()
         {
-            return coPilotRightStick.Joystick.Buttons()[JoystickActionButtons.ChangeCoPilotCamera];
+            return (coPilotRightStick.Joystick.Buttons()[JoystickActionButtons.ChangeCoPilotCamera]
+                && AllAxisesAreInNeutral(coPilotRightStick.Joystick));
         }
 
         private Boolean toggleRecording()
@@ -96,6 +98,11 @@ namespace UisSubsea.RovTopside.Logic
         private Boolean VerticalLeverIsNeutral()
         {
             return pilotStick.Joystick.Throttle() == 125;
+        }
+
+        private Boolean AllAxisesAreInNeutral(Joystick joystick)
+        {
+            return (joystick.Pitch() == 125 && joystick.Roll() == 125 && joystick.Throttle() == 125);
         }
     }
 }
