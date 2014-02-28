@@ -25,9 +25,11 @@ namespace UisSubsea.RovTopside.Presentation
         public CoPilotView(ICamera camera)
         {
             InitializeComponent();
+           // SetDepth(435);
+            SetHeading(90);
             this.camera = camera;
             this.camera.Canvas = videoPictureBox;
-            this.camera.Start(); 
+            this.camera.Start();
         }
 
         //Wil change color when there is a leak on the ROV. 
@@ -77,10 +79,13 @@ namespace UisSubsea.RovTopside.Presentation
         //UI updates
         public void SetHeading(int heading)
         {
-            this.Invoke(new Action(() =>{
-            headingGauge.Value = heading;
+            //headingIndicatorInstrumentControl1.
+            headingIndicatorInstrumentControl1.SetHeadingIndicatorParameters((int)heading);
             headingLabelText.Text = heading.ToString();
-            }));
+            /*this.Invoke(new Action(() =>{
+            this.Invoke(new Action(() => headingIndicatorInstrumentControl1.SetHeadingIndicatorParameters((int)heading)));         
+            headingLabelText.Text = heading.ToString();
+            }));*/
 
         }
 
@@ -96,30 +101,18 @@ namespace UisSubsea.RovTopside.Presentation
 
         public void SetDepth(double depth)
         {
-            if (depth > 600 && depth <= 1200)
-            {
-                depthTrackBar1.Minimum = -1200;
-            }
-            else if (depth > 1200)
-            {
-                depthTrackBar1.Minimum = -3000;
-            }
-            this.Invoke(new Action(() =>
-            {
-                depthTrackBar1.Value = (int)depth * -1; 
-                lblTextValueDepth.Text = depth.ToString();
-            }));
-                     
-          
-            lblTextDepth.Text = "cm: ";
+  
+            //this.Invoke(new Action(() => headingIndicatorInstrumentControl1.SetHeadingIndicatorParameters( (int)depth)));
+            altimeterInstrumentControl1.SetAlimeterParameters((int)depth);
         }
 
         public void SetLaserDistanceMeasured(double distance)
-        {
+        {/*
             lblTextDistance.Text = distance.ToString();
             if (distance > 0) { }//Add warning light when laser in use
+          * */
         }
-
+        
         public void setSensorState(bool sensorstate)
         {
             if (sensorstate)
@@ -159,6 +152,12 @@ namespace UisSubsea.RovTopside.Presentation
         {
             return this.camera;
         }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            altimeterInstrumentControl1.SetAlimeterParameters(trackBar1.Value);
+        }
+      
     }
 }
 

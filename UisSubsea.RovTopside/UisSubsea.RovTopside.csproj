@@ -120,6 +120,27 @@
     <Compile Include="Logic\IOverlayHandler.cs" />
     <Compile Include="Logic\RovStateReceivedHandler.cs" />
     <Compile Include="Logic\TopSideJoystickActionController.cs" />
+    <Compile Include="Presentation\Controls\AirSpeedIndicatorInstrumentControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\AltimeterInstrumentControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\AttitudeIndicatorInstrumentControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\HeadingIndicatorInstrumentControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\InstrumentControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\TurnCoordinatorInstrumentControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\VerticalSpeedIndicatorInstrumentControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Presentation\CoPilotView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,13 +190,36 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\Thumbs.db" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VerticalSpeedIndicator_Background.bmp" />
+    <None Include="Resources\TurnCoordinatorMarks.bmp" />
+    <None Include="Resources\TurnCoordinatorBall.bmp" />
+    <None Include="Resources\TurnCoordinatorAircraft.bmp" />
+    <None Include="Resources\TurnCoordinator_Background.bmp" />
+    <None Include="Resources\SmallNeedleAltimeter.bmp" />
+    <None Include="Resources\Maquette_Avion.bmp" />
+    <None Include="Resources\LongNeedleAltimeter.bmp" />
+    <None Include="Resources\Indicator_Background.bmp" />
+    <None Include="Resources\Horizon_GroundSky.bmp" />
+    <None Include="Resources\Horizon_Background.bmp" />
+    <None Include="Resources\HeadingWeel.bmp" />
+    <None Include="Resources\HeadingIndicator_Background.bmp" />
+    <None Include="Resources\HeadingIndicator_Aircraft.bmp" />
+    <None Include="Resources\Bandeau_Dérouleur.bmp" />
+    <None Include="Resources\Altimeter_Background.bmp" />
+    <None Include="Resources\AirSpeedNeedle.bmp" />
+    <None Include="Resources\AirSpeedIndicator_Background.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VerticalSpeedNeedle.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
