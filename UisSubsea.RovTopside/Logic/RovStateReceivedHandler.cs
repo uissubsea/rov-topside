@@ -11,14 +11,14 @@ namespace UisSubsea.RovTopside.Logic
     {
         private CommunicationServer comServer;
         private IOverlayHandler overlayHandler;
-        private int gaugeHandler;
+        private ICoPilotViewHandler copilotviewhandler;
 
         public RovStateReceivedHandler(CommunicationServer comServer, 
-            IOverlayHandler overlayHandler, int gaugeHandler)
+            IOverlayHandler overlayHandler, ICoPilotViewHandler copilotviewhandler)
         {
             this.comServer = comServer;
             this.overlayHandler = overlayHandler;
-            this.gaugeHandler = gaugeHandler;
+            this.copilotviewhandler = copilotviewhandler;
 
             comServer.RovStateReceived += comServer_RovStateReceived;
         }
@@ -26,6 +26,8 @@ namespace UisSubsea.RovTopside.Logic
         private void comServer_RovStateReceived(object sender, DataReceivedEventArgs e)
         {
             handleStateChanged(readRovState(e.Data));
+            handleStateChangedComplet(readRovStateComplet(e.Data));
+
         }
 
         private RovState readRovState(byte[] p)
@@ -33,13 +35,30 @@ namespace UisSubsea.RovTopside.Logic
             return RovStateBuilder.BuildRovState(p);
         }
 
+        private RovState readRovStateComplet(byte[] p)
+        {
+            return RovStateBuilder.BuildRovStateComplet(p);
+        }
+
         private void handleStateChanged(RovState state)
         {
             overlayHandler.SetHeading(state.Heading);
             overlayHandler.SetFrontCameraAngle(state.CameraTilt);
+        }
 
-            //gaugeHandler.SetHeading(state.Heading);
-            //gaugeHandler.SetFrontCameraAngle(state.CameraTilt);
+        private void handleStateChangedComplet(RovState state)
+        {
+            overlayHandler.SetHeading(state.Heading);
+            overlayHandler.SetFrontCameraAngle(state.FronCameraTilt);
+            overlayHandler.SetDepth(state.Depth);
+            overlayHandler.SetRearCameraAngle(state.RearCameraTilt);
+
+            copilotviewhandler.SetHeading(state.Heading);
+            copilotviewhandler.SetFrontCameraAngle(state.FronCameraTilt);
+            copilotviewhandler.SetRearCameraAngle(state.RearCameraTilt);
+            copilotviewhandler.SetDepth(state.Depth);
+            copilotviewhandler.SetLaserDistanceMeasured(state.Distance);
+            copilotviewhandler.setSensorState(state.Error);
         }
 
     }

@@ -9,13 +9,28 @@ namespace UisSubsea.RovTopside.Data
     public class RovState
     {
         private int heading;
-        private int cameraTilt;
-        private Boolean error;
+        private int cameraTilt;      
+        private Boolean error; 
+        
+        private int rearCameraTilt;
+        private int frontCameraTilt;
+        private int depth;
+        private int distance;
 
         public RovState(int heading, int cameraTilt, Boolean error)
         {
             this.heading = heading;
             this.cameraTilt = cameraTilt;
+            this.error = error;
+        }
+
+        public RovState(int heading, int depth, int distance , int rearCameraTilt, int frontCameraTilt, Boolean error)
+        {
+            this.heading = heading;
+            this.depth = depth;
+            this.distance = distance;
+            this.rearCameraTilt = rearCameraTilt;
+            this.frontCameraTilt = frontCameraTilt;
             this.error = error;
         }
 
@@ -43,5 +58,36 @@ namespace UisSubsea.RovTopside.Data
             }
         }
 
+        public int FronCameraTilt
+        {
+            get
+            {
+                return frontCameraTilt;
+            }
+        }
+
+        public int RearCameraTilt
+        {
+            get
+            {
+                return rearCameraTilt;
+            }
+        }
+
+        public int Depth
+        {
+            get
+            {
+                return depth;
+            }
+        }
+
+        public int Distance
+        {
+            get
+            {
+                return Distance;
+            }
+        }
     }
 }
