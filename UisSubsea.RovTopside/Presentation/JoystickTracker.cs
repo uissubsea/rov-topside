@@ -289,44 +289,5 @@ namespace UisSubsea.RovTopside.Presentation
             if (joystickManipulatorRight != null)
                 joystickManipulatorRight.Unacquire();
         }
-
-        private void btnUsePort_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                String port = cmbAvailablePorts.SelectedItem.ToString();
-                numberOfJoysticksAttached = Joystick.GetNumberOfJoysticks();
-
-                if (numberOfJoysticksAttached == 3)
-                {
-                    joystickManipulatorLeft = JoystickFactory.GetManipulatorLeft(this.Handle);
-                    joystickManipulatorRight = JoystickFactory.GetManipulatorRight(this.Handle);
-
-                    joystickManipulatorLeft.Acquire();
-                    joystickManipulatorRight.Acquire();
-                }
-
-
-                if (!String.IsNullOrEmpty(port))
-                {
-                    List<PacketBuilder> pb = new List<PacketBuilder>();
-                    mainpacketbuilder = new MainPacketBuilder(joystick);
-
-                    pb.Add(mainpacketbuilder);
-
-                    if (numberOfJoysticksAttached == 3)
-                    {
-                        pb.Add(new ManipulatorLeftPacketBuilder(joystickManipulatorLeft));
-                        pb.Add(new ManipulatorRightPacketBuilder(joystickManipulatorRight));
-
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("No compatible device found!");
-
-            }
-        }
     }
 }

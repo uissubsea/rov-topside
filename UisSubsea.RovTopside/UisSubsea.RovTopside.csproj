@@ -111,8 +111,6 @@
     <Compile Include="Data\RovStateBuilder.cs" />
     <Compile Include="Data\RovState.cs" />
     <Compile Include="Data\SerialPortSingleton.cs" />
-    <Compile Include="Data\StateReceiver.cs" />
-    <Compile Include="Data\StateSender.cs" />
     <Compile Include="Data\VideoRecorder.cs" />
     <Compile Include="Logic\IView.cs" />
     <Compile Include="Logic\JoystickActionButtons.cs" />
@@ -190,7 +188,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Resources\Thumbs.db" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
