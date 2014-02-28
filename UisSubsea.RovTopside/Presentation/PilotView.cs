@@ -16,8 +16,8 @@ namespace UisSubsea.RovTopside.Presentation
     public partial class PilotView : Form, IOverlayHandler, IView
     {
         private Font font;
-        private Brush brush;
-        private Pen pen;
+        private Brush redBrush;
+        private Brush greenBrush;
         private PointF pointRecordingText;
         private PointF pointFocusValue;
         private PointF pointAutoFocus;
@@ -42,14 +42,14 @@ namespace UisSubsea.RovTopside.Presentation
             InitializeComponent();
 
             font = new Font("Arial", 18);
-            brush = new SolidBrush(Color.Red);
+            redBrush = new SolidBrush(Color.Red);
             pointRecordingText = new PointF(30.0f, 30.0f);            
             pointAutoFocus = new PointF(30.0f, 70.0f);
             pointFocusValue = new PointF(30.0f, 110.0f);
             pointDataReceived = new PointF(30.0f, 150.0f);
             pointStopwatch = new PointF(30.0f, 190.0f);
-            boundsVerticalLeverIsNeutral = new Rectangle(30, 230, 50, 50);
-            pen = new Pen(new SolidBrush(Color.Green));
+            boundsVerticalLeverIsNeutral = new Rectangle(30, 230, 20, 20);
+            greenBrush = new SolidBrush(Color.Green);
             stopwatch = new System.Diagnostics.Stopwatch(); 
 
             pictureBoxVideo.Paint += new PaintEventHandler(PaintOverlay);
@@ -69,17 +69,17 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void PaintOverlay(object sender, PaintEventArgs args)
         {
-            args.Graphics.DrawString(overlayText, font, brush, pointRecordingText);
-            args.Graphics.DrawString("Autofocus: " + autofocus.ToString(), font, brush, pointAutoFocus);
-            args.Graphics.DrawString("Focus value: " + focus.ToString(), font, brush, pointFocusValue);
-            args.Graphics.DrawString("ROV state: " + lastPacketReceived, font, brush, pointDataReceived);
+            args.Graphics.DrawString(overlayText, font, redBrush, pointRecordingText);
+            args.Graphics.DrawString("Autofocus: " + autofocus.ToString(), font, redBrush, pointAutoFocus);
+            args.Graphics.DrawString("Focus value: " + focus.ToString(), font, redBrush, pointFocusValue);
+            args.Graphics.DrawString("ROV state: " + lastPacketReceived, font, redBrush, pointDataReceived);
 
             TimeSpan span = stopwatch.Elapsed;
             String stopwatchString = string.Format("{0}:{1}", Math.Floor(span.TotalMinutes), span.ToString("ss"));
-            args.Graphics.DrawString("Timer: " + stopwatchString, font, brush, pointStopwatch);
+            args.Graphics.DrawString("Timer: " + stopwatchString, font, redBrush, pointStopwatch);
 
             if (verticalLeverIsNeutral)
-                args.Graphics.DrawEllipse(pen, boundsVerticalLeverIsNeutral);
+                args.Graphics.FillEllipse(greenBrush, boundsVerticalLeverIsNeutral);
         }
 
         private void PilotView_FormClosed(object sender, FormClosedEventArgs e)
