@@ -70,6 +70,9 @@ namespace UisSubsea.RovTopside.Data
                 frameBuffer.Clear();
                 frameBuffer = null;
                 videoRecorder.Abort();
+
+                // This was needed to prevent cross threading
+                // bug when changing camera while recording
                 while (videoRecorder.IsAlive) { }
             }
         }
