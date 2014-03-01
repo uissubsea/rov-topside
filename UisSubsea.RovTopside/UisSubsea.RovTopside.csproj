@@ -93,6 +93,7 @@
     <Compile Include="Data\CommunicationServer.cs" />
     <Compile Include="Data\Constants.cs" />
     <Compile Include="Data\DataReceivedEventArgs.cs" />
+    <Compile Include="Logic\CoPilotActionsController.cs" />
     <Compile Include="Logic\ICamera.cs" />
     <Compile Include="Logic\CameraController.cs" />
     <Compile Include="Logic\CoPilotController.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="Logic\JoystickActionButtons.cs" />
     <Compile Include="Logic\MainController.cs" />
     <Compile Include="Logic\IOverlayHandler.cs" />
+    <Compile Include="Logic\PilotActionsController.cs" />
     <Compile Include="Logic\RovStateReceivedHandler.cs" />
     <Compile Include="Logic\TopSideJoystickActionController.cs" />
     <Compile Include="Presentation\Controls\AirSpeedIndicatorInstrumentControl.cs">
