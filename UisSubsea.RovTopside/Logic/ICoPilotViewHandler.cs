@@ -15,6 +15,5 @@ namespace UisSubsea.RovTopside.Logic
         void SetDepth(double depth);
         void SetLaserDistanceMeasured(double distance);
         void setSensorState(bool sensorstate);
-
     }
 }

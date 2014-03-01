@@ -36,6 +36,12 @@ namespace UisSubsea.RovTopside.Logic
                 cameraHandler.Snapshot();
             if (changeCoPilotCamera())
                 cameraHandler.ChangeCoPilotCamera();
+            if (increaseFocus())
+                cameraHandler.IncreaseCoPilotCameraFocus();
+            if (decreaseFocus())
+                cameraHandler.DecreaseCoPilotCameraFocus();
+            if (autofocus())
+                cameraHandler.CoPilotCameraAutofocus();
         }
 
         private void coPilotLeftStick_StateChanged(object sender, EventArgs e)
@@ -45,23 +51,38 @@ namespace UisSubsea.RovTopside.Logic
 
         private Boolean toggleRecording()
         {
-            return coPilotRightStickListener.Joystick.Buttons()[JoystickActionButtons.ToggleRecording];
+            return coPilotRightStickListener.Joystick.Buttons()[CoPilotButton.ToggleRecording];
         }
 
         private Boolean snapshot()
         {
-            return coPilotRightStickListener.Joystick.Buttons()[JoystickActionButtons.Snapshot];
+            return coPilotRightStickListener.Joystick.Buttons()[CoPilotButton.Snapshot];
         }
 
         private Boolean changeCoPilotCamera()
         {
-            return (coPilotRightStickListener.Joystick.Buttons()[JoystickActionButtons.ChangeCoPilotCamera]
+            return (coPilotRightStickListener.Joystick.Buttons()[CoPilotButton.ChangeCamera]
                 && AllAxisesAreInNeutral(coPilotRightStickListener.Joystick));
         }
 
         private Boolean AllAxisesAreInNeutral(Joystick joystick)
         {
             return (joystick.Pitch() == 125 && joystick.Roll() == 125 && joystick.Throttle() == 125);
+        }
+
+        private Boolean increaseFocus()
+        {
+            return coPilotRightStickListener.Joystick.Buttons()[CoPilotButton.IncreaseCameraFocus];
+        }
+
+        private Boolean decreaseFocus()
+        {
+            return coPilotRightStickListener.Joystick.Buttons()[CoPilotButton.DecreaseCameraFocus];
+        }
+
+        private Boolean autofocus()
+        {
+            return coPilotRightStickListener.Joystick.Buttons()[CoPilotButton.CameraAutofocus];
         }
     }
 }

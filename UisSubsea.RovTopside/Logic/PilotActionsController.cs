@@ -46,18 +46,18 @@ namespace UisSubsea.RovTopside.Logic
 
         private Boolean changePilotCamera()
         {
-            return (pilotStickListener.Joystick.Buttons()[JoystickActionButtons.ChangePilotCamera]
+            return (pilotStickListener.Joystick.Buttons()[PilotButton.ChangeCamera]
                 && AllAxisesAreInNeutral(pilotStickListener.Joystick));
         }
 
         private Boolean reverse()
         {
-            return pilotStickListener.Joystick.Buttons()[JoystickActionButtons.Reverse];
+            return pilotStickListener.Joystick.Buttons()[PilotButton.Reverse];
         }
 
         private Boolean toggleStopwatch()
         {
-            return pilotStickListener.Joystick.Buttons()[JoystickActionButtons.ToggleStopwatch];
+            return pilotStickListener.Joystick.Buttons()[PilotButton.ToggleStopwatch];
         }
 
         private Boolean VerticalLeverIsNeutral()
@@ -72,17 +72,17 @@ namespace UisSubsea.RovTopside.Logic
 
         private Boolean increaseFocus()
         {
-            return pilotStickListener.Joystick.Buttons()[JoystickActionButtons.IncreasePilotCameraFocus];
+            return pilotStickListener.Joystick.Buttons()[PilotButton.IncreaseCameraFocus];
         }
 
         private Boolean decreaseFocus()
         {
-            return pilotStickListener.Joystick.Buttons()[JoystickActionButtons.DecreasePilotCameraFocus];
+            return pilotStickListener.Joystick.Buttons()[PilotButton.DecreaseCameraFocus];
         }
 
         private Boolean autofocus()
         {
-            return pilotStickListener.Joystick.Buttons()[JoystickActionButtons.PilotCameraAutofocus];
+            return pilotStickListener.Joystick.Buttons()[PilotButton.CameraAutofocus];
         }
     }
 }
