@@ -42,6 +42,7 @@ namespace UisSubsea.RovTopside.Logic
                 if (coPilotView.GetCamera().Equals(rearCamera))
                 {                    
                     setCamera(coPilotView, manipulatorCamera);
+                    
                     //Important  let the camera stop before next line of code
                     while (rearCamera.Instance.IsRunning) { }
                 }
@@ -73,21 +74,15 @@ namespace UisSubsea.RovTopside.Logic
             if (view.GetCamera().IsRecording)
             {
                 view.GetCamera().ToggleRecording();
-                //while (view.GetCamera().IsRecording) { }
                 view.SetCamera(camera);
-                //while(!view.GetCamera().Instance.IsRunning){}
-                //System.Threading.Thread.Sleep(1000);
                 view.GetCamera().ToggleRecording();
             }
             else
             {
                 view.SetCamera(camera);
-                //while (!view.GetCamera().Instance.IsRunning) { }
-
             }
                 
         }
-
 
         public void IncreasePilotCameraFocus()
         {
@@ -103,7 +98,6 @@ namespace UisSubsea.RovTopside.Logic
         {
             pilotView.GetCamera().AutoFocus();
         }
-
 
         public void IncreaseCoPilotCameraFocus()
         {
