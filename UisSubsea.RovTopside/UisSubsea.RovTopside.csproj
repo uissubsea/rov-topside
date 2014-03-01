@@ -116,10 +116,9 @@
     <Compile Include="Logic\IView.cs" />
     <Compile Include="Logic\JoystickActionButtons.cs" />
     <Compile Include="Logic\MainController.cs" />
-    <Compile Include="Logic\IOverlayHandler.cs" />
+    <Compile Include="Logic\IPilotViewHandler.cs" />
     <Compile Include="Logic\PilotActionsController.cs" />
     <Compile Include="Logic\RovStateReceivedHandler.cs" />
-    <Compile Include="Logic\TopSideJoystickActionController.cs" />
     <Compile Include="Presentation\Controls\AirSpeedIndicatorInstrumentControl.cs">
       <SubType>Component</SubType>
     </Compile>
