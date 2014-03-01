@@ -17,7 +17,8 @@ namespace UisSubsea.RovTopside.Logic
         private Joystick pilotJoystick;
         private Joystick coPilotLeftJoystick;
         private Joystick coPilotRightJoystick;
-        private TopSideJoystickActionController topSideActionController;
+        private PilotActionsController pilotActionsController;
+        private CoPilotActionsController coPilotActionsController;
         private JoystickStateListener pilotStickListener, coPilotLeftStickListener, coPilotRightStickListener;
         private ICameraHandler cameraController;
 
@@ -28,24 +29,39 @@ namespace UisSubsea.RovTopside.Logic
 
         private void initializeComponents()
         {
-            pilotView = new PilotView(CameraFactory.GetMainCamera());
-            coPilotView = new CoPilotView(CameraFactory.GetManipulatorCamera());
+            initializeViews();
 
             initializeJoysticks();
             JoystickStateStore stateStore = new JoystickStateStore();
             initializeJoystickListeners(stateStore);
 
-            cameraController = new CameraController((IView)pilotView, (IView)coPilotView,
-                CameraFactory.GetMainCamera(), CameraFactory.GetManipulatorCamera(), CameraFactory.GetRearCamera());
-             
-            topSideActionController = new TopSideJoystickActionController(pilotStickListener,
-                coPilotLeftStickListener, coPilotRightStickListener, cameraController,
-                (ICoPilotViewHandler)coPilotView, (IPilotViewHandler)pilotView);
+            initializeCameraController();
+
+            initializeTopSideActionsControllers();
 
             initializeCommunicationServer(stateStore);
 
             pilotView.Show();
             coPilotView.Show();
+        }
+
+        private void initializeViews()
+        {
+            pilotView = new PilotView(CameraFactory.GetMainCamera());
+            coPilotView = new CoPilotView(CameraFactory.GetManipulatorCamera());
+        }
+
+        private void initializeCameraController()
+        {
+            cameraController = new CameraController((IView)pilotView, (IView)coPilotView,
+                CameraFactory.GetMainCamera(), CameraFactory.GetManipulatorCamera(), CameraFactory.GetRearCamera());
+        }
+
+        private void initializeTopSideActionsControllers()
+        {
+            pilotActionsController = new PilotActionsController(pilotStickListener, cameraController, (IPilotViewHandler)pilotView);
+            coPilotActionsController = new CoPilotActionsController(coPilotLeftStickListener,
+                coPilotRightStickListener, cameraController, (ICoPilotViewHandler)coPilotView);
         }
 
         private void initializeCommunicationServer(JoystickStateStore stateStore)
