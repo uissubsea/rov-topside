@@ -55,7 +55,7 @@
             // 
             // frontCamGauge
             // 
-            this.frontCamGauge.BaseArcColor = System.Drawing.Color.Red;
+            this.frontCamGauge.BaseArcColor = System.Drawing.Color.White;
             this.frontCamGauge.BaseArcRadius = 60;
             this.frontCamGauge.BaseArcStart = 285;
             this.frontCamGauge.BaseArcSweep = 180;
@@ -66,27 +66,27 @@
             this.frontCamGauge.MaxValue = 105F;
             this.frontCamGauge.MinValue = -75F;
             this.frontCamGauge.Name = "frontCamGauge";
-            this.frontCamGauge.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Red;
-            this.frontCamGauge.NeedleColor2 = System.Drawing.Color.Red;
+            this.frontCamGauge.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Yellow;
+            this.frontCamGauge.NeedleColor2 = System.Drawing.Color.Yellow;
             this.frontCamGauge.NeedleRadius = 50;
             this.frontCamGauge.NeedleType = System.Windows.Forms.NeedleType.Advance;
             this.frontCamGauge.NeedleWidth = 2;
             this.frontCamGauge.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.frontCamGauge.ScaleLinesInterColor = System.Drawing.Color.Red;
+            this.frontCamGauge.ScaleLinesInterColor = System.Drawing.Color.White;
             this.frontCamGauge.ScaleLinesInterInnerRadius = 53;
             this.frontCamGauge.ScaleLinesInterOuterRadius = 60;
             this.frontCamGauge.ScaleLinesInterWidth = 1;
-            this.frontCamGauge.ScaleLinesMajorColor = System.Drawing.Color.Red;
+            this.frontCamGauge.ScaleLinesMajorColor = System.Drawing.Color.White;
             this.frontCamGauge.ScaleLinesMajorInnerRadius = 50;
             this.frontCamGauge.ScaleLinesMajorOuterRadius = 60;
             this.frontCamGauge.ScaleLinesMajorStepValue = 30F;
             this.frontCamGauge.ScaleLinesMajorWidth = 1;
-            this.frontCamGauge.ScaleLinesMinorColor = System.Drawing.Color.Red;
+            this.frontCamGauge.ScaleLinesMinorColor = System.Drawing.Color.White;
             this.frontCamGauge.ScaleLinesMinorInnerRadius = 55;
             this.frontCamGauge.ScaleLinesMinorOuterRadius = 60;
             this.frontCamGauge.ScaleLinesMinorTicks = 5;
             this.frontCamGauge.ScaleLinesMinorWidth = 1;
-            this.frontCamGauge.ScaleNumbersColor = System.Drawing.Color.Red;
+            this.frontCamGauge.ScaleNumbersColor = System.Drawing.Color.White;
             this.frontCamGauge.ScaleNumbersFormat = null;
             this.frontCamGauge.ScaleNumbersRadius = 75;
             this.frontCamGauge.ScaleNumbersRotation = 0;
@@ -112,7 +112,7 @@
             // 
             // rearCamGauge
             // 
-            this.rearCamGauge.BaseArcColor = System.Drawing.Color.Red;
+            this.rearCamGauge.BaseArcColor = System.Drawing.Color.White;
             this.rearCamGauge.BaseArcRadius = 60;
             this.rearCamGauge.BaseArcStart = 30;
             this.rearCamGauge.BaseArcSweep = 180;
@@ -122,26 +122,26 @@
             this.rearCamGauge.MaxValue = 30F;
             this.rearCamGauge.MinValue = -150F;
             this.rearCamGauge.Name = "rearCamGauge";
-            this.rearCamGauge.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Red;
-            this.rearCamGauge.NeedleColor2 = System.Drawing.Color.Red;
+            this.rearCamGauge.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Yellow;
+            this.rearCamGauge.NeedleColor2 = System.Drawing.Color.Yellow;
             this.rearCamGauge.NeedleRadius = 50;
             this.rearCamGauge.NeedleType = System.Windows.Forms.NeedleType.Advance;
             this.rearCamGauge.NeedleWidth = 2;
-            this.rearCamGauge.ScaleLinesInterColor = System.Drawing.Color.Red;
+            this.rearCamGauge.ScaleLinesInterColor = System.Drawing.Color.White;
             this.rearCamGauge.ScaleLinesInterInnerRadius = 53;
             this.rearCamGauge.ScaleLinesInterOuterRadius = 60;
             this.rearCamGauge.ScaleLinesInterWidth = 1;
-            this.rearCamGauge.ScaleLinesMajorColor = System.Drawing.Color.Red;
+            this.rearCamGauge.ScaleLinesMajorColor = System.Drawing.Color.White;
             this.rearCamGauge.ScaleLinesMajorInnerRadius = 50;
             this.rearCamGauge.ScaleLinesMajorOuterRadius = 60;
             this.rearCamGauge.ScaleLinesMajorStepValue = 30F;
             this.rearCamGauge.ScaleLinesMajorWidth = 2;
-            this.rearCamGauge.ScaleLinesMinorColor = System.Drawing.Color.Red;
+            this.rearCamGauge.ScaleLinesMinorColor = System.Drawing.Color.White;
             this.rearCamGauge.ScaleLinesMinorInnerRadius = 55;
             this.rearCamGauge.ScaleLinesMinorOuterRadius = 60;
             this.rearCamGauge.ScaleLinesMinorTicks = 5;
             this.rearCamGauge.ScaleLinesMinorWidth = 1;
-            this.rearCamGauge.ScaleNumbersColor = System.Drawing.Color.Red;
+            this.rearCamGauge.ScaleNumbersColor = System.Drawing.Color.White;
             this.rearCamGauge.ScaleNumbersFormat = null;
             this.rearCamGauge.ScaleNumbersRadius = 75;
             this.rearCamGauge.ScaleNumbersRotation = 0;
@@ -156,7 +156,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.ForeColor = System.Drawing.Color.Yellow;
             this.label2.Location = new System.Drawing.Point(1033, 91);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 12);
@@ -167,7 +167,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.ForeColor = System.Drawing.Color.Yellow;
             this.label3.Location = new System.Drawing.Point(1153, 91);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 12);
@@ -186,7 +186,7 @@
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(1020, 396);
+            this.trackBar1.Location = new System.Drawing.Point(1001, 412);
             this.trackBar1.Maximum = 1000;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Orientation = System.Windows.Forms.Orientation.Vertical;
@@ -249,8 +249,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label headingLabelText;
-        private Controls.AltimeterInstrumentControl altimeterInstrumentControl1;
         private System.Windows.Forms.TrackBar trackBar1;
         private Controls.HeadingIndicatorInstrumentControl headingIndicatorInstrumentControl1;
+        private Controls.AltimeterInstrumentControl altimeterInstrumentControl1;
     }
 }
