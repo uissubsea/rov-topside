@@ -24,7 +24,7 @@ namespace UisSubsea.RovTopside.Data
         private Boolean handleEvents;
         private String cameraMoniker;
         private Boolean snapshot;
-        private int focus;
+        private int focus = 0;
 
         public Camera(int index, Size desiredResolution)
         {
