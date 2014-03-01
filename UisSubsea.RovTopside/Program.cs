@@ -35,7 +35,6 @@ namespace UisSubsea.RovTopside
 
             MainController main = new MainController();
             Application.Run(main.pilotView);
-
             
             //createJoystick();
         }

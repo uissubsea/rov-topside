@@ -75,7 +75,7 @@
             this.btnDetectShells.Name = "btnDetectShells";
             this.btnDetectShells.Size = new System.Drawing.Size(99, 23);
             this.btnDetectShells.TabIndex = 2;
-            this.btnDetectShells.Text = "Detect shells";
+            this.btnDetectShells.Text = "Detect mussels";
             this.btnDetectShells.UseVisualStyleBackColor = true;
             this.btnDetectShells.Click += new System.EventHandler(this.btnDetectShells_Click);
             // 
@@ -161,7 +161,7 @@
             this.lblTotalNumberOfMussels.Size = new System.Drawing.Size(0, 13);
             this.lblTotalNumberOfMussels.TabIndex = 12;
             // 
-            // ShellDetectorView
+            // MusselDetectorView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -179,8 +179,8 @@
             this.Controls.Add(this.btnDetectShells);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "ShellDetectorView";
-            this.Text = "Shell Detector";
+            this.Name = "MusselDetectorView";
+            this.Text = "Mussel Detector";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

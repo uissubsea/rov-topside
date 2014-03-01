@@ -91,8 +91,8 @@ namespace UisSubsea.MusselDetector
                     BlobCounter bCounter = new BlobCounter();
 
                     bCounter.FilterBlobs = true;
-                    bCounter.MinHeight = 25;
-                    bCounter.MinWidth = 25;
+                    bCounter.MinHeight = 5;
+                    bCounter.MinWidth = 5;
 
                     bCounter.ProcessImage(bmData);
 

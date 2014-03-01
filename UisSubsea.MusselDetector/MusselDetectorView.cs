@@ -59,9 +59,9 @@ namespace UisSubsea.MusselDetector
             double totalNumberOfMussels = estimateTotalNumberOfMussels(length,
                 width, height, mussels);
 
-            lblTotalNumberOfMussels.Text = totalNumberOfMussels.ToString();
+            lblTotalNumberOfMussels.Text = "Total number of mussels: " + totalNumberOfMussels.ToString();
 
-            MessageBox.Show("Total number of mussels: " + totalNumberOfMussels);
+            //MessageBox.Show("Total number of mussels: " + totalNumberOfMussels);
         }
 
         private double estimateTotalNumberOfMussels(double length, double width,
