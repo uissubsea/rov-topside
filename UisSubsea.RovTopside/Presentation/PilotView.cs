@@ -13,7 +13,7 @@ using UisSubsea.RovTopside.Logic;
 
 namespace UisSubsea.RovTopside.Presentation
 {
-    public partial class PilotView : Form, IOverlayHandler, IView
+    public partial class PilotView : Form, IPilotViewHandler, IView
     {
         private Font font;
         private Brush redBrush;

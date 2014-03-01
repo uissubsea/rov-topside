@@ -13,11 +13,11 @@ namespace UisSubsea.RovTopside.Logic
         
         ICameraHandler cameraHandler;
         ICoPilotViewHandler coPilotView;
-        IOverlayHandler pilotOverlay;
+        IPilotViewHandler pilotOverlay;
 
         public TopSideJoystickActionController(JoystickStateListener pilotStick, 
             JoystickStateListener coPilotLeftStick, JoystickStateListener coPilotRightStick, 
-            ICameraHandler cameraHandler, ICoPilotViewHandler coPilotView, IOverlayHandler pilotOverlay)
+            ICameraHandler cameraHandler, ICoPilotViewHandler coPilotView, IPilotViewHandler pilotOverlay)
         {
             this.pilotStick = pilotStick;
             this.coPilotLeftStick = coPilotLeftStick;

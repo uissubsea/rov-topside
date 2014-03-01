@@ -40,7 +40,7 @@ namespace UisSubsea.RovTopside.Logic
              
             topSideActionController = new TopSideJoystickActionController(pilotStickListener,
                 coPilotLeftStickListener, coPilotRightStickListener, cameraController,
-                (ICoPilotViewHandler)coPilotView, (IOverlayHandler)pilotView);
+                (ICoPilotViewHandler)coPilotView, (IPilotViewHandler)pilotView);
 
             initializeCommunicationServer(stateStore);
 
