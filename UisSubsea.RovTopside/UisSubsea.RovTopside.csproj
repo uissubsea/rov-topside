@@ -219,6 +219,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Altimeter_Background.bmp" />
+    <Content Include="Resources\Altimeter_Background_Glass.bmp" />
+    <None Include="Resources\HeadingIndicator_Aircraft_Glass.bmp" />
+    <None Include="Resources\HeadingWeel_Glass.bmp" />
+    <None Include="Resources\SmallNeedleAltimeter_Glass.bmp" />
+    <None Include="Resources\LongNeedleAltimeter_Glass.bmp" />
+    <None Include="Resources\HeadingIndicator_Background_Glass.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

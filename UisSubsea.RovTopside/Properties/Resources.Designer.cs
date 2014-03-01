@@ -93,6 +93,16 @@ namespace UisSubsea.RovTopside.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Altimeter_Background_Glass {
+            get {
+                object obj = ResourceManager.GetObject("Altimeter_Background_Glass", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Bandeau_Dérouleur {
             get {
                 object obj = ResourceManager.GetObject("Bandeau_Dérouleur", resourceCulture);
@@ -113,6 +123,16 @@ namespace UisSubsea.RovTopside.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap HeadingIndicator_Aircraft_Glass {
+            get {
+                object obj = ResourceManager.GetObject("HeadingIndicator_Aircraft_Glass", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap HeadingIndicator_Background {
             get {
                 object obj = ResourceManager.GetObject("HeadingIndicator_Background", resourceCulture);
@@ -123,9 +143,29 @@ namespace UisSubsea.RovTopside.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap HeadingIndicator_Background_Glass {
+            get {
+                object obj = ResourceManager.GetObject("HeadingIndicator_Background_Glass", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap HeadingWeel {
             get {
                 object obj = ResourceManager.GetObject("HeadingWeel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HeadingWeel_Glass {
+            get {
+                object obj = ResourceManager.GetObject("HeadingWeel_Glass", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,6 +213,16 @@ namespace UisSubsea.RovTopside.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LongNeedleAltimeter_Glass {
+            get {
+                object obj = ResourceManager.GetObject("LongNeedleAltimeter_Glass", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Maquette_Avion {
             get {
                 object obj = ResourceManager.GetObject("Maquette_Avion", resourceCulture);
@@ -186,6 +236,16 @@ namespace UisSubsea.RovTopside.Properties {
         internal static System.Drawing.Bitmap SmallNeedleAltimeter {
             get {
                 object obj = ResourceManager.GetObject("SmallNeedleAltimeter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SmallNeedleAltimeter_Glass {
+            get {
+                object obj = ResourceManager.GetObject("SmallNeedleAltimeter_Glass", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
