@@ -32,6 +32,15 @@ namespace UisSubsea.RovTopside.Logic
             if (toggleStopwatch())
                 pilotView.ToggleStopwatch();
 
+            if (increaseFocus())
+                cameraHandler.IncreasePilotCameraFocus();
+            
+            if (decreaseFocus())
+                cameraHandler.DecreasePilotCameraFocus();
+
+            if (autofocus())
+                cameraHandler.PilotCameraAutofocus();
+
             pilotView.VerticalLeverIsNeutral(VerticalLeverIsNeutral());
         }
 
@@ -59,6 +68,21 @@ namespace UisSubsea.RovTopside.Logic
         private Boolean AllAxisesAreInNeutral(Joystick joystick)
         {
             return (joystick.Pitch() == 125 && joystick.Roll() == 125 && joystick.Throttle() == 125);
+        }
+
+        private Boolean increaseFocus()
+        {
+            return pilotStickListener.Joystick.Buttons()[JoystickActionButtons.IncreasePilotCameraFocus];
+        }
+
+        private Boolean decreaseFocus()
+        {
+            return pilotStickListener.Joystick.Buttons()[JoystickActionButtons.DecreasePilotCameraFocus];
+        }
+
+        private Boolean autofocus()
+        {
+            return pilotStickListener.Joystick.Buttons()[JoystickActionButtons.PilotCameraAutofocus];
         }
     }
 }

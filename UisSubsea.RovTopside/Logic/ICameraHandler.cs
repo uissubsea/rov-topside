@@ -12,5 +12,8 @@ namespace UisSubsea.RovTopside.Logic
         void Snapshot();
         void ChangePilotCamera();
         void ChangeCoPilotCamera();
+        void IncreasePilotCameraFocus();
+        void DecreasePilotCameraFocus();
+        void PilotCameraAutofocus();
     }
 }

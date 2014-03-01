@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UisSubsea.RovTopside.Logic
 {
-    public class JoystickActionButtons
+    public static class JoystickActionButtons
     {
         //Pilot action
         public const int ChangePilotCamera = 2;
@@ -25,5 +25,14 @@ namespace UisSubsea.RovTopside.Logic
 
         //Pilot action
         public const int Reverse = 1;
+
+        //Pilot action
+        public const int IncreasePilotCameraFocus = 6;
+
+        //Pilot action 
+        public const int DecreasePilotCameraFocus = 7;
+
+        //Pilo action
+        public const int PilotCameraAutofocus = 0;
     }
 }
