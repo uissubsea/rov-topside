@@ -94,6 +94,7 @@
     <Compile Include="Data\Constants.cs" />
     <Compile Include="Data\DataReceivedEventArgs.cs" />
     <Compile Include="Logic\CoPilotActionsController.cs" />
+    <Compile Include="Logic\CoPilotButton.cs" />
     <Compile Include="Logic\ICamera.cs" />
     <Compile Include="Logic\CameraController.cs" />
     <Compile Include="Logic\CoPilotController.cs" />
@@ -114,10 +115,10 @@
     <Compile Include="Data\SerialPortSingleton.cs" />
     <Compile Include="Data\VideoRecorder.cs" />
     <Compile Include="Logic\IView.cs" />
-    <Compile Include="Logic\JoystickActionButtons.cs" />
     <Compile Include="Logic\MainController.cs" />
     <Compile Include="Logic\IPilotViewHandler.cs" />
     <Compile Include="Logic\PilotActionsController.cs" />
+    <Compile Include="Logic\PilotButton.cs" />
     <Compile Include="Logic\RovStateReceivedHandler.cs" />
     <Compile Include="Presentation\Controls\AirSpeedIndicatorInstrumentControl.cs">
       <SubType>Component</SubType>
