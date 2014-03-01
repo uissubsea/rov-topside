@@ -27,9 +27,9 @@ namespace UisSubsea.RovTopside.Presentation.Controls
         int altitude; 
 
         // Images
-        Bitmap bmpCadran = new Bitmap(UisSubsea.RovTopside.Properties.Resources.Altimeter_Background);
-        Bitmap bmpSmallNeedle = new Bitmap(UisSubsea.RovTopside.Properties.Resources.SmallNeedleAltimeter);
-        Bitmap bmpLongNeedle = new Bitmap(UisSubsea.RovTopside.Properties.Resources.LongNeedleAltimeter);
+        Bitmap bmpCadran = new Bitmap(UisSubsea.RovTopside.Properties.Resources.Altimeter_Background_Glass);
+        Bitmap bmpSmallNeedle = new Bitmap(UisSubsea.RovTopside.Properties.Resources.SmallNeedleAltimeter_Glass);
+        Bitmap bmpLongNeedle = new Bitmap(UisSubsea.RovTopside.Properties.Resources.LongNeedleAltimeter_Glass);
         Bitmap bmpScroll = new Bitmap(UisSubsea.RovTopside.Properties.Resources.Bandeau_Dérouleur);
 
         #endregion

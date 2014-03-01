@@ -27,9 +27,9 @@ namespace UisSubsea.RovTopside.Presentation.Controls
         int Heading; 
 
         // Images
-        Bitmap bmpCadran = new Bitmap(UisSubsea.RovTopside.Properties.Resources.HeadingIndicator_Background);
-        Bitmap bmpHedingWeel = new Bitmap(UisSubsea.RovTopside.Properties.Resources.HeadingWeel);
-        Bitmap bmpAircaft = new Bitmap(UisSubsea.RovTopside.Properties.Resources.HeadingIndicator_Aircraft);        
+        Bitmap bmpCadran = new Bitmap(UisSubsea.RovTopside.Properties.Resources.HeadingIndicator_Background_Glass);
+        Bitmap bmpHedingWeel = new Bitmap(UisSubsea.RovTopside.Properties.Resources.HeadingWeel_Glass);
+        Bitmap bmpAircaft = new Bitmap(UisSubsea.RovTopside.Properties.Resources.HeadingIndicator_Aircraft_Glass);        
 
         #endregion
 
