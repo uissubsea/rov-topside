@@ -222,8 +222,8 @@
   <ItemGroup>
     <Content Include="Resources\Altimeter_Background.bmp" />
     <Content Include="Resources\Altimeter_Background_Glass.bmp" />
-    <None Include="Resources\HeadingIndicator_Aircraft_Glass.bmp" />
     <None Include="Resources\HeadingWeel_Glass.bmp" />
+    <None Include="Resources\HeadingIndicator_Aircraft_Glass.bmp" />
     <None Include="Resources\SmallNeedleAltimeter_Glass.bmp" />
     <None Include="Resources\LongNeedleAltimeter_Glass.bmp" />
     <None Include="Resources\HeadingIndicator_Background_Glass.bmp" />
