@@ -190,7 +190,7 @@
             // 
             this.videoPictureBox.Location = new System.Drawing.Point(-4, -33);
             this.videoPictureBox.Name = "videoPictureBox";
-            this.videoPictureBox.Size = new System.Drawing.Size(1280, 720);
+            this.videoPictureBox.Size = new System.Drawing.Size(1920, 1080);
             this.videoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.videoPictureBox.TabIndex = 0;
             this.videoPictureBox.TabStop = false;
