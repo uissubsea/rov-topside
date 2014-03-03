@@ -40,6 +40,8 @@
             this.videoPictureBox = new System.Windows.Forms.PictureBox();
             this.headingIndicatorInstrumentControl1 = new UisSubsea.RovTopside.Presentation.Controls.HeadingIndicatorInstrumentControl();
             this.altimeterInstrumentControl1 = new UisSubsea.RovTopside.Presentation.Controls.AltimeterInstrumentControl();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.videoPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +55,7 @@
             this.frontCamGauge.BaseArcWidth = 1;
             this.frontCamGauge.Center = new System.Drawing.Point(100, 100);
             this.frontCamGauge.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frontCamGauge.Location = new System.Drawing.Point(1073, -4);
+            this.frontCamGauge.Location = new System.Drawing.Point(1075, -4);
             this.frontCamGauge.MaxValue = 105F;
             this.frontCamGauge.MinValue = -75F;
             this.frontCamGauge.Name = "frontCamGauge";
@@ -109,7 +111,7 @@
             this.rearCamGauge.BaseArcSweep = 180;
             this.rearCamGauge.BaseArcWidth = 1;
             this.rearCamGauge.Center = new System.Drawing.Point(100, 100);
-            this.rearCamGauge.Location = new System.Drawing.Point(1073, 172);
+            this.rearCamGauge.Location = new System.Drawing.Point(1075, 172);
             this.rearCamGauge.MaxValue = 30F;
             this.rearCamGauge.MinValue = -150F;
             this.rearCamGauge.Name = "rearCamGauge";
@@ -188,7 +190,7 @@
             // 
             // videoPictureBox
             // 
-            this.videoPictureBox.Location = new System.Drawing.Point(-4, -26);
+            this.videoPictureBox.Location = new System.Drawing.Point(-4, -27);
             this.videoPictureBox.Name = "videoPictureBox";
             this.videoPictureBox.Size = new System.Drawing.Size(1055, 706);
             this.videoPictureBox.TabIndex = 0;
@@ -205,11 +207,29 @@
             // 
             // altimeterInstrumentControl1
             // 
-            this.altimeterInstrumentControl1.Location = new System.Drawing.Point(1107, 512);
+            this.altimeterInstrumentControl1.Location = new System.Drawing.Point(1111, 512);
             this.altimeterInstrumentControl1.Name = "altimeterInstrumentControl1";
-            this.altimeterInstrumentControl1.Size = new System.Drawing.Size(151, 153);
+            this.altimeterInstrumentControl1.Size = new System.Drawing.Size(134, 140);
             this.altimeterInstrumentControl1.TabIndex = 18;
             this.altimeterInstrumentControl1.Text = "altimeterInstrumentControl1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1062, 607);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(27, 13);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "cm: ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(1083, 607);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "label4";
             // 
             // CoPilotView
             // 
@@ -217,6 +237,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowText;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.headingIndicatorInstrumentControl1);
             this.Controls.Add(this.altimeterInstrumentControl1);
@@ -252,6 +274,8 @@
         private System.Windows.Forms.TrackBar trackBar1;
         private Controls.HeadingIndicatorInstrumentControl headingIndicatorInstrumentControl1;
         private Controls.AltimeterInstrumentControl altimeterInstrumentControl1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
 
     }
 }
