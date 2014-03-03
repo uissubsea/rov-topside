@@ -93,7 +93,7 @@
             this.button1.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(1816, 714);
+            this.button1.Location = new System.Drawing.Point(1776, 752);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
@@ -148,7 +148,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Yellow;
-            this.label2.Location = new System.Drawing.Point(1793, 271);
+            this.label2.Location = new System.Drawing.Point(1793, 281);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 12);
             this.label2.TabIndex = 15;
@@ -188,10 +188,10 @@
             // 
             // videoPictureBox
             // 
-            this.videoPictureBox.Location = new System.Drawing.Point(-4, -33);
+            this.videoPictureBox.Location = new System.Drawing.Point(12, -20);
             this.videoPictureBox.Name = "videoPictureBox";
             this.videoPictureBox.Size = new System.Drawing.Size(1920, 1080);
-            this.videoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.videoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.videoPictureBox.TabIndex = 0;
             this.videoPictureBox.TabStop = false;
             // 
@@ -206,9 +206,9 @@
             // 
             // altimeterInstrumentControl1
             // 
-            this.altimeterInstrumentControl1.Location = new System.Drawing.Point(1745, 566);
+            this.altimeterInstrumentControl1.Location = new System.Drawing.Point(1722, 554);
             this.altimeterInstrumentControl1.Name = "altimeterInstrumentControl1";
-            this.altimeterInstrumentControl1.Size = new System.Drawing.Size(147, 142);
+            this.altimeterInstrumentControl1.Size = new System.Drawing.Size(179, 181);
             this.altimeterInstrumentControl1.TabIndex = 18;
             this.altimeterInstrumentControl1.Text = "altimeterInstrumentControl1";
             // 
