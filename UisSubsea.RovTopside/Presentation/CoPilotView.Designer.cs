@@ -40,6 +40,8 @@
             this.videoPictureBox = new System.Windows.Forms.PictureBox();
             this.headingIndicatorInstrumentControl1 = new UisSubsea.RovTopside.Presentation.Controls.HeadingIndicatorInstrumentControl();
             this.altimeterInstrumentControl1 = new UisSubsea.RovTopside.Presentation.Controls.AltimeterInstrumentControl();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.videoPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +55,7 @@
             this.frontCamGauge.BaseArcWidth = 1;
             this.frontCamGauge.Center = new System.Drawing.Point(100, 100);
             this.frontCamGauge.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frontCamGauge.Location = new System.Drawing.Point(1078, -16);
+            this.frontCamGauge.Location = new System.Drawing.Point(1075, -4);
             this.frontCamGauge.MaxValue = 105F;
             this.frontCamGauge.MinValue = -75F;
             this.frontCamGauge.Name = "frontCamGauge";
@@ -93,9 +95,9 @@
             this.button1.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(1177, 623);
+            this.button1.Location = new System.Drawing.Point(1057, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(48, 49);
             this.button1.TabIndex = 6;
             this.button1.Text = "Fullscreen";
             this.button1.UseVisualStyleBackColor = false;
@@ -109,7 +111,7 @@
             this.rearCamGauge.BaseArcSweep = 180;
             this.rearCamGauge.BaseArcWidth = 1;
             this.rearCamGauge.Center = new System.Drawing.Point(100, 100);
-            this.rearCamGauge.Location = new System.Drawing.Point(958, -16);
+            this.rearCamGauge.Location = new System.Drawing.Point(1075, 172);
             this.rearCamGauge.MaxValue = 30F;
             this.rearCamGauge.MinValue = -150F;
             this.rearCamGauge.Name = "rearCamGauge";
@@ -138,7 +140,7 @@
             this.rearCamGauge.ScaleNumbersRotation = 0;
             this.rearCamGauge.ScaleNumbersStartScaleLine = 0;
             this.rearCamGauge.ScaleNumbersStepScaleLines = 1;
-            this.rearCamGauge.Size = new System.Drawing.Size(185, 193);
+            this.rearCamGauge.Size = new System.Drawing.Size(185, 180);
             this.rearCamGauge.TabIndex = 7;
             this.rearCamGauge.Text = "RearCam";
             this.rearCamGauge.Value = 0F;
@@ -148,7 +150,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Yellow;
-            this.label2.Location = new System.Drawing.Point(1033, 91);
+            this.label2.Location = new System.Drawing.Point(1144, 283);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 12);
             this.label2.TabIndex = 15;
@@ -159,7 +161,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Yellow;
-            this.label3.Location = new System.Drawing.Point(1153, 91);
+            this.label3.Location = new System.Drawing.Point(1144, 105);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 12);
             this.label3.TabIndex = 16;
@@ -169,7 +171,7 @@
             // 
             this.headingLabelText.AutoSize = true;
             this.headingLabelText.ForeColor = System.Drawing.Color.Yellow;
-            this.headingLabelText.Location = new System.Drawing.Point(1184, 328);
+            this.headingLabelText.Location = new System.Drawing.Point(1110, 493);
             this.headingLabelText.Name = "headingLabelText";
             this.headingLabelText.Size = new System.Drawing.Size(13, 13);
             this.headingLabelText.TabIndex = 17;
@@ -177,7 +179,7 @@
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(1001, 412);
+            this.trackBar1.Location = new System.Drawing.Point(1056, 461);
             this.trackBar1.Maximum = 1000;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Orientation = System.Windows.Forms.Orientation.Vertical;
@@ -188,29 +190,46 @@
             // 
             // videoPictureBox
             // 
-            this.videoPictureBox.Location = new System.Drawing.Point(-4, -6);
+            this.videoPictureBox.Location = new System.Drawing.Point(-4, -27);
             this.videoPictureBox.Name = "videoPictureBox";
-            this.videoPictureBox.Size = new System.Drawing.Size(960, 720);
-            this.videoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.videoPictureBox.Size = new System.Drawing.Size(1055, 706);
             this.videoPictureBox.TabIndex = 0;
             this.videoPictureBox.TabStop = false;
             // 
             // headingIndicatorInstrumentControl1
             // 
             this.headingIndicatorInstrumentControl1.ForeColor = System.Drawing.Color.Yellow;
-            this.headingIndicatorInstrumentControl1.Location = new System.Drawing.Point(1115, 183);
+            this.headingIndicatorInstrumentControl1.Location = new System.Drawing.Point(1102, 358);
             this.headingIndicatorInstrumentControl1.Name = "headingIndicatorInstrumentControl1";
-            this.headingIndicatorInstrumentControl1.Size = new System.Drawing.Size(147, 142);
+            this.headingIndicatorInstrumentControl1.Size = new System.Drawing.Size(150, 148);
             this.headingIndicatorInstrumentControl1.TabIndex = 19;
             this.headingIndicatorInstrumentControl1.Text = "headingIndicatorInstrumentControl1";
             // 
             // altimeterInstrumentControl1
             // 
-            this.altimeterInstrumentControl1.Location = new System.Drawing.Point(962, 183);
+            this.altimeterInstrumentControl1.Location = new System.Drawing.Point(1111, 512);
             this.altimeterInstrumentControl1.Name = "altimeterInstrumentControl1";
-            this.altimeterInstrumentControl1.Size = new System.Drawing.Size(147, 142);
+            this.altimeterInstrumentControl1.Size = new System.Drawing.Size(134, 140);
             this.altimeterInstrumentControl1.TabIndex = 18;
             this.altimeterInstrumentControl1.Text = "altimeterInstrumentControl1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1062, 607);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(27, 13);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "cm: ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(1083, 607);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "label4";
             // 
             // CoPilotView
             // 
@@ -218,6 +237,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowText;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.headingIndicatorInstrumentControl1);
             this.Controls.Add(this.altimeterInstrumentControl1);
@@ -253,5 +274,8 @@
         private System.Windows.Forms.TrackBar trackBar1;
         private Controls.HeadingIndicatorInstrumentControl headingIndicatorInstrumentControl1;
         private Controls.AltimeterInstrumentControl altimeterInstrumentControl1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
+
     }
 }

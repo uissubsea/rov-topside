@@ -44,7 +44,7 @@ namespace UisSubsea.RovTopside.Presentation
 
             System.Drawing.Graphics formGraphics;
             formGraphics = this.CreateGraphics();
-            formGraphics.FillRectangle(Brush, new Rectangle(1075, 620, 80, 30));
+            formGraphics.FillRectangle(Brush, new Rectangle(1095, 620, 50, 20));
             Brush.Dispose();
             formGraphics.Dispose();
         }

@@ -96,7 +96,8 @@ namespace UisSubsea.RovTopside.Logic
 
         public void PilotCameraAutofocus()
         {
-            pilotView.GetCamera().AutoFocus();
+            pilotView.GetCamera().CameraDisplayProperties();
+            //pilotView.GetCamera().AutoFocus();
         }
 
         public void IncreaseCoPilotCameraFocus()
