@@ -274,7 +274,7 @@ namespace UisSubsea.RovTopside.Data
             return (this.cameraMoniker.Equals(cam.cameraMoniker));
         }
 
-        public void CameraDisplayProperties()
+        public void DisplayCameraProperties()
         {
             camera.DisplayPropertyPage(IntPtr.Zero);
         }

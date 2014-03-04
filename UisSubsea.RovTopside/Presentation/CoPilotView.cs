@@ -145,7 +145,7 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void button3_Click(object sender, EventArgs e)
         {
-            camera.CameraDisplayProperties();
+            camera.DisplayCameraProperties();
         }
 
         public ICamera GetCamera()

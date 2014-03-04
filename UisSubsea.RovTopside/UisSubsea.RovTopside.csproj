@@ -40,6 +40,7 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
+    <DocumentationFile>bin\x86\Debug\UisSubsea.RovTopside.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -53,6 +54,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>uissubsea_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AForge">
@@ -222,6 +226,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Altimeter_Background.bmp" />
+    <Content Include="uissubsea_icon.ico" />
     <None Include="Resources\HeadingWeel_Glass.bmp" />
     <None Include="Resources\HeadingIndicator_Aircraft_Glass.bmp" />
     <None Include="Resources\SmallNeedleAltimeter_Glass.bmp" />
