@@ -12,10 +12,6 @@ namespace UisSubsea.RovTopside.Logic
         void Snapshot();
         void ChangePilotCamera();
         void ChangeCoPilotCamera();
-        void IncreasePilotCameraFocus();
-        void DecreasePilotCameraFocus();
-        void IncreaseCoPilotCameraFocus();
-        void DecreaseCoPilotCameraFocus();
         void PilotCameraAutofocus();
         void CoPilotCameraAutofocus();
         void PilotCameraSetFocus(int focus);

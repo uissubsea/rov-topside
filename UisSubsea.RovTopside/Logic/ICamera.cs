@@ -21,7 +21,5 @@ namespace UisSubsea.RovTopside.Logic
         void Stop();
         void ToggleRecording();
         void CameraDisplayProperties();
-        void IncreaseFocus();
-        void DecreaseFocus();
     }
 }
