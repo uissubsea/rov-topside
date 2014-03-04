@@ -115,7 +115,6 @@
     <Compile Include="Data\RovState.cs" />
     <Compile Include="Data\SerialPortSingleton.cs" />
     <Compile Include="Data\VideoRecorder.cs" />
-    <Compile Include="Logic\ImageReisizer.cs" />
     <Compile Include="Logic\IView.cs" />
     <Compile Include="Logic\MainController.cs" />
     <Compile Include="Logic\IPilotViewHandler.cs" />
