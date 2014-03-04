@@ -20,7 +20,7 @@ namespace UisSubsea.RovTopside.Logic
                 g.SmoothingMode = SmoothingMode.HighSpeed;
                 g.InterpolationMode = InterpolationMode.NearestNeighbor;
 
-                g.DrawImage(image, new System.Drawing.Rectangle(0, 0, width, height));
+                g.DrawImage(image, new Rectangle(0, 0, width, height));
             }
             return newImage;
         }
