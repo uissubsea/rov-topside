@@ -10,9 +10,11 @@ namespace UisSubsea.RovTopside.Logic
     public class PilotActionsController
     {
 
-        JoystickStateListener pilotStickListener;
-        ICameraHandler cameraHandler;
-        IPilotViewHandler pilotView;
+        private JoystickStateListener pilotStickListener;
+        private ICameraHandler cameraHandler;
+        private IPilotViewHandler pilotView;
+
+        private Boolean buttonPressed = false;
         
         public PilotActionsController(JoystickStateListener pilotStickListener, 
             ICameraHandler cameraHandler, IPilotViewHandler pilotView)
@@ -46,8 +48,23 @@ namespace UisSubsea.RovTopside.Logic
 
         private Boolean changePilotCamera()
         {
-            return (pilotStickListener.Joystick.Buttons()[PilotButton.ChangeCamera]
-                && AllAxisesAreInNeutral(pilotStickListener.Joystick));
+            Boolean shouldChangeCamera = false;
+            if(buttonPressed)
+            {
+                if (!pilotStickListener.Joystick.Buttons()[PilotButton.ChangeCamera])
+                {
+                    buttonPressed = false;
+                    shouldChangeCamera = true;
+                }
+            }
+            else
+            {
+                buttonPressed = pilotStickListener.Joystick.Buttons()[PilotButton.ChangeCamera];
+            }
+
+            return shouldChangeCamera;
+            //return (pilotStickListener.Joystick.Buttons()[PilotButton.ChangeCamera]
+            //    && AllAxisesAreInNeutral(pilotStickListener.Joystick));
         }
 
         private Boolean reverse()
