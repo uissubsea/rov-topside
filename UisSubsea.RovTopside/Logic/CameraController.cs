@@ -114,5 +114,10 @@ namespace UisSubsea.RovTopside.Logic
         {
             coPilotView.GetCamera().AutoFocus();
         }
+
+        public void PilotCameraSetFocus(int focus)
+        {
+            pilotView.GetCamera().SetFocus(focus);
+        }
     }
 }

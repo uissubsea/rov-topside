@@ -14,6 +14,8 @@ namespace UisSubsea.RovTopside.Logic
         JoystickStateListener coPilotRightStickListener;
         ICameraHandler cameraHandler;
         ICoPilotViewHandler coPilotView;
+
+        private int focusSlider = 0;
         
         public CoPilotActionsController(JoystickStateListener coPilotLeftStickListener, 
             JoystickStateListener coPilotRightStickListener, ICameraHandler cameraHandler, 
@@ -46,7 +48,10 @@ namespace UisSubsea.RovTopside.Logic
 
         private void coPilotLeftStick_StateChanged(object sender, EventArgs e)
         {
-            // Not yet implemented
+            if (focusSliderChanged())
+                cameraHandler.PilotCameraSetFocus(focusSlider);
+            if (leftStickAutofocus())
+                cameraHandler.PilotCameraAutofocus();
         }
 
         private Boolean toggleRecording()
@@ -84,5 +89,21 @@ namespace UisSubsea.RovTopside.Logic
         {
             return coPilotRightStickListener.Joystick.Buttons()[CoPilotButton.CameraAutofocus];
         }
+
+        private Boolean focusSliderChanged()
+        {
+            if(focusSlider != coPilotLeftStickListener.Joystick.Slider())
+            {
+                focusSlider = coPilotLeftStickListener.Joystick.Slider();
+                return true;
+            }
+            return false;
+        }
+
+        private Boolean leftStickAutofocus()
+        {
+            return coPilotLeftStickListener.Joystick.Buttons()[PilotButton.CameraAutofocus];
+        }
+
     }
 }

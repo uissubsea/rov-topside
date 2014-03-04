@@ -18,5 +18,6 @@ namespace UisSubsea.RovTopside.Logic
         void DecreaseCoPilotCameraFocus();
         void PilotCameraAutofocus();
         void CoPilotCameraAutofocus();
+        void PilotCameraSetFocus(int focus);
     }
 }
