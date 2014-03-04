@@ -137,7 +137,6 @@ namespace UisSubsea.RovTopside.Data
 
         public void AutoFocus()
         {
-            focus = 0;
             camera.SetCameraProperty(CameraControlProperty.Focus, 0, CameraControlFlags.Auto);
         }
 
