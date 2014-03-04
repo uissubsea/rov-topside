@@ -201,8 +201,8 @@ namespace UisSubsea.RovTopside.Data
         private void camera_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
 
-            Bitmap nextFrame = (Bitmap)eventArgs.Frame.Clone();
-
+            Bitmap nextFrame = ImageReisizer.ResizeImage((Bitmap)eventArgs.Frame.Clone(), 1920, 1080);
+            
             if (snapshot)
                 saveSnapshot((Bitmap)nextFrame.Clone());
 
