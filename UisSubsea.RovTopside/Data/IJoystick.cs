@@ -11,6 +11,7 @@ namespace UisSubsea.RovTopside.Data
         int Throttle();
         int Pitch();
         int Roll();
+        int Slider();
         int Yaw();
         bool[] Buttons();
         int PointOfView();

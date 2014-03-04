@@ -65,5 +65,11 @@ namespace UisSubsea.RovTopside.Tests
             int randomPos = r.Next(0, 9);
             return pov[randomPos];
         }
+
+
+        public int Slider()
+        {
+            return r.Next(0, 251);
+        }
     }
 }

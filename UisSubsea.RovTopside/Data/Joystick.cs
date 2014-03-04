@@ -64,6 +64,11 @@ namespace UisSubsea.RovTopside.Data
             return State().Y;
         }
 
+        public int Slider()
+        {
+            return range.Maximum - State().Z;
+        }
+
         public int Yaw()
         {
             return State().RotationZ;

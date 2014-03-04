@@ -79,8 +79,6 @@ namespace UisSubsea.RovTopside.Presentation
             txtInput.AppendText("\r\n");
 
             readyToSend = true;
-
-
         }
 
         private void refresh()
@@ -88,7 +86,6 @@ namespace UisSubsea.RovTopside.Presentation
             //Reverse
             if (joystick.Buttons()[9])
                 mainpacketbuilder.ToggleReverse();
-
 
             //Capture stick Position.
             roll = joystick.Roll();
@@ -125,11 +122,11 @@ namespace UisSubsea.RovTopside.Presentation
             listener.IsBackground = true;
             listener.Start();
 
-            CommunicationServer comServer = new CommunicationServer(stateStore);
+            /*CommunicationServer comServer = new CommunicationServer(stateStore);
             comServer.RovStateReceived += RovState_Received;
             comThread = new Thread(comServer.Serve);
             comThread.IsBackground = true;
-            comThread.Start();
+            comThread.Start();*/
 
             //string[] ports = SerialPort.GetPortNames();
             //cmbAvailablePorts.DataSource = ports;
