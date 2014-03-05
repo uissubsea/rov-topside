@@ -107,10 +107,10 @@ namespace UisSubsea.RovTopside.Presentation
         }
 
         public void SetLaserDistanceMeasured(double distance)
-        {/*
-            lblTextDistance.Text = distance.ToString();
+        {
+            laserDistanceLabel.Text = distance.ToString();
             if (distance > 0) { }//Add warning light when laser in use
-          * */
+          
         }
         
         public void setSensorState(bool sensorstate)
