@@ -99,16 +99,17 @@ namespace UisSubsea.RovTopside.Presentation
             this.Invoke(new Action(() => rearCamGauge.Value = angle));
         }
 
-        public void SetDepth(double depth)
+        public void SetDepth(int depth)
         {
   
             //this.Invoke(new Action(() => headingIndicatorInstrumentControl1.SetHeadingIndicatorParameters( (int)depth)));
-            altimeterInstrumentControl1.SetAlimeterParameters((int)depth);
+            altimeterInstrumentControl1.SetAlimeterParameters((int)depth *3);
         }
 
-        public void SetLaserDistanceMeasured(double distance)
+        public void SetLaserDistanceMeasured(int distance)
         {
-            laserDistanceLabel.Text = distance.ToString();
+            int totDistance = distance * 2;
+            laserDistanceLabel.Text = totDistance.ToString();
             if (distance > 0) { }//Add warning light when laser in use
           
         }

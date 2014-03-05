@@ -210,9 +210,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(1083, 614);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.Size = new System.Drawing.Size(13, 13);
             this.label4.TabIndex = 22;
-            this.label4.Text = "label4";
+            this.label4.Text = "0";
             // 
             // label5
             // 
@@ -228,9 +228,9 @@
             this.laserDistanceLabel.AutoSize = true;
             this.laserDistanceLabel.Location = new System.Drawing.Point(1094, 632);
             this.laserDistanceLabel.Name = "laserDistanceLabel";
-            this.laserDistanceLabel.Size = new System.Drawing.Size(35, 13);
+            this.laserDistanceLabel.Size = new System.Drawing.Size(13, 13);
             this.laserDistanceLabel.TabIndex = 24;
-            this.laserDistanceLabel.Text = "label6";
+            this.laserDistanceLabel.Text = "0";
             // 
             // headingIndicatorInstrumentControl1
             // 
