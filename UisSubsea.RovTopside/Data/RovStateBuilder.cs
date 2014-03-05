@@ -12,37 +12,24 @@ namespace UisSubsea.RovTopside.Data
      * */
     public static class RovStateBuilder
     {
-        private const double headingResolution = 1.44; // 360/250
+        //Getting a byte 0-180.
+        private const double headingResolution = 2; // 360/250
 
         public static RovState BuildRovState(byte[] data)
         {
             if (packageIsValid(data))
             {
-                int hdg = heading(data[1]);
-                int camTilt = cameraTilt(data[2]);
+                int hdg = heading(data[0]);
+                int frontCamTilt = cameraTilt(data[1]);
+                int rearCamTilt = cameraTilt(data[2]);
                 Boolean err = error(data[3]);
-                return new RovState(hdg, camTilt, err);
+                int distance = distanceRov(data[4]);
+                int depth = depthRov(data[5]);
+                int distanceBottom = distanceToBottom(data[6]);
+                return new RovState(hdg,frontCamTilt, rearCamTilt, err, distance, depth, distanceBottom);
             }
             else
-            {
-                return new RovState(0, 0, false);
-            }
-        }
-
-        public static RovState BuildRovStateComplet(byte[] data)
-        {
-            if (packageIsValid(data))
-            {
-                int hdg = heading(data[1]);
-                int frontCamTilt = cameraTilt(data[2]);
-                int rearCamTilt = cameraTilt(data[4]);
-                Boolean err = error(data[3]);
-                int distance = distanceRov(data[5]);
-                int depth = depthRov(data[6]);
-                return new RovState(hdg, depth, distance, rearCamTilt, frontCamTilt, err);
-            }
-            else
-                return new RovState(0, 0, 0, 0, 0, false);
+                return new RovState(0, 0, 0,false, 0, 0,0);
         }
 
         private static Boolean error(byte statusByte)
@@ -62,31 +49,31 @@ namespace UisSubsea.RovTopside.Data
         private static int cameraTilt(byte camTilt)
         {
             int tilt = camTilt;
-            return tilt;
+            return (int)(tilt);
         }
 
         private static Boolean packageIsValid(byte[] package)
         {
-            if (package.Count() == 5)
-                if (package[0] == Constants.StartByte && package[4] == Constants.StopByte)
-                    return true;
-                else
-                    return false;
-            else
-                return false;
+            return package.Count() == 7;
         }
         
         private static int depthRov(byte rovDepth)
         {
             int depth = rovDepth;
 
-            return depth; 
+            return (int)depth*3; 
+        }
+
+        private static int distanceToBottom(byte toBottom)
+        {
+            int distance = toBottom;
+            return (int)distance*3;
         }
 
         private static int distanceRov(byte rovDistance)
         {
             int distance = rovDistance;
-            return distance;
+            return (int)distance*2;
         }
 
     }
