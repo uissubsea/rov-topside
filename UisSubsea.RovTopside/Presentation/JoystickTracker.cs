@@ -122,11 +122,11 @@ namespace UisSubsea.RovTopside.Presentation
             listener.IsBackground = true;
             listener.Start();
 
-            /*CommunicationServer comServer = new CommunicationServer(stateStore);
+            CommunicationServer comServer = new CommunicationServer(stateStore);
             comServer.RovStateReceived += RovState_Received;
             comThread = new Thread(comServer.Serve);
             comThread.IsBackground = true;
-            comThread.Start();*/
+            comThread.Start();
 
             //string[] ports = SerialPort.GetPortNames();
             //cmbAvailablePorts.DataSource = ports;
