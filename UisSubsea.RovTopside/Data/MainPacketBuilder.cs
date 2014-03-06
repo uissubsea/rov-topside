@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UisSubsea.RovTopside.Logic;
 
 namespace UisSubsea.RovTopside.Data
 {
     public class MainPacketBuilder : PacketBuilder
     {
         private IJoystick joystick;
-        private Boolean reverse;
+        private bool reverse;
+        private bool halveAmplitude;
 
-        public MainPacketBuilder(IJoystick joystick) : base(joystick)
+        public MainPacketBuilder(IJoystick joystick)
+            : base(joystick)
         {
             this.joystick = joystick;
         }
@@ -20,26 +23,63 @@ namespace UisSubsea.RovTopside.Data
         {
             if (joystickIsInNeutral())
             {
-                if (reverse)
-                    reverse = false;
-                else
-                    reverse = true;
+                reverse = !reverse;
             }
+        }
+
+        public void ToggleGain()
+        {
+            halveAmplitude = !halveAmplitude;
         }
 
         public override byte[] BuildJoystickStatePacket()
         {
-            if (joystick.Buttons()[9])
+            if (joystick.Buttons()[PilotButton.Reverse])
                 ToggleReverse();
+
+            if (joystick.Buttons()[PilotButton.Gain])
+                ToggleGain();
 
             if (reverse)
             {
-                return buildReversePacket();
+                if (halveAmplitude)
+                    return buildReverseHalfGainPacket();
+                else
+                    return buildReversePacket();
             }
             else
             {
-                return buildPacket();
+                if (halveAmplitude)
+                    return buildHalfGainPacket();
+                else
+                    return buildPacket();
             }
+        }
+
+        private byte[] buildHalfGainPacket()
+        {
+            return new byte[]
+            {
+                halveAxisAmplitude(Roll()),
+                halveAxisAmplitude(Pitch()),
+                halveAxisAmplitude(Yaw()),
+                halveAxisAmplitude(Throttle()),
+                ButtonsPressed(),
+                HatPov(),
+            };
+        }
+
+        private byte[] buildReverseHalfGainPacket()
+        {
+            return new byte[]
+            {
+                halveAxisAmplitude(reverseRoll()),
+                halveAxisAmplitude(reversePitch()),
+                halveAxisAmplitude(Yaw()),
+                halveAxisAmplitude(Throttle()),
+                ButtonsPressed(),
+                HatPov(),
+            };
         }
 
         private byte[] buildPacket()
@@ -68,7 +108,7 @@ namespace UisSubsea.RovTopside.Data
                };
         }
 
-        private Boolean joystickIsInNeutral()
+        private bool joystickIsInNeutral()
         {
             if (joystick.Pitch() == 125 && joystick.Roll() == 125)
                 return true;
@@ -78,15 +118,15 @@ namespace UisSubsea.RovTopside.Data
 
         private byte reversePitch()
         {
-            return reverseStickAmplitude((byte)joystick.Pitch());
+            return reverseAxisAmplitude((byte)joystick.Pitch());
         }
 
         private byte reverseRoll()
         {
-            return reverseStickAmplitude((byte)joystick.Roll());
+            return reverseAxisAmplitude((byte)joystick.Roll());
         }
 
-        private byte reverseStickAmplitude(byte axisPosition)
+        private byte reverseAxisAmplitude(byte axisPosition)
         {
             int amplitude = axisPosition - 125;
 
@@ -102,6 +142,12 @@ namespace UisSubsea.RovTopside.Data
                 amplitude *= -1;
                 return (byte)(125 + amplitude);
             };
+        }
+
+        private byte halveAxisAmplitude(byte axisPosition)
+        {
+            int amplitude = axisPosition - 125;
+            return (byte)(125 + (amplitude / 2));
         }
     }
 }

@@ -40,7 +40,7 @@ namespace UisSubsea.RovTopside.Presentation
         private Thread listener;
         private Thread comThread;
 
-        private System.Threading.WaitHandle waitHandle;
+        private JoystickStateStore stateStore;
 
         public JoystickTracker()
         {
@@ -95,10 +95,10 @@ namespace UisSubsea.RovTopside.Presentation
             }             
 
             //Capture stick Position.
-            roll = joystick.Roll();
-            pitch = joystick.Pitch();
-            yaw = joystick.Yaw();
-            throttlePercentage = joystick.Throttle();
+            roll = stateStore.Main[0];
+            pitch = stateStore.Main[1];
+            yaw = stateStore.Main[2];
+            throttlePercentage = stateStore.Main[3];
 
             //Capture point-of-view hat
             pov = joystick.PointOfView();
@@ -115,13 +115,13 @@ namespace UisSubsea.RovTopside.Presentation
         private void JoystickTracker_Load(object sender, EventArgs e)
         {
             joystick = new Joystick(this.Handle, 0, 250);
-            waitHandle = new System.Threading.AutoResetEvent(false);
+            System.Threading.WaitHandle waitHandle = new System.Threading.AutoResetEvent(false);
 
             joystick.Acquire(waitHandle);
 
             mainpacketbuilder = new MainPacketBuilder(joystick);
 
-            JoystickStateStore stateStore = new JoystickStateStore();
+            stateStore = new JoystickStateStore();
 
             JoystickStateListener interruptListener = new JoystickStateListener(joystick, mainpacketbuilder, stateStore);
             interruptListener.JoystickStateChanged += JoystickState_Changed;

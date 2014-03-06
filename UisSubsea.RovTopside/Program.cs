@@ -19,7 +19,7 @@ namespace UisSubsea.RovTopside
         [STAThread]
         static void Main()
         {
-            string[] ports = SerialPort.GetPortNames();
+            /*string[] ports = SerialPort.GetPortNames();
             if (!ports.Contains("COM1"))
             {
                 MessageBox.Show("Make sure USART is connected");
@@ -36,13 +36,14 @@ namespace UisSubsea.RovTopside
             {
                 MessageBox.Show("Make sure all cameras are connected");
                 return;
-            }
+            }*/
                       
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);      
 
-            MainController main = new MainController();
-            Application.Run(main.pilotView);
+            //MainController main = new MainController();
+            //Application.Run(main.pilotView);
+            Application.Run(new JoystickTracker());
             
             //createJoystick();
         }
