@@ -32,7 +32,7 @@ namespace UisSubsea.RovTopside
                 return;
             }
 
-            if(Camera.CamerasConnected().Count < 2)
+            if(Camera.CamerasConnected().Count < 3)
             {
                 MessageBox.Show("Make sure all cameras are connected");
                 return;
