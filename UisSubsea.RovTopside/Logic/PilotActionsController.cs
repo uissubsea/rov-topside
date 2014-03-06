@@ -14,7 +14,7 @@ namespace UisSubsea.RovTopside.Logic
         private ICameraHandler cameraHandler;
         private IPilotViewHandler pilotView;
 
-        private Boolean buttonPressed = false;
+        private bool buttonPressed = false;
         
         public PilotActionsController(JoystickStateListener pilotStickListener, 
             ICameraHandler cameraHandler, IPilotViewHandler pilotView)
@@ -37,7 +37,7 @@ namespace UisSubsea.RovTopside.Logic
             pilotView.VerticalLeverIsNeutral(VerticalLeverIsNeutral());
         }
 
-        private Boolean changePilotCamera()
+        private bool changePilotCamera()
         {
             // The following code makes sure that an action 
             // is only performed when the buttons is released.
@@ -46,7 +46,7 @@ namespace UisSubsea.RovTopside.Logic
             // that pressing the button while moving the joystick, will 
             // cause the action to be performed way to many times.
 
-            Boolean shouldChangeCamera = false;
+            bool shouldChangeCamera = false;
             if(buttonPressed)
             {
                 if (!pilotStickListener.Joystick.Buttons()[PilotButton.ChangeCamera])
@@ -64,22 +64,22 @@ namespace UisSubsea.RovTopside.Logic
 
         }
 
-        private Boolean reverse()
+        private bool reverse()
         {
             return pilotStickListener.Joystick.Buttons()[PilotButton.Reverse];
         }
 
-        private Boolean toggleStopwatch()
+        private bool toggleStopwatch()
         {
             return pilotStickListener.Joystick.Buttons()[PilotButton.ToggleStopwatch];
         }
 
-        private Boolean VerticalLeverIsNeutral()
+        private bool VerticalLeverIsNeutral()
         {
             return pilotStickListener.Joystick.Throttle() == 125;
         }
 
-        private Boolean AllAxisesAreInNeutral(Joystick joystick)
+        private bool AllAxisesAreInNeutral(Joystick joystick)
         {
             return (joystick.Pitch() == 125 && joystick.Roll() == 125 && joystick.Throttle() == 125);
         }

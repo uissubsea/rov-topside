@@ -45,9 +45,7 @@ namespace UisSubsea.RovTopside.Data
             this.type = type;
             createJoystick();
             configureJoystick(windowHandle);
-        }
-
-       
+        }     
 
         public JoystickState State()
         {               
@@ -127,54 +125,27 @@ namespace UisSubsea.RovTopside.Data
 
         private void createJoystick()
         {
-            DirectInput directInput = new DirectInput();
-            Guid guid = Guid.Empty;
-
-            //Create joystick device.
-            //This process is called Direct Input Device Enumeration
-            //IList<DeviceInstance> 
-            //gameControls = directInput.GetDevices(
-             //   DeviceClass.GameControl, DeviceEnumerationFlags.AttachedOnly);
-            //Should use productguid instead of instanceguid. 
-            //See createJoystick(int index) as an example
-
             IList<DeviceInstance> gameControls = JoysticksAttached();
             switch(this.type)
             {
                 case JoystickType.MainController:
                     if (gameControls.Count >= 1)
-                        guid = gameControls[0].InstanceGuid;
+                        createJoystick(0);
                     break;
                 case JoystickType.ManipulatorLeft:
                     if (gameControls.Count >= 2)
-                        guid = gameControls[1].InstanceGuid;
+                        createJoystick(1);
                     break;
                 case JoystickType.ManipulatorRight:
                     if (gameControls.Count >= 3)
-                        guid = gameControls[2].InstanceGuid;
+                        createJoystick(2);
                     break;
             }
-
-            if(guid != Guid.Empty)
-                joystick = new SharpDX.DirectInput.Joystick(directInput, guid);
-
-            if (joystick == null)
-            {
-                //Throw exception if joystick not found.
-                throw new Exception("No joystick found.");
-            }
-
         }
 
         private void createJoystick(int index)
         {
-            DirectInput directInput = new DirectInput();
-           
-            //Create joystick device.
-            //This process is called Direct Input Device Enumeration
-            //IList<DeviceInstance> 
-            //gameControls = directInput.GetDevices(
-            //DeviceClass.GameControl, DeviceEnumerationFlags.AttachedOnly);      
+            DirectInput directInput = new DirectInput();      
             
             Guid guid = Guid.Empty;
             guid = JoysticksAttached()[index].ProductGuid;
@@ -184,7 +155,6 @@ namespace UisSubsea.RovTopside.Data
 
             if (joystick == null)
             {
-                //Throw exception if joystick not found.
                 throw new Exception("No joystick found.");
             }
 

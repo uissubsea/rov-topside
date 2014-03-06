@@ -8,12 +8,10 @@ using System.IO.Ports;
 using UisSubsea.RovTopside.Data;
 using UisSubsea.RovTopside.Logic;
 
-
 namespace UisSubsea.RovTopside
 {
     static class Program
     {
-        //private static IList<DeviceInstance> gameControls;
 
         /// <summary>
         /// The main entry point for the application.
@@ -22,12 +20,23 @@ namespace UisSubsea.RovTopside
         static void Main()
         {
             string[] ports = SerialPort.GetPortNames();
-            if (!ports.Contains("COM1") || Joystick.JoysticksAttached().Count < 3 
-                || Camera.CamerasConnected().Count < 2)
+            if (!ports.Contains("COM1"))
             {
-                MessageBox.Show("Make sure all neccessary devices are connected");
+                MessageBox.Show("Make sure USART is connected");
                 return;
-            }     
+            }
+
+            if(Joystick.JoysticksAttached().Count < 3)
+            {
+                MessageBox.Show("Make sure all joysticks are connected");
+                return;
+            }
+
+            if(Camera.CamerasConnected().Count < 2)
+            {
+                MessageBox.Show("Make sure all cameras are connected");
+                return;
+            }
                       
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);      

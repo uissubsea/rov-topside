@@ -40,6 +40,8 @@ namespace UisSubsea.RovTopside.Presentation
         private Thread listener;
         private Thread comThread;
 
+        private System.Threading.WaitHandle waitHandle;
+
         public JoystickTracker()
         {
             InitializeComponent();
@@ -87,6 +89,11 @@ namespace UisSubsea.RovTopside.Presentation
             if (joystick.Buttons()[9])
                 mainpacketbuilder.ToggleReverse();
 
+            if (joystick.Buttons()[0])
+            {
+                // not implemented
+            }             
+
             //Capture stick Position.
             roll = joystick.Roll();
             pitch = joystick.Pitch();
@@ -108,9 +115,9 @@ namespace UisSubsea.RovTopside.Presentation
         private void JoystickTracker_Load(object sender, EventArgs e)
         {
             joystick = new Joystick(this.Handle, 0, 250);
-            System.Threading.WaitHandle handle = new System.Threading.AutoResetEvent(false);
+            waitHandle = new System.Threading.AutoResetEvent(false);
 
-            joystick.Acquire(handle);
+            joystick.Acquire(waitHandle);
 
             mainpacketbuilder = new MainPacketBuilder(joystick);
 
@@ -122,11 +129,11 @@ namespace UisSubsea.RovTopside.Presentation
             listener.IsBackground = true;
             listener.Start();
 
-            CommunicationServer comServer = new CommunicationServer(stateStore);
+            /*CommunicationServer comServer = new CommunicationServer(stateStore);
             comServer.RovStateReceived += RovState_Received;
             comThread = new Thread(comServer.Serve);
             comThread.IsBackground = true;
-            comThread.Start();
+            comThread.Start();*/
 
             //string[] ports = SerialPort.GetPortNames();
             //cmbAvailablePorts.DataSource = ports;
