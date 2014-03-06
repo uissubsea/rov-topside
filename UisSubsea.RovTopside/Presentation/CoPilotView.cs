@@ -107,11 +107,11 @@ namespace UisSubsea.RovTopside.Presentation
         }
 
         public void SetLaserDistanceMeasured(int distance)
-        {
+        {/*
             int totDistance = distance * 2;
             laserDistanceLabel.Text = totDistance.ToString();
             if (distance > 0) { }//Add warning light when laser in use
-          
+          */
         }
         
         public void setSensorState(bool sensorstate)
@@ -158,7 +158,18 @@ namespace UisSubsea.RovTopside.Presentation
         {
             altimeterInstrumentControl1.SetAlimeterParameters(trackBar1.Value);
         }
-      
+
+
+
+        public void SetDepth(double depth)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetLaserDistanceMeasured(double distance)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 
