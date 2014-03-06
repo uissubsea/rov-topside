@@ -21,21 +21,20 @@ namespace UisSubsea.RovTopside
         [STAThread]
         static void Main()
         {
-            /*string[] ports = SerialPort.GetPortNames();
+            string[] ports = SerialPort.GetPortNames();
             if (!ports.Contains("COM1") || Joystick.JoysticksAttached().Count < 3 
                 || Camera.CamerasConnected().Count < 2)
             {
                 MessageBox.Show("Make sure all neccessary devices are connected");
                 return;
-            } */    
+            }     
                       
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new MainController());
+            Application.SetCompatibleTextRenderingDefault(false);      
 
-            //MainController main = new MainController();
-            //Application.Run(main.pilotView);
-            Application.Run(new JoystickTracker());
+            MainController main = new MainController();
+            Application.Run(main.pilotView);
+            
             //createJoystick();
         }
 

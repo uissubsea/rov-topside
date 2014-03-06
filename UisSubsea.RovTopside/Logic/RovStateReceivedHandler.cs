@@ -26,8 +26,6 @@ namespace UisSubsea.RovTopside.Logic
         private void comServer_RovStateReceived(object sender, DataReceivedEventArgs e)
         {
             handleStateChanged(readRovState(e.Data));
-            handleStateChangedComplet(readRovStateComplet(e.Data));
-
         }
 
         private RovState readRovState(byte[] p)
@@ -35,18 +33,7 @@ namespace UisSubsea.RovTopside.Logic
             return RovStateBuilder.BuildRovState(p);
         }
 
-        private RovState readRovStateComplet(byte[] p)
-        {
-            return RovStateBuilder.BuildRovStateComplet(p);
-        }
-
         private void handleStateChanged(RovState state)
-        {
-            overlayHandler.SetHeading(state.Heading);
-            overlayHandler.SetFrontCameraAngle(state.CameraTilt);
-        }
-
-        private void handleStateChangedComplet(RovState state)
         {
             overlayHandler.SetHeading(state.Heading);
             overlayHandler.SetFrontCameraAngle(state.FronCameraTilt);
