@@ -75,16 +75,6 @@ namespace UisSubsea.RovTopside.Logic
             return (joystick.Pitch() == 125 && joystick.Roll() == 125 && joystick.Throttle() == 125);
         }
 
-        private Boolean increaseFocus()
-        {
-            return coPilotRightStickListener.Joystick.Buttons()[CoPilotButton.IncreaseCameraFocus];
-        }
-
-        private Boolean decreaseFocus()
-        {
-            return coPilotRightStickListener.Joystick.Buttons()[CoPilotButton.DecreaseCameraFocus];
-        }
-
         private Boolean rightStickAutofocus()
         {
             return coPilotRightStickListener.Joystick.Buttons()[CoPilotButton.CameraAutofocus];

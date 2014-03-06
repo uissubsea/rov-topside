@@ -36,6 +36,9 @@ namespace UisSubsea.RovTopside.Data
                 try
                 {
                     receiveRovState();
+
+                    // Send joystick state before processing the
+                    // data received to increase the ROV response time.
                     sendJoystickState();
                     raisePacketReceivedEvent();
                 } 
