@@ -39,6 +39,13 @@ namespace UisSubsea.RovTopside.Logic
 
         private Boolean changePilotCamera()
         {
+            // The following code makes sure that an action 
+            // is only performed when the buttons is released.
+            // If we don't perform this check, the action will be performed
+            // every time the joystick produces an interrupt. That means
+            // that pressing the button while moving the joystick, will 
+            // cause the action to be performed way to many times.
+
             Boolean shouldChangeCamera = false;
             if(buttonPressed)
             {
@@ -54,8 +61,7 @@ namespace UisSubsea.RovTopside.Logic
             }
 
             return shouldChangeCamera;
-            //return (pilotStickListener.Joystick.Buttons()[PilotButton.ChangeCamera]
-            //    && AllAxisesAreInNeutral(pilotStickListener.Joystick));
+
         }
 
         private Boolean reverse()
