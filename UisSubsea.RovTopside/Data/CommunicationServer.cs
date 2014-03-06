@@ -36,7 +36,8 @@ namespace UisSubsea.RovTopside.Data
                 try
                 {
                     receiveRovState();
-                    sendJoystickState();   
+                    sendJoystickState();
+                    raisePacketReceivedEvent();
                 } 
                 catch (ThreadAbortException)
                 {
@@ -48,9 +49,7 @@ namespace UisSubsea.RovTopside.Data
         private void receiveRovState()
         {
             waitForStartByte();
-            bufferDataUntilStopByteReceived();
-            invokePacketReceived();
-            clearInputBuffer();
+            bufferDataUntilStopByteReceived();           
         }
 
         private void sendJoystickState()
@@ -58,6 +57,12 @@ namespace UisSubsea.RovTopside.Data
             fillOutputBuffer();
             sendJoystickStatePacket();
             clearOutputBuffer();
+        }
+
+        private void raisePacketReceivedEvent()
+        {
+            invokePacketReceived();
+            clearInputBuffer();
         }
 
         private void fillOutputBuffer()
