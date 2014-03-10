@@ -25,8 +25,6 @@ namespace UisSubsea.RovTopside.Presentation
         public CoPilotView(ICamera camera)
         {
             InitializeComponent();
-           // SetDepth(435);
-            //SetHeading(90);
             this.camera = camera;
             this.camera.Canvas = videoPictureBox;
             this.camera.Start();
@@ -86,7 +84,7 @@ namespace UisSubsea.RovTopside.Presentation
             //headingIndicatorInstrumentControl1.
             //headingIndicatorInstrumentControl1.SetHeadingIndicatorParameters(2 * (int)heading);
             //headingLabelText.Text = heading.ToString();
-            this.Invoke(new Action(() =>{
+            this.Invoke(new MethodInvoker(delegate {
             headingIndicatorInstrumentControl1.SetHeadingIndicatorParameters((int)heading);         
             headingLabelText.Text = heading.ToString();
             }));
@@ -100,7 +98,7 @@ namespace UisSubsea.RovTopside.Presentation
         */
         public void SetFrontCameraAngle(int angle)
         {
-            this.Invoke(new Action(() =>frontCamGauge.Value = angle));
+            this.Invoke(new MethodInvoker(delegate {frontCamGauge.Value = angle;}));
         }
 
         /*Because we 
@@ -110,7 +108,7 @@ namespace UisSubsea.RovTopside.Presentation
          * */
         public void SetRearCameraAngle(int angle)
         {
-            this.Invoke(new Action(() => rearCamGauge.Value = angle));
+            this.Invoke(new MethodInvoker(delegate(){rearCamGauge.Value = angle;}));
         }
 
         /*
@@ -120,8 +118,8 @@ namespace UisSubsea.RovTopside.Presentation
          * */
         public void SetDepth(int depth)
         {
-  
-            this.Invoke(new Action(() => headingIndicatorInstrumentControl1.SetHeadingIndicatorParameters(2*(int)depth)));
+
+            this.Invoke(new MethodInvoker(delegate() { altimeterInstrumentControl1.SetAlimeterParameters((int)depth); }));
             //altimeterInstrumentControl1.SetAlimeterParameters((int)depth *3);
         }
 
@@ -170,7 +168,7 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            altimeterInstrumentControl1.SetAlimeterParameters(trackBar1.Value);
+            //altimeterInstrumentControl1.SetAlimeterParameters(trackBar1.Value);
         }
     }
 }
