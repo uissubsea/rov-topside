@@ -14,6 +14,17 @@ using UisSubsea.RovTopside.Logic;
 
 namespace UisSubsea.RovTopside.Data
 {
+    /// <summary>
+    /// This class creates an instance of a VideoCaptureDevice.
+    /// It is able to display the camera frames on a canvas,
+    /// take snapshots and record video. 
+    /// 
+    /// If you don't want this 
+    /// class to handle new frame events, you can use the constructor
+    /// that doesn't take a PictureBox. Then you would want to get the 
+    /// camera instance and add your own event handler.
+    /// </summary>
+
     public class Camera : IDisposable, ICamera
     {
         private VideoCaptureDevice camera;
@@ -54,6 +65,7 @@ namespace UisSubsea.RovTopside.Data
             return new FilterInfoCollection(FilterCategory.VideoInputDevice);
         }
 
+        // Recording happens in a background thread to prevent the video feed from stuttering.
         public void ToggleRecording()
         {
             if (!isRecording)
@@ -86,9 +98,7 @@ namespace UisSubsea.RovTopside.Data
         {
             snapshot = false;
 
-            string filepath = Environment.CurrentDirectory;
-
-            //Bitmap current = currentFrame();
+            string filepath = Environment.CurrentDirectory + "\\snapshots\\";
             String name = Guid.NewGuid().ToString() + ".jpg";
             string filename = System.IO.Path.Combine(filepath, name);
             image.Save(filename, ImageFormat.Jpeg);
@@ -98,9 +108,10 @@ namespace UisSubsea.RovTopside.Data
         public void Dispose()
         {
             //Stop and free the webcam object 
-            if (camera != null && camera.IsRunning)
+            if (camera != null)
             {
-                this.Stop();
+                if(camera.IsRunning)
+                    this.Stop();
                 camera = null;
             }
             if (isRecording)
@@ -183,6 +194,11 @@ namespace UisSubsea.RovTopside.Data
             return desiredResolutionExists;
         }
 
+        public void DisplayCameraProperties()
+        {
+            camera.DisplayPropertyPage(IntPtr.Zero);
+        }
+
         private void initializeCamera(int index, Size desiredResolution)
         {
             FilterInfoCollection videosources = new FilterInfoCollection(FilterCategory.VideoInputDevice);
@@ -191,6 +207,9 @@ namespace UisSubsea.RovTopside.Data
             if (videosources.Count > 0)
             {
                 camera = new VideoCaptureDevice(videosources[index].MonikerString);
+                
+                // This string is used to identify and compare camera objects.
+                // It will be unique for each camera.
                 cameraMoniker = videosources[index].MonikerString;
                 SetResolution(desiredResolution);
             }
@@ -274,9 +293,10 @@ namespace UisSubsea.RovTopside.Data
             return (this.cameraMoniker.Equals(cam.cameraMoniker));
         }
 
-        public void DisplayCameraProperties()
+        // Important to override GetHashCode() when overriding Equals().
+        public override int GetHashCode()
         {
-            camera.DisplayPropertyPage(IntPtr.Zero);
+            return cameraMoniker.GetHashCode();
         }
     }
 }

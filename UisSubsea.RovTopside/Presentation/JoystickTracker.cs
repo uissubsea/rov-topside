@@ -52,26 +52,6 @@ namespace UisSubsea.RovTopside.Presentation
             font = new Font("Arial", 10);
         }
 
-        private void ComPort_DataReceived(object sender, DataReceivedEventArgs args)
-        {
-            try
-            {
-                if (InvokeRequired)
-                {
-                    if (!this.IsDisposed)
-                    {
-                        this.Invoke(new Action(() => readRovState(args.Data)));
-                        return;
-                    }
-                }
-            }
-            catch (ObjectDisposedException)
-            {
-                // NOT YET IMPLEMENTED
-            }
-
-        }
-
         private void readRovState(byte[] data)
         {
             foreach (byte b in data)
@@ -81,6 +61,14 @@ namespace UisSubsea.RovTopside.Presentation
             txtInput.AppendText("\r\n");
 
             readyToSend = true;
+        }
+
+        private void readOutputData()
+        {
+            foreach (byte b in stateStore.Main)
+                txtOutput.AppendText((byte)b + " ");
+
+            txtOutput.AppendText("\r\n");
         }
 
         private void refresh()
@@ -149,10 +137,10 @@ namespace UisSubsea.RovTopside.Presentation
                 {
                     if (!this.IsDisposed)
                     {
-                        this.Invoke(new Action(() => readRovState(e.Data)));
+                        this.txtOutput.BeginInvoke(new MethodInvoker(delegate() { readOutputData(); }));
+                        this.txtInput.BeginInvoke(new MethodInvoker(delegate() { readRovState(e.Data); }));               
                         return;
                     }
-
                 }
             }
             catch (ObjectDisposedException)
@@ -171,10 +159,9 @@ namespace UisSubsea.RovTopside.Presentation
                     {
                         if (!this.IsDisposed)
                         {
-                            this.Invoke(new Action(() => refresh()));
+                            this.Invoke(new MethodInvoker(delegate() { refresh(); }));
                             return;
                         }
-
                     }
                 }
                 catch (ObjectDisposedException)

@@ -19,7 +19,7 @@ namespace UisSubsea.RovTopside.Data
         {
             this.frameBuffer = frameBuffer;
             this.writer = new VideoFileWriter();
-            string filepath = Environment.CurrentDirectory;
+            string filepath = Environment.CurrentDirectory + "\\videos\\";
             String name = Guid.NewGuid().ToString() + ".avi";
             string filename = System.IO.Path.Combine(filepath, name);
             try
