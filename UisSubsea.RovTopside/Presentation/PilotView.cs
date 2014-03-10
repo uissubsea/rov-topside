@@ -24,7 +24,6 @@ namespace UisSubsea.RovTopside.Presentation
         private PointF pointHeading;
         private PointF pointStopwatch;
         private Rectangle boundsVerticalLeverIsNeutral;
-        private string lastPacketReceived = "0";
         private bool fullScreen = false;
         private bool verticalLeverIsNeutral = false;
         private ICamera camera;
