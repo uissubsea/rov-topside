@@ -26,7 +26,7 @@ namespace UisSubsea.RovTopside.Presentation
         {
             InitializeComponent();
            // SetDepth(435);
-            SetHeading(90);
+            //SetHeading(90);
             this.camera = camera;
             this.camera.Canvas = videoPictureBox;
             this.camera.Start();
@@ -84,12 +84,12 @@ namespace UisSubsea.RovTopside.Presentation
         public void SetHeading(int heading)
         {
             //headingIndicatorInstrumentControl1.
-            headingIndicatorInstrumentControl1.SetHeadingIndicatorParameters(2 * (int)heading);
+            //headingIndicatorInstrumentControl1.SetHeadingIndicatorParameters(2 * (int)heading);
+            //headingLabelText.Text = heading.ToString();
+            this.Invoke(new Action(() =>{
+            headingIndicatorInstrumentControl1.SetHeadingIndicatorParameters((int)heading);         
             headingLabelText.Text = heading.ToString();
-            /*this.Invoke(new Action(() =>{
-            this.Invoke(new Action(() => headingIndicatorInstrumentControl1.SetHeadingIndicatorParameters((int)heading)));         
-            headingLabelText.Text = heading.ToString();
-            }));*/
+            }));
 
         }
 
@@ -121,8 +121,8 @@ namespace UisSubsea.RovTopside.Presentation
         public void SetDepth(int depth)
         {
   
-            //this.Invoke(new Action(() => headingIndicatorInstrumentControl1.SetHeadingIndicatorParameters( (int)depth)));
-            altimeterInstrumentControl1.SetAlimeterParameters((int)depth *3);
+            this.Invoke(new Action(() => headingIndicatorInstrumentControl1.SetHeadingIndicatorParameters(2*(int)depth)));
+            //altimeterInstrumentControl1.SetAlimeterParameters((int)depth *3);
         }
 
         /* Set the distiance ahead the ROV. Because we get 1 byte(0-250) for the value of the distance. 

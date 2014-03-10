@@ -14,19 +14,19 @@ namespace UisSubsea.RovTopside.Logic
         /// <summary>
         /// Set the heading the in degrees.
         /// </summary>
-        /// <param name="heading"></param>
+        /// <param name="heading">The value used to set the direction</param>
         void SetHeading(int heading);
 
         /// <summary>
-        /// Set the front camera angle from 0-180 degrees.
+        /// Set the front camera angle.
         /// </summary>
-        /// <param name="angle"></param>
+        /// <param name="angle">The value used to set the front camera angle </param>
         void SetFrontCameraAngle(int angle);
 
         /// <summary>
-        /// Set the rear camera angle from 0-180 degrees.
+        /// Set the rear camera angle.
         /// </summary>
-        /// <param name="angle"></param>
+        /// <param name="angle">The value used to set the rear camera angle</param>
         void SetRearCameraAngle(int angle);
 
         /// <summary>
