@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using AForge.Video.FFMPEG;
 using System.Threading;
+using System.IO;
 
 namespace UisSubsea.RovTopside.Data
 {
@@ -19,7 +20,12 @@ namespace UisSubsea.RovTopside.Data
         {
             this.frameBuffer = frameBuffer;
             this.writer = new VideoFileWriter();
+
             string filepath = Environment.CurrentDirectory + "\\videos\\";
+
+            if (!Directory.Exists(filepath))
+                Directory.CreateDirectory(Path.GetDirectoryName(filepath));
+
             String name = Guid.NewGuid().ToString() + ".avi";
             string filename = System.IO.Path.Combine(filepath, name);
             try

@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Drawing.Imaging;
 using System.Threading;
 using UisSubsea.RovTopside.Logic;
+using System.IO;
 
 namespace UisSubsea.RovTopside.Data
 {
@@ -100,8 +101,8 @@ namespace UisSubsea.RovTopside.Data
 
             string filepath = Environment.CurrentDirectory + "\\snapshots\\";
 
-            if (!System.IO.Directory.Exists(filepath))
-                System.IO.Directory.CreateDirectory(filepath);
+            if (!Directory.Exists(filepath))
+                Directory.CreateDirectory(Path.GetDirectoryName(filepath));
 
             String name = Guid.NewGuid().ToString() + ".jpg";
             string filename = System.IO.Path.Combine(filepath, name);
