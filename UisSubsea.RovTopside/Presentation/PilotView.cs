@@ -74,17 +74,20 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void PaintOverlay(object sender, PaintEventArgs args)
         {
-            args.Graphics.DrawString("Depth: " + depth + " cm", font, redBrush, pointDepth);
-            args.Graphics.DrawString("Autofocus: " + autofocus.ToString(), font, redBrush, pointAutoFocus);
-            args.Graphics.DrawString("Focus value: " + focus.ToString(), font, redBrush, pointFocusValue);
-            args.Graphics.DrawString("Heading: " + heading + (char)176, font, redBrush, pointHeading);
+            Graphics g = args.Graphics;
+
+            g.DrawString("Depth: " + depth + " cm", font, redBrush, pointDepth);
+            g.DrawString("Autofocus: " + autofocus.ToString(), font, redBrush, pointAutoFocus);
+            g.DrawString("Focus value: " + focus.ToString(), font, redBrush, pointFocusValue);
+            g.DrawString("Heading: " + heading + (char)176, font, redBrush, pointHeading);
 
             TimeSpan span = stopwatch.Elapsed;
             string stopwatchstring = string.Format("{0}:{1}", Math.Floor(span.TotalMinutes), span.ToString("ss"));
-            args.Graphics.DrawString("Timer: " + stopwatchstring, font, redBrush, pointStopwatch);
+
+            g.DrawString("Timer: " + stopwatchstring, font, redBrush, pointStopwatch);
 
             if (verticalLeverIsNeutral)
-                args.Graphics.FillEllipse(greenBrush, boundsVerticalLeverIsNeutral);
+                g.FillEllipse(greenBrush, boundsVerticalLeverIsNeutral);
         }
 
         private void PilotView_FormClosed(object sender, FormClosedEventArgs e)
