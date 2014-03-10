@@ -20,7 +20,7 @@ namespace UisSubsea.RovTopside.Data
             if (CameraFactory.mainCamera != null)
                 return mainCamera;
             else return CameraFactory.mainCamera = 
-                new Camera(getCameraIndex(Constants.LogitechC930eMoniker), 
+                new Camera(getCameraIndex(Constants.LogitechC930eMonikerFront), 
                     Constants.DesiredResolution);
         }
 
@@ -38,7 +38,7 @@ namespace UisSubsea.RovTopside.Data
             if (CameraFactory.rearCamera != null)
                 return rearCamera;
             else return CameraFactory.rearCamera = 
-                new Camera(getCameraIndex(Constants.MicrosoftLifeCamMoniker), 
+                new Camera(getCameraIndex(Constants.LogitechC930eMonikerRear), 
                     Constants.DesiredResolution);
         }
 
@@ -49,6 +49,8 @@ namespace UisSubsea.RovTopside.Data
             {
                 String moniker = connectedCameras[i].MonikerString;
                 String id = moniker.Substring(20, cameraMoniker.Length);
+                System.Diagnostics.Debug.WriteLine("id " + id);
+                System.Diagnostics.Debug.WriteLine("ca " + cameraMoniker);
                 if (id.Equals(cameraMoniker))
                     return i;
             }

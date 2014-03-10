@@ -7,6 +7,8 @@ using UisSubsea.RovTopside.Presentation;
 using System.IO.Ports;
 using UisSubsea.RovTopside.Data;
 using UisSubsea.RovTopside.Logic;
+using AForge.Video.DirectShow;
+
 
 namespace UisSubsea.RovTopside
 {
@@ -46,6 +48,7 @@ namespace UisSubsea.RovTopside
             //Application.Run(new JoystickTracker());
             
             //createJoystick();
+            //getCameraMoniker();
         }
 
        
@@ -82,6 +85,17 @@ namespace UisSubsea.RovTopside
                     }
                             
             }*/
+       private static void getCameraMoniker()
+        {
+            FilterInfoCollection connectedCameras = Camera.CamerasConnected();
+            for (int i = 0; i < connectedCameras.Count; i++)
+            {
+                String moniker = connectedCameras[i].MonikerString;
+                System.Diagnostics.Debug.WriteLine("camera: " + i + " " + moniker);
+            }
+           
+
+        }
 
     }
 }
