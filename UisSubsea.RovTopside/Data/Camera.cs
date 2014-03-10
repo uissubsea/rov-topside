@@ -99,6 +99,10 @@ namespace UisSubsea.RovTopside.Data
             snapshot = false;
 
             string filepath = Environment.CurrentDirectory + "\\snapshots\\";
+
+            if (!System.IO.Directory.Exists(filepath))
+                System.IO.Directory.CreateDirectory(filepath);
+
             String name = Guid.NewGuid().ToString() + ".jpg";
             string filename = System.IO.Path.Combine(filepath, name);
             image.Save(filename, ImageFormat.Jpeg);
