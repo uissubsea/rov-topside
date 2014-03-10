@@ -28,14 +28,16 @@ namespace UisSubsea.RovTopside.Data
 
     public class Camera : IDisposable, ICamera
     {
+        // This string is used to identify and compare camera objects.
+        // It will be unique for each camera.
+        private string cameraMoniker;
         private VideoCaptureDevice camera;
-        private PictureBox canvas;
-        private Boolean isRecording;
+        private PictureBox canvas;   
         private Queue<Bitmap> frameBuffer;
         private Thread videoRecorder;
-        private Boolean handleEvents;
-        private String cameraMoniker;
-        private Boolean snapshot;
+        private bool handleEvents;      
+        private bool snapshot;
+        private bool isRecording;
 
         public Camera(int index, Size desiredResolution)
         {
@@ -100,7 +102,7 @@ namespace UisSubsea.RovTopside.Data
             snapshot = false;
 
             string filepath = getFilePath("snapshots");
-            String name = Guid.NewGuid().ToString() + ".jpg";
+            string name = Guid.NewGuid().ToString() + ".jpg";
             string filename = Path.Combine(filepath, name);
             image.Save(filename, ImageFormat.Jpeg);
             image.Dispose();
@@ -134,7 +136,7 @@ namespace UisSubsea.RovTopside.Data
 
         public void Dispose()
         {
-            //Stop and free the webcam object 
+            //Stop and free the camera object 
             if (camera != null)
             {
                 if(camera.IsRunning)
@@ -153,7 +155,7 @@ namespace UisSubsea.RovTopside.Data
             }
         }
 
-        public Boolean IsRecording
+        public bool IsRecording
         {
             get
             {
@@ -188,12 +190,12 @@ namespace UisSubsea.RovTopside.Data
             camera.SetCameraProperty(CameraControlProperty.Focus, value, CameraControlFlags.Manual);
         }
 
-        public Boolean SetResolution(Size desiredResolution)
+        public bool SetResolution(Size desiredResolution)
         {
             if (IsRecording)
                 return false;
 
-            Boolean desiredResolutionExists = false;
+            bool desiredResolutionExists = false;
 
             try
             {
@@ -234,9 +236,6 @@ namespace UisSubsea.RovTopside.Data
             if (videosources.Count > 0)
             {
                 camera = new VideoCaptureDevice(videosources[index].MonikerString);
-                
-                // This string is used to identify and compare camera objects.
-                // It will be unique for each camera.
                 cameraMoniker = videosources[index].MonikerString;
                 SetResolution(desiredResolution);
             }
@@ -257,6 +256,7 @@ namespace UisSubsea.RovTopside.Data
 
         private void setNewFrame(PictureBox canvas, Bitmap frame)
         {
+            // Invoke is required when updating a control on the GUI thread.
             try
             {
                 if (canvas.InvokeRequired)
@@ -285,7 +285,6 @@ namespace UisSubsea.RovTopside.Data
         {
             frameBuffer.Enqueue(frame);
         }
-
 
         private void setCanvas(PictureBox canvas)
         {
