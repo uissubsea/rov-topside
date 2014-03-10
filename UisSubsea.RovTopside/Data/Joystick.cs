@@ -126,6 +126,7 @@ namespace UisSubsea.RovTopside.Data
         private void createJoystick()
         {
             IList<DeviceInstance> gameControls = JoysticksAttached();
+    
             switch(this.type)
             {
                 case JoystickType.MainController:
@@ -145,10 +146,9 @@ namespace UisSubsea.RovTopside.Data
 
         private void createJoystick(int index)
         {
-            DirectInput directInput = new DirectInput();      
-            
+            DirectInput directInput = new DirectInput();
             Guid guid = Guid.Empty;
-            guid = JoysticksAttached()[index].ProductGuid;
+            guid = JoysticksAttached()[index].InstanceGuid;
 
             if (guid != Guid.Empty)
                 joystick = new SharpDX.DirectInput.Joystick(directInput, guid);
@@ -157,7 +157,6 @@ namespace UisSubsea.RovTopside.Data
             {
                 throw new Exception("No joystick found.");
             }
-
         }
 
        public static IList<DeviceInstance> JoysticksAttached()

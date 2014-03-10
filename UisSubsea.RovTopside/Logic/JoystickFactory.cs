@@ -51,7 +51,7 @@ namespace UisSubsea.RovTopside.Data
                 return manipulatorRight;
             else
                 return JoystickFactory.manipulatorRight = new Joystick(
-                    windowHandle,getJoystickIndex(Constants.thrustMasterGuid),
+                    windowHandle,getJoystickIndex(Constants.Logitechextreme3DProManipulatorGuid),
                     JoystickType.ManipulatorRight);
         }
 
@@ -60,12 +60,16 @@ namespace UisSubsea.RovTopside.Data
             gameControls = Joystick.JoysticksAttached();
             for (int i=0; i<gameControls.Count; i++)
             {
-                Guid guid = gameControls[i].ProductGuid;
+                Guid guid = gameControls[i].InstanceGuid;
                 string guidString = guid.ToString();
-                String productGuid = guidString.Substring(0, JoystickInstanceGuid.Length);
-      
-                if (productGuid.Equals(JoystickInstanceGuid))
-                    return i;                              
+                String instanceGuid = guidString.Substring(0, JoystickInstanceGuid.Length);
+
+                if (instanceGuid.Equals(JoystickInstanceGuid))
+                {
+                    System.Diagnostics.Debug.WriteLine(i);
+                    return i;  
+                }
+                                                
             }
             return -1;
         }

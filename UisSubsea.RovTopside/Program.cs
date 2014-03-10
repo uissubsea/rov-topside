@@ -8,13 +8,14 @@ using System.IO.Ports;
 using UisSubsea.RovTopside.Data;
 using UisSubsea.RovTopside.Logic;
 using AForge.Video.DirectShow;
+//using SharpDX.DirectInput;
 
 
 namespace UisSubsea.RovTopside
 {
     static class Program
     {
-
+        //private static IList<DeviceInstance> gameControls = new List<DeviceInstance>();
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -47,12 +48,12 @@ namespace UisSubsea.RovTopside
             Application.Run(main.pilotView);
             //Application.Run(new JoystickTracker());
             
-            //createJoystick();
+           //createJoystick();
             //getCameraMoniker();
         }
 
-       
-        /*private static void createJoystick()
+      /*
+        private static void createJoystick()
         {
             DirectInput directInput = new DirectInput();
             Guid guid = Guid.Empty;
@@ -66,14 +67,13 @@ namespace UisSubsea.RovTopside
                     if (gameControls.Count >= 1)
                     {
                         guid = gameControls[0].ProductGuid;
-                        Console.WriteLine("Joystick 1 verdi : " + gameControls[0].ProductGuid);
-
+                        Console.WriteLine("Joystick 1 verdi : " + gameControls[0].InstanceGuid);
                     }
                         
                     if (gameControls.Count >= 2)
                     { 
                         guid = gameControls[1].ProductGuid;
-                    Console.WriteLine("Joystick 2 verdi : " + gameControls[1].ProductGuid);
+                    Console.WriteLine("Joystick 2 verdi : " + gameControls[1].InstanceGuid);
 
                     }
                        

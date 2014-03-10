@@ -77,10 +77,21 @@ namespace UisSubsea.RovTopside.Data
          * These strings will be used to identify the joysticks that
          * are connected. Use these in joystick factory to initialize
          * the correct joysticks
-         * */
+         * 
         public const string LogitechExtreme3DProGuid = "c215046d";
         public const string LogitechAttack3Guid = "c214046d";
         public const string thrustMasterGuid = "b106044f";
+        public const string Logitechextreme3DProManipulatorGuid = "c215046d";
+        */
+
+        /*
+         * These strings will be used to identify the joysticks that
+         * are conncected. We use Instance guid because product guid
+         * is not unic for the same type of joystick
+         * */
+        public const string LogitechExtreme3DProGuid = "8e25a690";
+        public const string LogitechAttack3Guid = "a7625630";
+        public const string Logitechextreme3DProManipulatorGuid = "132e2630";
 
     }
 }
