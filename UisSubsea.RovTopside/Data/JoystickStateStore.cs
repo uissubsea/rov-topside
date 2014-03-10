@@ -9,15 +9,17 @@ namespace UisSubsea.RovTopside.Data
     public class JoystickStateStore
     {
 
-        private byte[] main = new byte[0];
-        private byte[] manipulatorLeft = new byte[0];
-        private byte[] manipulatorRight = new byte[0];
+        private byte[] main;
+        private byte[] manipulatorLeft;
+        private byte[] manipulatorRight;
+        private byte[] cameraTilt;
 
         public JoystickStateStore()
         {
             main = new byte[0];
             manipulatorLeft = new byte[0];
             manipulatorRight = new byte[0];
+            cameraTilt = new byte[0];
         }
 
         public byte[] Main
@@ -53,6 +55,18 @@ namespace UisSubsea.RovTopside.Data
             set
             {
                 manipulatorRight = value;
+            }
+        }
+
+        public byte[] CameraTilit
+        {
+            get
+            {
+                return cameraTilt;
+            }
+            set
+            {
+                cameraTilt = value;
             }
         }
 

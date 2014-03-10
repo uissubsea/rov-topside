@@ -106,8 +106,7 @@ namespace UisSubsea.RovTopside.Logic
             pilotStickListener = new JoystickStateListener(pilotJoystick,
                 mainPacketBuilder, stateStore);
 
-            RunInBackgroundThread(pilotStickListener.Listen);
-            //new JoystickStateChangedListener(stateListener); 
+            RunInBackgroundThread(pilotStickListener.Listen); 
         }
 
         private void initializeJoysticks()

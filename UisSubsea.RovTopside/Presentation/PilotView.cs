@@ -43,11 +43,11 @@ namespace UisSubsea.RovTopside.Presentation
             font = new Font("Arial", 18);
             redBrush = new SolidBrush(Color.Red);
             //Top right
-            pointDepth = new PointF(1200.0f, 30.0f);
+            pointDepth = new PointF(1100.0f, 30.0f);
 
             //Bottom left
-            pointAutoFocus = new PointF(30.0f, 650.0f);
-            pointFocusValue = new PointF(30.0f, 690.0f);
+            pointAutoFocus = new PointF(30.0f, 620.0f);
+            pointFocusValue = new PointF(30.0f, 660.0f);
 
             //Top left
             pointHeading = new PointF(30.0f, 30.0f);

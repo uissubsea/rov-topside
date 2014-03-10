@@ -108,7 +108,7 @@
     <Compile Include="Data\IJoystick.cs" />
     <Compile Include="Data\JoystickStateListener.cs" />
     <Compile Include="Data\Joystick.cs" />
-    <Compile Include="Logic\JoystickFactory.cs" />
+    <Compile Include="Data\JoystickFactory.cs" />
     <Compile Include="Data\JoystickStateStore.cs" />
     <Compile Include="Data\JoystickType.cs" />
     <Compile Include="Logic\MainPacketBuilder.cs" />
