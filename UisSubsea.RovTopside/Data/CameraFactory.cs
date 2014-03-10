@@ -49,8 +49,6 @@ namespace UisSubsea.RovTopside.Data
             {
                 String moniker = connectedCameras[i].MonikerString;
                 String id = moniker.Substring(20, cameraMoniker.Length);
-                System.Diagnostics.Debug.WriteLine("id " + id);
-                System.Diagnostics.Debug.WriteLine("ca " + cameraMoniker);
                 if (id.Equals(cameraMoniker))
                     return i;
             }

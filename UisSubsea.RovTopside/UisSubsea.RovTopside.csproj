@@ -103,7 +103,6 @@
     <Compile Include="Logic\CoPilotButton.cs" />
     <Compile Include="Data\ICamera.cs" />
     <Compile Include="Logic\CameraController.cs" />
-    <Compile Include="Logic\CoPilotController.cs" />
     <Compile Include="Logic\ICameraHandler.cs" />
     <Compile Include="Logic\ICoPilotViewHandler.cs" />
     <Compile Include="Data\IJoystick.cs" />
