@@ -111,6 +111,7 @@ namespace UisSubsea.RovTopside.Data
             string drivepath = "";
             DriveInfo[] drives = DriveInfo.GetDrives();
 
+            // Search for removable drives.
             foreach (DriveInfo drive in drives)
             {
                 if (drive.DriveType == DriveType.Removable)
@@ -120,7 +121,7 @@ namespace UisSubsea.RovTopside.Data
                 }                  
             }
 
-            // No removable drives found
+            // No removable drives found. Save to current directory
             if (drivepath == "")
                 drivepath = Environment.CurrentDirectory;
 
