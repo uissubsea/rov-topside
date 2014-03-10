@@ -77,10 +77,14 @@ namespace UisSubsea.RovTopside.Presentation
         }
 
         //UI updates
+
+        /// Set the heading the in degrees.Because we get 1 byte
+        /// for the value of the theading. We need to multiply with 2 
+        /// to convert from byte to degrees. (0-180)
         public void SetHeading(int heading)
         {
             //headingIndicatorInstrumentControl1.
-            headingIndicatorInstrumentControl1.SetHeadingIndicatorParameters((int)heading);
+            headingIndicatorInstrumentControl1.SetHeadingIndicatorParameters(2 * (int)heading);
             headingLabelText.Text = heading.ToString();
             /*this.Invoke(new Action(() =>{
             this.Invoke(new Action(() => headingIndicatorInstrumentControl1.SetHeadingIndicatorParameters((int)heading)));         
@@ -89,16 +93,31 @@ namespace UisSubsea.RovTopside.Presentation
 
         }
 
+        /*
+         *  Because we get 1 byte(0-250) for the value of the camera angle. We need to 
+         * divide with 1.39 (if total rotation of the camera is 180) to convert from 
+         *byte to actuale degree of the camera.     
+        */
         public void SetFrontCameraAngle(int angle)
         {
             this.Invoke(new Action(() =>frontCamGauge.Value = angle));
         }
 
+        /*Because we 
+         * get 1 byte(0-250) for the value of the camera angle. We need to 
+         * divide with 1.39 (if total rotation of the camera is 180) to convert from 
+         * byte to actuale degree of the camera.
+         * */
         public void SetRearCameraAngle(int angle)
         {
             this.Invoke(new Action(() => rearCamGauge.Value = angle));
         }
 
+        /*
+         * Because we get 1 byte(0-250) for the value of the depth. 
+         * We need to multiple with 3 () to convert from 
+         * byte to actuale depth in cm.
+         * */
         public void SetDepth(int depth)
         {
   
@@ -106,6 +125,10 @@ namespace UisSubsea.RovTopside.Presentation
             altimeterInstrumentControl1.SetAlimeterParameters((int)depth *3);
         }
 
+        /* Set the distiance ahead the ROV. Because we get 1 byte(0-250) for the value of the distance. 
+         * We need to multiple with 2 () to convert from 
+         * byte to actuale depth in cm.
+         * */
         public void SetLaserDistanceMeasured(int distance)
         {/*
             int totDistance = distance * 2;
@@ -114,6 +137,7 @@ namespace UisSubsea.RovTopside.Presentation
           */
         }
         
+        //Set the state of the sensordata we get from the ROV.
         public void setSensorState(bool sensorstate)
         {
             if (sensorstate)
@@ -139,16 +163,6 @@ namespace UisSubsea.RovTopside.Presentation
            
         }
 
-        //getcamera
-        private void button2_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            camera.DisplayCameraProperties();
-        }
-
         public ICamera GetCamera()
         {
             return this.camera;
@@ -157,18 +171,6 @@ namespace UisSubsea.RovTopside.Presentation
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             altimeterInstrumentControl1.SetAlimeterParameters(trackBar1.Value);
-        }
-
-
-
-        public void SetDepth(double depth)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetLaserDistanceMeasured(double distance)
-        {
-            throw new NotImplementedException();
         }
     }
 }
