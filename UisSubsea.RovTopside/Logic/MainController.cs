@@ -70,7 +70,7 @@ namespace UisSubsea.RovTopside.Logic
             Thread comThread = new Thread(comServer.Serve);
             comThread.IsBackground = true;
             comThread.Start();
-            //new RovStateReceivedHandler(comServer, (IOverlayHandler)pilotView, );
+            new RovStateReceivedHandler(comServer, (IPilotViewHandler)pilotView, (ICoPilotViewHandler)coPilotView);
         }
 
         private void initializeJoystickListeners(JoystickStateStore stateStore)
