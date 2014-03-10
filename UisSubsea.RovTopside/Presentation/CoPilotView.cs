@@ -155,6 +155,7 @@ namespace UisSubsea.RovTopside.Presentation
         public void SetCamera(ICamera camera)
         {
                     this.camera.Stop();
+                    while (this.camera.Instance.IsRunning) { }
                     this.camera = camera;
                     this.camera.Canvas = videoPictureBox;
                     this.camera.Start();

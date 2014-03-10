@@ -21,8 +21,8 @@ namespace UisSubsea.RovTopside.Data
             {
                 bool err = error(data[0]); 
                 int hdg = heading(data[1]);
-                int frontCamTilt = cameraTilt(data[2]);
-                int rearCamTilt = cameraTilt(data[3]);   
+                int frontCamTilt = frontCameraTilt(data[2]);
+                int rearCamTilt = rearCameraTilt(data[3]);   
                 int distance = distanceRov(data[4]);
                 int depth = depthRov(data[5]);
                 int distanceBottom = distanceToBottom(data[6]);
@@ -47,9 +47,17 @@ namespace UisSubsea.RovTopside.Data
             return (int)(heading * headingResolution);
         }
 
-        private static int cameraTilt(byte camTilt)
+        private static int frontCameraTilt(byte camTilt)
         {
-            int tilt = camTilt;
+            int tilt = camTilt -75;                                                                    
+               
+            return (int)(tilt);
+        }
+
+        private static int rearCameraTilt(byte camTilt)
+        {
+            int tilt = camTilt*(-1);
+            tilt += camTilt + 30;
             return (int)(tilt);
         }
 
