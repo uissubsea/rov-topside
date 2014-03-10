@@ -55,14 +55,14 @@ namespace UisSubsea.RovTopside.Data
                     JoystickType.ManipulatorRight);
         }
 
-        private static int getJoystickIndex(String JoystickInstanceGuid)
+        private static int getJoystickIndex(string JoystickInstanceGuid)
         {
             gameControls = Joystick.JoysticksAttached();
             for (int i=0; i<gameControls.Count; i++)
             {
                 Guid guid = gameControls[i].InstanceGuid;
-                string guidString = guid.ToString();
-                String instanceGuid = guidString.Substring(0, JoystickInstanceGuid.Length);
+                string guidstring = guid.ToString();
+                string instanceGuid = guidstring.Substring(0, JoystickInstanceGuid.Length);
 
                 if (instanceGuid.Equals(JoystickInstanceGuid))
                 {

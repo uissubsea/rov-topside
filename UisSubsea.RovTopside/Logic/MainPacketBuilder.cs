@@ -131,7 +131,7 @@ namespace UisSubsea.RovTopside.Data
             int amplitude = axisPosition - 125;
 
             //If true, the stick is pulled backwards or pushed right
-            Boolean aimplitudeIsNegative = (amplitude > 0);
+            bool aimplitudeIsNegative = (amplitude > 0);
 
             if (aimplitudeIsNegative)
             {

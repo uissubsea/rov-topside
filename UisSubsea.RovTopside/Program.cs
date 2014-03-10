@@ -90,7 +90,7 @@ namespace UisSubsea.RovTopside
             FilterInfoCollection connectedCameras = Camera.CamerasConnected();
             for (int i = 0; i < connectedCameras.Count; i++)
             {
-                String moniker = connectedCameras[i].MonikerString;
+                string moniker = connectedCameras[i].MonikerString;
                 System.Diagnostics.Debug.WriteLine("camera: " + i + " " + moniker);
             }
            

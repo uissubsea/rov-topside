@@ -26,7 +26,7 @@ namespace UisSubsea.RovTopside.Data
             if (!Directory.Exists(filepath))
                 Directory.CreateDirectory(Path.GetDirectoryName(filepath));
 
-            String name = Guid.NewGuid().ToString() + ".avi";
+            string name = Guid.NewGuid().ToString() + ".avi";
             string filename = Path.Combine(filepath, name);
             try
             {

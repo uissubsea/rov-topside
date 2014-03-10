@@ -61,7 +61,7 @@ namespace UisSubsea.RovTopside.Tests
             Assert.IsTrue(isValid(throttle));
         }
 
-        private Boolean isValid(int value)
+        private bool isValid(int value)
         {
             if (value <= 250 && value >= 0)
             {

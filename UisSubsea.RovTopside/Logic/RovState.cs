@@ -27,7 +27,7 @@ namespace UisSubsea.RovTopside.Data
             this.distanceToBottom = distanceToBottom;   
         }
 
-        public Boolean Error
+        public bool Error
         {
             get
             {

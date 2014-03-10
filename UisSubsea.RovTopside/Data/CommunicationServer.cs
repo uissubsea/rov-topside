@@ -107,7 +107,7 @@ namespace UisSubsea.RovTopside.Data
 
         private void bufferDataUntilStopByteReceived()
         {
-            Boolean stopByteReceived = false;
+            bool stopByteReceived = false;
             while(!stopByteReceived)
             {
                 int data = port.ReadByte();
@@ -120,7 +120,7 @@ namespace UisSubsea.RovTopside.Data
 
         private void waitForStartByte()
         {
-            Boolean startByteReceived = false;
+            bool startByteReceived = false;
             
             while(!startByteReceived)
             {   

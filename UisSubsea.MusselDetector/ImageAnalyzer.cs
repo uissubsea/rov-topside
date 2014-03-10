@@ -40,7 +40,7 @@ namespace UisSubsea.MusselDetector
                     filter.ApplyInPlace(currentImage);
                     return true;
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
 
                 }

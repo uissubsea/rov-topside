@@ -42,13 +42,13 @@ namespace UisSubsea.RovTopside.Data
                     Constants.DesiredResolution);
         }
 
-        private static  int getCameraIndex(String cameraMoniker)
+        private static  int getCameraIndex(string cameraMoniker)
         {
             FilterInfoCollection connectedCameras = Camera.CamerasConnected();
             for (int i = 0; i < connectedCameras.Count; i++)
             {
-                String moniker = connectedCameras[i].MonikerString;
-                String id = moniker.Substring(20, cameraMoniker.Length);
+                string moniker = connectedCameras[i].MonikerString;
+                string id = moniker.Substring(20, cameraMoniker.Length);
                 if (id.Equals(cameraMoniker))
                     return i;
             }

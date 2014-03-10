@@ -54,33 +54,33 @@ namespace UisSubsea.RovTopside.Logic
                 cameraHandler.PilotCameraAutofocus();
         }
 
-        private Boolean toggleRecording()
+        private bool toggleRecording()
         {
             return coPilotRightStickListener.Joystick.Buttons()[CoPilotButton.ToggleRecording];
         }
 
-        private Boolean snapshot()
+        private bool snapshot()
         {
             return coPilotRightStickListener.Joystick.Buttons()[CoPilotButton.Snapshot];
         }
 
-        private Boolean changeCoPilotCamera()
+        private bool changeCoPilotCamera()
         {
             return (coPilotRightStickListener.Joystick.Buttons()[CoPilotButton.ChangeCamera]
                 && AllAxisesAreInNeutral(coPilotRightStickListener.Joystick));
         }
 
-        private Boolean AllAxisesAreInNeutral(Joystick joystick)
+        private bool AllAxisesAreInNeutral(Joystick joystick)
         {
             return (joystick.Pitch() == 125 && joystick.Roll() == 125 && joystick.Throttle() == 125);
         }
 
-        private Boolean rightStickAutofocus()
+        private bool rightStickAutofocus()
         {
             return coPilotRightStickListener.Joystick.Buttons()[CoPilotButton.CameraAutofocus];
         }
 
-        private Boolean leftFocusSliderChanged()
+        private bool leftFocusSliderChanged()
         {
             if(leftFocusSlider != coPilotLeftStickListener.Joystick.Slider())
             {
@@ -90,12 +90,12 @@ namespace UisSubsea.RovTopside.Logic
             return false;
         }
 
-        private Boolean leftStickAutofocus()
+        private bool leftStickAutofocus()
         {
             return coPilotLeftStickListener.Joystick.Buttons()[PilotButton.CameraAutofocus];
         }
 
-        private Boolean rightFocusSliderChanged()
+        private bool rightFocusSliderChanged()
         {
             if (rightFocusSlider != coPilotRightStickListener.Joystick.Throttle())
             {

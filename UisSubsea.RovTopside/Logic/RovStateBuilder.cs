@@ -26,13 +26,14 @@ namespace UisSubsea.RovTopside.Data
                 int distance = distanceRov(data[4]);
                 int depth = depthRov(data[5]);
                 int distanceBottom = distanceToBottom(data[6]);
+
                 return new RovState(hdg, frontCamTilt, rearCamTilt, err, distance, depth, distanceBottom);
             }
             else
                 return new RovState(0, 0, 0, false, 0, 0, 0);
         }
 
-        private static Boolean error(byte statusByte)
+        private static bool error(byte statusByte)
         {
             if ((1 & statusByte) == 1)
                 return true;
@@ -52,7 +53,7 @@ namespace UisSubsea.RovTopside.Data
             return (int)(tilt);
         }
 
-        private static Boolean packageIsValid(byte[] package)
+        private static bool packageIsValid(byte[] package)
         {
             return package.Count() == 7;
         }
@@ -75,6 +76,5 @@ namespace UisSubsea.RovTopside.Data
             int distance = rovDistance;
             return (int)distance*2;
         }
-
     }
 }

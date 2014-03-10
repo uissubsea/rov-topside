@@ -196,7 +196,7 @@ namespace UisSubsea.RovTopside.Presentation.Controls
             }
         }
 
-        protected void DisplayRoundMark(PaintEventArgs pe, Image imgMark, InstrumentControlMarksDefinition insControlMarksDefinition, Point ptImg, int radiusPx, Boolean displayText, float scaleFactor)
+        protected void DisplayRoundMark(PaintEventArgs pe, Image imgMark, InstrumentControlMarksDefinition insControlMarksDefinition, Point ptImg, int radiusPx, bool displayText, float scaleFactor)
         {
             Double alphaRot;
             int textBoxLength;

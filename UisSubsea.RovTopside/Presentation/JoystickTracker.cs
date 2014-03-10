@@ -33,8 +33,8 @@ namespace UisSubsea.RovTopside.Presentation
         private Brush blackBrush;
         private Font font;
 
-        private Boolean readyToSend;
-        private Boolean manualSend;
+        private bool readyToSend;
+        private bool manualSend;
 
         private MainPacketBuilder mainpacketbuilder;
         private Thread listener;

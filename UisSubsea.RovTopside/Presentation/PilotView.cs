@@ -18,19 +18,18 @@ namespace UisSubsea.RovTopside.Presentation
         private Font font;
         private Brush redBrush;
         private Brush greenBrush;
-        private PointF pointRecordingText;
+        private PointF pointDepth;
         private PointF pointFocusValue;
         private PointF pointAutoFocus;
         private PointF pointDataReceived;
         private PointF pointStopwatch;
         private Rectangle boundsVerticalLeverIsNeutral;
-        private string overlayText = "Not recording";
         private string lastPacketReceived = "0";
-        private Boolean fullScreen = false;
-        private Boolean verticalLeverIsNeutral = false;
+        private bool fullScreen = false;
+        private bool verticalLeverIsNeutral = false;
         private ICamera camera;
         private int focus;
-        private Boolean autofocus = true;
+        private bool autofocus = true;
         private System.Diagnostics.Stopwatch stopwatch;
         private int heading;
         private int frontCameraAngle;
@@ -43,7 +42,7 @@ namespace UisSubsea.RovTopside.Presentation
 
             font = new Font("Arial", 18);
             redBrush = new SolidBrush(Color.Red);
-            pointRecordingText = new PointF(30.0f, 30.0f);
+            pointDepth = new PointF(30.0f, 30.0f);
             pointAutoFocus = new PointF(30.0f, 70.0f);
             pointFocusValue = new PointF(30.0f, 110.0f);
             pointDataReceived = new PointF(30.0f, 150.0f);
@@ -69,14 +68,14 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void PaintOverlay(object sender, PaintEventArgs args)
         {
-            args.Graphics.DrawString(overlayText, font, redBrush, pointRecordingText);
+            args.Graphics.DrawString("Depth: " + depth, font, redBrush, pointDepth);
             args.Graphics.DrawString("Autofocus: " + autofocus.ToString(), font, redBrush, pointAutoFocus);
             args.Graphics.DrawString("Focus value: " + focus.ToString(), font, redBrush, pointFocusValue);
-            args.Graphics.DrawString("ROV state: " + lastPacketReceived, font, redBrush, pointDataReceived);
+            args.Graphics.DrawString("Heading: " + heading, font, redBrush, pointDataReceived);
 
             TimeSpan span = stopwatch.Elapsed;
-            String stopwatchString = string.Format("{0}:{1}", Math.Floor(span.TotalMinutes), span.ToString("ss"));
-            args.Graphics.DrawString("Timer: " + stopwatchString, font, redBrush, pointStopwatch);
+            string stopwatchstring = string.Format("{0}:{1}", Math.Floor(span.TotalMinutes), span.ToString("ss"));
+            args.Graphics.DrawString("Timer: " + stopwatchstring, font, redBrush, pointStopwatch);
 
             if (verticalLeverIsNeutral)
                 args.Graphics.FillEllipse(greenBrush, boundsVerticalLeverIsNeutral);
@@ -105,7 +104,6 @@ namespace UisSubsea.RovTopside.Presentation
                     this.WindowState = FormWindowState.Normal;
                     this.FormBorderStyle = FormBorderStyle.None;
                     this.WindowState = FormWindowState.Maximized;
-
                 }
                 else
                 {
@@ -119,31 +117,22 @@ namespace UisSubsea.RovTopside.Presentation
 
         public void SetHeading(int heading)
         {
-            if (this.InvokeRequired)
-            {
-                this.BeginInvoke(new MethodInvoker(delegate()
-                    {
-                        this.heading = heading;
-                    }));
-                return;
-            }
             this.heading = heading;
         }
 
         public void SetFrontCameraAngle(int angle)
         {
-
-            this.Invoke(new Action(() => this.frontCameraAngle = angle));
+            frontCameraAngle = angle;
         }
 
         public void SetRearCameraAngle(int angle)
         {
-            this.Invoke(new Action(() => this.rearCameraAngle = angle));
+            rearCameraAngle = angle;
         }
 
         public void SetDepth(double depth)
         {
-            this.Invoke(new Action(() => this.depth = depth));
+            this.depth = depth;
         }
 
         public void VerticalLeverIsNeutral(bool isNeutral)
@@ -153,7 +142,7 @@ namespace UisSubsea.RovTopside.Presentation
 
         public void ToggleStopwatch()
         {
-            this.Invoke(new Action(() => toggleStopWatch()));
+            toggleStopWatch();
         }
 
         public ICamera GetCamera()

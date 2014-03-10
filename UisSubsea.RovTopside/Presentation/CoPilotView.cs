@@ -17,10 +17,10 @@ namespace UisSubsea.RovTopside.Presentation
     public partial class CoPilotView : Form, ICoPilotViewHandler, IView
     {
         private ICamera camera;
-        private Boolean fullScreen;
+        private bool fullScreen;
         private System.Drawing.SolidBrush Brush;
         //If there is water leak in controllbox
-        private Boolean leak;
+        private bool leak;
 
         public CoPilotView(ICamera camera)
         {
