@@ -99,15 +99,36 @@ namespace UisSubsea.RovTopside.Data
         {
             snapshot = false;
 
-            string filepath = Environment.CurrentDirectory + "\\snapshots\\";
+            string filepath = getFilePath("snapshots");
+            String name = Guid.NewGuid().ToString() + ".jpg";
+            string filename = Path.Combine(filepath, name);
+            image.Save(filename, ImageFormat.Jpeg);
+            image.Dispose();
+        }
 
+        private string getFilePath(string foldername)
+        {
+            string drivepath = "";
+            DriveInfo[] drives = DriveInfo.GetDrives();
+
+            foreach (DriveInfo drive in drives)
+            {
+                if (drive.DriveType == DriveType.Removable)
+                {
+                    drivepath = drive.ToString();
+                    break;
+                }                  
+            }
+
+            // No removable drives found
+            if (drivepath == "")
+                drivepath = Environment.CurrentDirectory;
+
+            string filepath = drivepath + "\\" + foldername + "\\";
             if (!Directory.Exists(filepath))
                 Directory.CreateDirectory(Path.GetDirectoryName(filepath));
 
-            String name = Guid.NewGuid().ToString() + ".jpg";
-            string filename = System.IO.Path.Combine(filepath, name);
-            image.Save(filename, ImageFormat.Jpeg);
-            image.Dispose();
+            return filepath;                            
         }
 
         public void Dispose()

@@ -27,7 +27,7 @@ namespace UisSubsea.RovTopside.Data
                 Directory.CreateDirectory(Path.GetDirectoryName(filepath));
 
             String name = Guid.NewGuid().ToString() + ".avi";
-            string filename = System.IO.Path.Combine(filepath, name);
+            string filename = Path.Combine(filepath, name);
             try
             {
                 if (!writer.IsOpen)
