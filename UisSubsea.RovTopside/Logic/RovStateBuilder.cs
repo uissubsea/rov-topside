@@ -22,11 +22,11 @@ namespace UisSubsea.RovTopside.Data
                 int hdg = heading(data[0]);
                 int frontCamTilt = cameraTilt(data[1]);
                 int rearCamTilt = cameraTilt(data[2]);
-                Boolean err = error(data[3]);
+                bool err = error(data[3]);
                 int distance = distanceRov(data[4]);
                 int depth = depthRov(data[5]);
                 int distanceBottom = distanceToBottom(data[6]);
-                return new RovState(hdg,frontCamTilt, rearCamTilt, err, distance, depth, distanceBottom);
+                return new RovState(hdg, frontCamTilt, rearCamTilt, err, distance, depth, distanceBottom);
             }
             else
                 return new RovState(0, 0, 0,false, 0, 0,0);
