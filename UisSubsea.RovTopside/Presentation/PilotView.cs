@@ -42,6 +42,7 @@ namespace UisSubsea.RovTopside.Presentation
 
             font = new Font("Arial", 18);
             redBrush = new SolidBrush(Color.Red);
+
             //Top right
             pointDepth = new PointF(1100.0f, 30.0f);
 
@@ -73,10 +74,10 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void PaintOverlay(object sender, PaintEventArgs args)
         {
-            args.Graphics.DrawString("Depth: " + depth, font, redBrush, pointDepth);
+            args.Graphics.DrawString("Depth: " + depth + " cm", font, redBrush, pointDepth);
             args.Graphics.DrawString("Autofocus: " + autofocus.ToString(), font, redBrush, pointAutoFocus);
             args.Graphics.DrawString("Focus value: " + focus.ToString(), font, redBrush, pointFocusValue);
-            args.Graphics.DrawString("Heading: " + heading, font, redBrush, pointHeading);
+            args.Graphics.DrawString("Heading: " + heading + (char)176, font, redBrush, pointHeading);
 
             TimeSpan span = stopwatch.Elapsed;
             string stopwatchstring = string.Format("{0}:{1}", Math.Floor(span.TotalMinutes), span.ToString("ss"));
