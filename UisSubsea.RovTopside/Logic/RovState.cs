@@ -16,7 +16,7 @@ namespace UisSubsea.RovTopside.Data
         private int distanceToBottom;
         private int distance;
 
-        public RovState(int heading, int frontCameraTilt, int rearCameraTilt, Boolean error, int distance, int depth, int distanceToBottom)
+        public RovState(int heading, int frontCameraTilt, int rearCameraTilt, bool error, int distance, int depth, int distanceToBottom)
         {
             this.Heading = heading;
             this.frontCameraTilt = frontCameraTilt;
