@@ -21,7 +21,7 @@ namespace UisSubsea.RovTopside.Presentation
         private PointF pointDepth;
         private PointF pointFocusValue;
         private PointF pointAutoFocus;
-        private PointF pointDataReceived;
+        private PointF pointHeading;
         private PointF pointStopwatch;
         private Rectangle boundsVerticalLeverIsNeutral;
         private string lastPacketReceived = "0";
@@ -42,12 +42,17 @@ namespace UisSubsea.RovTopside.Presentation
 
             font = new Font("Arial", 18);
             redBrush = new SolidBrush(Color.Red);
-            pointDepth = new PointF(30.0f, 30.0f);
-            pointAutoFocus = new PointF(30.0f, 70.0f);
-            pointFocusValue = new PointF(30.0f, 110.0f);
-            pointDataReceived = new PointF(30.0f, 150.0f);
-            pointStopwatch = new PointF(30.0f, 190.0f);
-            boundsVerticalLeverIsNeutral = new Rectangle(30, 230, 20, 20);
+            //Top right
+            pointDepth = new PointF(1200.0f, 30.0f);
+
+            //Bottom left
+            pointAutoFocus = new PointF(30.0f, 650.0f);
+            pointFocusValue = new PointF(30.0f, 690.0f);
+
+            //Top left
+            pointHeading = new PointF(30.0f, 30.0f);
+            pointStopwatch = new PointF(30.0f, 70.0f);
+            boundsVerticalLeverIsNeutral = new Rectangle(30, 110, 20, 20);
             greenBrush = new SolidBrush(Color.Green);
             stopwatch = new System.Diagnostics.Stopwatch();
 
@@ -71,7 +76,7 @@ namespace UisSubsea.RovTopside.Presentation
             args.Graphics.DrawString("Depth: " + depth, font, redBrush, pointDepth);
             args.Graphics.DrawString("Autofocus: " + autofocus.ToString(), font, redBrush, pointAutoFocus);
             args.Graphics.DrawString("Focus value: " + focus.ToString(), font, redBrush, pointFocusValue);
-            args.Graphics.DrawString("Heading: " + heading, font, redBrush, pointDataReceived);
+            args.Graphics.DrawString("Heading: " + heading, font, redBrush, pointHeading);
 
             TimeSpan span = stopwatch.Elapsed;
             string stopwatchstring = string.Format("{0}:{1}", Math.Floor(span.TotalMinutes), span.ToString("ss"));
