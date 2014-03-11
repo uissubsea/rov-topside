@@ -78,6 +78,8 @@ namespace UisSubsea.RovTopside.Data
                 outputBuffer.Add(b);
             foreach (byte b in stateStore.ManipulatorRight)
                 outputBuffer.Add(b);
+            
+            outputBuffer.Add(stateStore.CameraTilt);
 
             outputBuffer.Add(Constants.StopByte);
         }

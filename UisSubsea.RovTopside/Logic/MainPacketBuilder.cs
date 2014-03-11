@@ -7,7 +7,7 @@ using UisSubsea.RovTopside.Logic;
 
 namespace UisSubsea.RovTopside.Data
 {
-    public class MainPacketBuilder : PacketBuilder
+    public class MainPacketBuilder : PacketBuilder, ICameraTilt
     {
         private IJoystick joystick;
         private bool reverse;
@@ -65,7 +65,7 @@ namespace UisSubsea.RovTopside.Data
                 halveAxisAmplitude(Yaw()),
                 halveAxisAmplitude(Throttle()),
                 ButtonsPressed(),
-                HatPov(),
+                CameraTilt(),
             };
         }
 
@@ -78,42 +78,39 @@ namespace UisSubsea.RovTopside.Data
                 halveAxisAmplitude(Yaw()),
                 halveAxisAmplitude(Throttle()),
                 ButtonsPressed(),
-                HatPov(),
+                CameraTilt(),
             };
         }
 
         private byte[] buildPacket()
         {
             return new byte[]
-                {
-                    Roll(),
-                    Pitch(),
-                    Yaw(),
-                    Throttle(),
-                    ButtonsPressed(),
-                    HatPov(),
-                 };
+            {
+                Roll(),
+                Pitch(),
+                Yaw(),
+                Throttle(),
+                ButtonsPressed(),
+                CameraTilt(),
+            };
         }
 
         private byte[] buildReversePacket()
         {
             return new byte[]
-               {
-                   reverseRoll(),
-                   reversePitch(),
-                   Yaw(),
-                   Throttle(),
-                   ButtonsPressed(),
-                   HatPov(),
-               };
+            {
+                reverseRoll(),
+                reversePitch(),
+                Yaw(),
+                Throttle(),
+                ButtonsPressed(),
+                CameraTilt(),
+            };
         }
 
         private bool joystickIsInNeutral()
         {
-            if (joystick.Pitch() == 125 && joystick.Roll() == 125)
-                return true;
-            else
-                return false;
+            return (joystick.Pitch() == 125 && joystick.Roll() == 125);
         }
 
         private byte reversePitch()
@@ -148,6 +145,32 @@ namespace UisSubsea.RovTopside.Data
         {
             int amplitude = axisPosition - 125;
             return (byte)(125 + (amplitude / 2));
+        }
+
+        public byte CameraTilt()
+        {
+            byte cameraTilt = (byte)0;
+
+            if (!reverse)
+            {
+                if (HatPov() == (byte)PointOfView.Up)
+                    cameraTilt = (byte)(1 << 3);
+                else if (HatPov() == (byte)PointOfView.Down)
+                    cameraTilt = (byte)(1 << 4);
+                else if (HatPov() == (byte)PointOfView.Left || HatPov() == (byte)PointOfView.Right)
+                    cameraTilt = (byte)(3 << 3);
+            }
+            else
+            {
+                if (HatPov() == (byte)PointOfView.Up)
+                    cameraTilt = (byte)(1 << 0);
+                else if (HatPov() == (byte)PointOfView.Down)
+                    cameraTilt = (byte)(1 << 1);
+                else if (HatPov() == (byte)PointOfView.Left || HatPov() == (byte)PointOfView.Right)
+                    cameraTilt = (byte)(3 << 0);
+            }
+
+            return cameraTilt;
         }
     }
 }

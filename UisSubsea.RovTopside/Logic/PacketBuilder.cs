@@ -16,7 +16,7 @@ namespace UisSubsea.RovTopside.Data
     {
 
         [Flags]
-        private enum pointOfView : byte
+        public enum PointOfView : byte
         {
             Center = 0,     //0000
             Right = 1 << 0, //0001
@@ -61,23 +61,23 @@ namespace UisSubsea.RovTopside.Data
             switch (angle)
             {
                 case 0:
-                    return (byte)pointOfView.Up;
+                    return (byte)PointOfView.Up;
                 case 45:
-                    return (byte)pointOfView.UpAndRight;
+                    return (byte)PointOfView.UpAndRight;
                 case 90:
-                    return (byte)pointOfView.Right;
+                    return (byte)PointOfView.Right;
                 case 135:
-                    return (byte)pointOfView.DownAndRight;
+                    return (byte)PointOfView.DownAndRight;
                 case 180:
-                    return (byte)pointOfView.Down;
+                    return (byte)PointOfView.Down;
                 case 225:
-                    return (byte)pointOfView.DownAndLeft;
+                    return (byte)PointOfView.DownAndLeft;
                 case 270:
-                    return (byte)pointOfView.Left;
+                    return (byte)PointOfView.Left;
                 case 315:
-                    return (byte)pointOfView.UpAndLeft;
+                    return (byte)PointOfView.UpAndLeft;
                 default:
-                    return (byte)pointOfView.Center;
+                    return (byte)PointOfView.Center;
             }
         }
 

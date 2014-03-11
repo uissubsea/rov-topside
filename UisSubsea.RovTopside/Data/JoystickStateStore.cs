@@ -12,14 +12,14 @@ namespace UisSubsea.RovTopside.Data
         private byte[] main;
         private byte[] manipulatorLeft;
         private byte[] manipulatorRight;
-        private byte[] cameraTilt;
+        private byte cameraTilt;
 
         public JoystickStateStore()
         {
             main = new byte[0];
             manipulatorLeft = new byte[0];
             manipulatorRight = new byte[0];
-            cameraTilt = new byte[0];
+            cameraTilt = (byte)0;
         }
 
         public byte[] Main
@@ -58,7 +58,7 @@ namespace UisSubsea.RovTopside.Data
             }
         }
 
-        public byte[] CameraTilit
+        public byte CameraTilt
         {
             get
             {
@@ -74,16 +74,46 @@ namespace UisSubsea.RovTopside.Data
         {
             switch(type)
             {
-                case(JoystickType.MainController) : 
-                    Main = statePacket;
+                case(JoystickType.MainController) :
+                    storeMainController(statePacket);
                     break;
                 case (JoystickType.ManipulatorLeft) : 
                     ManipulatorLeft = statePacket;
                     break;
                 case (JoystickType.ManipulatorRight) :
-                    manipulatorRight = statePacket;
+                    storeManipulatorRight(statePacket);
                     break;
             }
+        }
+
+        private void storeMainController(byte[] state)
+        {
+            byte[] main = new byte[(state.Length - 1)];
+
+            // Copy all elements but the last
+            for (int i = 0; i < (state.Length - 1); i++)
+                main[i] = state[i];
+
+            // Assign the newly created array to Main
+            Main = main;
+
+            // The camera tilt byte is the last byte
+            CameraTilt |= state[state.Length-1];
+        }
+
+        private void storeManipulatorRight(byte[] state)
+        {
+            byte[] manipulatorRight = new byte[(state.Length - 1)];
+
+            // Copy all elements but the last
+            for (int i = 0; i < (state.Length - 1); i++)
+                manipulatorRight[i] = state[i];
+
+            // Assign the newly created array to Main
+            ManipulatorRight = manipulatorRight;
+
+            // The camera tilt byte is the last byte
+            CameraTilt |= state[state.Length - 1];
         }
     }
 }

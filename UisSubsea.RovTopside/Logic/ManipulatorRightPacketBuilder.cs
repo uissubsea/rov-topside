@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UisSubsea.RovTopside.Data
 {
-    class ManipulatorRightPacketBuilder : PacketBuilder
+    class ManipulatorRightPacketBuilder : PacketBuilder, ICameraTilt
     {
         public ManipulatorRightPacketBuilder(Joystick joystick): base(joystick) {}
 
@@ -18,8 +18,15 @@ namespace UisSubsea.RovTopside.Data
                 Pitch(),
                 Yaw(),
                 ButtonsPressed(),
-                HatPov(),
+                CameraTilt(),
             };
+        }
+
+        public byte CameraTilt()
+        {
+            byte cameraTilt = (byte)0;
+
+            return cameraTilt;
         }
     }
 }
