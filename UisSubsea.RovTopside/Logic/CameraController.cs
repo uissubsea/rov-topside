@@ -62,11 +62,18 @@ namespace UisSubsea.RovTopside.Logic
                 if (pilotView.GetCamera().Equals(rearCamera))
                     return;
 
-                setCamera(coPilotView,rearCamera);
+                while (!rearCamera.Instance.IsRunning)
+                { 
+                    setCamera(coPilotView,rearCamera);
+                }             
             }
             else
-            {
-                setCamera(coPilotView, manipulatorCamera);
+            {                        
+                while (!manipulatorCamera.Instance.IsRunning) 
+                { 
+                    setCamera(coPilotView, manipulatorCamera);
+                }
+               
             }           
         }
         
@@ -87,8 +94,7 @@ namespace UisSubsea.RovTopside.Logic
 
         public void PilotCameraAutofocus()
         {
-            pilotView.GetCamera().DisplayCameraProperties();
-            //pilotView.GetCamera().AutoFocus();
+            pilotView.GetCamera().AutoFocus();
         }
 
         public void CoPilotCameraAutofocus()

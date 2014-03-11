@@ -66,8 +66,7 @@ namespace UisSubsea.RovTopside.Logic
 
         private bool changeCoPilotCamera()
         {
-            return (coPilotRightStickListener.Joystick.Buttons()[CoPilotButton.ChangeCamera]
-                && AllAxisesAreInNeutral(coPilotRightStickListener.Joystick));
+            return (coPilotRightStickListener.Joystick.Buttons()[CoPilotButton.ChangeCamera]);              
         }
 
         private bool AllAxisesAreInNeutral(Joystick joystick)

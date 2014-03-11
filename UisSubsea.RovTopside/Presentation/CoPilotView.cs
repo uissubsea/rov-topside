@@ -154,22 +154,15 @@ namespace UisSubsea.RovTopside.Presentation
         //Get called from CamController
         public void SetCamera(ICamera camera)
         {
-                    this.camera.Stop();
-                    while (this.camera.Instance.IsRunning) { }
-                    this.camera = camera;
-                    this.camera.Canvas = videoPictureBox;
-                    this.camera.Start();
-           
+            this.camera.Stop();                 
+            this.camera = camera;       
+            this.camera.Canvas = videoPictureBox;
+            this.camera.Start();                        
         }
 
         public ICamera GetCamera()
         {
             return this.camera;
-        }
-
-        private void trackBar1_Scroll(object sender, EventArgs e)
-        {
-            //altimeterInstrumentControl1.SetAlimeterParameters(trackBar1.Value);
         }
     }
 }
