@@ -34,8 +34,11 @@ namespace UisSubsea.RovTopside.Logic
         {
             if (toggleRecording())
                 cameraHandler.ToggleRecording();
+
             if (snapshot())
+
                 cameraHandler.Snapshot();
+
             if (changeCoPilotCamera())
                 cameraHandler.ChangeCoPilotCamera();
 
@@ -49,7 +52,8 @@ namespace UisSubsea.RovTopside.Logic
         private void coPilotLeftStick_StateChanged(object sender, EventArgs e)
         {
             if (leftFocusSliderChanged())
-                cameraHandler.PilotCameraSetFocus((int)(leftFocusSlider*0.24));
+                cameraHandler.PilotCameraSetFocus((int)(leftFocusSlider * 0.24));
+
             if (leftStickAutofocus())
                 cameraHandler.PilotCameraAutofocus();
         }

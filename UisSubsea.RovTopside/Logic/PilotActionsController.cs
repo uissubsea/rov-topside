@@ -9,7 +9,6 @@ namespace UisSubsea.RovTopside.Logic
 {
     public class PilotActionsController
     {
-
         private JoystickStateListener pilotStickListener;
         private ICameraHandler cameraHandler;
         private IPilotViewHandler pilotView;
