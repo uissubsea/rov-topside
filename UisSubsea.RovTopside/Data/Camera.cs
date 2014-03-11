@@ -170,7 +170,7 @@ namespace UisSubsea.RovTopside.Data
 
         public void Stop()
         {
-             removeEventHandler();
+            removeEventHandler();
             camera.SignalToStop();
             camera.WaitForStop();
             canvas = null;
