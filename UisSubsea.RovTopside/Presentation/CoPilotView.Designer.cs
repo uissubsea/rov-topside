@@ -169,12 +169,11 @@
             // 
             this.headingLabelText.AutoSize = true;
             this.headingLabelText.ForeColor = System.Drawing.Color.Yellow;
-            this.headingLabelText.Location = new System.Drawing.Point(1253, 519);
+            this.headingLabelText.Location = new System.Drawing.Point(1242, 519);
             this.headingLabelText.Name = "headingLabelText";
             this.headingLabelText.Size = new System.Drawing.Size(13, 13);
             this.headingLabelText.TabIndex = 17;
             this.headingLabelText.Text = "0";
-
             // 
             // videoPictureBox
             // 
