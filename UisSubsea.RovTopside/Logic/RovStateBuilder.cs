@@ -56,8 +56,8 @@ namespace UisSubsea.RovTopside.Data
 
         private static int rearCameraTilt(byte camTilt)
         {
-            int tilt = camTilt*(-1);
-            tilt += camTilt + 30;
+            int tilt = camTilt;
+            tilt = (camTilt*-1)+30;
             return (int)(tilt);
         }
 
