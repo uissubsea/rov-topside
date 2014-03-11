@@ -130,6 +130,7 @@ namespace UisSubsea.RovTopside.Data
             }
         }
 
+        // This method is virtual to ensure that it can be overridden in a derived class.
         protected virtual void OnRovStateReceived(DataReceivedEventArgs e)
         {
             EventHandler<DataReceivedEventArgs> handler = RovStateReceived;

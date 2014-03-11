@@ -42,6 +42,16 @@ namespace UisSubsea.RovTopside.Data
                     Constants.DesiredResolution);
         }
 
+        public static void DisposeAll()
+        {
+            if (CameraFactory.mainCamera != null)
+                CameraFactory.mainCamera.Dispose();
+            if (CameraFactory.manipulatorCamera != null)
+                CameraFactory.manipulatorCamera.Dispose();
+            if (CameraFactory.rearCamera != null)
+                CameraFactory.rearCamera.Dispose();
+        }
+
         private static  int getCameraIndex(string cameraMoniker)
         {
             FilterInfoCollection connectedCameras = Camera.CamerasConnected();

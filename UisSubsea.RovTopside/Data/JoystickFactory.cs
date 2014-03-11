@@ -27,14 +27,6 @@ namespace UisSubsea.RovTopside.Data
                     JoystickType.MainController);
         }
 
-        public static Joystick GetMainController()
-        {
-            if (mainController != null)
-                return mainController;
-            else
-                throw new NotSupportedException("Joystick not initialized");
-        }
-
         public static Joystick GetManipulatorLeft(IntPtr windowHandle)
         {
             if (JoystickFactory.manipulatorLeft != null)
@@ -53,6 +45,16 @@ namespace UisSubsea.RovTopside.Data
                 return JoystickFactory.manipulatorRight = new Joystick(
                     windowHandle,getJoystickIndex(Constants.Logitechextreme3DProManipulatorGuid),
                     JoystickType.ManipulatorRight);
+        }
+
+        public static void DisposeAll()
+        {
+            if (JoystickFactory.mainController != null)
+                JoystickFactory.mainController.Unacquire();
+            if (JoystickFactory.manipulatorLeft != null)
+                JoystickFactory.manipulatorLeft.Unacquire();
+            if (JoystickFactory.manipulatorRight != null)
+                JoystickFactory.manipulatorRight.Unacquire();
         }
 
         private static int getJoystickIndex(string JoystickInstanceGuid)

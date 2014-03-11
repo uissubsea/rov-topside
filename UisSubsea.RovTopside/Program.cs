@@ -19,6 +19,8 @@ namespace UisSubsea.RovTopside
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        static MainController main;
+        
         [STAThread]
         static void Main()
         {
@@ -40,16 +42,23 @@ namespace UisSubsea.RovTopside
                 MessageBox.Show("Make sure all cameras are connected");
                 return;
             }
-                      
+
+            Application.ApplicationExit += Application_ApplicationExit;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);      
 
-            MainController main = new MainController();
+            main = new MainController();
             Application.Run(main.pilotView);
             //Application.Run(new JoystickTracker());
             
            //createJoystick();
             //getCameraMoniker();
+        }
+
+        private static void Application_ApplicationExit(object sender, EventArgs e)
+        {
+            CameraFactory.DisposeAll();
+            JoystickFactory.DisposeAll();
         }
 
       /*
