@@ -109,7 +109,7 @@ namespace UisSubsea.RovTopside.Data
             for (int i = 0; i < (state.Length - 1); i++)
                 manipulatorRight[i] = state[i];
 
-            // Assign the newly created array to Main
+            // Assign the newly created array to ManipulatorRight
             ManipulatorRight = manipulatorRight;
 
             // The camera tilt byte is the last byte
