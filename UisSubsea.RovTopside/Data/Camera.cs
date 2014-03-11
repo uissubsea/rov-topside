@@ -178,7 +178,16 @@ namespace UisSubsea.RovTopside.Data
 
         public void AutoFocus()
         {
-            camera.SetCameraProperty(CameraControlProperty.Focus, 0, CameraControlFlags.Auto);
+            try
+            {
+                camera.SetCameraProperty(CameraControlProperty.Focus, 0, CameraControlFlags.Auto);
+            }
+            catch (Exception) 
+            {
+                if (canvas != null)
+                    setFrame(canvas, null);             
+            }
+            
         }
 
         public void ManualFocus()
@@ -188,7 +197,15 @@ namespace UisSubsea.RovTopside.Data
 
         public void SetFocus(int value)
         {
-            camera.SetCameraProperty(CameraControlProperty.Focus, value, CameraControlFlags.Manual);
+            try
+            {
+                camera.SetCameraProperty(CameraControlProperty.Focus, value, CameraControlFlags.Manual);
+            }
+            catch (Exception)
+            {
+                if (canvas != null)
+                    setFrame(canvas, null);
+            }     
         }
 
         public bool SetResolution(Size desiredResolution)
