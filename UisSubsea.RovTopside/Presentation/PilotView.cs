@@ -53,7 +53,7 @@ namespace UisSubsea.RovTopside.Presentation
             pointHeading = new PointF(30.0f, 30.0f);
             pointStopwatch = new PointF(30.0f, 70.0f);
             boundsVerticalLeverIsNeutral = new Rectangle(30, 110, 20, 20);
-            greenBrush = new SolidBrush(Color.LightGreen);
+            greenBrush = new SolidBrush(Color.Green);
             stopwatch = new System.Diagnostics.Stopwatch();
 
             pictureBoxVideo.Paint += new PaintEventHandler(PaintOverlay);

@@ -32,10 +32,10 @@ namespace UisSubsea.RovTopside.Data
         // It will be unique for each camera.
         private string cameraMoniker;
         private VideoCaptureDevice camera;
-        private PictureBox canvas;   
+        private PictureBox canvas;
         private Queue<Bitmap> frameBuffer;
         private Thread videoRecorder;
-        private bool handleEvents;      
+        private bool handleEvents;
         private bool snapshot;
         private bool isRecording;
 
@@ -120,7 +120,7 @@ namespace UisSubsea.RovTopside.Data
                 {
                     drivepath = drive.ToString();
                     break;
-                }                  
+                }
             }
 
             // No removable drives found. Save to current directory
@@ -131,7 +131,7 @@ namespace UisSubsea.RovTopside.Data
             if (!Directory.Exists(filepath))
                 Directory.CreateDirectory(Path.GetDirectoryName(filepath));
 
-            return filepath;                            
+            return filepath;
         }
 
         public void Dispose()
@@ -139,7 +139,7 @@ namespace UisSubsea.RovTopside.Data
             //Stop and free the camera object 
             if (camera != null)
             {
-                if(camera.IsRunning)
+                if (camera.IsRunning)
                     this.Stop();
                 camera = null;
             }
@@ -182,12 +182,12 @@ namespace UisSubsea.RovTopside.Data
             {
                 camera.SetCameraProperty(CameraControlProperty.Focus, 0, CameraControlFlags.Auto);
             }
-            catch (Exception) 
+            catch (Exception)
             {
                 if (canvas != null)
-                    setFrame(canvas, null);             
+                    setFrame(canvas, null);
             }
-            
+
         }
 
         public void ManualFocus()
@@ -205,7 +205,7 @@ namespace UisSubsea.RovTopside.Data
             {
                 if (canvas != null)
                     setFrame(canvas, null);
-            }     
+            }
         }
 
         public bool SetResolution(Size desiredResolution)
@@ -262,7 +262,7 @@ namespace UisSubsea.RovTopside.Data
         private void camera_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
             Bitmap nextFrame = (Bitmap)eventArgs.Frame.Clone();
-            
+
             if (snapshot)
                 saveSnapshot((Bitmap)nextFrame.Clone());
 
@@ -275,21 +275,17 @@ namespace UisSubsea.RovTopside.Data
         private void setNewFrame(PictureBox canvas, Bitmap frame)
         {
             // Invoke is required when updating a control on the GUI thread.
-            try
+            if (canvas.InvokeRequired)
             {
-                if (canvas.InvokeRequired)
-                {
-                    canvas.BeginInvoke(new MethodInvoker(delegate()
-                    {
-                        setFrame(canvas, frame);
-                    }));
-                }
-                else
+                canvas.BeginInvoke(new MethodInvoker(delegate()
                 {
                     setFrame(canvas, frame);
-                }
+                }));
             }
-            catch (Exception) { }
+            else
+            {
+                setFrame(canvas, frame);
+            }
         }
 
         private void setFrame(PictureBox canvas, Bitmap frame)
