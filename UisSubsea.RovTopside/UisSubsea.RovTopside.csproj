@@ -104,7 +104,6 @@
     <Compile Include="Data\ICamera.cs" />
     <Compile Include="Logic\CameraController.cs" />
     <Compile Include="Logic\ICameraHandler.cs" />
-    <Compile Include="Data\ICameraTilt.cs" />
     <Compile Include="Logic\ICoPilotViewHandler.cs" />
     <Compile Include="Data\IJoystick.cs" />
     <Compile Include="Data\JoystickStateListener.cs" />

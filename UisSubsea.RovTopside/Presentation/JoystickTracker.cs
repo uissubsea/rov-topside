@@ -17,24 +17,18 @@ namespace UisSubsea.RovTopside.Presentation
     {
 
         private Joystick joystick;
-        private Joystick joystickManipulatorLeft;
-        private Joystick joystickManipulatorRight;
 
         private int roll = 125;
         private int pitch = 125;
         private int yaw = 125;
         private int throttlePercentage = 0;
         private int pov = -1;
-        private int numberOfJoysticksAttached = 0;
 
         //Create something we can draw with
         private Pen pen;
         private Brush whiteBrush;
         private Brush blackBrush;
         private Font font;
-
-        private bool readyToSend;
-        private bool manualSend;
 
         private MainPacketBuilder mainpacketbuilder;
         private Thread listener;
@@ -59,8 +53,6 @@ namespace UisSubsea.RovTopside.Presentation
                 txtInput.AppendText((byte)b + " ");
             }
             txtInput.AppendText("\r\n");
-
-            readyToSend = true;
         }
 
         private void readOutputData()
@@ -122,11 +114,6 @@ namespace UisSubsea.RovTopside.Presentation
             comThread = new Thread(comServer.Serve);
             comThread.IsBackground = true;
             comThread.Start();
-
-            //string[] ports = SerialPort.GetPortNames();
-            //cmbAvailablePorts.DataSource = ports;
-
-            //tmrRefreshStick.Enabled = true;
         }
 
         private void RovState_Received(object sender, DataReceivedEventArgs e)
@@ -260,7 +247,6 @@ namespace UisSubsea.RovTopside.Presentation
                     g.DrawString((i + 1).ToString(), font, blackBrush, new PointF((353 + i * 30.0F), 203.0F));
                 }
             }
-
         }
 
         private void updateLabels()
@@ -275,10 +261,6 @@ namespace UisSubsea.RovTopside.Presentation
         {
             if (joystick != null)
                 joystick.Unacquire();
-            if (joystickManipulatorLeft != null)
-                joystickManipulatorLeft.Unacquire();
-            if (joystickManipulatorRight != null)
-                joystickManipulatorRight.Unacquire();
         }
     }
 }
