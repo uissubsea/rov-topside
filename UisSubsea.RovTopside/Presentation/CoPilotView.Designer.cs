@@ -34,7 +34,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.headingLabelText = new System.Windows.Forms.Label();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.videoPictureBox = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,7 +41,6 @@
             this.laserDistanceLabel = new System.Windows.Forms.Label();
             this.headingIndicatorInstrumentControl1 = new UisSubsea.RovTopside.Presentation.Controls.HeadingIndicatorInstrumentControl();
             this.altimeterInstrumentControl1 = new UisSubsea.RovTopside.Presentation.Controls.AltimeterInstrumentControl();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.videoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -176,17 +174,7 @@
             this.headingLabelText.Size = new System.Drawing.Size(13, 13);
             this.headingLabelText.TabIndex = 17;
             this.headingLabelText.Text = "0";
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.Location = new System.Drawing.Point(1056, 468);
-            this.trackBar1.Maximum = 1000;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBar1.Size = new System.Drawing.Size(45, 104);
-            this.trackBar1.TabIndex = 20;
-            this.trackBar1.TickFrequency = 100;
-            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+
             // 
             // videoPictureBox
             // 
@@ -259,7 +247,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.headingIndicatorInstrumentControl1);
             this.Controls.Add(this.altimeterInstrumentControl1);
             this.Controls.Add(this.headingLabelText);
@@ -274,7 +261,6 @@
             this.Name = "CoPilotView";
             this.Text = "CoPilotView";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.videoPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -290,7 +276,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label headingLabelText;
-        private System.Windows.Forms.TrackBar trackBar1;
         private Controls.HeadingIndicatorInstrumentControl headingIndicatorInstrumentControl1;
         private Controls.AltimeterInstrumentControl altimeterInstrumentControl1;
         private System.Windows.Forms.Label label1;
