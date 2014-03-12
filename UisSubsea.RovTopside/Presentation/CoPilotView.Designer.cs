@@ -53,7 +53,7 @@
             this.frontCamGauge.BaseArcWidth = 1;
             this.frontCamGauge.Center = new System.Drawing.Point(100, 100);
             this.frontCamGauge.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frontCamGauge.Location = new System.Drawing.Point(1075, 3);
+            this.frontCamGauge.Location = new System.Drawing.Point(1066, 3);
             this.frontCamGauge.MaxValue = 105F;
             this.frontCamGauge.MinValue = -75F;
             this.frontCamGauge.Name = "frontCamGauge";
@@ -109,7 +109,7 @@
             this.rearCamGauge.BaseArcSweep = 180;
             this.rearCamGauge.BaseArcWidth = 1;
             this.rearCamGauge.Center = new System.Drawing.Point(100, 100);
-            this.rearCamGauge.Location = new System.Drawing.Point(1075, 179);
+            this.rearCamGauge.Location = new System.Drawing.Point(1073, 180);
             this.rearCamGauge.MaxValue = 30F;
             this.rearCamGauge.MinValue = -150F;
             this.rearCamGauge.Name = "rearCamGauge";
@@ -138,7 +138,7 @@
             this.rearCamGauge.ScaleNumbersRotation = 0;
             this.rearCamGauge.ScaleNumbersStartScaleLine = 0;
             this.rearCamGauge.ScaleNumbersStepScaleLines = 1;
-            this.rearCamGauge.Size = new System.Drawing.Size(185, 180);
+            this.rearCamGauge.Size = new System.Drawing.Size(185, 184);
             this.rearCamGauge.TabIndex = 7;
             this.rearCamGauge.Text = "RearCam";
             this.rearCamGauge.Value = 0F;
@@ -222,17 +222,17 @@
             // headingIndicatorInstrumentControl1
             // 
             this.headingIndicatorInstrumentControl1.ForeColor = System.Drawing.Color.Yellow;
-            this.headingIndicatorInstrumentControl1.Location = new System.Drawing.Point(1102, 365);
+            this.headingIndicatorInstrumentControl1.Location = new System.Drawing.Point(1097, 365);
             this.headingIndicatorInstrumentControl1.Name = "headingIndicatorInstrumentControl1";
-            this.headingIndicatorInstrumentControl1.Size = new System.Drawing.Size(150, 148);
+            this.headingIndicatorInstrumentControl1.Size = new System.Drawing.Size(155, 151);
             this.headingIndicatorInstrumentControl1.TabIndex = 19;
             this.headingIndicatorInstrumentControl1.Text = "headingIndicatorInstrumentControl1";
             // 
             // altimeterInstrumentControl1
             // 
-            this.altimeterInstrumentControl1.Location = new System.Drawing.Point(1111, 519);
+            this.altimeterInstrumentControl1.Location = new System.Drawing.Point(1102, 522);
             this.altimeterInstrumentControl1.Name = "altimeterInstrumentControl1";
-            this.altimeterInstrumentControl1.Size = new System.Drawing.Size(134, 140);
+            this.altimeterInstrumentControl1.Size = new System.Drawing.Size(143, 142);
             this.altimeterInstrumentControl1.TabIndex = 18;
             this.altimeterInstrumentControl1.Text = "altimeterInstrumentControl1";
             // 

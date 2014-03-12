@@ -88,8 +88,7 @@ namespace UisSubsea.RovTopside.Logic
             else
             {
                 view.SetCamera(camera);
-            }
-                
+            }                
         }
 
         public void PilotCameraAutofocus()
