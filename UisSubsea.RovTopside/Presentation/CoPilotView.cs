@@ -76,9 +76,7 @@ namespace UisSubsea.RovTopside.Presentation
 
         //UI updates
 
-        /// Set the heading the in degrees.Because we get 1 byte
-        /// for the value of the theading. We need to multiply with 2 
-        /// to convert from byte to degrees. (0-180)
+
         public void SetHeading(int heading)
         {
             //headingIndicatorInstrumentControl1.
@@ -91,11 +89,6 @@ namespace UisSubsea.RovTopside.Presentation
 
         }
 
-        /*
-         *  Because we get 1 byte(0-250) for the value of the camera angle. We need to 
-         * divide with 1.39 (if total rotation of the camera is 180) to convert from 
-         *byte to actuale degree of the camera.     
-        */
         public void SetFrontCameraAngle(int angle)
         {
             this.Invoke(new MethodInvoker(delegate {frontCamGauge.Value = angle;}));
@@ -123,16 +116,20 @@ namespace UisSubsea.RovTopside.Presentation
             //altimeterInstrumentControl1.SetAlimeterParameters((int)depth *3);
         }
 
+
+        public void SetDistanceToBottom(int distance)
+        {
+            this.Invoke(new MethodInvoker(delegate() { distanceToBottomLabel.Text=distance.ToString(); }));
+
+        }
         /* Set the distiance ahead the ROV. Because we get 1 byte(0-250) for the value of the distance. 
          * We need to multiple with 2 () to convert from 
          * byte to actuale depth in cm.
          * */
         public void SetLaserDistanceMeasured(int distance)
-        {/*
-            int totDistance = distance * 2;
-            laserDistanceLabel.Text = totDistance.ToString();
-            if (distance > 0) { }//Add warning light when laser in use
-          */
+        {
+            this.Invoke(new MethodInvoker(delegate() { laserDistanceLabel.Text = distance.ToString(); }));
+          
         }
         
         //Set the state of the sensordata we get from the ROV.

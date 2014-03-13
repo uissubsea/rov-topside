@@ -36,7 +36,7 @@
             this.headingLabelText = new System.Windows.Forms.Label();
             this.videoPictureBox = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.distanceToBottomLabel = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.laserDistanceLabel = new System.Windows.Forms.Label();
             this.headingIndicatorInstrumentControl1 = new UisSubsea.RovTopside.Presentation.Controls.HeadingIndicatorInstrumentControl();
@@ -192,14 +192,14 @@
             this.label1.TabIndex = 21;
             this.label1.Text = "cm: ";
             // 
-            // label4
+            // distanceToBottomLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1083, 614);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(13, 13);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "0";
+            this.distanceToBottomLabel.AutoSize = true;
+            this.distanceToBottomLabel.Location = new System.Drawing.Point(1083, 614);
+            this.distanceToBottomLabel.Name = "distanceToBottomLabel";
+            this.distanceToBottomLabel.Size = new System.Drawing.Size(13, 13);
+            this.distanceToBottomLabel.TabIndex = 22;
+            this.distanceToBottomLabel.Text = "0";
             // 
             // label5
             // 
@@ -244,7 +244,7 @@
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.laserDistanceLabel);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.distanceToBottomLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.headingIndicatorInstrumentControl1);
             this.Controls.Add(this.altimeterInstrumentControl1);
@@ -278,7 +278,7 @@
         private Controls.HeadingIndicatorInstrumentControl headingIndicatorInstrumentControl1;
         private Controls.AltimeterInstrumentControl altimeterInstrumentControl1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label distanceToBottomLabel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label laserDistanceLabel;
 
