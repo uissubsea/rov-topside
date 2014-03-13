@@ -17,7 +17,8 @@ namespace UisSubsea.RovTopside.Data
                 Roll(),
                 Pitch(),
                 Yaw(),
-                ButtonsPressedOnManipulatorRight(),
+                ButtonsPressed(),
+                //ButtonsPressedOnManipulatorRight(),
                 HatPov(),
             };
         }

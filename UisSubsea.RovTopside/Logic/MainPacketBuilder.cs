@@ -64,8 +64,8 @@ namespace UisSubsea.RovTopside.Data
                 halveAxisAmplitude(Pitch()),
                 halveAxisAmplitude(Yaw()),
                 halveAxisAmplitude(Throttle()),
-                //ButtonsPressed(),
-                ButtonsPressedOnPilot(),
+                ButtonsPressed(),
+                //ButtonsPressedOnPilot(),
                 HatPov(),
             };
         }
@@ -91,8 +91,8 @@ namespace UisSubsea.RovTopside.Data
                 Pitch(),
                 Yaw(),
                 Throttle(),
-                //ButtonsPressed(),
-                ButtonsPressedOnPilot(),
+                ButtonsPressed(),
+                //ButtonsPressedOnPilot(),
                 HatPov(),
             };
         }

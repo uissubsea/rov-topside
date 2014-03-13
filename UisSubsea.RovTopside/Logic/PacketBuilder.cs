@@ -59,6 +59,7 @@ namespace UisSubsea.RovTopside.Data
                 {
                     int currentButton = (1 << i);
                     buttons |= currentButton;
+                    System.Diagnostics.Debug.WriteLine("knapp"+ i +" "+ buttons.ToString());
                 }
             }
             return (byte)buttons;
@@ -73,12 +74,14 @@ namespace UisSubsea.RovTopside.Data
             {
                 int currentButton = (1 << light);
                 buttons |= currentButton;
+                System.Diagnostics.Debug.WriteLine("knapp1" + buttons.ToString());
             }
 
             else if (buttonsPressed[brightLightRising])
             {
                 int currentButton = (1 << brightLightRising);
                 buttons |= currentButton;
+                System.Diagnostics.Debug.WriteLine("knapp2" + buttons.ToString());
             }
             else if (buttonsPressed[britghtLightDescending])
             {
