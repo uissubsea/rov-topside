@@ -38,13 +38,13 @@ namespace UisSubsea.RovTopside.Data
                 buttons |= currentButton;
             }
 
-            else if (buttonsPressed[basketInn])
+            if (buttonsPressed[basketInn])
             {
                 int currentButton = (1 << 1);
                 buttons |= currentButton;
             }
 
-            else if (buttonsPressed[basketOut])
+            if (buttonsPressed[basketOut])
             {
                 int currentButton = (1 << 2);
                 buttons |= currentButton;
