@@ -13,6 +13,10 @@ namespace UisSubsea.RovTopside.Data
         private bool reverse;
         private bool halveAmplitude;
 
+        private int light = 9;
+        private int brightLightRising = 10;
+        private int britghtLightDescending = 11;
+
         public MainPacketBuilder(IJoystick joystick)
             : base(joystick)
         {
@@ -64,7 +68,7 @@ namespace UisSubsea.RovTopside.Data
                 halveAxisAmplitude(Pitch()),
                 halveAxisAmplitude(Yaw()),
                 halveAxisAmplitude(Throttle()),
-                ButtonsPressed(),
+                buttonsPressed(),
                 //ButtonsPressedOnPilot(),
                 HatPov(),
             };
@@ -78,7 +82,7 @@ namespace UisSubsea.RovTopside.Data
                 halveAxisAmplitude(reversePitch()),
                 halveAxisAmplitude(Yaw()),
                 halveAxisAmplitude(Throttle()),
-                ButtonsPressed(),
+                buttonsPressed(),
                 HatPov(),
             };
         }
@@ -90,9 +94,8 @@ namespace UisSubsea.RovTopside.Data
                 Roll(),
                 Pitch(),
                 Yaw(),
-                Throttle(),
-                ButtonsPressed(),
-                //ButtonsPressedOnPilot(),
+                Throttle(),              
+                buttonsPressed(),
                 HatPov(),
             };
         }
@@ -105,7 +108,7 @@ namespace UisSubsea.RovTopside.Data
                 reversePitch(),
                 Yaw(),
                 Throttle(),
-                ButtonsPressed(),
+                buttonsPressed(),
                 HatPov(),
             };
         }
@@ -147,6 +150,31 @@ namespace UisSubsea.RovTopside.Data
         {
             int amplitude = axisPosition - 125;
             return (byte)(125 + (amplitude / 2));
+        }
+
+        private byte buttonsPressed()
+        {
+            int buttons = 0;
+            bool[] buttonsPressed = joystick.Buttons();
+
+            if (buttonsPressed[light])
+            {
+                int currentButton = (1 << 0);
+                buttons |= currentButton;
+            }
+
+            else if (buttonsPressed[brightLightRising])
+            {
+                int currentButton = (1 << 1);
+                buttons |= currentButton;
+            }
+            else if (buttonsPressed[britghtLightDescending])
+            {
+                int currentButton = (1 << 2);
+                buttons |= currentButton;
+            }
+
+            return (byte)buttons;
         }
     }
 }

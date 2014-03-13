@@ -14,15 +14,6 @@ namespace UisSubsea.RovTopside.Data
 
     public abstract class PacketBuilder
     {
-        //Pilot buttons
-        private int light = 9;
-        private int brightLightRising = 10;
-        private int britghtLightDescending = 11;
-
-        //Co pilot buttons
-        private int waterSample = 10;
-        private int basketOut=8;
-        private int basketInn=9;
 
         [Flags]
         public enum PointOfView : byte
@@ -47,76 +38,7 @@ namespace UisSubsea.RovTopside.Data
         }
 
         public abstract byte[] BuildJoystickStatePacket();
-
-        public byte ButtonsPressed()
-        {
-            int buttons = 0;
-            bool[] buttonsPressed = joystick.Buttons();
-
-            for (int i = 0; i < 7; i++)
-            {
-                if (buttonsPressed[i])
-                {
-                    int currentButton = (1 << i);
-                    buttons |= currentButton;
-                    System.Diagnostics.Debug.WriteLine("knapp"+ i +" "+ buttons.ToString());
-                }
-            }
-            return (byte)buttons;
-        }
-
-        public byte ButtonsPressedOnPilot()
-        {
-            int buttons = 0;
-            bool[] buttonsPressed = joystick.Buttons();
-
-            if (buttonsPressed[light])
-            {
-                int currentButton = (1 << light);
-                buttons |= currentButton;
-                System.Diagnostics.Debug.WriteLine("knapp1" + buttons.ToString());
-            }
-
-            else if (buttonsPressed[brightLightRising])
-            {
-                int currentButton = (1 << brightLightRising);
-                buttons |= currentButton;
-                System.Diagnostics.Debug.WriteLine("knapp2" + buttons.ToString());
-            }
-            else if (buttonsPressed[britghtLightDescending])
-            {
-                int currentButton = (1 << britghtLightDescending);
-                buttons |= currentButton;
-            }
-
-            return (byte)buttons;
-        }
-
-        public byte ButtonsPressedOnManipulatorRight()
-        {    
-            int buttons = 0;
-            bool[] buttonsPressed = joystick.Buttons();
-
-            if(buttonsPressed[waterSample])
-            {
-                int currentButton = (1<<waterSample);
-                buttons |= currentButton;
-            }
-
-            else if (buttonsPressed[basketInn])
-            {
-                int currentButton = (1 << basketInn);
-                buttons |= currentButton;
-            }
-
-            else if (buttonsPressed[basketOut])
-            {
-                int currentButton = (1 << basketOut);
-                buttons |= currentButton;
-            }
-            return (byte)buttons;
-        }
-       
+  
         public byte HatPov()
         {
             int angle = joystick.PointOfView();

@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UisSubsea.RovTopside.Data;
 
 namespace UisSubsea.RovTopside.Data
 {
     class ManipulatorRightPacketBuilder : PacketBuilder
     {
-        public ManipulatorRightPacketBuilder(Joystick joystick): base(joystick) {}
+        private IJoystick joystick;
+        private int waterSample = 10;
+        private int basketOut = 8;
+        private int basketInn = 9;
+
+        public ManipulatorRightPacketBuilder(Joystick joystick) : base(joystick) { this.joystick = joystick; }
 
         public override byte[] BuildJoystickStatePacket()
         {       
@@ -17,10 +23,33 @@ namespace UisSubsea.RovTopside.Data
                 Roll(),
                 Pitch(),
                 Yaw(),
-                ButtonsPressed(),
-                //ButtonsPressedOnManipulatorRight(),
+                buttonsPressed(),
                 HatPov(),
             };
+        }
+        private  byte buttonsPressed()
+        {
+            int buttons = 0;
+            bool[] buttonsPressed = joystick.Buttons();
+
+            if (buttonsPressed[waterSample])
+            {
+                int currentButton = (1 << 0);
+                buttons |= currentButton;
+            }
+
+            else if (buttonsPressed[basketInn])
+            {
+                int currentButton = (1 << 1);
+                buttons |= currentButton;
+            }
+
+            else if (buttonsPressed[basketOut])
+            {
+                int currentButton = (1 << 2);
+                buttons |= currentButton;
+            }
+            return (byte)buttons;
         }
     }
 }
