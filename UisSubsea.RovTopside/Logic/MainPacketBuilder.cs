@@ -163,12 +163,12 @@ namespace UisSubsea.RovTopside.Data
                 buttons |= currentButton;
             }
 
-            else if (buttonsPressed[brightLightRising])
+            if (buttonsPressed[brightLightRising])
             {
                 int currentButton = (1 << 1);
                 buttons |= currentButton;
             }
-            else if (buttonsPressed[britghtLightDescending])
+            if (buttonsPressed[britghtLightDescending])
             {
                 int currentButton = (1 << 2);
                 buttons |= currentButton;
