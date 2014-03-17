@@ -13,9 +13,13 @@ using System.Threading;
 
 namespace UisSubsea.RovTopside.Presentation
 {
+    /// <summary>
+    /// Debug application to debug communication with the ROV
+    /// as well as joystick input handeling.
+    /// </summary>
+
     public partial class JoystickTracker : Form
     {
-
         private Joystick joystick;
 
         private int roll = 125;
