@@ -44,6 +44,7 @@ namespace UisSubsea.RovTopside.Logic
             copilotviewhandler.SetFrontCameraAngle(state.FronCameraTilt);
             copilotviewhandler.SetRearCameraAngle(state.RearCameraTilt);
             copilotviewhandler.SetDepth(state.Depth);
+            copilotviewhandler.SetDistanceToBottom(state.DistanceToBottom);
             copilotviewhandler.SetLaserDistanceMeasured(state.Distance);
             copilotviewhandler.setSensorState(state.Error);
         }

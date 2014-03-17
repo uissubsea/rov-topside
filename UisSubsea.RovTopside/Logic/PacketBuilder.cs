@@ -38,23 +38,7 @@ namespace UisSubsea.RovTopside.Data
         }
 
         public abstract byte[] BuildJoystickStatePacket();
-
-        public byte ButtonsPressed()
-        {
-            int buttons = 0;
-            bool[] buttonsPressed = joystick.Buttons();
-
-            for (int i = 0; i < 7; i++)
-            {
-                if (buttonsPressed[i])
-                {
-                    int currentButton = (1 << i);
-                    buttons |= currentButton;
-                }
-            }
-            return (byte)buttons;
-        }
-       
+  
         public byte HatPov()
         {
             int angle = joystick.PointOfView();
