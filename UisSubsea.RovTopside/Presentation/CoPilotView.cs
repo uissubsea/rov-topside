@@ -14,6 +14,10 @@ using UisSubsea.RovTopside.Logic;
 
 namespace UisSubsea.RovTopside.Presentation
 {
+    /// <summary>
+    /// The form that displays the co-pilots instruments and camera.
+    /// </summary>
+
     public partial class CoPilotView : Form, ICoPilotViewHandler, IView
     {
         private ICamera camera;
@@ -45,9 +49,11 @@ namespace UisSubsea.RovTopside.Presentation
             formGraphics.Dispose();
         }
 
-        private void Form1_FormClosing(object sender, FormClosedEventArgs e)
+        private void CoPilotView_FormClosing(object sender, FormClosedEventArgs e)
         {
             System.Diagnostics.Debug.WriteLine("CO-PILOT VIEW CLOSED");
+            
+            // Is this really needed?
             if (camera != null)
                 camera.Dispose();
 
@@ -69,7 +75,6 @@ namespace UisSubsea.RovTopside.Presentation
                 this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
                 this.WindowState = FormWindowState.Normal;
             }
-
         }
 
         public void SetHeading(int heading)
@@ -78,7 +83,6 @@ namespace UisSubsea.RovTopside.Presentation
             headingIndicatorInstrumentControl1.SetHeadingIndicatorParameters((int)heading);         
             headingLabelText.Text = heading.ToString();
             }));
-
         }
 
         public void SetFrontCameraAngle(int angle)
@@ -103,41 +107,28 @@ namespace UisSubsea.RovTopside.Presentation
          * */
         public void SetDepth(int depth)
         {
-
             this.Invoke(new MethodInvoker(delegate() { altimeterInstrumentControl1.SetAlimeterParameters((int)depth); }));
             //altimeterInstrumentControl1.SetAlimeterParameters((int)depth *3);
         }
 
-
         public void SetDistanceToBottom(int distance)
         {
             this.Invoke(new MethodInvoker(delegate() { distanceToBottomLabel.Text=distance.ToString(); }));
-
         }
+
         /* Set the distiance ahead the ROV. Because we get 1 byte(0-250) for the value of the distance. 
          * We need to multiple with 2 () to convert from 
          * byte to actuale depth in cm.
          * */
         public void SetLaserDistanceMeasured(int distance)
         {
-            this.Invoke(new MethodInvoker(delegate() { laserDistanceLabel.Text = distance.ToString(); }));
-          
+            this.Invoke(new MethodInvoker(delegate() { laserDistanceLabel.Text = distance.ToString(); }));         
         }
         
         //Set the state of the sensordata we get from the ROV.
         public void setSensorState(bool sensorstate)
         {
-            if (sensorstate)
-            {
-                this.Invoke(new Action(() => leak = false));
-                Invalidate();
-
-            }
-            else
-            {
-                this.Invoke(new Action(() =>leak = true));
-                Invalidate();
-            }
+            leak = sensorstate;
         }
 
         //Get called from CamController

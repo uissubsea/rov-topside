@@ -259,7 +259,7 @@
             this.ForeColor = System.Drawing.Color.Yellow;
             this.Name = "CoPilotView";
             this.Text = "CoPilotView";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CoPilotView_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.videoPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

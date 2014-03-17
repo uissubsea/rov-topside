@@ -13,27 +13,38 @@ using UisSubsea.RovTopside.Logic;
 
 namespace UisSubsea.RovTopside.Presentation
 {
+    /// <summary>
+    /// The form that displays the pilots camera and overlay.
+    /// </summary>
+
     public partial class PilotView : Form, IPilotViewHandler, IView
     {
+        // Font and brushed for overlay drawing.
         private Font font;
         private Brush redBrush;
         private Brush greenBrush;
+
+        // Points for overlay drawing.
         private PointF pointDepth;
         private PointF pointFocusValue;
         private PointF pointAutoFocus;
         private PointF pointHeading;
         private PointF pointStopwatch;
-        private Rectangle boundsVerticalLeverIsNeutral;
-        private bool fullScreen = false;
+        private Rectangle boundsVerticalLeverIsNeutral;    
+
         private bool verticalLeverIsNeutral = false;
-        private ICamera camera;
         private int focus;
         private bool autofocus = true;
-        private System.Diagnostics.Stopwatch stopwatch;
         private int heading;
         private int frontCameraAngle;
         private int rearCameraAngle;
         private double depth;
+
+        private ICamera camera;
+        private System.Diagnostics.Stopwatch stopwatch;
+        
+        // A member to keep track of whether the window is fullscreen or not.
+        private bool fullScreen = false;
 
         public PilotView(ICamera camera)
         {
@@ -56,6 +67,7 @@ namespace UisSubsea.RovTopside.Presentation
             greenBrush = new SolidBrush(Color.Green);
             stopwatch = new System.Diagnostics.Stopwatch();
 
+            // Subscribe to the picturebox paint event so that we can draw the overlay.
             pictureBoxVideo.Paint += new PaintEventHandler(PaintOverlay);
 
             this.camera = camera;
@@ -91,36 +103,11 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void PilotView_FormClosed(object sender, FormClosedEventArgs e)
         {
+            // Is this really necessary?
             if (camera != null)
                 camera.Dispose();
 
             Application.Exit();
-        }
-
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            if (keyData == Keys.Escape)
-            {
-                this.Close();
-                return true;
-            }
-            else if (keyData == Keys.F11)
-            {
-                if (!fullScreen)
-                {
-                    fullScreen = true;
-                    this.WindowState = FormWindowState.Normal;
-                    this.FormBorderStyle = FormBorderStyle.None;
-                    this.WindowState = FormWindowState.Maximized;
-                }
-                else
-                {
-                    fullScreen = false;
-                    this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
-                    this.WindowState = FormWindowState.Normal;
-                }
-            }
-            return base.ProcessCmdKey(ref msg, keyData);
         }
 
         public void SetHeading(int heading)
@@ -164,6 +151,32 @@ namespace UisSubsea.RovTopside.Presentation
             this.camera = camera;
             this.camera.Canvas = pictureBoxVideo;
             this.camera.Start();
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape)
+            {
+                this.Close();
+                return true;
+            }
+            else if (keyData == Keys.F11)
+            {
+                if (!fullScreen)
+                {
+                    fullScreen = true;
+                    this.WindowState = FormWindowState.Normal;
+                    this.FormBorderStyle = FormBorderStyle.None;
+                    this.WindowState = FormWindowState.Maximized;
+                }
+                else
+                {
+                    fullScreen = false;
+                    this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+                    this.WindowState = FormWindowState.Normal;
+                }
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace UisSubsea.RovTopside.Logic
 {
     /// <summary>
-    /// Co pilot view handler
+    /// The functionality that the co-pilot view
+    /// should support.
     /// </summary>
     public interface ICoPilotViewHandler
     {

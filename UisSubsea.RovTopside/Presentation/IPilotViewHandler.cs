@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace UisSubsea.RovTopside.Logic
 {
+    /// <summary>
+    /// The functionality that the pilot view
+    /// should support.
+    /// </summary>
+
     public interface IPilotViewHandler
     {
         void SetHeading(int heading);

@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace UisSubsea.RovTopside.Logic
 {
+    /// <summary>
+    /// Implement this interface if your class
+    /// has the ability to handle a video feed.
+    /// </summary>
+
     public interface IView
     {
         ICamera GetCamera();
