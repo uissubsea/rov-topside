@@ -19,7 +19,6 @@ namespace UisSubsea.RovTopside.Presentation
         private ICamera camera;
         private bool fullScreen;
         private System.Drawing.SolidBrush Brush;
-        //If there is water leak in controllbox
         private bool leak;
 
         public CoPilotView(ICamera camera)
@@ -29,8 +28,7 @@ namespace UisSubsea.RovTopside.Presentation
             this.camera.Canvas = videoPictureBox;
             this.camera.Start();
         }
-
-        //Wil change color when there is a leak on the ROV. 
+ 
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
@@ -74,14 +72,8 @@ namespace UisSubsea.RovTopside.Presentation
 
         }
 
-        //UI updates
-
-
         public void SetHeading(int heading)
         {
-            //headingIndicatorInstrumentControl1.
-            //headingIndicatorInstrumentControl1.SetHeadingIndicatorParameters(2 * (int)heading);
-            //headingLabelText.Text = heading.ToString();
             this.Invoke(new MethodInvoker(delegate {
             headingIndicatorInstrumentControl1.SetHeadingIndicatorParameters((int)heading);         
             headingLabelText.Text = heading.ToString();
