@@ -104,7 +104,7 @@
     <Compile Include="Data\ICamera.cs" />
     <Compile Include="Logic\CameraController.cs" />
     <Compile Include="Logic\ICameraHandler.cs" />
-    <Compile Include="Logic\ICoPilotViewHandler.cs" />
+    <Compile Include="Presentation\ICoPilotViewHandler.cs" />
     <Compile Include="Data\IJoystick.cs" />
     <Compile Include="Data\JoystickStateListener.cs" />
     <Compile Include="Data\Joystick.cs" />
@@ -119,9 +119,9 @@
     <Compile Include="Logic\RovState.cs" />
     <Compile Include="Data\SerialPortSingleton.cs" />
     <Compile Include="Data\VideoRecorder.cs" />
-    <Compile Include="Logic\IView.cs" />
+    <Compile Include="Presentation\IView.cs" />
     <Compile Include="Logic\MainController.cs" />
-    <Compile Include="Logic\IPilotViewHandler.cs" />
+    <Compile Include="Presentation\IPilotViewHandler.cs" />
     <Compile Include="Logic\PilotActionsController.cs" />
     <Compile Include="Logic\PilotButton.cs" />
     <Compile Include="Logic\RovStateReceivedHandler.cs" />

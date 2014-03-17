@@ -9,6 +9,16 @@ using UisSubsea.RovTopside.Logic;
 
 namespace UisSubsea.RovTopside.Data
 {
+    /// <summary>
+    /// This class provides static methods to
+    /// retrieve an instance of each of the cameras
+    /// on the ROV.
+    /// 
+    /// It is implemented using a singleton pattern
+    /// because it does not make sense to have more
+    /// than one instance of each camera.
+    /// </summary>
+
     public class CameraFactory
     {
         private static ICamera mainCamera;
@@ -42,6 +52,10 @@ namespace UisSubsea.RovTopside.Data
                     Constants.DesiredResolution);
         }
 
+        /// <summary>
+        /// This is a clean up method that should be called
+        /// on application exit.
+        /// </summary>
         public static void DisposeAll()
         {
             if (CameraFactory.mainCamera != null)
@@ -52,6 +66,13 @@ namespace UisSubsea.RovTopside.Data
                 CameraFactory.rearCamera.Dispose();
         }
 
+        /// <summary>
+        /// This method searches through the connected cameras and
+        /// recognizes which index should be used to retrieve the camera
+        /// corresponding to the ID.
+        /// </summary>
+        /// <param name="cameraMoniker">The camera identifier</param>
+        /// <returns>The index where the camera is located.</returns>
         private static  int getCameraIndex(string cameraMoniker)
         {
             FilterInfoCollection connectedCameras = Camera.CamerasConnected();
