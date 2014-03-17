@@ -35,29 +35,5 @@ namespace UisSubsea.RovTopside.Data
                 HatPov(),
             };
         }
-        public override byte ButtonsPressed()
-        {
-            int buttons = 0;
-            bool[] buttonsPressed = joystick.Buttons();
-
-            if (buttonsPressed[waterSample])
-            {
-                int currentButton = (1 << 0);
-                buttons |= currentButton;
-            }
-
-            if (buttonsPressed[basketInn])
-            {
-                int currentButton = (1 << 1);
-                buttons |= currentButton;
-            }
-
-            if (buttonsPressed[basketOut])
-            {
-                int currentButton = (1 << 2);
-                buttons |= currentButton;
-            }
-            return (byte)buttons;
-        }
     }
 }
