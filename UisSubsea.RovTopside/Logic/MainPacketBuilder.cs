@@ -68,8 +68,7 @@ namespace UisSubsea.RovTopside.Data
                 halveAxisAmplitude(Pitch()),
                 halveAxisAmplitude(Yaw()),
                 halveAxisAmplitude(Throttle()),
-                buttonsPressed(),
-                //ButtonsPressedOnPilot(),
+                ButtonsPressed(),
                 HatPov(),
             };
         }
@@ -82,7 +81,7 @@ namespace UisSubsea.RovTopside.Data
                 halveAxisAmplitude(reversePitch()),
                 halveAxisAmplitude(Yaw()),
                 halveAxisAmplitude(Throttle()),
-                buttonsPressed(),
+                ButtonsPressed(),
                 HatPov(),
             };
         }
@@ -95,7 +94,7 @@ namespace UisSubsea.RovTopside.Data
                 Pitch(),
                 Yaw(),
                 Throttle(),              
-                buttonsPressed(),
+                ButtonsPressed(),
                 HatPov(),
             };
         }
@@ -108,7 +107,7 @@ namespace UisSubsea.RovTopside.Data
                 reversePitch(),
                 Yaw(),
                 Throttle(),
-                buttonsPressed(),
+                ButtonsPressed(),
                 HatPov(),
             };
         }
@@ -152,7 +151,7 @@ namespace UisSubsea.RovTopside.Data
             return (byte)(125 + (amplitude / 2));
         }
 
-        private byte buttonsPressed()
+        public override byte ButtonsPressed()
         {
             int buttons = 0;
             bool[] buttonsPressed = joystick.Buttons();

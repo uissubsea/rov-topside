@@ -23,11 +23,11 @@ namespace UisSubsea.RovTopside.Data
                 Roll(),
                 Pitch(),
                 Yaw(),
-                buttonsPressed(),
+                ButtonsPressed(),
                 HatPov(),
             };
         }
-        private  byte buttonsPressed()
+        public override byte ButtonsPressed()
         {
             int buttons = 0;
             bool[] buttonsPressed = joystick.Buttons();
