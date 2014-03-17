@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace UisSubsea.RovTopside.Data
 {
-    class ManipulatorLeftPacketBuilder : PacketBuilder
+    /// <summary>
+    /// This class is able to build a packet
+    /// containing the state of the co-pilots left joystick.
+    /// 
+    /// It extends the basic functionality in PacketBuilder
+    /// to fit the needs of the co-pilot.
+    /// </summary>
+    public class ManipulatorLeftPacketBuilder : PacketBuilder
     {
         public  ManipulatorLeftPacketBuilder(Joystick joystick): base(joystick){}
 
@@ -18,6 +25,5 @@ namespace UisSubsea.RovTopside.Data
                 ButtonsPressed()
             };
         }
-
     }
 }

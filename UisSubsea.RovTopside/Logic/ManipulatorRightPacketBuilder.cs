@@ -7,7 +7,15 @@ using UisSubsea.RovTopside.Data;
 
 namespace UisSubsea.RovTopside.Data
 {
-    class ManipulatorRightPacketBuilder : PacketBuilder
+    /// <summary>
+    /// This class is able to build a packet
+    /// containing the state of the co-pilots right joystick.
+    /// 
+    /// It extends the basic functionality in PacketBuilder
+    /// to fit the needs of the co-pilot.
+    /// </summary>
+
+    public class ManipulatorRightPacketBuilder : PacketBuilder
     {
         private IJoystick joystick;
         private int waterSample = 10;

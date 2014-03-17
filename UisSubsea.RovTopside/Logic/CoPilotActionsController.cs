@@ -9,6 +9,11 @@ namespace UisSubsea.RovTopside.Logic
 {
     public class CoPilotActionsController
     {
+        /// <summary>
+        /// This class handles the actions (mostly camera operations) 
+        /// performed by the co-pilot.
+        /// </summary>
+
         private JoystickStateListener coPilotLeftStickListener;
         private JoystickStateListener coPilotRightStickListener;
         private ICameraHandler cameraHandler;

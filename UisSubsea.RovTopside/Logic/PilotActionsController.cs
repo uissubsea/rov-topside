@@ -9,6 +9,10 @@ namespace UisSubsea.RovTopside.Logic
 {
     public class PilotActionsController
     {
+        /// <summary>
+        /// This class handles the actions performed by the pilot.
+        /// </summary>
+
         private JoystickStateListener pilotStickListener;
         private ICameraHandler cameraHandler;
         private IPilotViewHandler pilotView;
@@ -60,7 +64,6 @@ namespace UisSubsea.RovTopside.Logic
             }
 
             return shouldChangeCamera;
-
         }
 
         private bool reverse()

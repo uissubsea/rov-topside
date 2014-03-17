@@ -8,6 +8,11 @@ namespace UisSubsea.RovTopside.Logic
 {
     public static class CoPilotButton
     {
+        /// <summary>
+        /// This class defines which joystick buttons
+        /// will be used for co-pilot top side actions.
+        /// </summary>
+
         public const int ChangeCamera = 1;
         public const int ToggleRecording = 5;
         public const int Snapshot = 4;

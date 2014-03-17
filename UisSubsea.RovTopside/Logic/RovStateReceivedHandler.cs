@@ -9,16 +9,23 @@ namespace UisSubsea.RovTopside.Logic
 {
     public class RovStateReceivedHandler
     {
+        /// <summary>
+        /// This class handles the data reiceived event whenever
+        /// it is invoked from the communication server.
+        /// 
+        /// The data is presented in both views (pilot and co-pilot).
+        /// </summary>
+
         private CommunicationServer comServer;
-        private IPilotViewHandler overlayHandler;
-        private ICoPilotViewHandler copilotviewhandler;
+        private IPilotViewHandler pilotViewHandler;
+        private ICoPilotViewHandler copilotViewhandler;
 
         public RovStateReceivedHandler(CommunicationServer comServer, 
             IPilotViewHandler overlayHandler, ICoPilotViewHandler copilotviewhandler)
         {
             this.comServer = comServer;
-            this.overlayHandler = overlayHandler;
-            this.copilotviewhandler = copilotviewhandler;
+            this.pilotViewHandler = overlayHandler;
+            this.copilotViewhandler = copilotviewhandler;
 
             comServer.RovStateReceived += comServer_RovStateReceived;
         }
@@ -35,19 +42,27 @@ namespace UisSubsea.RovTopside.Logic
 
         private void handleStateChanged(RovState state)
         {
-            overlayHandler.SetHeading(state.Heading);
-            overlayHandler.SetFrontCameraAngle(state.FronCameraTilt);
-            overlayHandler.SetDepth(state.Depth);
-            overlayHandler.SetRearCameraAngle(state.RearCameraTilt);
-
-            copilotviewhandler.SetHeading(state.Heading);
-            copilotviewhandler.SetFrontCameraAngle(state.FronCameraTilt);
-            copilotviewhandler.SetRearCameraAngle(state.RearCameraTilt);
-            copilotviewhandler.SetDepth(state.Depth);
-            copilotviewhandler.SetDistanceToBottom(state.DistanceToBottom);
-            copilotviewhandler.SetLaserDistanceMeasured(state.Distance);
-            copilotviewhandler.setSensorState(state.Error);
+            presentRovStateOnPilotView(state);
+            presentRovStateOnCoPilotView(state);
         }
 
+        private void presentRovStateOnPilotView(RovState state)
+        {
+            pilotViewHandler.SetHeading(state.Heading);
+            pilotViewHandler.SetFrontCameraAngle(state.FrontCameraTilt);
+            pilotViewHandler.SetDepth(state.Depth);
+            pilotViewHandler.SetRearCameraAngle(state.RearCameraTilt);
+        }
+
+        private void presentRovStateOnCoPilotView(RovState state)
+        {
+            copilotViewhandler.SetHeading(state.Heading);
+            copilotViewhandler.SetFrontCameraAngle(state.FrontCameraTilt);
+            copilotViewhandler.SetRearCameraAngle(state.RearCameraTilt);
+            copilotViewhandler.SetDepth(state.Depth);
+            copilotViewhandler.SetDistanceToBottom(state.DistanceToBottom);
+            copilotViewhandler.SetLaserDistanceMeasured(state.Distance);
+            copilotViewhandler.setSensorState(state.Error);
+        }
     }
 }

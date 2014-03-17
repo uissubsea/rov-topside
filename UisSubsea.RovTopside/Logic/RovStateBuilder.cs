@@ -5,15 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace UisSubsea.RovTopside.Data
-{
-    /**
-     * Build an rov state object based
-     * on data received from the ROV
-     * */
+{   
+    /// <summary>
+    /// Build an rov state object based
+    /// on data received from the ROV
+    /// </summary>
+
     public static class RovStateBuilder
     {
-        //Getting a byte 0-180.
-        private const double headingResolution = 2; // 360/250
+        // We need to multiply the heading by 2 because
+        // the number received goes from 0 - 180.
+        private const double headingResolution = 2;
 
         public static RovState BuildRovState(byte[] data)
         {

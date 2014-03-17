@@ -12,6 +12,11 @@ namespace UisSubsea.RovTopside.Data
 {
     public class VideoRecorder
     {
+        /// <summary>
+        /// This class handles video recording. 
+        /// It takes all frames in the frame buffer and record
+        /// it to disk using MPEG2 codec with a 10Mb/s bit rate.
+        /// </summary>
 
         private Queue<Bitmap> frameBuffer;
         private VideoFileWriter writer;

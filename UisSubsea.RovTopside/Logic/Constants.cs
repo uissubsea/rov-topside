@@ -10,14 +10,14 @@ namespace UisSubsea.RovTopside.Data
 
     /**
      * This class holds the constants that will be used
-     * by all of the components in the application.
+     * by some of the components in the application.
      * */
-
-    public class Constants
-    {
+    
+    public static class Constants
+    {  
         /**
          * These are the values we agreed to use to
-         * mark the beginning and end of a packet.
+         * mark the beginning and the end of a packet.
          * */
         public const byte StartByte = 255;
         public const byte StopByte = 251;
@@ -39,8 +39,6 @@ namespace UisSubsea.RovTopside.Data
          * The frame resolution we want our cameras to provide us with.
          * */
         public static Size DesiredResolution = new Size(1280, 720);
-        public static Size SmallCamView = new Size(640, 360);
-        public static Size LowResolution = new Size(960, 720);
 
         /**
          * One main controller to control the ROV
@@ -71,17 +69,6 @@ namespace UisSubsea.RovTopside.Data
         public const string LogitechC930eMonikerFront = "vid_046d&pid_0843&mi_00#6&1fdd";
         public const string LogitechC920Moniker = "vid_046d&pid_082d&mi_00#6&3eda";
         public const string LogitechC930eMonikerRear = "vid_046d&pid_0843&mi_00#6&313bb";
-        
-        /*
-         * These strings will be used to identify the joysticks that
-         * are connected. Use these in joystick factory to initialize
-         * the correct joysticks
-         * 
-        public const string LogitechExtreme3DProGuid = "c215046d";
-        public const string LogitechAttack3Guid = "c214046d";
-        public const string thrustMasterGuid = "b106044f";
-        public const string Logitechextreme3DProManipulatorGuid = "c215046d";
-        */
 
         /*
          * These strings will be used to identify the joysticks that

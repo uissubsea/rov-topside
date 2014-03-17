@@ -10,6 +10,15 @@ namespace UisSubsea.RovTopside.Data
 {
     public class JoystickFactory
     {
+        /// <summary>
+        /// This class provides static methods to
+        /// retrieve an instance of each of the joysticks
+        /// connected.
+        /// 
+        /// It is implemented using a singleton pattern
+        /// because it does not make sense to have more
+        /// than one instance of each joystick.
+        /// </summary>
 
         private static Joystick mainController;
         private static Joystick manipulatorLeft;
@@ -47,6 +56,10 @@ namespace UisSubsea.RovTopside.Data
                     JoystickType.ManipulatorRight);
         }
 
+        /// <summary>
+        /// This is a clean up method that should be called
+        /// on application exit.
+        /// </summary>
         public static void DisposeAll()
         {
             if (JoystickFactory.mainController != null)
@@ -57,6 +70,13 @@ namespace UisSubsea.RovTopside.Data
                 JoystickFactory.manipulatorRight.Unacquire();
         }
 
+        /// <summary>
+        /// This method searches through the connected joysticks and
+        /// recognizes which index should be used to retrieve the joystick
+        /// corresponding to the ID.
+        /// </summary>
+        /// <param name="cameraMoniker">The joystick identifier</param>
+        /// <returns>The index where the joystick is located.</returns>
         private static int getJoystickIndex(string JoystickInstanceGuid)
         {
             gameControls = Joystick.JoysticksAttached();
@@ -70,11 +90,10 @@ namespace UisSubsea.RovTopside.Data
                 {
                     System.Diagnostics.Debug.WriteLine(i);
                     return i;  
-                }
-                                                
+                }                                              
             }
+            // Not found.
             return -1;
-        }
-           
+        }           
     }
 }

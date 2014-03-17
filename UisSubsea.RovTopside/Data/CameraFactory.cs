@@ -83,6 +83,7 @@ namespace UisSubsea.RovTopside.Data
                 if (id.Equals(cameraMoniker))
                     return i;
             }
+            // Not found.
             return -1;
         }
     }

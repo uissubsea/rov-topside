@@ -10,6 +10,12 @@ namespace UisSubsea.RovTopside.Data
 {
     public class Joystick : IJoystick
     {
+        /// <summary>
+        /// This class interacts with the joysticks
+        /// that are attached to the computer.
+        /// 
+        /// It exposed the functionality defined in IJoystick.
+        /// </summary>
 
         public SharpDX.DirectInput.Joystick joystick;
         private InputRange range;

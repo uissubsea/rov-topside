@@ -7,10 +7,16 @@ using UisSubsea.RovTopside.Presentation;
 using UisSubsea.RovTopside.Data;
 
 namespace UisSubsea.RovTopside.Logic
-
 {
-    class CameraController : ICameraHandler
+    public class CameraController : ICameraHandler
     {
+        /// <summary>
+        /// This class exposes the functionality in ICameraHandler.
+        /// 
+        /// It handles all of the camera operations, including camera
+        /// switching, recording, snapshots and focus.
+        /// </summary>
+
         private ICamera mainCamera, manipulatorCamera, rearCamera;
         private IView pilotView, coPilotView;
 
@@ -44,7 +50,7 @@ namespace UisSubsea.RovTopside.Logic
                 {                    
                     setCamera(coPilotView, manipulatorCamera);
                     
-                    //Important  let the camera stop before next line of code
+                    //Important to let the camera stop before next line of code
                     while (rearCamera.Instance.IsRunning) { }
                 }
                  setCamera(pilotView, rearCamera);                                         
@@ -72,8 +78,7 @@ namespace UisSubsea.RovTopside.Logic
                 while (!manipulatorCamera.Instance.IsRunning) 
                 { 
                     setCamera(coPilotView, manipulatorCamera);
-                }
-               
+                }          
             }           
         }
         
