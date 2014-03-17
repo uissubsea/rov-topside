@@ -150,31 +150,6 @@ namespace UisSubsea.RovTopside.Data
             int amplitude = axisPosition - 125;
             return (byte)(125 + (amplitude / 2));
         }
-
-        public override byte ButtonsPressed()
-        {
-            int buttons = 0;
-            bool[] buttonsPressed = joystick.Buttons();
-
-            if (buttonsPressed[light])
-            {
-                int currentButton = (1 << 0);
-                buttons |= currentButton;
-            }
-
-            if (buttonsPressed[brightLightRising])
-            {
-                int currentButton = (1 << 1);
-                buttons |= currentButton;
-            }
-            if (buttonsPressed[britghtLightDescending])
-            {
-                int currentButton = (1 << 2);
-                buttons |= currentButton;
-            }
-
-            return (byte)buttons;
-        }
     }
 }
 

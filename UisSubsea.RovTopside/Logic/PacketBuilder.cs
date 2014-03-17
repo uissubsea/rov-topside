@@ -36,21 +36,19 @@ namespace UisSubsea.RovTopside.Data
         {
             this.joystick = joystick;
         }
-
-        public virtual byte ButtonsPressed()
+        //Send the first button that get pressed.
+        public byte ButtonsPressed()
         {
-            int buttons = 0;
             bool[] buttonsPressed = joystick.Buttons();
-
-            for (int i = 0; i < 7; i++)
+            
+            for (int i = 0; i < 12; i++)
             {
                 if (buttonsPressed[i])
                 {
-                    int currentButton = (1 << i);
-                    buttons |= currentButton;
+                   return (byte)(i+1);
                 }
             }
-            return (byte)buttons;
+            return (byte)0;
         }
 
         public abstract byte[] BuildJoystickStatePacket();
