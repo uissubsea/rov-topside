@@ -33,11 +33,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.headingLabelText = new System.Windows.Forms.Label();
-            this.videoPictureBox = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.distanceToBottomLabel = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.laserDistanceLabel = new System.Windows.Forms.Label();
+            this.videoPictureBox = new System.Windows.Forms.PictureBox();
             this.headingIndicatorInstrumentControl1 = new UisSubsea.RovTopside.Presentation.Controls.HeadingIndicatorInstrumentControl();
             this.altimeterInstrumentControl1 = new UisSubsea.RovTopside.Presentation.Controls.AltimeterInstrumentControl();
             ((System.ComponentModel.ISupportInitialize)(this.videoPictureBox)).BeginInit();
@@ -154,20 +154,13 @@
             // headingLabelText
             // 
             this.headingLabelText.AutoSize = true;
+            this.headingLabelText.Cursor = System.Windows.Forms.Cursors.Default;
             this.headingLabelText.ForeColor = System.Drawing.Color.Yellow;
-            this.headingLabelText.Location = new System.Drawing.Point(1242, 519);
+            this.headingLabelText.Location = new System.Drawing.Point(1083, 435);
             this.headingLabelText.Name = "headingLabelText";
             this.headingLabelText.Size = new System.Drawing.Size(13, 13);
             this.headingLabelText.TabIndex = 17;
             this.headingLabelText.Text = "0";
-            // 
-            // videoPictureBox
-            // 
-            this.videoPictureBox.Location = new System.Drawing.Point(1, -25);
-            this.videoPictureBox.Name = "videoPictureBox";
-            this.videoPictureBox.Size = new System.Drawing.Size(1055, 706);
-            this.videoPictureBox.TabIndex = 0;
-            this.videoPictureBox.TabStop = false;
             // 
             // label1
             // 
@@ -204,6 +197,14 @@
             this.laserDistanceLabel.Size = new System.Drawing.Size(13, 13);
             this.laserDistanceLabel.TabIndex = 24;
             this.laserDistanceLabel.Text = "0";
+            // 
+            // videoPictureBox
+            // 
+            this.videoPictureBox.Location = new System.Drawing.Point(1, -25);
+            this.videoPictureBox.Name = "videoPictureBox";
+            this.videoPictureBox.Size = new System.Drawing.Size(1055, 706);
+            this.videoPictureBox.TabIndex = 0;
+            this.videoPictureBox.TabStop = false;
             // 
             // headingIndicatorInstrumentControl1
             // 
