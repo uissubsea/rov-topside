@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.frontCamGauge = new System.Windows.Forms.AGauge();
-            this.button1 = new System.Windows.Forms.Button();
             this.rearCamGauge = new System.Windows.Forms.AGauge();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -87,19 +86,6 @@
             this.frontCamGauge.TabIndex = 3;
             this.frontCamGauge.Text = "FrontCam";
             this.frontCamGauge.Value = 0F;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(1057, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(48, 49);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Fullscreen";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // rearCamGauge
             // 
@@ -252,7 +238,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.rearCamGauge);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.frontCamGauge);
             this.Controls.Add(this.videoPictureBox);
             this.DoubleBuffered = true;
@@ -270,7 +255,6 @@
 
         private System.Windows.Forms.PictureBox videoPictureBox;
         private System.Windows.Forms.AGauge frontCamGauge;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.AGauge rearCamGauge;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

@@ -50,9 +50,7 @@ namespace UisSubsea.RovTopside.Presentation
         }
 
         private void CoPilotView_FormClosing(object sender, FormClosedEventArgs e)
-        {
-            System.Diagnostics.Debug.WriteLine("CO-PILOT VIEW CLOSED");
-            
+        {         
             // Is this really needed?
             if (camera != null)
                 camera.Dispose();
@@ -143,6 +141,32 @@ namespace UisSubsea.RovTopside.Presentation
         public ICamera GetCamera()
         {
             return this.camera;
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape)
+            {
+                this.Close();
+                return true;
+            }
+            else if (keyData == Keys.F11)
+            {
+                if (!fullScreen)
+                {
+                    fullScreen = true;
+                    this.WindowState = FormWindowState.Normal;
+                    this.FormBorderStyle = FormBorderStyle.None;
+                    this.WindowState = FormWindowState.Maximized;
+                }
+                else
+                {
+                    fullScreen = false;
+                    this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+                    this.WindowState = FormWindowState.Normal;
+                }
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }
