@@ -9,6 +9,7 @@ namespace UisSubsea.RovTopside.Logic
     ///<summary>
     ///Camera handler interface
     ///</summary>
+    
     public interface ICameraHandler
     {
         /// <summary>

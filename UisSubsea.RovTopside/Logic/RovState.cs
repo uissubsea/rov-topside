@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace UisSubsea.RovTopside.Data
 {
-    public class RovState
-    {
-        /// <summary>
-        /// This class is meant to provide a logic
-        /// representation of the ROVs current state.
-        /// </summary>
+    /// <summary>
+    /// This class is meant to provide a logic
+    /// representation of the ROVs current state.
+    /// </summary>
 
+    public class RovState
+    {        
         public int Heading { get; private set; }
         public bool Error { get; private set; }
         public int RearCameraTilt { get; private set; }

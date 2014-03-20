@@ -7,15 +7,15 @@ using UisSubsea.RovTopside.Data;
 
 namespace UisSubsea.RovTopside.Logic
 {
-    public class RovStateReceivedHandler
-    {
-        /// <summary>
-        /// This class handles the data reiceived event whenever
-        /// it is invoked from the communication server.
-        /// 
-        /// The data is presented in both views (pilot and co-pilot).
-        /// </summary>
+    /// <summary>
+    /// This class handles the data reiceived event whenever
+    /// it is invoked from the communication server.
+    /// 
+    /// The data is presented in both views (pilot and co-pilot).
+    /// </summary>
 
+    public class RovStateReceivedHandler
+    {        
         private CommunicationServer comServer;
         private IPilotViewHandler pilotViewHandler;
         private ICoPilotViewHandler copilotViewhandler;

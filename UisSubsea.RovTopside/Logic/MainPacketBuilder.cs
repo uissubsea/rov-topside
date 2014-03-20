@@ -7,16 +7,16 @@ using UisSubsea.RovTopside.Logic;
 
 namespace UisSubsea.RovTopside.Data
 {
+    /// <summary>
+    /// This class is able to build a packet
+    /// containing the state of the pilots joystick.
+    /// 
+    /// It extends the basic functionality in PacketBuilder
+    /// to fit the needs of the pilot.
+    /// </summary>
+
     public class MainPacketBuilder : PacketBuilder
     {
-        /// <summary>
-        /// This class is able to build a packet
-        /// containing the state of the pilots joystick.
-        /// 
-        /// It extends the basic functionality in PacketBuilder
-        /// to fit the needs of the pilot.
-        /// </summary>
-
         private IJoystick joystick;
         private bool reverse;
         private bool halveAmplitude;

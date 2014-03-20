@@ -7,13 +7,13 @@ using UisSubsea.RovTopside.Data;
 
 namespace UisSubsea.RovTopside.Logic
 {
+    /// <summary>
+    /// This class handles the actions (mostly camera operations) 
+    /// performed by the co-pilot.
+    /// </summary>
+
     public class CoPilotActionsController
     {
-        /// <summary>
-        /// This class handles the actions (mostly camera operations) 
-        /// performed by the co-pilot.
-        /// </summary>
-
         private JoystickStateListener coPilotLeftStickListener;
         private JoystickStateListener coPilotRightStickListener;
         private ICameraHandler cameraHandler;

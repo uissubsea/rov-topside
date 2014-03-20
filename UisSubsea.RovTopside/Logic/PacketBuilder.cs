@@ -6,15 +6,14 @@ using System.Threading.Tasks;
 
 namespace UisSubsea.RovTopside.Data
 {
-    /**
-     * This class is responsible for packing
-     * the state of the joystick before sending
-     * it as a packet to the ROV's supernode.
-     * */
+    /// <summary>
+    /// This class is responsible for packing
+    /// the state of the joystick before sending
+    /// it as a packet to the ROV's supernode.
+    /// </summary>
 
     public abstract class PacketBuilder
     {
-
         [Flags]
         public enum PointOfView : byte
         {

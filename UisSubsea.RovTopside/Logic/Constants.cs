@@ -7,11 +7,10 @@ using System.Drawing;
 
 namespace UisSubsea.RovTopside.Data
 {
-
-    /**
-     * This class holds the constants that will be used
-     * by some of the components in the application.
-     * */
+    /// <summary>
+    /// This class holds the constants that will be used
+    /// by some of the components in the application.
+    /// </summary>
     
     public static class Constants
     {  

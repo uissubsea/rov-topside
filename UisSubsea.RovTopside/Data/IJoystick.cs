@@ -9,6 +9,7 @@ namespace UisSubsea.RovTopside.Data
     /// <summary>
     /// Joystick interface.
     /// </summary>
+ 
     public interface IJoystick
     {
         /// <summary>

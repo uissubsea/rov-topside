@@ -8,15 +8,15 @@ using UisSubsea.RovTopside.Data;
 
 namespace UisSubsea.RovTopside.Logic
 {
+    /// <summary>
+    /// This class exposes the functionality in ICameraHandler.
+    /// 
+    /// It handles all of the camera operations, including camera
+    /// switching, recording, snapshots and focus.
+    /// </summary>
+
     public class CameraController : ICameraHandler
     {
-        /// <summary>
-        /// This class exposes the functionality in ICameraHandler.
-        /// 
-        /// It handles all of the camera operations, including camera
-        /// switching, recording, snapshots and focus.
-        /// </summary>
-
         private ICamera mainCamera, manipulatorCamera, rearCamera;
         private IView pilotView, coPilotView;
 

@@ -8,25 +8,25 @@ using System.Threading;
 
 namespace UisSubsea.RovTopside.Data
 {
+    /// <summary>
+    /// This class handles all of the communication with the ROV.
+    /// 
+    /// The basics of the algorithm (this is an indefinite loop):
+    /// 1. Receive the state of the ROV
+    ///     - Wait for start byte
+    ///     - Buffer data until stop byte is received
+    /// 2. Send joystick positions
+    /// 3. Signal that a packet is received
+    /// 4. Clear the buffer
+    /// 
+    /// #2 comes before processing the data received to decrease the 
+    /// time the ROV has to wait for data after it reports that it is
+    /// ready to receive (it is ready to receive once it has sent a 
+    /// packet of its state).
+    /// </summary>
+
     public class CommunicationServer
     {
-        /// <summary>
-        /// This class handles all of the communication with the ROV.
-        /// 
-        /// The basics of the algorithm (this is an indefinite loop):
-        /// 1. Receive the state of the ROV
-        ///     - Wait for start byte
-        ///     - Buffer data until stop byte is received
-        /// 2. Send joystick positions
-        /// 3. Signal that a packet is received
-        /// 4. Clear the buffer
-        /// 
-        /// #2 comes before processing the data received to decrease the 
-        /// time the ROV has to wait for data after it reports that it is
-        /// ready to receive (it is ready to receive once it has sent a 
-        /// packet of its state).
-        /// </summary>
-
         public event EventHandler<DataReceivedEventArgs> RovStateReceived;
         
         private SerialPort port;

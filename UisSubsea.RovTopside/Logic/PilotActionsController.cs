@@ -7,12 +7,12 @@ using UisSubsea.RovTopside.Data;
 
 namespace UisSubsea.RovTopside.Logic
 {
-    public class PilotActionsController
-    {
-        /// <summary>
-        /// This class handles the actions performed by the pilot.
-        /// </summary>
+    /// <summary>
+    /// This class handles the actions performed by the pilot.
+    /// </summary>
 
+    public class PilotActionsController
+    {        
         private JoystickStateListener pilotStickListener;
         private ICameraHandler cameraHandler;
         private IPilotViewHandler pilotView;

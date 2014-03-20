@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace UisSubsea.RovTopside.Logic
 {
-    public class MainController
-    {
-        /// <summary>
-        /// The applications main controller. 
-        /// All the components are initialized and tied together here.
-        /// </summary>
+    /// <summary>
+    /// The applications main controller. 
+    /// All the components are initialized and tied together here.
+    /// </summary>
 
+    public class MainController
+    {       
         public Form pilotView;
         private Form coPilotView;
         private Joystick pilotJoystick;

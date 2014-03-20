@@ -10,6 +10,7 @@ namespace UisSubsea.RovTopside.Logic
     /// The functionality that the co-pilot view
     /// should support.
     /// </summary>
+    
     public interface ICoPilotViewHandler
     {
         /// <summary>

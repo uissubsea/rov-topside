@@ -13,6 +13,7 @@ namespace UisSubsea.RovTopside.Data
     /// It extends the basic functionality in PacketBuilder
     /// to fit the needs of the co-pilot.
     /// </summary>
+    
     public class ManipulatorLeftPacketBuilder : PacketBuilder
     {
         public  ManipulatorLeftPacketBuilder(Joystick joystick): base(joystick){}

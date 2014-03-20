@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace UisSubsea.RovTopside.Data
 {
-    public class DataReceivedEventArgs : EventArgs
-    {
-        /// <summary>
-        /// This is a wrapper class for the data that is
-        /// received from the serial port.
-        /// </summary>
+    /// <summary>
+    /// This is a wrapper class for the data that is
+    /// received from the serial port.
+    /// </summary>
 
+    public class DataReceivedEventArgs : EventArgs
+    {      
         public byte[] Data { get; set; }
     }
 }

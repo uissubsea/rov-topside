@@ -8,18 +8,18 @@ using SharpDX.DirectInput;
 
 namespace UisSubsea.RovTopside.Data
 {
+    /// <summary>
+    /// This class provides static methods to
+    /// retrieve an instance of each of the joysticks
+    /// connected.
+    /// 
+    /// It is implemented using a singleton pattern
+    /// because it does not make sense to have more
+    /// than one instance of each joystick.
+    /// </summary>
+
     public class JoystickFactory
     {
-        /// <summary>
-        /// This class provides static methods to
-        /// retrieve an instance of each of the joysticks
-        /// connected.
-        /// 
-        /// It is implemented using a singleton pattern
-        /// because it does not make sense to have more
-        /// than one instance of each joystick.
-        /// </summary>
-
         private static Joystick mainController;
         private static Joystick manipulatorLeft;
         private static Joystick manipulatorRight;
