@@ -31,7 +31,7 @@ namespace UisSubsea.RovTopside.Tests
 
             System.Diagnostics.Debug.WriteLine(state.Error);
             System.Diagnostics.Debug.WriteLine(state.Heading);
-            System.Diagnostics.Debug.WriteLine(state.FronCameraTilt);
+            System.Diagnostics.Debug.WriteLine(state.FrontCameraTilt);
             System.Diagnostics.Debug.WriteLine(state.RearCameraTilt);
             System.Diagnostics.Debug.WriteLine(state.Distance);
             System.Diagnostics.Debug.WriteLine(state.Depth);
@@ -39,7 +39,7 @@ namespace UisSubsea.RovTopside.Tests
 
             Assert.IsTrue(state.Error);
             Assert.IsTrue(state.Heading == headingInDegrees);
-            Assert.IsTrue(state.FronCameraTilt == frontCameraInDegrees);
+            Assert.IsTrue(state.FrontCameraTilt == frontCameraInDegrees);
             Assert.IsTrue(state.RearCameraTilt == rearCameraInDegrees);
             Assert.IsTrue(state.Distance == distanceInCm);
             Assert.IsTrue(state.Depth == depthInCm);

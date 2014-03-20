@@ -110,7 +110,7 @@ namespace UisSubsea.RovTopside.Data
 
         private string getFilePath(string foldername)
         {
-            string drivepath = "";
+            string drivepath = String.Empty;
             DriveInfo[] drives = DriveInfo.GetDrives();
 
             // Search for removable drives.
@@ -124,7 +124,7 @@ namespace UisSubsea.RovTopside.Data
             }
 
             // No removable drives found. Save to current directory
-            if (drivepath == "")
+            if (drivepath.Equals(String.Empty))
                 drivepath = Environment.CurrentDirectory;
 
             string filepath = drivepath + "\\" + foldername + "\\";

@@ -47,7 +47,6 @@ namespace UisSubsea.RovTopside
 
             main = new MainController();
             Application.Run(main.pilotView);
-            //Application.Run(new JoystickTracker());
         }
 
         private static void Application_ApplicationExit(object sender, EventArgs e)
