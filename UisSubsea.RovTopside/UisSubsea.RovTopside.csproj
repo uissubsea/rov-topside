@@ -104,6 +104,12 @@
     <Compile Include="Data\ICamera.cs" />
     <Compile Include="Logic\CameraController.cs" />
     <Compile Include="Logic\ICameraHandler.cs" />
+    <Compile Include="Presentation\CameraTesterView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\CameraTesterView.Designer.cs">
+      <DependentUpon>CameraTesterView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\ICoPilotViewHandler.cs" />
     <Compile Include="Data\IJoystick.cs" />
     <Compile Include="Data\JoystickStateListener.cs" />
@@ -168,6 +174,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Presentation\CoPilotView.resx">
       <DependentUpon>CoPilotView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\CameraTesterView.resx">
+      <DependentUpon>CameraTesterView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\JoystickTracker.resx">
       <DependentUpon>JoystickTracker.cs</DependentUpon>

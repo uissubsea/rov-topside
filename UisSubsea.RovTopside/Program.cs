@@ -22,7 +22,7 @@ namespace UisSubsea.RovTopside
         [STAThread]
         static void Main()
         {
-            string[] ports = SerialPort.GetPortNames();
+            /*string[] ports = SerialPort.GetPortNames();
             if (!ports.Contains("COM1"))
             {
                 MessageBox.Show("Make sure USART is connected");
@@ -39,14 +39,15 @@ namespace UisSubsea.RovTopside
             {
                 MessageBox.Show("Make sure all cameras are connected");
                 return;
-            }
+            }*/
 
             Application.ApplicationExit += Application_ApplicationExit;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);      
 
-            main = new MainController();
-            Application.Run(main.pilotView);
+            //main = new MainController();
+            //Application.Run(main.pilotView);
+            Application.Run(new CameraTesterView());
         }
 
         private static void Application_ApplicationExit(object sender, EventArgs e)
