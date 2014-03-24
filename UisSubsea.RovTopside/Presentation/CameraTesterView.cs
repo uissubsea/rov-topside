@@ -33,7 +33,7 @@ namespace UisSubsea.RovTopside.Presentation
         private void timer_Tick(object sender, EventArgs e)
         {
             lblFrameRateReceived.Text = camera.Instance.FramesReceived.ToString() + " fps";
-            lblBitRate.Text = ((camera.Instance.BytesReceived / 1000000.0)*8).ToString() + " Mb/s";
+            lblBitRate.Text = ((camera.Instance.BytesReceived / 1000000.0)*8).ToString() + " Mbit/s";
         }
 
         private void CameraTesterView_FormClosing(object sender, FormClosingEventArgs e)
