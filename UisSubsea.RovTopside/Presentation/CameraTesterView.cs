@@ -21,6 +21,9 @@ namespace UisSubsea.RovTopside.Presentation
             InitializeComponent();
 
             camera = new Camera(1, new Size(1280, 720));
+
+            camera.Instance.VideoSourceError += new AForge.Video.VideoSourceErrorEventHandler(CameraTesterView_VideoSourceError);
+
             camera.Canvas = videoCanvas;
             camera.Start();
 
@@ -39,6 +42,11 @@ namespace UisSubsea.RovTopside.Presentation
                 camera.Stop();
 
             timer.Stop();
+        }
+
+        private void CameraTesterView_VideoSourceError(object sender, AForge.Video.VideoSourceErrorEventArgs e)
+        {
+            MessageBox.Show(e.ToString());
         }
     }
 }
