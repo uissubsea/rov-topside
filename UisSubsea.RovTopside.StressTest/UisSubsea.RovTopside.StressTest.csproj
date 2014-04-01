@@ -47,12 +47,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\UisSubsea.RovTopside\UisSubsea.RovTopside.csproj">
-      <Project>{d477d5a1-ed90-4cfd-a5e3-09b7b302b596}</Project>
-      <Name>UisSubsea.RovTopside</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

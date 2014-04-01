@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UisSubsea.RovTopside.Data;
 using System.IO.Ports;
 using System.IO;
 
@@ -20,19 +19,24 @@ namespace UisSubsea.RovTopside.StressTest
 
             const int numberOfBytes = 20;
 
+            // The file to log to.
             w = File.AppendText("log.txt");
 
             Log("Initializing COM1 for communication", w);
             Console.WriteLine("Initializing COM1 for communication");
-            port = SerialPortSingleton.Instance;
+
+            // The receiving part must have matching properties.
+            port = new SerialPort("COM1", 56000, Parity.None, 8, StopBits.One);
 
             Log("Opening COM-port", w);
             Console.WriteLine("Opening COM-port");
+
             if (!port.IsOpen)
                 port.Open();
 
             Log("Initializing buffers", w);
             Console.WriteLine("Initializing buffers");
+
             ICollection<byte> inputBuffer = new List<Byte>(numberOfBytes);
             ICollection<byte> outputBuffer = new List<Byte>(numberOfBytes);
 
@@ -40,12 +44,14 @@ namespace UisSubsea.RovTopside.StressTest
 
             Log("Starting stress test", w);
             Console.WriteLine("\n------ Starting stress test ------\n");
+
             while (true)
             {
                 try
                 {
                     // Fill output buffer with random bytes.
                     Log("Generating random bytes", w);
+
                     for (int i = 0; i < numberOfBytes; i++)
                     {
                         byte next = (byte)r.Next(0, 251);
@@ -54,12 +60,14 @@ namespace UisSubsea.RovTopside.StressTest
 
                     // Send the random bytes over the serial port.
                     Log("Writing bytes to serial port", w);
+
                     byte[] stateArray = outputBuffer.ToArray();
                     Log(String.Join(", ", stateArray), w);
                     port.Write(stateArray, 0, stateArray.Length);
 
                     // Received bytes from the serial port.
                     Log("Waiting on bytes from serial port", w);
+
                     for (int i = 0; i < numberOfBytes; i++)
                     {
                         int data = port.ReadByte();
@@ -84,12 +92,12 @@ namespace UisSubsea.RovTopside.StressTest
                 }
                 catch (Exception)
                 {
-                    w.Close();
-                    port.Close();
+                    cleanUp();
                 }
             }
         }
 
+        // Log messages with a timestamp
         static void Log(string logMessage, TextWriter w)
         {
             w.Write("\r\nLog Entry : ");
@@ -100,11 +108,21 @@ namespace UisSubsea.RovTopside.StressTest
             w.WriteLine("-------------------------------");
         }
 
+        // Use Ctrl+C to exit the application properly.
+        // If not, the clean up code will not be executed.
         static void Console_CancelKeyPress(object sender, ConsoleCancelEventArgs e)
         {
             Console.WriteLine("\r\nShutting down...");
+            cleanUp();
+        }
+
+        // Clean up used resources on error or exit
+        static void cleanUp()
+        {
             w.Close();
-            port.Close();
+
+            if (port.IsOpen)
+                port.Close();
         }
     }
 }
