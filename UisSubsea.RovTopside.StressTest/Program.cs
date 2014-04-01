@@ -22,20 +22,22 @@ namespace UisSubsea.RovTopside.StressTest
             // The file to log to.
             w = File.AppendText("log.txt");
 
+            Console.WriteLine("IMPORTANT NOTE:  Use Ctrl + C to cancel the test\r\n");
+
             Log("Initializing COM1 for communication", w);
-            Console.WriteLine("Initializing COM1 for communication");
+            Console.WriteLine("[INIT] Initializing COM1 for communication");
 
             // The receiving part must have matching properties.
             port = new SerialPort("COM1", 56000, Parity.None, 8, StopBits.One);
 
             Log("Opening COM-port", w);
-            Console.WriteLine("Opening COM-port");
+            Console.WriteLine("[INIT] Opening COM-port");
 
             if (!port.IsOpen)
                 port.Open();
 
             Log("Initializing buffers", w);
-            Console.WriteLine("Initializing buffers");
+            Console.WriteLine("[INIT] Initializing buffers");
 
             ICollection<byte> inputBuffer = new List<Byte>(numberOfBytes);
             ICollection<byte> outputBuffer = new List<Byte>(numberOfBytes);
@@ -49,6 +51,8 @@ namespace UisSubsea.RovTopside.StressTest
             {
                 try
                 {
+                    int mismatchCount = 0;
+                    
                     // Fill output buffer with random bytes.
                     Log("Generating random bytes", w);
 
@@ -80,9 +84,11 @@ namespace UisSubsea.RovTopside.StressTest
                     {
                         if (!(outputBuffer.ElementAt(i).Equals(inputBuffer.ElementAt(i))))
                         {
-                            Log("Byte mismatch!", w);
-                            var currentTime = DateTime.Now.ToString("HH:mm:ss tt");
-                            Console.WriteLine(currentTime + "   byte mismatch!");
+                            mismatchCount++;
+
+                            Log("Byte mismatch (" + mismatchCount + ")!", w);
+                            var currentTime = DateTime.Now.ToString("HH:mm:ss");
+                            Console.WriteLine("[FAIL] " + currentTime + "   byte mismatch (" + mismatchCount + ")!");
                         }
                     }
 
@@ -112,7 +118,7 @@ namespace UisSubsea.RovTopside.StressTest
         // If not, the clean up code will not be executed.
         static void Console_CancelKeyPress(object sender, ConsoleCancelEventArgs e)
         {
-            Console.WriteLine("\r\nShutting down...");
+            Console.WriteLine("\r\n[SHUTDOWN] Shutting down...");
             cleanUp();
         }
 
