@@ -1,0 +1,110 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using UisSubsea.RovTopside.Data;
+using System.IO.Ports;
+using System.IO;
+
+namespace UisSubsea.RovTopside.StressTest
+{
+    class Program
+    {
+        private static StreamWriter w;
+        private static SerialPort port;
+
+        static void Main(string[] args)
+        {
+            Console.CancelKeyPress += new ConsoleCancelEventHandler(Console_CancelKeyPress);
+
+            const int numberOfBytes = 20;
+
+            w = File.AppendText("log.txt");
+
+            Log("Initializing COM1 for communication", w);
+            Console.WriteLine("Initializing COM1 for communication");
+            port = SerialPortSingleton.Instance;
+
+            Log("Opening COM-port", w);
+            Console.WriteLine("Opening COM-port");
+            if (!port.IsOpen)
+                port.Open();
+
+            Log("Initializing buffers", w);
+            Console.WriteLine("Initializing buffers");
+            ICollection<byte> inputBuffer = new List<Byte>(numberOfBytes);
+            ICollection<byte> outputBuffer = new List<Byte>(numberOfBytes);
+
+            Random r = new Random();
+
+            Log("Starting stress test", w);
+            Console.WriteLine("\n------ Starting stress test ------\n");
+            while (true)
+            {
+                try
+                {
+                    // Fill output buffer with random bytes.
+                    Log("Generating random bytes", w);
+                    for (int i = 0; i < numberOfBytes; i++)
+                    {
+                        byte next = (byte)r.Next(0, 251);
+                        outputBuffer.Add(next);
+                    }
+
+                    // Send the random bytes over the serial port.
+                    Log("Writing bytes to serial port", w);
+                    byte[] stateArray = outputBuffer.ToArray();
+                    Log(String.Join(", ", stateArray), w);
+                    port.Write(stateArray, 0, stateArray.Length);
+
+                    // Received bytes from the serial port.
+                    Log("Waiting on bytes from serial port", w);
+                    for (int i = 0; i < numberOfBytes; i++)
+                    {
+                        int data = port.ReadByte();
+                        inputBuffer.Add((byte)data);
+                    }
+
+                    // Compare the received bytes with the ones that where sent.
+                    // If they are not equal, register a failed test.
+                    for (int i = 0; i < numberOfBytes; i++)
+                    {
+                        if (!(outputBuffer.ElementAt(i).Equals(inputBuffer.ElementAt(i))))
+                        {
+                            Log("Byte mismatch!", w);
+                            var currentTime = DateTime.Now.ToString("HH:mm:ss tt");
+                            Console.WriteLine(currentTime + "   byte mismatch!");
+                        }
+                    }
+
+                    //Clear the buffers.
+                    outputBuffer.Clear();
+                    inputBuffer.Clear();
+                }
+                catch (Exception)
+                {
+                    w.Close();
+                    port.Close();
+                }
+            }
+        }
+
+        static void Log(string logMessage, TextWriter w)
+        {
+            w.Write("\r\nLog Entry : ");
+            w.WriteLine("{0} {1}", DateTime.Now.ToLongTimeString(),
+                DateTime.Now.ToLongDateString());
+            w.WriteLine("  :");
+            w.WriteLine("  :{0}", logMessage);
+            w.WriteLine("-------------------------------");
+        }
+
+        static void Console_CancelKeyPress(object sender, ConsoleCancelEventArgs e)
+        {
+            Console.WriteLine("\r\nShutting down...");
+            w.Close();
+            port.Close();
+        }
+    }
+}

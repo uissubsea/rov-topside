@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UisSubsea.RovTopside.Tests"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UisSubsea.MusselDetector", "UisSubsea.MusselDetector\UisSubsea.MusselDetector.csproj", "{40BCDC6B-757B-40CD-9944-B7B21D99CC3F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UisSubsea.RovTopside.StressTest", "UisSubsea.RovTopside.StressTest\UisSubsea.RovTopside.StressTest.csproj", "{096FB045-CEF4-4F71-B284-732136F089B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,16 @@ Global
 		{40BCDC6B-757B-40CD-9944-B7B21D99CC3F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{40BCDC6B-757B-40CD-9944-B7B21D99CC3F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{40BCDC6B-757B-40CD-9944-B7B21D99CC3F}.Release|x86.ActiveCfg = Release|Any CPU
+		{096FB045-CEF4-4F71-B284-732136F089B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{096FB045-CEF4-4F71-B284-732136F089B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{096FB045-CEF4-4F71-B284-732136F089B1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{096FB045-CEF4-4F71-B284-732136F089B1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{096FB045-CEF4-4F71-B284-732136F089B1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{096FB045-CEF4-4F71-B284-732136F089B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{096FB045-CEF4-4F71-B284-732136F089B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{096FB045-CEF4-4F71-B284-732136F089B1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{096FB045-CEF4-4F71-B284-732136F089B1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{096FB045-CEF4-4F71-B284-732136F089B1}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
