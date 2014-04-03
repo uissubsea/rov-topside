@@ -8,16 +8,45 @@ using System.IO;
 
 namespace UisSubsea.RovTopside.StressTest
 {
-    class Program
+    public class Program
     {
+        private const int numberOfBytes = 20;
+        private const byte startByte = 255;
+        private const byte stopByte = 251;
+
         private static StreamWriter w;
         private static SerialPort port;
+        private static Random r;
+        private static IList<byte> outputBuffer;
+        private static IList<byte> inputBuffer;      
 
-        static void Main(string[] args)
+        private static void Main(string[] args)
+        {
+            initializeComponents();
+
+            Log("Starting stress test", w);
+            Console.WriteLine("\n------ Starting stress test ------\n");
+
+            while (true)
+            {
+                try
+                {
+                    generatePackageOfRandomBytes();
+                    writePackageToSerialPort();
+                    readPackageFromSerialPort();
+                    comparePackages();
+                    clearBuffers();                   
+                }
+                catch (Exception)
+                {
+                    cleanUp();
+                }
+            }
+        }
+
+        private static void initializeComponents()
         {
             Console.CancelKeyPress += new ConsoleCancelEventHandler(Console_CancelKeyPress);
-
-            const int numberOfBytes = 20;
 
             // The file to log to.
             w = File.AppendText("log.txt");
@@ -39,72 +68,109 @@ namespace UisSubsea.RovTopside.StressTest
             Log("Initializing buffers", w);
             Console.WriteLine("[INIT] Initializing buffers");
 
-            ICollection<byte> inputBuffer = new List<Byte>(numberOfBytes);
-            ICollection<byte> outputBuffer = new List<Byte>(numberOfBytes);
+            inputBuffer = new List<Byte>(numberOfBytes);
+            outputBuffer = new List<Byte>(numberOfBytes);
 
-            Random r = new Random();
+            r = new Random();
+        }
 
-            Log("Starting stress test", w);
-            Console.WriteLine("\n------ Starting stress test ------\n");
+        private static void generatePackageOfRandomBytes()
+        {
+            // Fill output buffer with random bytes.
+            Log("Generating random bytes", w);
 
-            while (true)
+            for (int i = 0; i < numberOfBytes; i++)
             {
-                try
+                byte next = (byte)r.Next(0, 251);
+                outputBuffer.Add(next);
+            }
+        }
+
+        private static void writePackageToSerialPort()
+        {
+            // Send the random bytes over the serial port.
+            Log("Writing bytes to serial port", w);
+
+            // Add start and stop byte according to the
+            // communication protocol.
+            outputBuffer.Insert(0, (byte)startByte);
+            outputBuffer.Add((byte)stopByte);
+
+            byte[] stateArray = outputBuffer.ToArray();
+
+            Log(String.Join(", ", stateArray), w);
+
+            port.Write(stateArray, 0, stateArray.Length);
+        }
+
+        private static void readPackageFromSerialPort()
+        {
+            waitForStartByte();
+            bufferDataUntilStopByteIsReceived();
+        }
+
+        private static void waitForStartByte()
+        {
+            bool startByteReceived = false;
+
+            while (!startByteReceived)
+            {
+                int data = port.ReadByte();
+
+                if ((byte)data == startByte)
                 {
-                    int mismatchCount = 0;
-                    
-                    // Fill output buffer with random bytes.
-                    Log("Generating random bytes", w);
-
-                    for (int i = 0; i < numberOfBytes; i++)
-                    {
-                        byte next = (byte)r.Next(0, 251);
-                        outputBuffer.Add(next);
-                    }
-
-                    // Send the random bytes over the serial port.
-                    Log("Writing bytes to serial port", w);
-
-                    byte[] stateArray = outputBuffer.ToArray();
-                    Log(String.Join(", ", stateArray), w);
-                    port.Write(stateArray, 0, stateArray.Length);
-
-                    // Received bytes from the serial port.
-                    Log("Waiting on bytes from serial port", w);
-
-                    for (int i = 0; i < numberOfBytes; i++)
-                    {
-                        int data = port.ReadByte();
-                        inputBuffer.Add((byte)data);
-                    }
-
-                    // Compare the received bytes with the ones that where sent.
-                    // If they are not equal, register a failed test.
-                    for (int i = 0; i < numberOfBytes; i++)
-                    {
-                        if (!(outputBuffer.ElementAt(i).Equals(inputBuffer.ElementAt(i))))
-                        {
-                            mismatchCount++;
-
-                            Log("Byte mismatch (" + mismatchCount + ")!", w);
-                            var currentTime = DateTime.Now.ToString("HH:mm:ss");
-                            Console.WriteLine("[FAIL] " + currentTime + "   byte mismatch (" + mismatchCount + ")!");
-                        }
-                    }
-
-                    //Clear the buffers.
-                    outputBuffer.Clear();
-                    inputBuffer.Clear();
-                }
-                catch (Exception)
-                {
-                    cleanUp();
+                    inputBuffer.Add((byte)data);
+                    startByteReceived = true;
                 }
             }
         }
 
+        private static void bufferDataUntilStopByteIsReceived()
+        {
+            // Received bytes from the serial port
+            // until stop byte is received.
+            Log("Waiting on bytes from serial port", w);
+
+            bool stopByteReceived = false;
+            while (!stopByteReceived)
+            {
+                int data = port.ReadByte();
+
+                inputBuffer.Add((byte)data);
+
+                if ((byte)data == stopByte)
+                    stopByteReceived = true;
+            }
+        }
+
+        private static void comparePackages()
+        {
+            int mismatchCount = 0;
+
+            // Compare the received bytes with the ones that where sent.
+            // If they are not equal, register a failed test.
+            for (int i = 0; i < numberOfBytes; i++)
+            {
+                if (!(outputBuffer.ElementAt(i).Equals(inputBuffer.ElementAt(i))))
+                {
+                    mismatchCount++;
+
+                    Log("Byte mismatch (" + mismatchCount + ")!", w);
+                    var currentTime = DateTime.Now.ToString("HH:mm:ss");
+                    Console.WriteLine("[FAIL] " + currentTime + "   byte mismatch (" + mismatchCount + ")!");
+                }
+            }
+        }
+
+        private static void clearBuffers()
+        {
+            //Clear the buffers.
+            outputBuffer.Clear();
+            inputBuffer.Clear();
+        }
+
         // Log messages with a timestamp
-        static void Log(string logMessage, TextWriter w)
+        private static void Log(string logMessage, TextWriter w)
         {
             w.Write("\r\nLog Entry : ");
             w.WriteLine("{0} {1}", DateTime.Now.ToLongTimeString(),
@@ -116,14 +182,14 @@ namespace UisSubsea.RovTopside.StressTest
 
         // Use Ctrl+C to exit the application properly.
         // If not, the clean up code will not be executed.
-        static void Console_CancelKeyPress(object sender, ConsoleCancelEventArgs e)
+        private static void Console_CancelKeyPress(object sender, ConsoleCancelEventArgs e)
         {
             Console.WriteLine("\r\n[SHUTDOWN] Shutting down...");
             cleanUp();
         }
 
         // Clean up used resources on error or exit
-        static void cleanUp()
+        private static void cleanUp()
         {
             w.Close();
 
