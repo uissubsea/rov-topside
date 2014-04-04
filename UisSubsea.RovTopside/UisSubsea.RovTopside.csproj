@@ -170,6 +170,12 @@
     <Compile Include="Presentation\PilotView.Designer.cs">
       <DependentUpon>PilotView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\ProgramChooser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\ProgramChooser.Designer.cs">
+      <DependentUpon>ProgramChooser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Presentation\CoPilotView.resx">
@@ -183,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\PilotView.resx">
       <DependentUpon>PilotView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\ProgramChooser.resx">
+      <DependentUpon>ProgramChooser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -235,6 +244,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Altimeter_Background.bmp" />
+    <None Include="Resources\Logo.bmp" />
+    <None Include="Resources\Logopng.png" />
+    <None Include="Resources\Logopng1.png" />
     <Content Include="uissubsea_icon.ico" />
     <None Include="Resources\HeadingWeel_Glass.bmp" />
     <None Include="Resources\HeadingIndicator_Aircraft_Glass.bmp" />

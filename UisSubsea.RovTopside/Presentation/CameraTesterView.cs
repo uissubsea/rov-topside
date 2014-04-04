@@ -38,9 +38,7 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void CameraTesterView_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (camera.Instance.IsRunning)
-                camera.Stop();
-
+            camera.Dispose();
             timer.Stop();
         }
 

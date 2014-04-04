@@ -17,37 +17,101 @@ namespace UisSubsea.RovTopside
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        static MainController main;
-        
+
         [STAThread]
         static void Main()
         {
-            /*string[] ports = SerialPort.GetPortNames();
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            DialogResult result;
+            using (var chooser = new ProgramChooser())
+            {
+                result = chooser.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    switch (chooser.Program)
+                    {
+                        case "ROV Control System":
+                            launchControlSystem();
+                            break;
+                        case "Joystick Tester":
+                            launchJoystickTester();
+                            break;
+                        case "Camera Tester":
+                            launchCameraTester();
+                            break;
+                        case "Stress Test":
+                            launchStressTest();
+                            break;
+                        default:
+                            return;
+                    }
+                }
+            }
+        }
+
+        private static void launchControlSystem()
+        {
+            Application.ApplicationExit += Application_ApplicationExit;
+
+            string[] ports = SerialPort.GetPortNames();
             if (!ports.Contains("COM1"))
             {
                 MessageBox.Show("Make sure USART is connected");
                 return;
             }
 
-            if(Joystick.JoysticksAttached().Count < 3)
+            if (Joystick.JoysticksAttached().Count < 3)
             {
                 MessageBox.Show("Make sure all joysticks are connected");
                 return;
             }
 
-            if(Camera.CamerasConnected().Count < 3)
+            if (Camera.CamerasConnected().Count < 3)
             {
                 MessageBox.Show("Make sure all cameras are connected");
                 return;
-            }*/
+            }
 
-            Application.ApplicationExit += Application_ApplicationExit;
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);      
+            MainController main = new MainController();
+            Application.Run(main.pilotView);
+        }
 
-            //main = new MainController();
-            //Application.Run(main.pilotView);
+        private static void launchJoystickTester()
+        {
+            string[] ports = SerialPort.GetPortNames();
+            if (!ports.Contains("COM1"))
+            {
+                MessageBox.Show("Make sure USART is connected");
+                return;
+            }
+
+            if (Joystick.JoysticksAttached().Count == 0)
+            {
+                MessageBox.Show("Make sure a joystick is connected");
+                return;
+            }
+
+            Application.Run(new JoystickTracker());
+        }
+
+        private static void launchCameraTester()
+        {
+            if (Camera.CamerasConnected().Count == 0)
+            {
+                MessageBox.Show("Make sure a camera is connected");
+                return;
+            }
+
             Application.Run(new CameraTesterView());
+        }
+
+        private static void launchStressTest()
+        {
+            MessageBox.Show("Not yet implemented");
+            return;
         }
 
         private static void Application_ApplicationExit(object sender, EventArgs e)
