@@ -8,6 +8,7 @@ using System.IO.Ports;
 using UisSubsea.RovTopside.Data;
 using UisSubsea.RovTopside.Logic;
 using AForge.Video.DirectShow;
+using UisSubsea.RovTopside.StressTest;
 
 
 namespace UisSubsea.RovTopside
@@ -110,7 +111,16 @@ namespace UisSubsea.RovTopside
 
         private static void launchStressTest()
         {
-            MessageBox.Show("Not yet implemented");
+            string[] ports = SerialPort.GetPortNames();
+            if (!ports.Contains("COM1"))
+            {
+                MessageBox.Show("Make sure USART is connected");
+                return;
+            }
+
+            StressTestMain stressTest = new StressTestMain();
+            System.Diagnostics.Process.Start(stressTest.Path() + "\\UisSubsea.RovTopside.StressTest.exe");
+
             return;
         }
 

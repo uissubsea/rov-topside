@@ -8,7 +8,7 @@ using System.IO;
 
 namespace UisSubsea.RovTopside.StressTest
 {
-    public class Program
+    public class StressTestMain
     {
         private const int numberOfBytes = 20;
         private const byte startByte = 255;
@@ -195,6 +195,11 @@ namespace UisSubsea.RovTopside.StressTest
 
             if (port.IsOpen)
                 port.Close();
+        }
+
+        public string Path()
+        {
+            return Environment.CurrentDirectory;
         }
     }
 }
