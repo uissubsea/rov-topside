@@ -21,7 +21,7 @@ namespace UisSubsea.RovTopside.Presentation
 
         public void WaitForRovToPowerUp()
         {
-            while (Camera.CamerasConnected().Count < 1)
+            while (Camera.CamerasConnected().Count < 3)
             {
                 System.Threading.Thread.Sleep(1000);
             }     
