@@ -11,9 +11,9 @@ namespace UisSubsea.RovTopside.Data
     /// This class holds the constants that will be used
     /// by some of the components in the application.
     /// </summary>
-    
+
     public static class Constants
-    {  
+    {
         /**
          * These are the values we agreed to use to
          * mark the beginning and the end of a packet.
@@ -77,6 +77,25 @@ namespace UisSubsea.RovTopside.Data
         public const string LogitechExtreme3DProGuid = "8e25a690";
         public const string LogitechAttack3Guid = "a7625630";
         public const string Logitechextreme3DProManipulatorGuid = "132e2630";
+
+        public static byte[] InitializationPacket = {
+                                                       StartByte, 
+                                                       125, 
+                                                       125,
+                                                       125,
+                                                       125,
+                                                       0,
+                                                       0,
+                                                       125,
+                                                       125,
+                                                       0,
+                                                       125,
+                                                       125,
+                                                       125,
+                                                       0,
+                                                       0,
+                                                       StopByte
+                                                   };
 
     }
 }

@@ -164,6 +164,12 @@
     <Compile Include="Presentation\JoystickTracker.Designer.cs">
       <DependentUpon>JoystickTracker.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\LoadingView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\LoadingView.Designer.cs">
+      <DependentUpon>LoadingView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\PilotView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\JoystickTracker.resx">
       <DependentUpon>JoystickTracker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\LoadingView.resx">
+      <DependentUpon>LoadingView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\PilotView.resx">
       <DependentUpon>PilotView.cs</DependentUpon>
@@ -248,6 +257,7 @@
     <None Include="Resources\Logopng.png" />
     <None Include="Resources\Logopng1.png" />
     <None Include="Resources\Logo.png" />
+    <None Include="Resources\loader.gif" />
     <Content Include="uissubsea_icon.ico" />
     <None Include="Resources\HeadingWeel_Glass.bmp" />
     <None Include="Resources\HeadingIndicator_Aircraft_Glass.bmp" />

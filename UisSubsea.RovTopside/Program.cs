@@ -10,7 +10,6 @@ using UisSubsea.RovTopside.Logic;
 using AForge.Video.DirectShow;
 using UisSubsea.RovTopside.StressTest;
 
-
 namespace UisSubsea.RovTopside
 {
     static class Program
@@ -70,10 +69,14 @@ namespace UisSubsea.RovTopside
                 return;
             }
 
-            if (Camera.CamerasConnected().Count < 3)
+            using (var waitingView = new LoadingView())
             {
-                MessageBox.Show("Make sure all cameras are connected");
-                return;
+                var result = waitingView.ShowDialog();
+                if (!(result == DialogResult.OK))
+                {
+                    MessageBox.Show("Something went wrong. Please try again.");
+                    return;
+                }
             }
 
             MainController main = new MainController();
@@ -88,7 +91,6 @@ namespace UisSubsea.RovTopside
                 MessageBox.Show("Make sure USART is connected");
                 return;
             }
-<<<<<<< HEAD
 
             if (Joystick.JoysticksAttached().Count == 0)
             {
@@ -107,48 +109,7 @@ namespace UisSubsea.RovTopside
                 return;
             }
 
-<<<<<<< HEAD
-            main = new MainController();
-            Application.Run(main.pilotView);
-            //Application.Run(new CameraTesterView());
-=======
-=======
-
-            if (Joystick.JoysticksAttached().Count == 0)
-            {
-                MessageBox.Show("Make sure a joystick is connected");
-                return;
-            }
-
-            Application.Run(new JoystickTracker());
-        }
-
-        private static void launchCameraTester()
-        {
-            if (Camera.CamerasConnected().Count == 0)
-            {
-                MessageBox.Show("Make sure a camera is connected");
-                return;
-            }
-
->>>>>>> 3ace367433479a23a6709c6e47a067c5941248d2
             Application.Run(new CameraTesterView());
->>>>>>> 3ace367433479a23a6709c6e47a067c5941248d2
-        }
-
-        private static void launchStressTest()
-        {
-            string[] ports = SerialPort.GetPortNames();
-            if (!ports.Contains("COM1"))
-            {
-                MessageBox.Show("Make sure USART is connected");
-                return;
-            }
-
-            StressTestMain stressTest = new StressTestMain();
-            System.Diagnostics.Process.Start(stressTest.Path() + "\\UisSubsea.RovTopside.StressTest.exe");
-
-            return;
         }
 
         private static void launchStressTest()
@@ -169,7 +130,7 @@ namespace UisSubsea.RovTopside
         private static void Application_ApplicationExit(object sender, EventArgs e)
         {
             CameraFactory.DisposeAll();
-            //JoystickFactory.DisposeAll();
+            JoystickFactory.DisposeAll();
         }
     }
 }
