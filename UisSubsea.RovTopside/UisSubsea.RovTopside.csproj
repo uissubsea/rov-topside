@@ -170,6 +170,12 @@
     <Compile Include="Presentation\PilotView.Designer.cs">
       <DependentUpon>PilotView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\ProgramChooser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\ProgramChooser.Designer.cs">
+      <DependentUpon>ProgramChooser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Presentation\CoPilotView.resx">
@@ -183,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\PilotView.resx">
       <DependentUpon>PilotView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\ProgramChooser.resx">
+      <DependentUpon>ProgramChooser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -235,12 +244,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Altimeter_Background.bmp" />
+    <None Include="Resources\Logo.bmp" />
+    <None Include="Resources\Logopng.png" />
+    <None Include="Resources\Logopng1.png" />
+    <None Include="Resources\Logo.png" />
     <Content Include="uissubsea_icon.ico" />
     <None Include="Resources\HeadingWeel_Glass.bmp" />
     <None Include="Resources\HeadingIndicator_Aircraft_Glass.bmp" />
     <None Include="Resources\SmallNeedleAltimeter_Glass.bmp" />
     <None Include="Resources\LongNeedleAltimeter_Glass.bmp" />
     <None Include="Resources\HeadingIndicator_Background_Glass.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UisSubsea.RovTopside.StressTest\UisSubsea.RovTopside.StressTest.csproj">
+      <Project>{096fb045-cef4-4f71-b284-732136f089b1}</Project>
+      <Name>UisSubsea.RovTopside.StressTest</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
