@@ -57,7 +57,7 @@ namespace UisSubsea.RovTopside.Logic
         private void coPilotLeftStick_StateChanged(object sender, EventArgs e)
         {
             if (leftFocusSliderChanged())
-                cameraHandler.PilotCameraSetFocus((int)(leftFocusSlider * 0.24));
+                cameraHandler.PilotCameraSetFocus((int)(leftFocusSlider * 1.02));
 
             if (leftStickAutofocus())
                 cameraHandler.PilotCameraAutofocus();
