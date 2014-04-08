@@ -48,6 +48,9 @@ namespace UisSubsea.RovTopside.Logic
 
             pilotView.Show();
             coPilotView.Show();
+
+            SerialPortSingleton.Instance.Write(Constants.InitializationPacket, 
+                0, Constants.InitializationPacket.Length);
         }
 
         private void initializeViews()

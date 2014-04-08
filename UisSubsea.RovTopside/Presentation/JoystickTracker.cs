@@ -52,19 +52,32 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void readRovState(byte[] data)
         {
-            foreach (byte b in data)
+            /*foreach (byte b in data)
             {
                 txtInput.AppendText((byte)b + " ");
             }
-            txtInput.AppendText("\r\n");
+            txtInput.AppendText("\r\n");*/
+
+            string packet = "";
+
+            foreach (byte b in data)
+                packet += (byte)b + " ";
+
+            txtInput.Text = packet;
         }
 
         private void readOutputData()
         {
-            foreach (byte b in stateStore.Main)
+            /*foreach (byte b in stateStore.Main)
                 txtOutput.AppendText((byte)b + " ");
 
-            txtOutput.AppendText("\r\n");
+            txtOutput.AppendText("\r\n");*/
+            string packet = "";
+
+            foreach (byte b in stateStore.Main)
+                packet += (byte)b + " ";
+
+            txtOutput.Text = packet;
         }
 
         private void refresh()

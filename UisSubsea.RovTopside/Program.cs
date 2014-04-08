@@ -10,7 +10,6 @@ using UisSubsea.RovTopside.Logic;
 using AForge.Video.DirectShow;
 using UisSubsea.RovTopside.StressTest;
 
-
 namespace UisSubsea.RovTopside
 {
     static class Program
@@ -70,10 +69,14 @@ namespace UisSubsea.RovTopside
                 return;
             }
 
-            if (Camera.CamerasConnected().Count < 3)
+            using (var waitingView = new LoadingView())
             {
-                MessageBox.Show("Make sure all cameras are connected");
-                return;
+                var result = waitingView.ShowDialog();
+                if (!(result == DialogResult.OK))
+                {
+                    MessageBox.Show("Something went wrong. Please try again.");
+                    return;
+                }
             }
 
             MainController main = new MainController();
@@ -106,7 +109,15 @@ namespace UisSubsea.RovTopside
                 return;
             }
 
-            Application.Run(new CameraTesterView());
+            DialogResult result;
+            using (var selector = new CameraSelector())
+            {
+                result = selector.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    Application.Run(new CameraTesterView(selector.CameraIndex));
+                }
+            } 
         }
 
         private static void launchStressTest()
