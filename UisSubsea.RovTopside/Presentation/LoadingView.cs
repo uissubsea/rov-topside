@@ -14,9 +14,16 @@ namespace UisSubsea.RovTopside.Presentation
 {
     public partial class LoadingView : Form
     {
+
+        BackgroundWorker backgroundWorker;
+
         public LoadingView()
         {
-            InitializeComponent();   
+            InitializeComponent();
+            backgroundWorker = new BackgroundWorker();
+            backgroundWorker.DoWork += backgroundWorker_DoWork;
+            backgroundWorker.RunWorkerCompleted += backgroundWorker_RunWorkerCompleted;
+            backgroundWorker.RunWorkerAsync();
         }
 
         public void WaitForRovToPowerUp()
@@ -27,11 +34,13 @@ namespace UisSubsea.RovTopside.Presentation
             }     
         }
 
-        private void LoadingView_Shown(object sender, EventArgs e)
+        private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            Thread thread = new Thread(() => WaitForRovToPowerUp());
-            thread.Start();
-            thread.Join();
+            WaitForRovToPowerUp(); 
+        }
+
+        private void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
             DialogResult = DialogResult.OK;
         }
     }

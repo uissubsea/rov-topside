@@ -30,7 +30,7 @@ namespace UisSubsea.RovTopside.Data
             if (CameraFactory.mainCamera != null)
                 return mainCamera;
             else return CameraFactory.mainCamera = 
-                new Camera(getCameraIndex(Constants.LogitechC930eMonikerFront), 
+                new Camera(getCameraIndex(Constants.LogitechC930eMonikerRear), 
                     Constants.DesiredResolution);
         }
 
@@ -48,7 +48,7 @@ namespace UisSubsea.RovTopside.Data
             if (CameraFactory.rearCamera != null)
                 return rearCamera;
             else return CameraFactory.rearCamera = 
-                new Camera(getCameraIndex(Constants.LogitechC930eMonikerRear), 
+                new Camera(getCameraIndex(Constants.LogitechC930eMonikerFront), 
                     Constants.DesiredResolution);
         }
 
