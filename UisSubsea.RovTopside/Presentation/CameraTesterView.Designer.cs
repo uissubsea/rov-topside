@@ -35,6 +35,7 @@
             this.lblBitRateHeading = new System.Windows.Forms.Label();
             this.lblBitRate = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.btnCameraProperties = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.videoCanvas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +50,7 @@
             // lblFrameRateHeading
             // 
             this.lblFrameRateHeading.AutoSize = true;
-            this.lblFrameRateHeading.Location = new System.Drawing.Point(12, 740);
+            this.lblFrameRateHeading.Location = new System.Drawing.Point(12, 745);
             this.lblFrameRateHeading.Name = "lblFrameRateHeading";
             this.lblFrameRateHeading.Size = new System.Drawing.Size(60, 13);
             this.lblFrameRateHeading.TabIndex = 1;
@@ -58,7 +59,7 @@
             // lblFrameRateReceived
             // 
             this.lblFrameRateReceived.AutoSize = true;
-            this.lblFrameRateReceived.Location = new System.Drawing.Point(78, 740);
+            this.lblFrameRateReceived.Location = new System.Drawing.Point(75, 745);
             this.lblFrameRateReceived.Name = "lblFrameRateReceived";
             this.lblFrameRateReceived.Size = new System.Drawing.Size(13, 13);
             this.lblFrameRateReceived.TabIndex = 2;
@@ -67,7 +68,7 @@
             // lblBitRateHeading
             // 
             this.lblBitRateHeading.AutoSize = true;
-            this.lblBitRateHeading.Location = new System.Drawing.Point(163, 740);
+            this.lblBitRateHeading.Location = new System.Drawing.Point(163, 745);
             this.lblBitRateHeading.Name = "lblBitRateHeading";
             this.lblBitRateHeading.Size = new System.Drawing.Size(43, 13);
             this.lblBitRateHeading.TabIndex = 3;
@@ -76,7 +77,7 @@
             // lblBitRate
             // 
             this.lblBitRate.AutoSize = true;
-            this.lblBitRate.Location = new System.Drawing.Point(212, 740);
+            this.lblBitRate.Location = new System.Drawing.Point(209, 745);
             this.lblBitRate.Name = "lblBitRate";
             this.lblBitRate.Size = new System.Drawing.Size(13, 13);
             this.lblBitRate.TabIndex = 4;
@@ -87,12 +88,23 @@
             this.timer.Interval = 1000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // btnCameraProperties
+            // 
+            this.btnCameraProperties.Location = new System.Drawing.Point(1167, 740);
+            this.btnCameraProperties.Name = "btnCameraProperties";
+            this.btnCameraProperties.Size = new System.Drawing.Size(126, 23);
+            this.btnCameraProperties.TabIndex = 5;
+            this.btnCameraProperties.Text = "Camera properties";
+            this.btnCameraProperties.UseVisualStyleBackColor = true;
+            this.btnCameraProperties.Click += new System.EventHandler(this.btnCameraProperties_Click);
+            // 
             // CameraTesterView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1307, 762);
+            this.ClientSize = new System.Drawing.Size(1307, 771);
+            this.Controls.Add(this.btnCameraProperties);
             this.Controls.Add(this.lblBitRate);
             this.Controls.Add(this.lblBitRateHeading);
             this.Controls.Add(this.lblFrameRateReceived);
@@ -115,5 +127,6 @@
         private System.Windows.Forms.Label lblBitRateHeading;
         private System.Windows.Forms.Label lblBitRate;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Button btnCameraProperties;
     }
 }

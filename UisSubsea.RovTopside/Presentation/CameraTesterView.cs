@@ -46,5 +46,10 @@ namespace UisSubsea.RovTopside.Presentation
         {
             MessageBox.Show(e.ToString());
         }
+
+        private void btnCameraProperties_Click(object sender, EventArgs e)
+        {
+            camera.DisplayCameraProperties();
+        }
     }
 }
