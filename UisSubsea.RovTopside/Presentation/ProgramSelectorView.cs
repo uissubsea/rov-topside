@@ -17,6 +17,9 @@ namespace UisSubsea.RovTopside.Presentation
         public ProgramSelectorView()
         {
             InitializeComponent();
+
+            if(cmbProgram.Items.Count >= 1)
+                cmbProgram.SelectedIndex = 0;
         }
 
         private void btnOK_Click(object sender, EventArgs e)

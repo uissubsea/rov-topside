@@ -25,6 +25,9 @@ namespace UisSubsea.RovTopside.Presentation
             camerasConnected = Camera.CamerasConnected();
             foreach (FilterInfo camera in camerasConnected)
                 cmbCamerasConnected.Items.Add(camera.Name);
+
+            if(cmbCamerasConnected.Items.Count >= 1)
+                cmbCamerasConnected.SelectedIndex = 0;
         }
 
         private void btnLaunch_Click(object sender, EventArgs e)
