@@ -12,13 +12,13 @@ using AForge.Video.DirectShow;
 
 namespace UisSubsea.RovTopside.Presentation
 {
-    public partial class CameraSelector : Form
+    public partial class CameraSelectorView : Form
     {
 
         public int CameraIndex { get; private set; }
         private FilterInfoCollection camerasConnected;
 
-        public CameraSelector()
+        public CameraSelectorView()
         {
             InitializeComponent();
 

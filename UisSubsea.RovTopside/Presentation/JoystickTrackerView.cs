@@ -18,7 +18,7 @@ namespace UisSubsea.RovTopside.Presentation
     /// as well as joystick input handeling.
     /// </summary>
 
-    public partial class JoystickTracker : Form
+    public partial class JoystickTrackerView : Form
     {
         private Joystick joystick;
 
@@ -40,7 +40,7 @@ namespace UisSubsea.RovTopside.Presentation
 
         private JoystickStateStore stateStore;
 
-        public JoystickTracker()
+        public JoystickTrackerView()
         {
             InitializeComponent();
 

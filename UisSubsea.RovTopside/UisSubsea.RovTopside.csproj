@@ -70,7 +70,7 @@
       <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
     <Reference Include="AForge.Video.FFMPEG">
-      <HintPath>..\..\..\Visual Studio 2013\Projects\WebCamTest\WindowsFormsApplication1\bin\x86\Debug\AForge.Video.FFMPEG.dll</HintPath>
+      <HintPath>..\..\..\Visual Studio 2013\Projects\aforgeWebcamTutorial\aforgeWebcamTutorial\bin\x86\Debug\AForge.Video.FFMPEG.dll</HintPath>
     </Reference>
     <Reference Include="AGauge, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -104,11 +104,11 @@
     <Compile Include="Data\ICamera.cs" />
     <Compile Include="Logic\CameraController.cs" />
     <Compile Include="Logic\ICameraHandler.cs" />
-    <Compile Include="Presentation\CameraSelector.cs">
+    <Compile Include="Presentation\CameraSelectorView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\CameraSelector.Designer.cs">
-      <DependentUpon>CameraSelector.cs</DependentUpon>
+    <Compile Include="Presentation\CameraSelectorView.Designer.cs">
+      <DependentUpon>CameraSelectorView.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\CameraTesterView.cs">
       <SubType>Form</SubType>
@@ -164,11 +164,11 @@
     <Compile Include="Presentation\CoPilotView.Designer.cs">
       <DependentUpon>CoPilotView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\JoystickTracker.cs">
+    <Compile Include="Presentation\JoystickTrackerView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\JoystickTracker.Designer.cs">
-      <DependentUpon>JoystickTracker.cs</DependentUpon>
+    <Compile Include="Presentation\JoystickTrackerView.Designer.cs">
+      <DependentUpon>JoystickTrackerView.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\LoadingView.cs">
       <SubType>Form</SubType>
@@ -182,16 +182,16 @@
     <Compile Include="Presentation\PilotView.Designer.cs">
       <DependentUpon>PilotView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\ProgramChooser.cs">
+    <Compile Include="Presentation\ProgramSelectorView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\ProgramChooser.Designer.cs">
-      <DependentUpon>ProgramChooser.cs</DependentUpon>
+    <Compile Include="Presentation\ProgramSelectorView.Designer.cs">
+      <DependentUpon>ProgramSelectorView.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Presentation\CameraSelector.resx">
-      <DependentUpon>CameraSelector.cs</DependentUpon>
+    <EmbeddedResource Include="Presentation\CameraSelectorView.resx">
+      <DependentUpon>CameraSelectorView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\CoPilotView.resx">
       <DependentUpon>CoPilotView.cs</DependentUpon>
@@ -199,8 +199,8 @@
     <EmbeddedResource Include="Presentation\CameraTesterView.resx">
       <DependentUpon>CameraTesterView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\JoystickTracker.resx">
-      <DependentUpon>JoystickTracker.cs</DependentUpon>
+    <EmbeddedResource Include="Presentation\JoystickTrackerView.resx">
+      <DependentUpon>JoystickTrackerView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\LoadingView.resx">
       <DependentUpon>LoadingView.cs</DependentUpon>
@@ -208,8 +208,8 @@
     <EmbeddedResource Include="Presentation\PilotView.resx">
       <DependentUpon>PilotView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\ProgramChooser.resx">
-      <DependentUpon>ProgramChooser.cs</DependentUpon>
+    <EmbeddedResource Include="Presentation\ProgramSelectorView.resx">
+      <DependentUpon>ProgramSelectorView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

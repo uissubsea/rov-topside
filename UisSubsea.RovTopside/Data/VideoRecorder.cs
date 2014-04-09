@@ -67,8 +67,9 @@ namespace UisSubsea.RovTopside.Data
                 try
                 {
                     writer.WriteVideoFrame(frame);
+                    frame.Dispose();
                 }
-                catch (AccessViolationException)
+                catch (Exception)
                 {
                     //Not yet implemented
                 }

@@ -1,6 +1,6 @@
 ﻿namespace UisSubsea.RovTopside.Presentation
 {
-    partial class ProgramChooser
+    partial class ProgramSelectorView
     {
         /// <summary>
         /// Required designer variable.

@@ -1,6 +1,6 @@
 ﻿namespace UisSubsea.RovTopside.Presentation
 {
-    partial class CameraSelector
+    partial class CameraSelectorView
     {
         /// <summary>
         /// Required designer variable.

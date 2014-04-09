@@ -1,6 +1,6 @@
 ﻿namespace UisSubsea.RovTopside.Presentation
 {
-    partial class JoystickTracker
+    partial class JoystickTrackerView
     {
         /// <summary>
         /// Required designer variable.

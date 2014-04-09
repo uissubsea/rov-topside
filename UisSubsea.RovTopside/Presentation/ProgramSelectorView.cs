@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace UisSubsea.RovTopside.Presentation
 {
-    public partial class ProgramChooser : Form
+    public partial class ProgramSelectorView : Form
     {
         public string Program { get; private set; }
 
-        public ProgramChooser()
+        public ProgramSelectorView()
         {
             InitializeComponent();
         }

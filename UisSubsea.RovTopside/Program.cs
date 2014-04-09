@@ -26,7 +26,7 @@ namespace UisSubsea.RovTopside
             Application.SetCompatibleTextRenderingDefault(false);
 
             DialogResult result;
-            using (var chooser = new ProgramChooser())
+            using (var chooser = new ProgramSelectorView())
             {
                 result = chooser.ShowDialog();
                 if (result == DialogResult.OK)
@@ -98,7 +98,7 @@ namespace UisSubsea.RovTopside
                 return;
             }
 
-            Application.Run(new JoystickTracker());
+            Application.Run(new JoystickTrackerView());
         }
 
         private static void launchCameraTester()
@@ -110,7 +110,7 @@ namespace UisSubsea.RovTopside
             }
 
             DialogResult result;
-            using (var selector = new CameraSelector())
+            using (var selector = new CameraSelectorView())
             {
                 result = selector.ShowDialog();
                 if (result == DialogResult.OK)
