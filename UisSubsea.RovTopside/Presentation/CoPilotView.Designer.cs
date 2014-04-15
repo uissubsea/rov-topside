@@ -37,14 +37,14 @@
             this.distanceToBottomLabel = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.laserDistanceLabel = new System.Windows.Forms.Label();
-            this.videoPictureBox = new System.Windows.Forms.PictureBox();
-            this.headingIndicatorInstrumentControl1 = new UisSubsea.RovTopside.Presentation.Controls.HeadingIndicatorInstrumentControl();
-            this.altimeterInstrumentControl1 = new UisSubsea.RovTopside.Presentation.Controls.AltimeterInstrumentControl();
             this.SensorButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.norwayFlagPictureBox = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.videoPictureBox)).BeginInit();
+            this.videoPictureBox = new System.Windows.Forms.PictureBox();
+            this.headingIndicatorInstrumentControl1 = new UisSubsea.RovTopside.Presentation.Controls.HeadingIndicatorInstrumentControl();
+            this.altimeterInstrumentControl1 = new UisSubsea.RovTopside.Presentation.Controls.AltimeterInstrumentControl();
             ((System.ComponentModel.ISupportInitialize)(this.norwayFlagPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.videoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // frontCamGauge
@@ -202,31 +202,6 @@
             this.laserDistanceLabel.TabIndex = 24;
             this.laserDistanceLabel.Text = "0";
             // 
-            // videoPictureBox
-            // 
-            this.videoPictureBox.Location = new System.Drawing.Point(-5, -25);
-            this.videoPictureBox.Name = "videoPictureBox";
-            this.videoPictureBox.Size = new System.Drawing.Size(1055, 706);
-            this.videoPictureBox.TabIndex = 0;
-            this.videoPictureBox.TabStop = false;
-            // 
-            // headingIndicatorInstrumentControl1
-            // 
-            this.headingIndicatorInstrumentControl1.ForeColor = System.Drawing.Color.Yellow;
-            this.headingIndicatorInstrumentControl1.Location = new System.Drawing.Point(1097, 351);
-            this.headingIndicatorInstrumentControl1.Name = "headingIndicatorInstrumentControl1";
-            this.headingIndicatorInstrumentControl1.Size = new System.Drawing.Size(155, 151);
-            this.headingIndicatorInstrumentControl1.TabIndex = 19;
-            this.headingIndicatorInstrumentControl1.Text = "headingIndicatorInstrumentControl1";
-            // 
-            // altimeterInstrumentControl1
-            // 
-            this.altimeterInstrumentControl1.Location = new System.Drawing.Point(1109, 520);
-            this.altimeterInstrumentControl1.Name = "altimeterInstrumentControl1";
-            this.altimeterInstrumentControl1.Size = new System.Drawing.Size(143, 142);
-            this.altimeterInstrumentControl1.TabIndex = 18;
-            this.altimeterInstrumentControl1.Text = "altimeterInstrumentControl1";
-            // 
             // SensorButton
             // 
             this.SensorButton.BackColor = System.Drawing.SystemColors.MenuBar;
@@ -249,11 +224,36 @@
             // 
             // norwayFlagPictureBox
             // 
-            this.norwayFlagPictureBox.Location = new System.Drawing.Point(-6, 672);
+            this.norwayFlagPictureBox.Location = new System.Drawing.Point(-5, 671);
             this.norwayFlagPictureBox.Name = "norwayFlagPictureBox";
             this.norwayFlagPictureBox.Size = new System.Drawing.Size(1056, 55);
             this.norwayFlagPictureBox.TabIndex = 27;
             this.norwayFlagPictureBox.TabStop = false;
+            // 
+            // videoPictureBox
+            // 
+            this.videoPictureBox.Location = new System.Drawing.Point(-4, -27);
+            this.videoPictureBox.Name = "videoPictureBox";
+            this.videoPictureBox.Size = new System.Drawing.Size(1055, 706);
+            this.videoPictureBox.TabIndex = 0;
+            this.videoPictureBox.TabStop = false;
+            // 
+            // headingIndicatorInstrumentControl1
+            // 
+            this.headingIndicatorInstrumentControl1.ForeColor = System.Drawing.Color.Yellow;
+            this.headingIndicatorInstrumentControl1.Location = new System.Drawing.Point(1097, 351);
+            this.headingIndicatorInstrumentControl1.Name = "headingIndicatorInstrumentControl1";
+            this.headingIndicatorInstrumentControl1.Size = new System.Drawing.Size(155, 151);
+            this.headingIndicatorInstrumentControl1.TabIndex = 19;
+            this.headingIndicatorInstrumentControl1.Text = "headingIndicatorInstrumentControl1";
+            // 
+            // altimeterInstrumentControl1
+            // 
+            this.altimeterInstrumentControl1.Location = new System.Drawing.Point(1109, 520);
+            this.altimeterInstrumentControl1.Name = "altimeterInstrumentControl1";
+            this.altimeterInstrumentControl1.Size = new System.Drawing.Size(143, 142);
+            this.altimeterInstrumentControl1.TabIndex = 18;
+            this.altimeterInstrumentControl1.Text = "altimeterInstrumentControl1";
             // 
             // CoPilotView
             // 
@@ -281,8 +281,8 @@
             this.Name = "CoPilotView";
             this.Text = "CoPilotView";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CoPilotView_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.videoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.norwayFlagPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.videoPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
