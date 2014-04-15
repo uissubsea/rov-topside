@@ -114,7 +114,7 @@
             // 
             this.JoystickExamplelabelPart3.AutoSize = true;
             this.JoystickExamplelabelPart3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.JoystickExamplelabelPart3.Location = new System.Drawing.Point(251, 164);
+            this.JoystickExamplelabelPart3.Location = new System.Drawing.Point(275, 164);
             this.JoystickExamplelabelPart3.Name = "JoystickExamplelabelPart3";
             this.JoystickExamplelabelPart3.Size = new System.Drawing.Size(88, 15);
             this.JoystickExamplelabelPart3.TabIndex = 7;
@@ -134,7 +134,7 @@
             // 
             this.cameraExampleLabelPart3.AutoSize = true;
             this.cameraExampleLabelPart3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cameraExampleLabelPart3.Location = new System.Drawing.Point(251, 386);
+            this.cameraExampleLabelPart3.Location = new System.Drawing.Point(275, 386);
             this.cameraExampleLabelPart3.Name = "cameraExampleLabelPart3";
             this.cameraExampleLabelPart3.Size = new System.Drawing.Size(88, 15);
             this.cameraExampleLabelPart3.TabIndex = 9;
