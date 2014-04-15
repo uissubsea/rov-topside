@@ -69,8 +69,9 @@ namespace UisSubsea.RovTopside.IndexOfEquipment
             foreach(DeviceInstance controll in gameControls )
             {
                 Guid guid = controll.InstanceGuid;
+                string joystickName = controll.InstanceName;
                 string guidstring = guid.ToString();
-                joystickTextBox.AppendText(guidstring + "\n");
+                joystickTextBox.AppendText(joystickName + ": " + guidstring + "\n");
             }
         }
 
@@ -81,7 +82,8 @@ namespace UisSubsea.RovTopside.IndexOfEquipment
             foreach(FilterInfo camera in connectedCameras)
             {
                 string moniker = camera.MonikerString;
-                cameraTextBox.AppendText(moniker + "\n");
+                string cameraName = camera.Name;
+                cameraTextBox.AppendText(cameraName + ": " + moniker + "\n");
             }
         }
 
