@@ -42,6 +42,7 @@
             "ROV Control System",
             "Joystick Tester",
             "Camera Tester",
+            "Camera and Joystick ID",
             "Stress Test"});
             this.cmbProgram.Location = new System.Drawing.Point(12, 12);
             this.cmbProgram.Name = "cmbProgram";

@@ -52,7 +52,7 @@
             // 
             // cameraTextBox
             // 
-            this.cameraTextBox.Location = new System.Drawing.Point(12, 303);
+            this.cameraTextBox.Location = new System.Drawing.Point(12, 228);
             this.cameraTextBox.Multiline = true;
             this.cameraTextBox.Name = "cameraTextBox";
             this.cameraTextBox.ReadOnly = true;
@@ -63,72 +63,80 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 287);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 209);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 13);
+            this.label1.Size = new System.Drawing.Size(92, 16);
             this.label1.TabIndex = 2;
             this.label1.Text = "Webkamera";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 13);
+            this.label2.Size = new System.Drawing.Size(73, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Joysticks";
             // 
             // joystickExampleLabelPart1
             // 
             this.joystickExampleLabelPart1.AutoSize = true;
+            this.joystickExampleLabelPart1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.joystickExampleLabelPart1.Location = new System.Drawing.Point(9, 164);
             this.joystickExampleLabelPart1.Name = "joystickExampleLabelPart1";
-            this.joystickExampleLabelPart1.Size = new System.Drawing.Size(70, 13);
+            this.joystickExampleLabelPart1.Size = new System.Drawing.Size(81, 15);
             this.joystickExampleLabelPart1.TabIndex = 4;
             this.joystickExampleLabelPart1.Text = "Example type";
             // 
             // cameraExampleLabelPart1
             // 
             this.cameraExampleLabelPart1.AutoSize = true;
-            this.cameraExampleLabelPart1.Location = new System.Drawing.Point(12, 461);
+            this.cameraExampleLabelPart1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cameraExampleLabelPart1.Location = new System.Drawing.Point(12, 386);
             this.cameraExampleLabelPart1.Name = "cameraExampleLabelPart1";
-            this.cameraExampleLabelPart1.Size = new System.Drawing.Size(70, 13);
+            this.cameraExampleLabelPart1.Size = new System.Drawing.Size(81, 15);
             this.cameraExampleLabelPart1.TabIndex = 5;
             this.cameraExampleLabelPart1.Text = "Example type";
             // 
             // joystickExampleLabelPart2
             // 
             this.joystickExampleLabelPart2.AutoSize = true;
+            this.joystickExampleLabelPart2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.joystickExampleLabelPart2.Location = new System.Drawing.Point(103, 164);
             this.joystickExampleLabelPart2.Name = "joystickExampleLabelPart2";
-            this.joystickExampleLabelPart2.Size = new System.Drawing.Size(76, 13);
+            this.joystickExampleLabelPart2.Size = new System.Drawing.Size(91, 15);
             this.joystickExampleLabelPart2.TabIndex = 6;
             this.joystickExampleLabelPart2.Text = "Example name";
             // 
             // JoystickExamplelabelPart3
             // 
             this.JoystickExamplelabelPart3.AutoSize = true;
+            this.JoystickExamplelabelPart3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.JoystickExamplelabelPart3.Location = new System.Drawing.Point(251, 164);
             this.JoystickExamplelabelPart3.Name = "JoystickExamplelabelPart3";
-            this.JoystickExamplelabelPart3.Size = new System.Drawing.Size(76, 13);
+            this.JoystickExamplelabelPart3.Size = new System.Drawing.Size(88, 15);
             this.JoystickExamplelabelPart3.TabIndex = 7;
             this.JoystickExamplelabelPart3.Text = "Example value";
             // 
             // cameraExampleLabelPart2
             // 
             this.cameraExampleLabelPart2.AutoSize = true;
-            this.cameraExampleLabelPart2.Location = new System.Drawing.Point(103, 461);
+            this.cameraExampleLabelPart2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cameraExampleLabelPart2.Location = new System.Drawing.Point(103, 386);
             this.cameraExampleLabelPart2.Name = "cameraExampleLabelPart2";
-            this.cameraExampleLabelPart2.Size = new System.Drawing.Size(76, 13);
+            this.cameraExampleLabelPart2.Size = new System.Drawing.Size(91, 15);
             this.cameraExampleLabelPart2.TabIndex = 8;
             this.cameraExampleLabelPart2.Text = "Example name";
             // 
             // cameraExampleLabelPart3
             // 
             this.cameraExampleLabelPart3.AutoSize = true;
-            this.cameraExampleLabelPart3.Location = new System.Drawing.Point(251, 461);
+            this.cameraExampleLabelPart3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cameraExampleLabelPart3.Location = new System.Drawing.Point(251, 386);
             this.cameraExampleLabelPart3.Name = "cameraExampleLabelPart3";
-            this.cameraExampleLabelPart3.Size = new System.Drawing.Size(76, 13);
+            this.cameraExampleLabelPart3.Size = new System.Drawing.Size(88, 15);
             this.cameraExampleLabelPart3.TabIndex = 9;
             this.cameraExampleLabelPart3.Text = "Example value";
             // 

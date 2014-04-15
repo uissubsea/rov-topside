@@ -44,7 +44,7 @@ namespace UisSubsea.RovTopside
                         case "Camera Tester":
                             launchCameraTester();
                             break;
-                        case "camera and joystick ID":
+                        case "Camera and Joystick ID":
                             launchIndexOfEquipment();
                             break;
                         case "Stress Test":
