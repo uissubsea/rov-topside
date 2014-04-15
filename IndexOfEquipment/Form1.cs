@@ -47,7 +47,7 @@ namespace UisSubsea.RovTopside.IndexOfEquipment
             joystickExampleLabelPart2.ForeColor = System.Drawing.Color.Black;
 
             JoystickExamplelabelPart3.Text = typeJoystickValue;
-            JoystickExamplelabelPart3.ForeColor = System.Drawing.Color.DarkOrange;
+            JoystickExamplelabelPart3.ForeColor = System.Drawing.Color.IndianRed;
 
             cameraExampleLabelPart1.Text = type;
             cameraExampleLabelPart1.ForeColor = System.Drawing.Color.DarkBlue;
@@ -56,7 +56,7 @@ namespace UisSubsea.RovTopside.IndexOfEquipment
             cameraExampleLabelPart2.ForeColor = System.Drawing.Color.Black;
 
             cameraExampleLabelPart3.Text = typeCameraValue;
-            cameraExampleLabelPart3.ForeColor = System.Drawing.Color.DarkOrange;
+            cameraExampleLabelPart3.ForeColor = System.Drawing.Color.IndianRed;
 
 
         }
