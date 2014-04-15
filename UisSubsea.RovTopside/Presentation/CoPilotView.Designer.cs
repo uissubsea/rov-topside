@@ -51,14 +51,14 @@
             // 
             this.frontCamGauge.BaseArcColor = System.Drawing.Color.White;
             this.frontCamGauge.BaseArcRadius = 60;
-            this.frontCamGauge.BaseArcStart = 285;
+            this.frontCamGauge.BaseArcStart = 315;
             this.frontCamGauge.BaseArcSweep = 180;
             this.frontCamGauge.BaseArcWidth = 1;
             this.frontCamGauge.Center = new System.Drawing.Point(100, 100);
             this.frontCamGauge.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frontCamGauge.Location = new System.Drawing.Point(1066, 3);
-            this.frontCamGauge.MaxValue = 105F;
-            this.frontCamGauge.MinValue = -75F;
+            this.frontCamGauge.Location = new System.Drawing.Point(1066, -21);
+            this.frontCamGauge.MaxValue = 135F;
+            this.frontCamGauge.MinValue = -45F;
             this.frontCamGauge.Name = "frontCamGauge";
             this.frontCamGauge.NeedleColor1 = System.Windows.Forms.AGaugeNeedleColor.Yellow;
             this.frontCamGauge.NeedleColor2 = System.Drawing.Color.Yellow;
@@ -86,7 +86,7 @@
             this.frontCamGauge.ScaleNumbersRotation = 0;
             this.frontCamGauge.ScaleNumbersStartScaleLine = 0;
             this.frontCamGauge.ScaleNumbersStepScaleLines = 2;
-            this.frontCamGauge.Size = new System.Drawing.Size(191, 193);
+            this.frontCamGauge.Size = new System.Drawing.Size(191, 179);
             this.frontCamGauge.TabIndex = 3;
             this.frontCamGauge.Text = "FrontCam";
             this.frontCamGauge.Value = 0F;
@@ -99,7 +99,7 @@
             this.rearCamGauge.BaseArcSweep = 180;
             this.rearCamGauge.BaseArcWidth = 1;
             this.rearCamGauge.Center = new System.Drawing.Point(100, 100);
-            this.rearCamGauge.Location = new System.Drawing.Point(1073, 169);
+            this.rearCamGauge.Location = new System.Drawing.Point(1073, 159);
             this.rearCamGauge.MaxValue = 30F;
             this.rearCamGauge.MinValue = -150F;
             this.rearCamGauge.Name = "rearCamGauge";
@@ -160,7 +160,7 @@
             this.headingLabelText.AutoSize = true;
             this.headingLabelText.Cursor = System.Windows.Forms.Cursors.Default;
             this.headingLabelText.ForeColor = System.Drawing.Color.Yellow;
-            this.headingLabelText.Location = new System.Drawing.Point(1078, 367);
+            this.headingLabelText.Location = new System.Drawing.Point(1106, 333);
             this.headingLabelText.Name = "headingLabelText";
             this.headingLabelText.Size = new System.Drawing.Size(13, 13);
             this.headingLabelText.TabIndex = 17;
@@ -169,16 +169,16 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1058, 649);
+            this.label1.Location = new System.Drawing.Point(1057, 665);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 13);
+            this.label1.Size = new System.Drawing.Size(74, 13);
             this.label1.TabIndex = 21;
-            this.label1.Text = "cm: ";
+            this.label1.Text = "cm to bottom: ";
             // 
             // distanceToBottomLabel
             // 
             this.distanceToBottomLabel.AutoSize = true;
-            this.distanceToBottomLabel.Location = new System.Drawing.Point(1081, 649);
+            this.distanceToBottomLabel.Location = new System.Drawing.Point(1132, 665);
             this.distanceToBottomLabel.Name = "distanceToBottomLabel";
             this.distanceToBottomLabel.Size = new System.Drawing.Size(13, 13);
             this.distanceToBottomLabel.TabIndex = 22;
@@ -187,7 +187,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1058, 503);
+            this.label5.Location = new System.Drawing.Point(1057, 503);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(36, 13);
             this.label5.TabIndex = 23;
@@ -196,7 +196,7 @@
             // laserDistanceLabel
             // 
             this.laserDistanceLabel.AutoSize = true;
-            this.laserDistanceLabel.Location = new System.Drawing.Point(1094, 503);
+            this.laserDistanceLabel.Location = new System.Drawing.Point(1106, 503);
             this.laserDistanceLabel.Name = "laserDistanceLabel";
             this.laserDistanceLabel.Size = new System.Drawing.Size(13, 13);
             this.laserDistanceLabel.TabIndex = 24;
@@ -216,7 +216,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1057, 351);
+            this.label4.Location = new System.Drawing.Point(1057, 333);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 13);
             this.label4.TabIndex = 26;
@@ -241,7 +241,7 @@
             // headingIndicatorInstrumentControl1
             // 
             this.headingIndicatorInstrumentControl1.ForeColor = System.Drawing.Color.Yellow;
-            this.headingIndicatorInstrumentControl1.Location = new System.Drawing.Point(1097, 351);
+            this.headingIndicatorInstrumentControl1.Location = new System.Drawing.Point(1100, 349);
             this.headingIndicatorInstrumentControl1.Name = "headingIndicatorInstrumentControl1";
             this.headingIndicatorInstrumentControl1.Size = new System.Drawing.Size(155, 151);
             this.headingIndicatorInstrumentControl1.TabIndex = 19;
