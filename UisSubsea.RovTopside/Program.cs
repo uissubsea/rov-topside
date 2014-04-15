@@ -9,6 +9,8 @@ using UisSubsea.RovTopside.Data;
 using UisSubsea.RovTopside.Logic;
 using AForge.Video.DirectShow;
 using UisSubsea.RovTopside.StressTest;
+using UisSubsea.RovTopside.IndexOfEquipment;
+
 
 namespace UisSubsea.RovTopside
 {
@@ -41,6 +43,9 @@ namespace UisSubsea.RovTopside
                             break;
                         case "Camera Tester":
                             launchCameraTester();
+                            break;
+                        case "camera and joystick ID":
+                            launchIndexOfEquipment();
                             break;
                         case "Stress Test":
                             launchStressTest();
@@ -134,6 +139,11 @@ namespace UisSubsea.RovTopside
 
             return;
         }
+
+        private static void launchIndexOfEquipment()
+        {
+            Application.Run(new Form1());
+        } 
 
         private static void Application_ApplicationExit(object sender, EventArgs e)
         {
