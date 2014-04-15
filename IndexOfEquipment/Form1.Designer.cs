@@ -38,6 +38,8 @@
             this.JoystickExamplelabelPart3 = new System.Windows.Forms.Label();
             this.cameraExampleLabelPart2 = new System.Windows.Forms.Label();
             this.cameraExampleLabelPart3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // joystickTextBox
@@ -140,11 +142,20 @@
             this.cameraExampleLabelPart3.TabIndex = 9;
             this.cameraExampleLabelPart3.Text = "Example value";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(15, 417);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(893, 55);
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(920, 510);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cameraExampleLabelPart3);
             this.Controls.Add(this.cameraExampleLabelPart2);
             this.Controls.Add(this.JoystickExamplelabelPart3);
@@ -158,6 +169,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,6 +187,7 @@
         private System.Windows.Forms.Label JoystickExamplelabelPart3;
         private System.Windows.Forms.Label cameraExampleLabelPart2;
         private System.Windows.Forms.Label cameraExampleLabelPart3;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

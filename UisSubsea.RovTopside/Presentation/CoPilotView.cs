@@ -27,6 +27,7 @@ namespace UisSubsea.RovTopside.Presentation
 
         public CoPilotView(ICamera camera)
         {
+            norwayFlagPictureBox.Image = UisSubsea.RovTopside.Properties.Resources.norskflagg;
             InitializeComponent();
             this.camera = camera;
             this.camera.Canvas = videoPictureBox;
@@ -34,19 +35,23 @@ namespace UisSubsea.RovTopside.Presentation
         }
  
         protected override void OnPaint(PaintEventArgs e)
-        {
+        {          
             base.OnPaint(e);
             if (!leak)
             {
                 Brush = new System.Drawing.SolidBrush(Color.Green);
+                SensorButton.BackColor = System.Drawing.Color.Green;
             }
-            else Brush = new System.Drawing.SolidBrush(Color.Red);
-
-            System.Drawing.Graphics formGraphics;
+            else
+            {
+                SensorButton.BackColor = System.Drawing.Color.Red;
+               // Brush = new System.Drawing.SolidBrush(Color.Red);
+            }
+           /* System.Drawing.Graphics formGraphics;
             formGraphics = this.CreateGraphics();
             formGraphics.FillRectangle(Brush, new Rectangle(1095, 620, 50, 20));
             Brush.Dispose();
-            formGraphics.Dispose();
+            formGraphics.Dispose();*/
         }
 
         private void CoPilotView_FormClosing(object sender, FormClosedEventArgs e)

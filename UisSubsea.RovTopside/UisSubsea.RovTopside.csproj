@@ -221,7 +221,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -262,6 +261,7 @@
     <None Include="Resources\VerticalSpeedNeedle.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\norskflagg.jpg" />
     <Content Include="Resources\Altimeter_Background.bmp" />
     <None Include="Resources\Logo.bmp" />
     <None Include="Resources\Logopng.png" />

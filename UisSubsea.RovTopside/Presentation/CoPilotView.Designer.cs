@@ -40,7 +40,11 @@
             this.videoPictureBox = new System.Windows.Forms.PictureBox();
             this.headingIndicatorInstrumentControl1 = new UisSubsea.RovTopside.Presentation.Controls.HeadingIndicatorInstrumentControl();
             this.altimeterInstrumentControl1 = new UisSubsea.RovTopside.Presentation.Controls.AltimeterInstrumentControl();
+            this.SensorButton = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.norwayFlagPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.videoPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.norwayFlagPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // frontCamGauge
@@ -95,7 +99,7 @@
             this.rearCamGauge.BaseArcSweep = 180;
             this.rearCamGauge.BaseArcWidth = 1;
             this.rearCamGauge.Center = new System.Drawing.Point(100, 100);
-            this.rearCamGauge.Location = new System.Drawing.Point(1073, 180);
+            this.rearCamGauge.Location = new System.Drawing.Point(1073, 169);
             this.rearCamGauge.MaxValue = 30F;
             this.rearCamGauge.MinValue = -150F;
             this.rearCamGauge.Name = "rearCamGauge";
@@ -124,7 +128,7 @@
             this.rearCamGauge.ScaleNumbersRotation = 0;
             this.rearCamGauge.ScaleNumbersStartScaleLine = 0;
             this.rearCamGauge.ScaleNumbersStepScaleLines = 1;
-            this.rearCamGauge.Size = new System.Drawing.Size(185, 184);
+            this.rearCamGauge.Size = new System.Drawing.Size(185, 195);
             this.rearCamGauge.TabIndex = 7;
             this.rearCamGauge.Text = "RearCam";
             this.rearCamGauge.Value = 0F;
@@ -156,7 +160,7 @@
             this.headingLabelText.AutoSize = true;
             this.headingLabelText.Cursor = System.Windows.Forms.Cursors.Default;
             this.headingLabelText.ForeColor = System.Drawing.Color.Yellow;
-            this.headingLabelText.Location = new System.Drawing.Point(1083, 435);
+            this.headingLabelText.Location = new System.Drawing.Point(1078, 367);
             this.headingLabelText.Name = "headingLabelText";
             this.headingLabelText.Size = new System.Drawing.Size(13, 13);
             this.headingLabelText.TabIndex = 17;
@@ -165,7 +169,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1058, 614);
+            this.label1.Location = new System.Drawing.Point(1058, 649);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(27, 13);
             this.label1.TabIndex = 21;
@@ -174,7 +178,7 @@
             // distanceToBottomLabel
             // 
             this.distanceToBottomLabel.AutoSize = true;
-            this.distanceToBottomLabel.Location = new System.Drawing.Point(1083, 614);
+            this.distanceToBottomLabel.Location = new System.Drawing.Point(1081, 649);
             this.distanceToBottomLabel.Name = "distanceToBottomLabel";
             this.distanceToBottomLabel.Size = new System.Drawing.Size(13, 13);
             this.distanceToBottomLabel.TabIndex = 22;
@@ -183,7 +187,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1058, 632);
+            this.label5.Location = new System.Drawing.Point(1058, 503);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(36, 13);
             this.label5.TabIndex = 23;
@@ -192,7 +196,7 @@
             // laserDistanceLabel
             // 
             this.laserDistanceLabel.AutoSize = true;
-            this.laserDistanceLabel.Location = new System.Drawing.Point(1094, 632);
+            this.laserDistanceLabel.Location = new System.Drawing.Point(1094, 503);
             this.laserDistanceLabel.Name = "laserDistanceLabel";
             this.laserDistanceLabel.Size = new System.Drawing.Size(13, 13);
             this.laserDistanceLabel.TabIndex = 24;
@@ -200,7 +204,7 @@
             // 
             // videoPictureBox
             // 
-            this.videoPictureBox.Location = new System.Drawing.Point(1, -25);
+            this.videoPictureBox.Location = new System.Drawing.Point(-5, -25);
             this.videoPictureBox.Name = "videoPictureBox";
             this.videoPictureBox.Size = new System.Drawing.Size(1055, 706);
             this.videoPictureBox.TabIndex = 0;
@@ -209,7 +213,7 @@
             // headingIndicatorInstrumentControl1
             // 
             this.headingIndicatorInstrumentControl1.ForeColor = System.Drawing.Color.Yellow;
-            this.headingIndicatorInstrumentControl1.Location = new System.Drawing.Point(1097, 365);
+            this.headingIndicatorInstrumentControl1.Location = new System.Drawing.Point(1097, 351);
             this.headingIndicatorInstrumentControl1.Name = "headingIndicatorInstrumentControl1";
             this.headingIndicatorInstrumentControl1.Size = new System.Drawing.Size(155, 151);
             this.headingIndicatorInstrumentControl1.TabIndex = 19;
@@ -217,18 +221,49 @@
             // 
             // altimeterInstrumentControl1
             // 
-            this.altimeterInstrumentControl1.Location = new System.Drawing.Point(1102, 522);
+            this.altimeterInstrumentControl1.Location = new System.Drawing.Point(1109, 520);
             this.altimeterInstrumentControl1.Name = "altimeterInstrumentControl1";
             this.altimeterInstrumentControl1.Size = new System.Drawing.Size(143, 142);
             this.altimeterInstrumentControl1.TabIndex = 18;
             this.altimeterInstrumentControl1.Text = "altimeterInstrumentControl1";
+            // 
+            // SensorButton
+            // 
+            this.SensorButton.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.SensorButton.ForeColor = System.Drawing.Color.Black;
+            this.SensorButton.Location = new System.Drawing.Point(1135, 686);
+            this.SensorButton.Name = "SensorButton";
+            this.SensorButton.Size = new System.Drawing.Size(86, 23);
+            this.SensorButton.TabIndex = 25;
+            this.SensorButton.Text = "Sensor alarm";
+            this.SensorButton.UseVisualStyleBackColor = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(1057, 351);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 13);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "Heading:";
+            // 
+            // norwayFlagPictureBox
+            // 
+            this.norwayFlagPictureBox.Location = new System.Drawing.Point(-6, 672);
+            this.norwayFlagPictureBox.Name = "norwayFlagPictureBox";
+            this.norwayFlagPictureBox.Size = new System.Drawing.Size(1056, 55);
+            this.norwayFlagPictureBox.TabIndex = 27;
+            this.norwayFlagPictureBox.TabStop = false;
             // 
             // CoPilotView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowText;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.ClientSize = new System.Drawing.Size(1267, 721);
+            this.Controls.Add(this.norwayFlagPictureBox);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.SensorButton);
             this.Controls.Add(this.laserDistanceLabel);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.distanceToBottomLabel);
@@ -247,6 +282,7 @@
             this.Text = "CoPilotView";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CoPilotView_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.videoPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.norwayFlagPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,6 +302,9 @@
         private System.Windows.Forms.Label distanceToBottomLabel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label laserDistanceLabel;
+        private System.Windows.Forms.Button SensorButton;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox norwayFlagPictureBox;
 
     }
 }
