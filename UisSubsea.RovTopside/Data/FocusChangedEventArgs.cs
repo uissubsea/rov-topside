@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UisSubsea.RovTopside.Data
 {
-    class FocusChangedEventArgs : EventArgs
+    public class FocusChangedEventArgs : EventArgs
     {
         public int Focus { get; set; }
     }

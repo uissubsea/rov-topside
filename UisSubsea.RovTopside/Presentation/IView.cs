@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UisSubsea.RovTopside.Logic
+namespace UisSubsea.RovTopside.Data
 {
     /// <summary>
     /// Implement this interface if your class
