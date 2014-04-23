@@ -52,7 +52,7 @@ namespace UisSubsea.RovTopside.Logic
         /// <summary>
         /// Set the state of the sensordata we get from the ROV.
         /// </summary>
-        /// <param name="sensorstate">Tha value used to alert the user that something is wrong</param>
-        void setSensorState(bool sensorstate);
+        /// <param name="error">Tha value used to alert the user that something is wrong</param>
+        void SomethingIsWrong(bool error);
     }
 }

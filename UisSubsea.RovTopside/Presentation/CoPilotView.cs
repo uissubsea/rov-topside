@@ -129,7 +129,7 @@ namespace UisSubsea.RovTopside.Presentation
         }
         
         //Set the state of the sensordata we get from the ROV.
-        public void setSensorState(bool sensorstate)
+        public void SomethingIsWrong(bool sensorstate)
         {
             leak = sensorstate;
         }

@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using AForge.Video.DirectShow;
 using System.Drawing;
 
-namespace UisSubsea.RovTopside.Logic
+namespace UisSubsea.RovTopside.Data
 {
     /// <summary>
     /// Camera interface.
@@ -11,6 +11,8 @@ namespace UisSubsea.RovTopside.Logic
 
     public interface ICamera
     {
+        event EventHandler<FocusChangedEventArgs> FocusChanged;
+
         /// <summary>
         /// Enable autofocus on the camera.
         /// </summary>

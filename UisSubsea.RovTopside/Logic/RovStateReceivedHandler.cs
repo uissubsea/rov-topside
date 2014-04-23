@@ -62,7 +62,7 @@ namespace UisSubsea.RovTopside.Logic
             copilotViewhandler.SetDepth(state.Depth);
             copilotViewhandler.SetDistanceToBottom(state.DistanceToBottom);
             copilotViewhandler.SetLaserDistanceMeasured(state.Distance);
-            copilotViewhandler.setSensorState(state.Error);
+            copilotViewhandler.SomethingIsWrong(state.Error);
         }
     }
 }

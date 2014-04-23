@@ -19,6 +19,8 @@ namespace UisSubsea.RovTopside.Presentation
 
     public partial class PilotView : Form, IPilotViewHandler, IView
     {
+        private const char degreeSymbol = (char)176;
+
         // Font and brushed for overlay drawing.
         private Font font;
         private Brush redBrush;
@@ -26,14 +28,15 @@ namespace UisSubsea.RovTopside.Presentation
 
         // Points for overlay drawing.
         private PointF pointDepth;
-        private PointF pointFocusValue;
-        private PointF pointAutoFocus;
+        private PointF pointFocus;
         private PointF pointHeading;
         private PointF pointStopwatch;
+        private PointF pointFrontCameraAngle;
+        private PointF pointRearCameraAngle;
         private Rectangle boundsVerticalLeverIsNeutral;    
 
         private bool verticalLeverIsNeutral = false;
-        private int focus;
+        private int focus = -1;
         private bool autofocus = true;
         private int heading;
         private int frontCameraAngle;
@@ -54,15 +57,18 @@ namespace UisSubsea.RovTopside.Presentation
             redBrush = new SolidBrush(Color.Red);
 
             //Top right
-            pointDepth = new PointF(1100.0f, 30.0f);
+            pointStopwatch = new PointF(1100.0f, 30.0f);
 
             //Bottom left
-            pointAutoFocus = new PointF(30.0f, 620.0f);
-            pointFocusValue = new PointF(30.0f, 660.0f);
+            pointFocus = new PointF(30.0f, 660.0f);
+
+            //Bottomright
+            pointFrontCameraAngle = new PointF(1100.0f, 620.0f);
+            pointRearCameraAngle = new PointF(1100.0f, 660.0f);
 
             //Top left
             pointHeading = new PointF(30.0f, 30.0f);
-            pointStopwatch = new PointF(30.0f, 70.0f);
+            pointDepth = new PointF(30.0f, 70.0f);
             boundsVerticalLeverIsNeutral = new Rectangle(30, 110, 20, 20);
             greenBrush = new SolidBrush(Color.Green);
             stopwatch = new System.Diagnostics.Stopwatch();
@@ -70,9 +76,17 @@ namespace UisSubsea.RovTopside.Presentation
             // Subscribe to the picturebox paint event so that we can draw the overlay.
             pictureBoxVideo.Paint += new PaintEventHandler(PaintOverlay);
 
+            // Subscribe to the cameras focus changed event
+            camera.FocusChanged += Focus_Changed;
+
             this.camera = camera;
             this.camera.Canvas = pictureBoxVideo;
             this.camera.Start();
+        }
+
+        private void Focus_Changed(object sender, FocusChangedEventArgs e)
+        {
+            SetFocus(e.Focus);
         }
 
         private void toggleStopWatch()
@@ -87,15 +101,22 @@ namespace UisSubsea.RovTopside.Presentation
         {
             Graphics g = args.Graphics;
 
-            g.DrawString("Depth: " + depth + " cm", font, redBrush, pointDepth);
-            g.DrawString("Autofocus: " + autofocus.ToString(), font, redBrush, pointAutoFocus);
-            g.DrawString("Focus value: " + focus.ToString(), font, redBrush, pointFocusValue);
-            g.DrawString("Heading: " + heading + (char)176, font, redBrush, pointHeading);
+            g.DrawString("DPT: " + depth + " cm", font, redBrush, pointDepth);
+
+            if (focus != -1)
+                g.DrawString("MF: " + focus.ToString(), font, redBrush, pointFocus);
+            else
+                g.DrawString("AF", font, redBrush, pointFocus);
+            
+            g.DrawString("HDG: " + heading + degreeSymbol, font, redBrush, pointHeading);
 
             TimeSpan span = stopwatch.Elapsed;
             string stopwatchstring = string.Format("{0}:{1}", Math.Floor(span.TotalMinutes), span.ToString("ss"));
 
-            g.DrawString("Timer: " + stopwatchstring, font, redBrush, pointStopwatch);
+            g.DrawString("CAM1: " + frontCameraAngle + degreeSymbol, font, redBrush, pointFrontCameraAngle);
+            g.DrawString("CAM2: " + rearCameraAngle + degreeSymbol, font, redBrush, pointRearCameraAngle);
+
+            g.DrawString(stopwatchstring, font, redBrush, pointStopwatch);
 
             if (verticalLeverIsNeutral)
                 g.FillEllipse(greenBrush, boundsVerticalLeverIsNeutral);
@@ -151,6 +172,11 @@ namespace UisSubsea.RovTopside.Presentation
             this.camera = camera;
             this.camera.Canvas = pictureBoxVideo;
             this.camera.Start();
+        }
+
+        public void SetFocus(int focus)
+        {
+            this.focus = focus;
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)

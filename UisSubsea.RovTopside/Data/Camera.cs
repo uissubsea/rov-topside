@@ -28,6 +28,8 @@ namespace UisSubsea.RovTopside.Data
 
     public class Camera : IDisposable, ICamera
     {
+        public event EventHandler<FocusChangedEventArgs> FocusChanged;
+
         // This string is used to identify and compare camera objects.
         // It will be unique for each camera.
         private string cameraMoniker;
@@ -181,6 +183,9 @@ namespace UisSubsea.RovTopside.Data
             try
             {
                 camera.SetCameraProperty(CameraControlProperty.Focus, 0, CameraControlFlags.Auto);
+                FocusChangedEventArgs args = new FocusChangedEventArgs();
+                args.Focus = -1;
+                OnFocusChanged(args);
             }
             catch (Exception)
             {
@@ -200,6 +205,9 @@ namespace UisSubsea.RovTopside.Data
             try
             {
                 camera.SetCameraProperty(CameraControlProperty.Focus, value, CameraControlFlags.Manual);
+                FocusChangedEventArgs args = new FocusChangedEventArgs();
+                args.Focus = value;
+                OnFocusChanged(args);
             }
             catch (Exception)
             {
@@ -337,6 +345,16 @@ namespace UisSubsea.RovTopside.Data
         public override int GetHashCode()
         {
             return cameraMoniker.GetHashCode();
+        }
+
+        // This method is virtual to ensure that it can be overridden in a derived class.
+        protected virtual void OnFocusChanged(FocusChangedEventArgs e)
+        {
+            EventHandler<FocusChangedEventArgs> handler = FocusChanged;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
         }
     }
 }
