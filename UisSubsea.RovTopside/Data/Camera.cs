@@ -104,9 +104,9 @@ namespace UisSubsea.RovTopside.Data
             snapshot = false;
 
             string filepath = getFilePath("snapshots");
-            string name = Guid.NewGuid().ToString() + ".jpg";
+            string name = Guid.NewGuid().ToString() + ".bmp";
             string filename = Path.Combine(filepath, name);
-            image.Save(filename, ImageFormat.Jpeg);
+            image.Save(filename, ImageFormat.Bmp);
             image.Dispose();
         }
 
