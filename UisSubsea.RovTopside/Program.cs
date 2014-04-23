@@ -11,7 +11,6 @@ using AForge.Video.DirectShow;
 using UisSubsea.RovTopside.StressTest;
 using UisSubsea.RovTopside.IndexOfEquipment;
 
-
 namespace UisSubsea.RovTopside
 {
     static class Program

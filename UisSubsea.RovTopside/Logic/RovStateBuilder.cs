@@ -46,21 +46,19 @@ namespace UisSubsea.RovTopside.Data
         private static int heading(byte heading)
         {
             int hdg = heading;
-            return (int)(heading * headingResolution);
+            return (int)(hdg * headingResolution);
         }
 
         private static int frontCameraTilt(byte camTilt)
         {
-            int tilt = camTilt -75;                                                                    
-               
+            int tilt = camTilt -75;                                                                               
             return (int)(tilt);
         }
 
         private static int rearCameraTilt(byte camTilt)
         {
             int tilt = camTilt;
-            tilt = (camTilt*-1)+30;
-            return (int)(tilt);
+            return (tilt*-1)+30;
         }
 
         private static bool packageIsValid(byte[] package)
@@ -71,7 +69,6 @@ namespace UisSubsea.RovTopside.Data
         private static int depthRov(byte rovDepth)
         {
             int depth = rovDepth;
-
             return (int)depth*3; 
         }
 

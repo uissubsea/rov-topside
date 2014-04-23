@@ -19,23 +19,23 @@ namespace UisSubsea.RovTopside.Tests
             byte distance = 160;
 
             int headingInDegrees = (int)(2 * (int)heading);
-            int frontCameraInDegrees = (int)((int)frontTilt);
-            int rearCameraInDegrees = (int)((int)rearTilt);
+            int frontCameraInDegrees = (int)frontTilt - 75;
+            int rearCameraInDegrees = (int)(rearTilt*-1)+30;
             int depthInCm = (int)(3 * (int)depth);
             int distanceToBottomInCm = (int)(3 * (int)distanceToBottom);
             int distanceInCm = (int)(2 * (int)distance);
 
-            byte[] packet = new byte[] {heading, frontTilt, rearTilt, status, 
-                distance, depth, distanceToBottom};
+            byte[] packet = new byte[] {status, heading, frontTilt, rearTilt, distance, 
+                depth, distanceToBottom};
             RovState state = RovStateBuilder.BuildRovState(packet);
 
-            System.Diagnostics.Debug.WriteLine(state.Error);
-            System.Diagnostics.Debug.WriteLine(state.Heading);
-            System.Diagnostics.Debug.WriteLine(state.FrontCameraTilt);
-            System.Diagnostics.Debug.WriteLine(state.RearCameraTilt);
-            System.Diagnostics.Debug.WriteLine(state.Distance);
-            System.Diagnostics.Debug.WriteLine(state.Depth);
-            System.Diagnostics.Debug.WriteLine(state.DistanceToBottom);
+            System.Diagnostics.Debug.WriteLine(status + "\t" + state.Error);
+            System.Diagnostics.Debug.WriteLine(headingInDegrees + "\t" + state.Heading);
+            System.Diagnostics.Debug.WriteLine(frontCameraInDegrees + "\t" + state.FrontCameraTilt);
+            System.Diagnostics.Debug.WriteLine(rearCameraInDegrees + "\t" + state.RearCameraTilt);
+            System.Diagnostics.Debug.WriteLine(distanceInCm + "\t" + state.Distance);
+            System.Diagnostics.Debug.WriteLine(depthInCm + "\t" + state.Depth);
+            System.Diagnostics.Debug.WriteLine(distanceToBottomInCm + "\t" + state.DistanceToBottom);
 
             Assert.IsTrue(state.Error);
             Assert.IsTrue(state.Heading == headingInDegrees);
