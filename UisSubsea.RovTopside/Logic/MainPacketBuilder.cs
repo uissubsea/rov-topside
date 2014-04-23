@@ -21,10 +21,6 @@ namespace UisSubsea.RovTopside.Data
         private bool reverse;
         private bool halveAmplitude;
 
-        private int light = 9;
-        private int brightLightRising = 10;
-        private int britghtLightDescending = 11;
-
         public MainPacketBuilder(IJoystick joystick)
             : base(joystick)
         {

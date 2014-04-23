@@ -18,9 +18,6 @@ namespace UisSubsea.RovTopside.Data
     public class ManipulatorRightPacketBuilder : PacketBuilder
     {
         private IJoystick joystick;
-        private int waterSample = 10;
-        private int basketOut = 8;
-        private int basketInn = 9;
 
         public ManipulatorRightPacketBuilder(Joystick joystick) : base(joystick) { this.joystick = joystick; }
 
