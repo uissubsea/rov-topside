@@ -19,6 +19,7 @@ namespace UisSubsea.RovTopside.Logic
         void SetDepth(double depth);
         void SetFocus(int focus);
         void VerticalLeverIsNeutral(bool isNeutral);
+        void ToggleGain();
         void ToggleStopwatch();
     }
 }

@@ -97,6 +97,7 @@
     <Compile Include="Data\Camera.cs" />
     <Compile Include="Data\CameraFactory.cs" />
     <Compile Include="Data\CommunicationServer.cs" />
+    <Compile Include="Data\FocusChangedEventArgs.cs" />
     <Compile Include="Logic\Constants.cs" />
     <Compile Include="Data\DataReceivedEventArgs.cs" />
     <Compile Include="Logic\CoPilotActionsController.cs" />
@@ -261,7 +262,6 @@
     <None Include="Resources\VerticalSpeedNeedle.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\norskflagg.jpg" />
     <Content Include="Resources\Altimeter_Background.bmp" />
     <None Include="Resources\Logo.bmp" />
     <None Include="Resources\Logopng.png" />
@@ -276,10 +276,6 @@
     <None Include="Resources\HeadingIndicator_Background_Glass.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IndexOfEquipment\UisSubsea.RovTopside.IndexOfEquipment.csproj">
-      <Project>{dfc9f1e6-3112-4cde-a84c-ac54a57b7b60}</Project>
-      <Name>UisSubsea.RovTopside.IndexOfEquipment</Name>
-    </ProjectReference>
     <ProjectReference Include="..\UisSubsea.RovTopside.StressTest\UisSubsea.RovTopside.StressTest.csproj">
       <Project>{096fb045-cef4-4f71-b284-732136f089b1}</Project>
       <Name>UisSubsea.RovTopside.StressTest</Name>

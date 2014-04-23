@@ -33,9 +33,11 @@ namespace UisSubsea.RovTopside.Presentation
         private PointF pointStopwatch;
         private PointF pointFrontCameraAngle;
         private PointF pointRearCameraAngle;
+        private PointF pointHalveGain;
         private Rectangle boundsVerticalLeverIsNeutral;    
 
         private bool verticalLeverIsNeutral = false;
+        private bool halveGain = false;
         private int focus = -1;
         private bool autofocus = true;
         private int heading;
@@ -69,7 +71,8 @@ namespace UisSubsea.RovTopside.Presentation
             //Top left
             pointHeading = new PointF(30.0f, 30.0f);
             pointDepth = new PointF(30.0f, 70.0f);
-            boundsVerticalLeverIsNeutral = new Rectangle(30, 110, 20, 20);
+            pointHalveGain = new PointF(30.0f, 110.0f);
+            boundsVerticalLeverIsNeutral = new Rectangle(30, 150, 20, 20);
             greenBrush = new SolidBrush(Color.Green);
             stopwatch = new System.Diagnostics.Stopwatch();
 
@@ -120,6 +123,8 @@ namespace UisSubsea.RovTopside.Presentation
 
             if (verticalLeverIsNeutral)
                 g.FillEllipse(greenBrush, boundsVerticalLeverIsNeutral);
+
+            g.DrawString("GAIN: " + (halveGain == true ? "HALF" : "FULL"), font, redBrush, pointHalveGain);
         }
 
         private void PilotView_FormClosed(object sender, FormClosedEventArgs e)
@@ -159,6 +164,11 @@ namespace UisSubsea.RovTopside.Presentation
         public void ToggleStopwatch()
         {
             toggleStopWatch();
+        }
+
+        public void ToggleGain()
+        {
+            halveGain = !halveGain;
         }
 
         public ICamera GetCamera()

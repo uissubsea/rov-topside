@@ -75,7 +75,7 @@ namespace UisSubsea.RovTopside.Data
                 halveAxisAmplitude(Roll()),
                 halveAxisAmplitude(Pitch()),
                 halveAxisAmplitude(Yaw()),
-                halveAxisAmplitude(Throttle()),
+                Throttle(),
                 ButtonsPressed(),
                 HatPov(),
             };
