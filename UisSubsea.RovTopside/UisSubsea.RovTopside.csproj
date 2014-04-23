@@ -268,6 +268,8 @@
     <None Include="Resources\Logopng1.png" />
     <None Include="Resources\Logo.png" />
     <None Include="Resources\loader.gif" />
+    <None Include="Resources\norskflagg1.jpg" />
+    <None Include="Resources\norskflagg2.jpg" />
     <Content Include="uissubsea_icon.ico" />
     <None Include="Resources\HeadingWeel_Glass.bmp" />
     <None Include="Resources\HeadingIndicator_Aircraft_Glass.bmp" />

@@ -37,8 +37,8 @@
             this.distanceToBottomLabel = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.laserDistanceLabel = new System.Windows.Forms.Label();
-            this.SensorButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.SensorAlarmLabel = new System.Windows.Forms.Label();
             this.norwayFlagPictureBox = new System.Windows.Forms.PictureBox();
             this.videoPictureBox = new System.Windows.Forms.PictureBox();
             this.headingIndicatorInstrumentControl1 = new UisSubsea.RovTopside.Presentation.Controls.HeadingIndicatorInstrumentControl();
@@ -56,7 +56,7 @@
             this.frontCamGauge.BaseArcWidth = 1;
             this.frontCamGauge.Center = new System.Drawing.Point(100, 100);
             this.frontCamGauge.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frontCamGauge.Location = new System.Drawing.Point(1066, -21);
+            this.frontCamGauge.Location = new System.Drawing.Point(1067, -17);
             this.frontCamGauge.MaxValue = 135F;
             this.frontCamGauge.MinValue = -45F;
             this.frontCamGauge.Name = "frontCamGauge";
@@ -138,7 +138,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Yellow;
-            this.label2.Location = new System.Drawing.Point(1144, 290);
+            this.label2.Location = new System.Drawing.Point(1145, 278);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 12);
             this.label2.TabIndex = 15;
@@ -149,7 +149,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Yellow;
-            this.label3.Location = new System.Drawing.Point(1144, 112);
+            this.label3.Location = new System.Drawing.Point(1139, 102);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 12);
             this.label3.TabIndex = 16;
@@ -160,7 +160,7 @@
             this.headingLabelText.AutoSize = true;
             this.headingLabelText.Cursor = System.Windows.Forms.Cursors.Default;
             this.headingLabelText.ForeColor = System.Drawing.Color.Yellow;
-            this.headingLabelText.Location = new System.Drawing.Point(1106, 333);
+            this.headingLabelText.Location = new System.Drawing.Point(1090, 341);
             this.headingLabelText.Name = "headingLabelText";
             this.headingLabelText.Size = new System.Drawing.Size(13, 13);
             this.headingLabelText.TabIndex = 17;
@@ -171,14 +171,14 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(1057, 665);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 13);
+            this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 21;
-            this.label1.Text = "cm to bottom: ";
+            this.label1.Text = "HGT: ";
             // 
             // distanceToBottomLabel
             // 
             this.distanceToBottomLabel.AutoSize = true;
-            this.distanceToBottomLabel.Location = new System.Drawing.Point(1132, 665);
+            this.distanceToBottomLabel.Location = new System.Drawing.Point(1090, 665);
             this.distanceToBottomLabel.Name = "distanceToBottomLabel";
             this.distanceToBottomLabel.Size = new System.Drawing.Size(13, 13);
             this.distanceToBottomLabel.TabIndex = 22;
@@ -189,50 +189,53 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(1057, 503);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(36, 13);
+            this.label5.Size = new System.Drawing.Size(33, 13);
             this.label5.TabIndex = 23;
-            this.label5.Text = "Laser:";
+            this.label5.Text = "DTO:";
             // 
             // laserDistanceLabel
             // 
             this.laserDistanceLabel.AutoSize = true;
-            this.laserDistanceLabel.Location = new System.Drawing.Point(1106, 503);
+            this.laserDistanceLabel.Location = new System.Drawing.Point(1090, 503);
             this.laserDistanceLabel.Name = "laserDistanceLabel";
             this.laserDistanceLabel.Size = new System.Drawing.Size(13, 13);
             this.laserDistanceLabel.TabIndex = 24;
             this.laserDistanceLabel.Text = "0";
             // 
-            // SensorButton
-            // 
-            this.SensorButton.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.SensorButton.ForeColor = System.Drawing.Color.Black;
-            this.SensorButton.Location = new System.Drawing.Point(1135, 686);
-            this.SensorButton.Name = "SensorButton";
-            this.SensorButton.Size = new System.Drawing.Size(86, 23);
-            this.SensorButton.TabIndex = 25;
-            this.SensorButton.Text = "Sensor alarm";
-            this.SensorButton.UseVisualStyleBackColor = false;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1057, 333);
+            this.label4.Location = new System.Drawing.Point(1057, 341);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 13);
+            this.label4.Size = new System.Drawing.Size(34, 13);
             this.label4.TabIndex = 26;
-            this.label4.Text = "Heading:";
+            this.label4.Text = "HDG:";
+            // 
+            // SensorAlarmLabel
+            // 
+            this.SensorAlarmLabel.AutoSize = true;
+            this.SensorAlarmLabel.BackColor = System.Drawing.Color.Green;
+            this.SensorAlarmLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SensorAlarmLabel.ForeColor = System.Drawing.Color.Black;
+            this.SensorAlarmLabel.Location = new System.Drawing.Point(1127, 686);
+            this.SensorAlarmLabel.Name = "SensorAlarmLabel";
+            this.SensorAlarmLabel.Padding = new System.Windows.Forms.Padding(5);
+            this.SensorAlarmLabel.Size = new System.Drawing.Size(110, 26);
+            this.SensorAlarmLabel.TabIndex = 28;
+            this.SensorAlarmLabel.Text = "Sensor alarm";
             // 
             // norwayFlagPictureBox
             // 
-            this.norwayFlagPictureBox.Location = new System.Drawing.Point(-5, 671);
+            this.norwayFlagPictureBox.Image = global::UisSubsea.RovTopside.Properties.Resources.norskflagg2;
+            this.norwayFlagPictureBox.Location = new System.Drawing.Point(-5, 679);
             this.norwayFlagPictureBox.Name = "norwayFlagPictureBox";
-            this.norwayFlagPictureBox.Size = new System.Drawing.Size(1056, 55);
+            this.norwayFlagPictureBox.Size = new System.Drawing.Size(1056, 49);
             this.norwayFlagPictureBox.TabIndex = 27;
             this.norwayFlagPictureBox.TabStop = false;
             // 
             // videoPictureBox
             // 
-            this.videoPictureBox.Location = new System.Drawing.Point(-4, -27);
+            this.videoPictureBox.Location = new System.Drawing.Point(-5, -27);
             this.videoPictureBox.Name = "videoPictureBox";
             this.videoPictureBox.Size = new System.Drawing.Size(1055, 706);
             this.videoPictureBox.TabIndex = 0;
@@ -241,7 +244,7 @@
             // headingIndicatorInstrumentControl1
             // 
             this.headingIndicatorInstrumentControl1.ForeColor = System.Drawing.Color.Yellow;
-            this.headingIndicatorInstrumentControl1.Location = new System.Drawing.Point(1100, 349);
+            this.headingIndicatorInstrumentControl1.Location = new System.Drawing.Point(1109, 352);
             this.headingIndicatorInstrumentControl1.Name = "headingIndicatorInstrumentControl1";
             this.headingIndicatorInstrumentControl1.Size = new System.Drawing.Size(155, 151);
             this.headingIndicatorInstrumentControl1.TabIndex = 19;
@@ -261,9 +264,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowText;
             this.ClientSize = new System.Drawing.Size(1267, 721);
+            this.Controls.Add(this.SensorAlarmLabel);
             this.Controls.Add(this.norwayFlagPictureBox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.SensorButton);
             this.Controls.Add(this.laserDistanceLabel);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.distanceToBottomLabel);
@@ -302,9 +305,9 @@
         private System.Windows.Forms.Label distanceToBottomLabel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label laserDistanceLabel;
-        private System.Windows.Forms.Button SensorButton;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox norwayFlagPictureBox;
+        private System.Windows.Forms.Label SensorAlarmLabel;
 
     }
 }

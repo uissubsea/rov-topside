@@ -263,6 +263,26 @@ namespace UisSubsea.RovTopside.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap norskflagg1 {
+            get {
+                object obj = ResourceManager.GetObject("norskflagg1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap norskflagg2 {
+            get {
+                object obj = ResourceManager.GetObject("norskflagg2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SmallNeedleAltimeter {
             get {
                 object obj = ResourceManager.GetObject("SmallNeedleAltimeter", resourceCulture);
