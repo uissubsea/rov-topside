@@ -96,7 +96,9 @@ namespace UisSubsea.RovTopside.Presentation
             {
                 camera.Snapshot();
                 snapshot = true;
-            }                
+            }
+            if (keyData == Keys.Space)
+                camera.DisplayCameraProperties();
 
             return base.ProcessCmdKey(ref msg, keyData);
         }

@@ -72,7 +72,7 @@ namespace UisSubsea.RovTopside.Presentation
         public void SetHeading(int heading)
         {
             this.Invoke(new MethodInvoker(delegate {
-            headingIndicatorInstrumentControl1.SetHeadingIndicatorParameters((int)heading);         
+            headingIndicatorInstrumentControl.SetHeadingIndicatorParameters((int)heading);         
             headingLabelText.Text = heading.ToString();
             }));
         }
@@ -82,11 +82,6 @@ namespace UisSubsea.RovTopside.Presentation
             this.Invoke(new MethodInvoker(delegate {frontCamGauge.Value = angle;}));
         }
 
-        /*Because we 
-         * get 1 byte(0-250) for the value of the camera angle. We need to 
-         * divide with 1.39 (if total rotation of the camera is 180) to convert from 
-         * byte to actuale degree of the camera.
-         * */
         public void SetRearCameraAngle(int angle)
         {
             this.Invoke(new MethodInvoker(delegate(){rearCamGauge.Value = angle;}));
@@ -99,7 +94,7 @@ namespace UisSubsea.RovTopside.Presentation
          * */
         public void SetDepth(int depth)
         {
-            this.Invoke(new MethodInvoker(delegate() { altimeterInstrumentControl1.SetAlimeterParameters((int)depth); }));
+            this.Invoke(new MethodInvoker(delegate() { altimeterInstrumentControl.SetAlimeterParameters((int)depth); }));
             //altimeterInstrumentControl1.SetAlimeterParameters((int)depth *3);
         }
 

@@ -15,7 +15,12 @@ namespace UisSubsea.RovTopside.Data
     {
         // We need to multiply the heading by 2 because
         // the number received goes from 0 - 180.
-        private const double headingResolution = 2;
+        private const int headingResolution = 2;
+        private const int distanceToObjectResolution = 2;
+        private const int altitudeAboveGroundLevelResolution = 3;
+        private const int depthBelowSeaLevelResolution = 3;
+
+        private const int numberOfBytes = 7;
 
         public static RovState BuildRovState(byte[] data)
         {
@@ -25,9 +30,9 @@ namespace UisSubsea.RovTopside.Data
                 int hdg = heading(data[1]);
                 int frontCamTilt = frontCameraTilt(data[2]);
                 int rearCamTilt = rearCameraTilt(data[3]);   
-                int distance = distanceRov(data[4]);
-                int depth = depthRov(data[5]);
-                int distanceBottom = distanceToBottom(data[6]);
+                int distance = distanceToObject(data[4]);
+                int depth = depthBelowSeaLevel(data[5]);
+                int distanceBottom = AltitudeAboveGroundLevel(data[6]);
 
                 return new RovState(hdg, frontCamTilt, rearCamTilt, err, distance, depth, distanceBottom);
             }
@@ -45,8 +50,7 @@ namespace UisSubsea.RovTopside.Data
 
         private static int heading(byte heading)
         {
-            int hdg = heading;
-            return (int)(hdg * headingResolution);
+            return (heading * headingResolution);
         }
 
         private static int frontCameraTilt(byte camTilt)
@@ -63,25 +67,22 @@ namespace UisSubsea.RovTopside.Data
 
         private static bool packageIsValid(byte[] package)
         {
-            return package.Count() == 7;
+            return package.Count() == numberOfBytes;
         }
         
-        private static int depthRov(byte rovDepth)
+        private static int depthBelowSeaLevel(byte centrimetresBelowSeaLevel)
         {
-            int depth = rovDepth;
-            return (int)depth*3; 
+            return (int)centrimetresBelowSeaLevel*depthBelowSeaLevelResolution; 
         }
 
-        private static int distanceToBottom(byte toBottom)
+        private static int AltitudeAboveGroundLevel(byte centimetresToBottom)
         {
-            int distance = toBottom;
-            return (int)distance*3;
+            return (int)centimetresToBottom*altitudeAboveGroundLevelResolution;
         }
 
-        private static int distanceRov(byte rovDistance)
+        private static int distanceToObject(byte centrimetresToObject)
         {
-            int distance = rovDistance;
-            return (int)distance*2;
+            return (int)centrimetresToObject*distanceToObjectResolution;
         }
     }
 }

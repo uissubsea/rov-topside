@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="UisSubsea.RovTopside.Data.Camera" BaseTypeListCollapsed="true">
+    <Position X="20.25" Y="0.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AIgAAKAGAiAkABEAmAIAAAgSgIAUAIAg4IAIIAAAAAA=</HashCode>
+      <FileName>Data\Camera.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Data.CameraFactory">
+    <Position X="23.25" Y="5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAACIAABAAAAAAQAAAAAAEAEAAAAAAAAAABA=</HashCode>
+      <FileName>Data\CameraFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Data.CommunicationServer">
+    <Position X="42.25" Y="10.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>kBAgQAAAAAAACAgAAAAAAEAAEAAAAAwAAAAAQgEQAAQ=</HashCode>
+      <FileName>Data\CommunicationServer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Data.DataReceivedEventArgs">
+    <Position X="36.75" Y="16.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\DataReceivedEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Data.FocusChangedEventArgs">
+    <Position X="26.5" Y="8" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\FocusChangedEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Data.Joystick" BaseTypeListCollapsed="true">
+    <Position X="26.25" Y="10.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAIAAEgAAEARiEAAAAAIAABACAQAQBQRAAABAA=</HashCode>
+      <FileName>Data\Joystick.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Data.JoystickFactory">
+    <Position X="31.25" Y="15.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQgAAAAAAAgABAAgAAAAAAEAAAQAAgACAAAAAAAAA=</HashCode>
+      <FileName>Data\JoystickFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Data.JoystickStateListener">
+    <Position X="34" Y="15.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAACQAAAAEAAEAAAAAAAAAAAAAAAAAAAIASAABAAAA=</HashCode>
+      <FileName>Data\JoystickStateListener.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Data.JoystickStateStore">
+    <Position X="28.75" Y="14.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAABAAAEAA=</HashCode>
+      <FileName>Data\JoystickStateStore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Data.SerialPortSingleton">
+    <Position X="36.75" Y="10.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAAACAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Data\SerialPortSingleton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Data.VideoRecorder">
+    <Position X="23.25" Y="8" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAABAA=</HashCode>
+      <FileName>Data\VideoRecorder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Data.Constants">
+    <Position X="12.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgABAAAAAQACAADACgBAEAAAAAAAAAAFAQAAEABAA=</HashCode>
+      <FileName>Logic\Constants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Data.MainPacketBuilder">
+    <Position X="6" Y="11.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>BAAACAAAAAMAAAAgAIABAQQAAAAUAIIACAAAACAAAAE=</HashCode>
+      <FileName>Logic\MainPacketBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Data.ManipulatorLeftPacketBuilder">
+    <Position X="0.5" Y="11.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logic\ManipulatorLeftPacketBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Data.ManipulatorRightPacketBuilder">
+    <Position X="3.25" Y="11.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logic\ManipulatorRightPacketBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Data.PacketBuilder">
+    <Position X="3.5" Y="7.25" Width="2" />
+    <NestedTypes>
+      <Enum Name="UisSubsea.RovTopside.Data.PacketBuilder.PointOfView" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Logic\PacketBuilder.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEACAEABCAAAAAAAAAQAAAAAQBQAQAAAAA=</HashCode>
+      <FileName>Logic\PacketBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Data.RovState">
+    <Position X="36.75" Y="13.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAABAAQAAAAAAAAAAAAAAAABgAAAAACAAACA=</HashCode>
+      <FileName>Logic\RovState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Data.RovStateBuilder">
+    <Position X="39.25" Y="13.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>YIAAIEAAAAAAAAEAAAEIEAAAAAAAAAgAAAACAACAAAI=</HashCode>
+      <FileName>Logic\RovStateBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Logic.CameraController" BaseTypeListCollapsed="true">
+    <Position X="23.25" Y="0.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAECIIACCgAAIIAAAAAQAAAAAAEACAAQAAAAEAAAA=</HashCode>
+      <FileName>Logic\CameraController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Logic.CoPilotActionsController">
+    <Position X="31.25" Y="10.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AEIwACAAAACgCAAAAAIAAAAAEAEAAACQAAAAIACIAAA=</HashCode>
+      <FileName>Logic\CoPilotActionsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Logic.CoPilotButton">
+    <Position X="34" Y="12.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAgAAAAAAAAAAAEAEAAAAAAQAgAAAAAAAA=</HashCode>
+      <FileName>Logic\CoPilotButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Logic.MainController">
+    <Position X="23.25" Y="10.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AABoEgAQAAABABAKEAAAAAQECAUAEACAAAAECASIAAA=</HashCode>
+      <FileName>Logic\MainController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Logic.PilotActionsController">
+    <Position X="28.75" Y="10.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAgEQAAAAAAABAABAAAAAAAAAAAAAKQAAAEAAAAYAA=</HashCode>
+      <FileName>Logic\PilotActionsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Logic.PilotButton">
+    <Position X="34" Y="10.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>BAAAgAAAAAAAAAAAAAAAAAAAAEAAAAAAAAgCAAAAAAA=</HashCode>
+      <FileName>Logic\PilotButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Logic.RovStateReceivedHandler">
+    <Position X="39.25" Y="10.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAgAAAAAAQAAIAAgAIAAAAAAACAAAAAAAEAA=</HashCode>
+      <FileName>Logic\RovStateReceivedHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Presentation.CameraSelectorView">
+    <Position X="26.25" Y="0.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>EAAAEACAADAAAAAAAACAAAACAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Presentation\CameraSelectorView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Presentation.CameraTesterView">
+    <Position X="37.75" Y="0.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>ICYAACAAAiQAAAEAgCCCAgICFAgAAQBECAAAAAAgAAA=</HashCode>
+      <FileName>Presentation\CameraTesterView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Presentation.CoPilotView" BaseTypeListCollapsed="true">
+    <Position X="32.25" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>gAKAAAQAAiSAAFoAIICCNAACAAAAAABAAEAgAoCQIAI=</HashCode>
+      <FileName>Presentation\CoPilotView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Presentation.JoystickTrackerView">
+    <Position X="14" Y="7.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>QALAAEiAFSWAFWCAQBiIAIAzAYACAEAAAAgAgAAACAQ=</HashCode>
+      <FileName>Presentation\JoystickTrackerView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Presentation.LoadingView">
+    <Position X="28.75" Y="0.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAIQAACAAYACAAAAAAAAAAAAAABAAAI=</HashCode>
+      <FileName>Presentation\LoadingView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Presentation.PilotView" BaseTypeListCollapsed="true">
+    <Position X="35" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>rIKA4QAAAiUAABAAAACKIBACoAEDIQABIAAAIgAgAIM=</HashCode>
+      <FileName>Presentation\PilotView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Presentation.ProgramSelectorView">
+    <Position X="20.25" Y="13" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AIAAAQAAACAAAAEAAACAAMACAAAAAEAAAAAAEABAAAA=</HashCode>
+      <FileName>Presentation\ProgramSelectorView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Presentation.Controls.AirSpeedIndicatorInstrumentControl">
+    <Position X="12.5" Y="3.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAACBAAACEAAACAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Presentation\Controls\AirSpeedIndicatorInstrumentControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Presentation.Controls.AltimeterInstrumentControl">
+    <Position X="0.5" Y="3.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAEAABAABCAAAACAIAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Presentation\Controls\AltimeterInstrumentControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Presentation.Controls.AttitudeIndicatorInstrumentControl">
+    <Position X="6.5" Y="3.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AgCIAAAAAAAAAABAAACAAAACAAAAEAAAAAAAEIAAAAA=</HashCode>
+      <FileName>Presentation\Controls\AttitudeIndicatorInstrumentControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Presentation.Controls.HeadingIndicatorInstrumentControl">
+    <Position X="9.5" Y="3.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAABAAACAAAACAAAAACAAAIAAACAAAAg=</HashCode>
+      <FileName>Presentation\Controls\HeadingIndicatorInstrumentControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Presentation.Controls.InstrumentControl">
+    <Position X="8.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAQAAAgAAAAAAAAAAAAAAgAAAAAAAAgAEABAAE=</HashCode>
+      <FileName>Presentation\Controls\InstrumentControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Presentation.Controls.TurnCoordinatorInstrumentControl">
+    <Position X="15.5" Y="3.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAABgEECAAAACQABAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Presentation\Controls\TurnCoordinatorInstrumentControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Presentation.Controls.VerticalSpeedIndicatorInstrumentControl">
+    <Position X="3.25" Y="3.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAABAAACEAAACAAAABAAAAAAAAAAABAA=</HashCode>
+      <FileName>Presentation\Controls\VerticalSpeedIndicatorInstrumentControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Program">
+    <Position X="20.25" Y="10.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>ACBAACAAAAAAAAAAAAAAAAAAAAIACAACAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Properties.Resources">
+    <Position X="9.25" Y="7.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>ACIAASACCAAAAQADAQQBEiAAAUQAMASEoAAgEQARAJg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UisSubsea.RovTopside.Properties.Settings">
+    <Position X="29" Y="8" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="UisSubsea.RovTopside.Presentation.Controls.InstrumentControlMarksDefinition">
+    <Position X="6.25" Y="7.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAEACAIAACAAAAAAABAAAAAAEAAAAIAAAAAAA=</HashCode>
+      <FileName>Presentation\Controls\InstrumentControl.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="UisSubsea.RovTopside.Presentation.Controls.InstrumentControlMarkPoint">
+    <Position X="16.75" Y="7.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAABAAAA=</HashCode>
+      <FileName>Presentation\Controls\InstrumentControl.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="UisSubsea.RovTopside.Data.ICamera">
+    <Position X="41" Y="5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AIgAAAAGACAgAAAAiAIAAAAAAIAAAAAAYIAAAAAAAAA=</HashCode>
+      <FileName>Data\ICamera.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="UisSubsea.RovTopside.Data.IJoystick">
+    <Position X="43.5" Y="7.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAgAAEABCAAAAAAAAAAAAAAAQBAAAAABAA=</HashCode>
+      <FileName>Data\IJoystick.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="UisSubsea.RovTopside.Data.IView">
+    <Position X="38.25" Y="8" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presentation\IView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="UisSubsea.RovTopside.Logic.ICameraHandler">
+    <Position X="41" Y="2.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAACIIACAgAAAIAAAAAAAAAAAAAAAAAQAAAAEAAAA=</HashCode>
+      <FileName>Logic\ICameraHandler.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="UisSubsea.RovTopside.Logic.ICoPilotViewHandler">
+    <Position X="43.5" Y="2.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAQAACAAAEAAAAAABAAAAAAAAAAAAAAAAgAAAAI=</HashCode>
+      <FileName>Presentation\ICoPilotViewHandler.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="UisSubsea.RovTopside.Logic.IPilotViewHandler">
+    <Position X="43.5" Y="4.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>hIAAgQAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAI=</HashCode>
+      <FileName>Presentation\IPilotViewHandler.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="UisSubsea.RovTopside.Data.JoystickType">
+    <Position X="42.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAACAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Data\JoystickType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="UisSubsea.RovTopside.Presentation.Controls.InstumentMarkScaleStyle">
+    <Position X="41" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presentation\Controls\InstrumentControl.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

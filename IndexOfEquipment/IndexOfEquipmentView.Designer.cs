@@ -1,6 +1,6 @@
 ﻿namespace UisSubsea.RovTopside.IndexOfEquipment
 {
-    partial class Form1
+    partial class IndexOfEquipmentView
     {
         /// <summary>
         /// Required designer variable.
@@ -66,9 +66,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 209);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 16);
+            this.label1.Size = new System.Drawing.Size(104, 16);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Webkamera";
+            this.label1.Text = "Web cameras";
             // 
             // label2
             // 
@@ -140,7 +140,7 @@
             this.cameraExampleLabelPart3.TabIndex = 9;
             this.cameraExampleLabelPart3.Text = "Example value";
             // 
-            // Form1
+            // IndexOfEquipmentView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -155,8 +155,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cameraTextBox);
             this.Controls.Add(this.joystickTextBox);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "IndexOfEquipmentView";
+            this.Text = "Index of equipment";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

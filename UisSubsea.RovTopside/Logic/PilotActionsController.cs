@@ -34,10 +34,18 @@ namespace UisSubsea.RovTopside.Logic
             if (changePilotCamera() || reverse())
                 cameraHandler.ChangePilotCamera();
 
+            if (toggleGain())
+                pilotView.ToggleGain();
+
             if (toggleStopwatch())
                 pilotView.ToggleStopwatch();       
 
             pilotView.VerticalLeverIsNeutral(VerticalLeverIsNeutral());
+        }
+
+        private bool toggleGain()
+        {
+            return pilotStickListener.Joystick.Buttons()[PilotButton.ToggleGain];
         }
 
         private bool changePilotCamera()

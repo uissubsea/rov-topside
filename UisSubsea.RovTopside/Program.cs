@@ -141,7 +141,7 @@ namespace UisSubsea.RovTopside
 
         private static void launchIndexOfEquipment()
         {
-            Application.Run(new Form1());
+            Application.Run(new IndexOfEquipmentView());
         } 
 
         private static void Application_ApplicationExit(object sender, EventArgs e)

@@ -17,6 +17,6 @@ namespace UisSubsea.RovTopside.Logic
         public const int ToggleStopwatch = 4;
         public const int Reverse = 1;
         public const int CameraAutofocus = 0;
-        public const int Gain = 10;
+        public const int ToggleGain = 10;
     }
 }

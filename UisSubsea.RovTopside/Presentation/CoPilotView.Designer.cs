@@ -41,8 +41,8 @@
             this.SensorAlarmLabel = new System.Windows.Forms.Label();
             this.norwayFlagPictureBox = new System.Windows.Forms.PictureBox();
             this.videoPictureBox = new System.Windows.Forms.PictureBox();
-            this.headingIndicatorInstrumentControl1 = new UisSubsea.RovTopside.Presentation.Controls.HeadingIndicatorInstrumentControl();
-            this.altimeterInstrumentControl1 = new UisSubsea.RovTopside.Presentation.Controls.AltimeterInstrumentControl();
+            this.headingIndicatorInstrumentControl = new UisSubsea.RovTopside.Presentation.Controls.HeadingIndicatorInstrumentControl();
+            this.altimeterInstrumentControl = new UisSubsea.RovTopside.Presentation.Controls.AltimeterInstrumentControl();
             ((System.ComponentModel.ISupportInitialize)(this.norwayFlagPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.videoPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -241,22 +241,22 @@
             this.videoPictureBox.TabIndex = 0;
             this.videoPictureBox.TabStop = false;
             // 
-            // headingIndicatorInstrumentControl1
+            // headingIndicatorInstrumentControl
             // 
-            this.headingIndicatorInstrumentControl1.ForeColor = System.Drawing.Color.Yellow;
-            this.headingIndicatorInstrumentControl1.Location = new System.Drawing.Point(1109, 352);
-            this.headingIndicatorInstrumentControl1.Name = "headingIndicatorInstrumentControl1";
-            this.headingIndicatorInstrumentControl1.Size = new System.Drawing.Size(155, 151);
-            this.headingIndicatorInstrumentControl1.TabIndex = 19;
-            this.headingIndicatorInstrumentControl1.Text = "headingIndicatorInstrumentControl1";
+            this.headingIndicatorInstrumentControl.ForeColor = System.Drawing.Color.Yellow;
+            this.headingIndicatorInstrumentControl.Location = new System.Drawing.Point(1109, 352);
+            this.headingIndicatorInstrumentControl.Name = "headingIndicatorInstrumentControl";
+            this.headingIndicatorInstrumentControl.Size = new System.Drawing.Size(155, 151);
+            this.headingIndicatorInstrumentControl.TabIndex = 19;
+            this.headingIndicatorInstrumentControl.Text = "headingIndicatorInstrumentControl1";
             // 
-            // altimeterInstrumentControl1
+            // altimeterInstrumentControl
             // 
-            this.altimeterInstrumentControl1.Location = new System.Drawing.Point(1109, 520);
-            this.altimeterInstrumentControl1.Name = "altimeterInstrumentControl1";
-            this.altimeterInstrumentControl1.Size = new System.Drawing.Size(143, 142);
-            this.altimeterInstrumentControl1.TabIndex = 18;
-            this.altimeterInstrumentControl1.Text = "altimeterInstrumentControl1";
+            this.altimeterInstrumentControl.Location = new System.Drawing.Point(1109, 520);
+            this.altimeterInstrumentControl.Name = "altimeterInstrumentControl";
+            this.altimeterInstrumentControl.Size = new System.Drawing.Size(143, 142);
+            this.altimeterInstrumentControl.TabIndex = 18;
+            this.altimeterInstrumentControl.Text = "altimeterInstrumentControl1";
             // 
             // CoPilotView
             // 
@@ -271,8 +271,8 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.distanceToBottomLabel);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.headingIndicatorInstrumentControl1);
-            this.Controls.Add(this.altimeterInstrumentControl1);
+            this.Controls.Add(this.headingIndicatorInstrumentControl);
+            this.Controls.Add(this.altimeterInstrumentControl);
             this.Controls.Add(this.headingLabelText);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -299,8 +299,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label headingLabelText;
-        private Controls.HeadingIndicatorInstrumentControl headingIndicatorInstrumentControl1;
-        private Controls.AltimeterInstrumentControl altimeterInstrumentControl1;
+        private Controls.HeadingIndicatorInstrumentControl headingIndicatorInstrumentControl;
+        private Controls.AltimeterInstrumentControl altimeterInstrumentControl;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label distanceToBottomLabel;
         private System.Windows.Forms.Label label5;

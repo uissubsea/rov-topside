@@ -45,7 +45,7 @@ namespace UisSubsea.RovTopside.Data
             if (joystick.Buttons()[PilotButton.Reverse])
                 ToggleReverse();
 
-            if (joystick.Buttons()[PilotButton.Gain])
+            if (joystick.Buttons()[PilotButton.ToggleGain])
                 ToggleGain();
 
             if (reverse)
@@ -67,10 +67,10 @@ namespace UisSubsea.RovTopside.Data
         private byte[] buildHalfGainPacket()
         {
             return new byte[]
-            {
+            {               
                 halveAxisAmplitude(Roll()),
                 halveAxisAmplitude(Pitch()),
-                halveAxisAmplitude(Yaw()),
+                quadAxisAmplitude(Yaw()),
                 Throttle(),
                 ButtonsPressed(),
                 HatPov(),
@@ -83,7 +83,7 @@ namespace UisSubsea.RovTopside.Data
             {
                 halveAxisAmplitude(reverseRoll()),
                 halveAxisAmplitude(reversePitch()),
-                halveAxisAmplitude(Yaw()),
+                quadAxisAmplitude(Yaw()),
                 halveAxisAmplitude(Throttle()),
                 ButtonsPressed(),
                 HatPov(),
@@ -93,10 +93,10 @@ namespace UisSubsea.RovTopside.Data
         private byte[] buildPacket()
         {
             return new byte[]
-            {
+            {           
                 Roll(),
                 Pitch(),
-                Yaw(),
+                halveAxisAmplitude(Yaw()),
                 Throttle(),              
                 ButtonsPressed(),
                 HatPov(),
@@ -109,7 +109,7 @@ namespace UisSubsea.RovTopside.Data
             {
                 reverseRoll(),
                 reversePitch(),
-                Yaw(),
+                halveAxisAmplitude(Yaw()),
                 Throttle(),
                 ButtonsPressed(),
                 HatPov(),
@@ -153,6 +153,12 @@ namespace UisSubsea.RovTopside.Data
         {
             int amplitude = axisPosition - 125;
             return (byte)(125 + (amplitude / 2));
+        }
+
+        private byte quadAxisAmplitude(byte axisPosition)
+        {
+            int amplitude = axisPosition - 125;
+            return (byte)(125 + (amplitude / 4));
         }
     }
 }
