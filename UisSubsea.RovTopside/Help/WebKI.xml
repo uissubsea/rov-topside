@@ -1,0 +1,1012 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="Acquire method" Url="html/de14cec6-29d5-ea32-f69c-261c1c50cb7e.htm" />
+  <HelpKINode Title="AutoFocus method">
+    <HelpKINode Title="Camera.AutoFocus Method " Url="html/a5d577d1-7249-d963-9353-a911209aa170.htm" />
+    <HelpKINode Title="ICamera.AutoFocus Method " Url="html/2edc9309-6ef3-6c88-b6bf-ad22f5364cb7.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BuildJoystickStatePacket method">
+    <HelpKINode Title="MainPacketBuilder.BuildJoystickStatePacket Method " Url="html/bbdf0abe-c975-8555-0ceb-226dbbe346b1.htm" />
+    <HelpKINode Title="ManipulatorLeftPacketBuilder.BuildJoystickStatePacket Method " Url="html/124d7c7d-5271-fabe-2683-fb7ed53de07e.htm" />
+    <HelpKINode Title="ManipulatorRightPacketBuilder.BuildJoystickStatePacket Method " Url="html/336e9f10-7c7e-7085-8f08-91cf6d3ae3f2.htm" />
+    <HelpKINode Title="PacketBuilder.BuildJoystickStatePacket Method " Url="html/c9ad382c-00f2-886a-902d-315d0782063a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BuildRovState method" Url="html/a2d22b33-8887-38dc-3efb-f781da44cafb.htm" />
+  <HelpKINode Title="Buttons method">
+    <HelpKINode Title="IJoystick.Buttons Method " Url="html/6ea0e99a-f73c-9a0d-7386-1a9a37db6592.htm" />
+    <HelpKINode Title="Joystick.Buttons Method " Url="html/af8d949e-7215-2e95-fee7-7a3963ebb14f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ButtonsPressed method" Url="html/0d7fb794-2637-491c-77db-60710377a9b6.htm" />
+  <HelpKINode Title="Camera class">
+    <HelpKINode Title="Camera Class" Url="html/0bffe866-5520-827a-e059-118232e3e958.htm" />
+    <HelpKINode Title="Camera Members" Url="html/c3a9d7ac-fd8f-c938-1347-5b0bab9fc340.htm" />
+    <HelpKINode Title="about Camera class" Url="html/0bffe866-5520-827a-e059-118232e3e958.htm" />
+    <HelpKINode Title="all members" Url="html/c3a9d7ac-fd8f-c938-1347-5b0bab9fc340.htm" />
+    <HelpKINode Title="constructor" Url="html/3d26429e-ad9f-2c5c-609f-45541b68869f.htm" />
+    <HelpKINode Title="events" Url="html/98aa6c23-e79d-c0d8-dea9-e1f22226a6ca.htm" />
+    <HelpKINode Title="methods" Url="html/943c5fab-3ae4-749a-bd2d-b9251f802c0b.htm" />
+    <HelpKINode Title="properties" Url="html/7741d169-b048-f67f-f798-437a5fac19b6.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Camera.AutoFocus method" Url="html/a5d577d1-7249-d963-9353-a911209aa170.htm" />
+  <HelpKINode Title="Camera.Camera constructor" Url="html/3d26429e-ad9f-2c5c-609f-45541b68869f.htm" />
+  <HelpKINode Title="Camera.CamerasConnected method" Url="html/1c01cd71-6c97-28f5-6b62-1a189db1b9a6.htm" />
+  <HelpKINode Title="Camera.Canvas property" Url="html/dbb9adef-bac3-0a24-b580-11c28840155c.htm" />
+  <HelpKINode Title="Camera.DisplayCameraProperties method" Url="html/3d063855-ac66-d217-02eb-4a894aabecb3.htm" />
+  <HelpKINode Title="Camera.Dispose method" Url="html/a5dd3102-9585-00e2-89f6-7367ccc76ef9.htm" />
+  <HelpKINode Title="Camera.Equals method" Url="html/dbe5201d-ce42-20b9-9892-0a1660239788.htm" />
+  <HelpKINode Title="Camera.FocusChanged event" Url="html/40e23c2f-0ec7-644a-547a-f0a1db3e4986.htm" />
+  <HelpKINode Title="Camera.GetHashCode method" Url="html/309d86dc-cd27-934f-ff1c-97ce17c88fda.htm" />
+  <HelpKINode Title="Camera.Instance property" Url="html/b58b7f99-ab4a-dc11-e5af-a4c883f0d081.htm" />
+  <HelpKINode Title="Camera.IsRecording property" Url="html/51a994aa-4269-a13c-0c91-846cd3c1de0b.htm" />
+  <HelpKINode Title="Camera.ManualFocus method" Url="html/f16ca65c-a2eb-e4bf-56f1-a3a96108b05b.htm" />
+  <HelpKINode Title="Camera.OnFocusChanged method" Url="html/9ea5ce3b-eebf-d9c2-20bc-9e7985580dda.htm" />
+  <HelpKINode Title="Camera.SetFocus method" Url="html/d9615472-d961-39ea-78a4-9ae2f60d9952.htm" />
+  <HelpKINode Title="Camera.SetResolution method" Url="html/cf4f50b8-5665-00a4-1042-6ad7d6fe520a.htm" />
+  <HelpKINode Title="Camera.Snapshot method" Url="html/04be1ab1-296b-289e-7629-4554df91ab93.htm" />
+  <HelpKINode Title="Camera.Start method" Url="html/1c820558-a8c6-a0d3-52f3-4201987fd2e7.htm" />
+  <HelpKINode Title="Camera.Stop method" Url="html/ca5e806d-0423-7b21-b87a-f5bc08d9b7f0.htm" />
+  <HelpKINode Title="Camera.ToggleRecording method" Url="html/5a4c85c1-fe07-6759-e639-bad6841f7e9b.htm" />
+  <HelpKINode Title="CameraAutofocus field">
+    <HelpKINode Title="CoPilotButton.CameraAutofocus Field" Url="html/53d64c6d-1a00-16ac-3f90-70c48458de94.htm" />
+    <HelpKINode Title="PilotButton.CameraAutofocus Field" Url="html/fed27106-a42f-2e79-e715-09b3b8973854.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CameraController class">
+    <HelpKINode Title="CameraController Class" Url="html/882d36a1-0599-e596-6bcd-7cb0e71a21e9.htm" />
+    <HelpKINode Title="CameraController Members" Url="html/9810d0bc-3774-69ac-174f-37d56f4d2b3e.htm" />
+    <HelpKINode Title="about CameraController class" Url="html/882d36a1-0599-e596-6bcd-7cb0e71a21e9.htm" />
+    <HelpKINode Title="all members" Url="html/9810d0bc-3774-69ac-174f-37d56f4d2b3e.htm" />
+    <HelpKINode Title="constructor" Url="html/238dc2f5-3828-557e-03cd-1b088f3c2b8d.htm" />
+    <HelpKINode Title="methods" Url="html/740908a0-10b9-ea04-1e00-7bac4e36437b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CameraController.CameraController constructor" Url="html/238dc2f5-3828-557e-03cd-1b088f3c2b8d.htm" />
+  <HelpKINode Title="CameraController.ChangeCoPilotCamera method" Url="html/d46474c3-7f6d-2c5b-18d4-43ce062eb8f8.htm" />
+  <HelpKINode Title="CameraController.ChangePilotCamera method" Url="html/49ed3a03-ee1f-3830-58e1-94c5fdb96c6e.htm" />
+  <HelpKINode Title="CameraController.CoPilotCameraAutofocus method" Url="html/40016141-8368-e1b3-0a53-a47b1e641fc8.htm" />
+  <HelpKINode Title="CameraController.CoPilotCameraSetFocus method" Url="html/f5d4136c-6121-65e5-91cd-e971b706fa64.htm" />
+  <HelpKINode Title="CameraController.PilotCameraAutofocus method" Url="html/7e9d1568-0bd5-6278-edab-b0f3ae48ea5a.htm" />
+  <HelpKINode Title="CameraController.PilotCameraSetFocus method" Url="html/a7b3b6ba-6db4-f745-539b-f3bbf6da8b6a.htm" />
+  <HelpKINode Title="CameraController.Snapshot method" Url="html/d838857d-8b09-1f93-f707-fcadf26d316d.htm" />
+  <HelpKINode Title="CameraController.ToggleRecording method" Url="html/9450fc20-1000-bbb3-0625-c40819b58075.htm" />
+  <HelpKINode Title="CameraFactory class">
+    <HelpKINode Title="CameraFactory Class" Url="html/676a8542-3086-66d6-3501-27a887450c0b.htm" />
+    <HelpKINode Title="CameraFactory Members" Url="html/b6231748-3c0d-abcc-fe15-b8a5a37e6955.htm" />
+    <HelpKINode Title="about CameraFactory class" Url="html/676a8542-3086-66d6-3501-27a887450c0b.htm" />
+    <HelpKINode Title="all members" Url="html/b6231748-3c0d-abcc-fe15-b8a5a37e6955.htm" />
+    <HelpKINode Title="constructor" Url="html/aae59138-3e3c-dc1b-3ee5-9c61347fae32.htm" />
+    <HelpKINode Title="methods" Url="html/856e2031-1556-a7c7-4d12-3b1a8337f5d5.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CameraFactory.CameraFactory constructor" Url="html/aae59138-3e3c-dc1b-3ee5-9c61347fae32.htm" />
+  <HelpKINode Title="CameraFactory.DisposeAll method" Url="html/a3b3395c-945e-6fa3-937e-379aa8d14db1.htm" />
+  <HelpKINode Title="CameraFactory.GetMainCamera method" Url="html/daeebf23-2377-5fc1-fe97-2cef4bc12692.htm" />
+  <HelpKINode Title="CameraFactory.GetManipulatorCamera method" Url="html/39fa3e34-ccc7-b3a1-e08a-5109a1f9aedd.htm" />
+  <HelpKINode Title="CameraFactory.GetRearCamera method" Url="html/1a703f7d-a660-b2ae-5137-1f34ed32fb2f.htm" />
+  <HelpKINode Title="CameraIndex property" Url="html/920e359c-ceaa-3fb3-359e-ea863f488e7d.htm" />
+  <HelpKINode Title="CamerasConnected method" Url="html/1c01cd71-6c97-28f5-6b62-1a189db1b9a6.htm" />
+  <HelpKINode Title="CameraSelectorView class">
+    <HelpKINode Title="CameraSelectorView Class" Url="html/73ffef57-f846-b8a4-c3e2-df172f87bbbb.htm" />
+    <HelpKINode Title="CameraSelectorView Members" Url="html/50236302-723e-42e6-eb2a-f42785e1ef72.htm" />
+    <HelpKINode Title="about CameraSelectorView class" Url="html/73ffef57-f846-b8a4-c3e2-df172f87bbbb.htm" />
+    <HelpKINode Title="all members" Url="html/50236302-723e-42e6-eb2a-f42785e1ef72.htm" />
+    <HelpKINode Title="constructor" Url="html/548c49e8-2750-d4de-b3d7-cd9cb7e3b2c0.htm" />
+    <HelpKINode Title="events" Url="html/8b1fa094-1375-d437-9bf8-b630aef60ce0.htm" />
+    <HelpKINode Title="methods" Url="html/ccafcea4-bc3e-c6fa-6f8d-c7bbe02e23af.htm" />
+    <HelpKINode Title="properties" Url="html/d4e6564d-e994-c611-444a-a62bfd569b12.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CameraSelectorView.CameraIndex property" Url="html/920e359c-ceaa-3fb3-359e-ea863f488e7d.htm" />
+  <HelpKINode Title="CameraSelectorView.CameraSelectorView constructor" Url="html/548c49e8-2750-d4de-b3d7-cd9cb7e3b2c0.htm" />
+  <HelpKINode Title="CameraSelectorView.Dispose method" Url="html/f765b495-7ca8-eed1-b59f-869547e36d5d.htm" />
+  <HelpKINode Title="CameraTesterView class">
+    <HelpKINode Title="CameraTesterView Class" Url="html/fdbb1d2b-bb70-b94d-8eab-693049c6193d.htm" />
+    <HelpKINode Title="CameraTesterView Members" Url="html/23493430-2745-5c3f-c040-6ae3b04ef6e0.htm" />
+    <HelpKINode Title="about CameraTesterView class" Url="html/fdbb1d2b-bb70-b94d-8eab-693049c6193d.htm" />
+    <HelpKINode Title="all members" Url="html/23493430-2745-5c3f-c040-6ae3b04ef6e0.htm" />
+    <HelpKINode Title="constructor" Url="html/d3a3a1b2-c549-1ea9-f038-6a6daa4cf5aa.htm" />
+    <HelpKINode Title="events" Url="html/39d346bf-5292-62ce-dad2-855b5c1d02a0.htm" />
+    <HelpKINode Title="methods" Url="html/086bad01-fc3d-9eff-aa74-8c5cb815e149.htm" />
+    <HelpKINode Title="properties" Url="html/25ce5894-66d5-1373-4164-a7bf14466887.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CameraTesterView.CameraTesterView constructor" Url="html/d3a3a1b2-c549-1ea9-f038-6a6daa4cf5aa.htm" />
+  <HelpKINode Title="CameraTesterView.Dispose method" Url="html/f4522a26-65af-7f9c-9b65-5cc4482c7d63.htm" />
+  <HelpKINode Title="CameraTesterView.ProcessCmdKey method" Url="html/ee61a548-e525-ea4d-dafa-186642725960.htm" />
+  <HelpKINode Title="Canvas property">
+    <HelpKINode Title="Camera.Canvas Property " Url="html/dbb9adef-bac3-0a24-b580-11c28840155c.htm" />
+    <HelpKINode Title="ICamera.Canvas Property " Url="html/a6dcb54e-e6b7-380d-90a0-e4b56518dfbb.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Center enumeration member" Url="html/1089e8e6-097c-21f8-270b-5b8a90f33392.htm" />
+  <HelpKINode Title="ChangeCamera field">
+    <HelpKINode Title="CoPilotButton.ChangeCamera Field" Url="html/7caeecf8-315e-ad3e-2048-945add3c92e0.htm" />
+    <HelpKINode Title="PilotButton.ChangeCamera Field" Url="html/1c2e8ca1-4c9d-d4df-4c77-30fbcfc99512.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ChangeCoPilotCamera method">
+    <HelpKINode Title="CameraController.ChangeCoPilotCamera Method " Url="html/d46474c3-7f6d-2c5b-18d4-43ce062eb8f8.htm" />
+    <HelpKINode Title="ICameraHandler.ChangeCoPilotCamera Method " Url="html/c1977360-b026-ea43-8f22-6ca3f8176cd3.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ChangePilotCamera method">
+    <HelpKINode Title="CameraController.ChangePilotCamera Method " Url="html/49ed3a03-ee1f-3830-58e1-94c5fdb96c6e.htm" />
+    <HelpKINode Title="ICameraHandler.ChangePilotCamera Method " Url="html/894489f7-1470-4898-befa-4896a64e01c9.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CommunicationServer class">
+    <HelpKINode Title="CommunicationServer Class" Url="html/2262ed4d-2d2e-810c-0e88-318256369289.htm" />
+    <HelpKINode Title="CommunicationServer Members" Url="html/35cf763f-bf93-39b1-f370-7332780d0faa.htm" />
+    <HelpKINode Title="about CommunicationServer class" Url="html/2262ed4d-2d2e-810c-0e88-318256369289.htm" />
+    <HelpKINode Title="all members" Url="html/35cf763f-bf93-39b1-f370-7332780d0faa.htm" />
+    <HelpKINode Title="constructor" Url="html/e01f7e2c-b9d5-05ab-64de-6d520c41cb62.htm" />
+    <HelpKINode Title="events" Url="html/2e3cee8a-72ba-35a5-387b-496dc4e734c8.htm" />
+    <HelpKINode Title="methods" Url="html/44151413-11cb-b7a4-b9ab-0e45514f3c7e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CommunicationServer.CommunicationServer constructor" Url="html/e01f7e2c-b9d5-05ab-64de-6d520c41cb62.htm" />
+  <HelpKINode Title="CommunicationServer.OnRovStateReceived method" Url="html/b709d709-f0b3-4a2e-9aac-b6f6f782a7e6.htm" />
+  <HelpKINode Title="CommunicationServer.RovStateReceived event" Url="html/06efd50d-596c-8db8-8671-d69371a720ad.htm" />
+  <HelpKINode Title="CommunicationServer.Serve method" Url="html/99b0ef02-9260-4dd8-0597-add5e0886bda.htm" />
+  <HelpKINode Title="Constants class">
+    <HelpKINode Title="Constants Class" Url="html/378a17ef-af51-e8ff-9e88-9c5a7f42e5bd.htm" />
+    <HelpKINode Title="Constants Members" Url="html/2211c18e-846a-b799-9d89-018781d188bf.htm" />
+    <HelpKINode Title="about Constants class" Url="html/378a17ef-af51-e8ff-9e88-9c5a7f42e5bd.htm" />
+    <HelpKINode Title="all members" Url="html/2211c18e-846a-b799-9d89-018781d188bf.htm" />
+    <HelpKINode Title="fields" Url="html/300bcd1f-eb46-9635-7604-3de5e95b61e4.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Constants.DesiredResolution field" Url="html/14003051-168b-ce44-6c86-92817c1f9124.htm" />
+  <HelpKINode Title="Constants.InitializationPacket field" Url="html/ec5a62ca-ec8a-6885-66f8-f0e247c2e197.htm" />
+  <HelpKINode Title="Constants.InputBufferSize field" Url="html/5b9bb052-7f6e-78a0-9e1a-066428680dbf.htm" />
+  <HelpKINode Title="Constants.JoystickStatePacketSize field" Url="html/025715a7-1996-512b-9ced-1cfa38296b6d.htm" />
+  <HelpKINode Title="Constants.LogitechAttack3Guid field" Url="html/8db2dd27-4b41-6ac4-c7ed-9808bb924ec0.htm" />
+  <HelpKINode Title="Constants.LogitechC920Moniker field" Url="html/621b3d23-c871-db67-b26e-b34df785c74d.htm" />
+  <HelpKINode Title="Constants.LogitechC930eMonikerFront field" Url="html/1c30ac3e-b090-14de-0caa-b800e9cf431e.htm" />
+  <HelpKINode Title="Constants.LogitechC930eMonikerRear field" Url="html/f47497a1-0c59-ef5d-3d09-716933028ee3.htm" />
+  <HelpKINode Title="Constants.LogitechExtreme3DProGuid field" Url="html/873f4688-9198-842c-e791-0dc77b994155.htm" />
+  <HelpKINode Title="Constants.Logitechextreme3DProManipulatorGuid field" Url="html/a7f753e7-e46d-0ce9-b78f-ffe2f59c06d4.htm" />
+  <HelpKINode Title="Constants.MicrosoftLifeCamMoniker field" Url="html/83eceb55-b22a-c7d1-e388-376ed2e3f4d6.htm" />
+  <HelpKINode Title="Constants.NumberOfCamerasNeeded field" Url="html/89abe901-e880-30b0-afd2-08f9c0cf4811.htm" />
+  <HelpKINode Title="Constants.NumberOfJoysticksNeeded field" Url="html/fff4edd1-a6d7-c8d0-df39-f501fb959d0e.htm" />
+  <HelpKINode Title="Constants.OutputBufferSize field" Url="html/8267bada-a5ee-c7e8-406b-b4c55f08f87c.htm" />
+  <HelpKINode Title="Constants.StartByte field" Url="html/b2da5aef-7e71-cc62-83c6-cb98afdeff91.htm" />
+  <HelpKINode Title="Constants.StopByte field" Url="html/07231b9c-54ea-67ae-493f-3e27b331c25d.htm" />
+  <HelpKINode Title="CoPilotActionsController class">
+    <HelpKINode Title="CoPilotActionsController Class" Url="html/7099540a-8e5e-36b3-d9f2-ca6555ff4661.htm" />
+    <HelpKINode Title="CoPilotActionsController Members" Url="html/72e73e26-a79a-cf9b-e296-6a7dc19943fb.htm" />
+    <HelpKINode Title="about CoPilotActionsController class" Url="html/7099540a-8e5e-36b3-d9f2-ca6555ff4661.htm" />
+    <HelpKINode Title="all members" Url="html/72e73e26-a79a-cf9b-e296-6a7dc19943fb.htm" />
+    <HelpKINode Title="constructor" Url="html/a91f4f52-ab1e-8995-c6d9-516567fc68c6.htm" />
+    <HelpKINode Title="methods" Url="html/37e26284-bed0-f38b-f95d-2fb4a34a1191.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CoPilotActionsController.CoPilotActionsController constructor" Url="html/a91f4f52-ab1e-8995-c6d9-516567fc68c6.htm" />
+  <HelpKINode Title="CoPilotButton class">
+    <HelpKINode Title="CoPilotButton Class" Url="html/38f2f70e-10af-dc9f-b4cf-4f65c0416941.htm" />
+    <HelpKINode Title="CoPilotButton Members" Url="html/b29f7a70-9224-b6f9-ec16-af356daaa89e.htm" />
+    <HelpKINode Title="about CoPilotButton class" Url="html/38f2f70e-10af-dc9f-b4cf-4f65c0416941.htm" />
+    <HelpKINode Title="all members" Url="html/b29f7a70-9224-b6f9-ec16-af356daaa89e.htm" />
+    <HelpKINode Title="fields" Url="html/87d140b1-b7a9-325e-d7c1-9687a6d312f2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CoPilotButton.CameraAutofocus field" Url="html/53d64c6d-1a00-16ac-3f90-70c48458de94.htm" />
+  <HelpKINode Title="CoPilotButton.ChangeCamera field" Url="html/7caeecf8-315e-ad3e-2048-945add3c92e0.htm" />
+  <HelpKINode Title="CoPilotButton.DecreaseCameraFocus field" Url="html/2c5950ca-8575-e808-6956-feb5537928ce.htm" />
+  <HelpKINode Title="CoPilotButton.IncreaseCameraFocus field" Url="html/abb0aece-3c22-bf9f-b8fb-481856a52ea5.htm" />
+  <HelpKINode Title="CoPilotButton.Snapshot field" Url="html/247dd4b9-8994-4ffb-be4f-402f7e31aaa4.htm" />
+  <HelpKINode Title="CoPilotButton.ToggleRecording field" Url="html/fa42e944-b3ed-e451-271a-33973ae7fb2d.htm" />
+  <HelpKINode Title="CoPilotCameraAutofocus method">
+    <HelpKINode Title="CameraController.CoPilotCameraAutofocus Method " Url="html/40016141-8368-e1b3-0a53-a47b1e641fc8.htm" />
+    <HelpKINode Title="ICameraHandler.CoPilotCameraAutofocus Method " Url="html/28607370-c24c-dfec-6a80-82b209e6bef6.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CoPilotCameraSetFocus method">
+    <HelpKINode Title="CameraController.CoPilotCameraSetFocus Method " Url="html/f5d4136c-6121-65e5-91cd-e971b706fa64.htm" />
+    <HelpKINode Title="ICameraHandler.CoPilotCameraSetFocus Method " Url="html/8a10e0ef-a21f-5ac6-2657-fc8586bfb1e3.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CoPilotView class">
+    <HelpKINode Title="CoPilotView Class" Url="html/f219dcee-3618-9286-4ddf-b6d5891cd795.htm" />
+    <HelpKINode Title="CoPilotView Members" Url="html/6568c413-337d-b4b8-cbca-c429fb391e5a.htm" />
+    <HelpKINode Title="about CoPilotView class" Url="html/f219dcee-3618-9286-4ddf-b6d5891cd795.htm" />
+    <HelpKINode Title="all members" Url="html/6568c413-337d-b4b8-cbca-c429fb391e5a.htm" />
+    <HelpKINode Title="constructor" Url="html/0bd23b32-eb9b-63e0-93b3-ca83797a3807.htm" />
+    <HelpKINode Title="events" Url="html/8eb44237-e559-c140-0886-d87bef85927c.htm" />
+    <HelpKINode Title="methods" Url="html/c73bc51a-b023-125a-8310-79e9bfcff86a.htm" />
+    <HelpKINode Title="properties" Url="html/8f227400-f7f2-326e-9041-26bf0f505e8a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CoPilotView.CoPilotView constructor" Url="html/0bd23b32-eb9b-63e0-93b3-ca83797a3807.htm" />
+  <HelpKINode Title="CoPilotView.Dispose method" Url="html/e0056e8b-93d6-38c9-d455-30190396f520.htm" />
+  <HelpKINode Title="CoPilotView.GetCamera method" Url="html/00576f7e-7b74-8db9-3bb3-4bd3943f6b57.htm" />
+  <HelpKINode Title="CoPilotView.OnPaint method" Url="html/6d76b14f-6caf-ecec-f55d-aa8487dfbbca.htm" />
+  <HelpKINode Title="CoPilotView.ProcessCmdKey method" Url="html/e33d6776-13a6-25de-f332-20631998bf0a.htm" />
+  <HelpKINode Title="CoPilotView.SetCamera method" Url="html/21d80f3a-2425-aafd-381a-3df1bcdd39da.htm" />
+  <HelpKINode Title="CoPilotView.SetDepth method" Url="html/cf053358-430b-5bb0-7af3-5ae1c7dbc979.htm" />
+  <HelpKINode Title="CoPilotView.SetDistanceToBottom method" Url="html/79eca216-78ba-122c-7598-f45229b30c5a.htm" />
+  <HelpKINode Title="CoPilotView.SetFrontCameraAngle method" Url="html/af3bcc4a-0008-0857-97dd-4f3b4d5455e6.htm" />
+  <HelpKINode Title="CoPilotView.SetHeading method" Url="html/aa179a63-7d19-b303-8b18-e83eec13a442.htm" />
+  <HelpKINode Title="CoPilotView.SetLaserDistanceMeasured method" Url="html/07168bf0-29d0-f93a-7127-046de9e4b51e.htm" />
+  <HelpKINode Title="CoPilotView.SetRearCameraAngle method" Url="html/b5a8e1cf-6712-0af7-1931-9ced18cc4f43.htm" />
+  <HelpKINode Title="CoPilotView.SomethingIsWrong method" Url="html/d10bfca7-7991-c962-6989-e22169eb2f16.htm" />
+  <HelpKINode Title="Data property" Url="html/3496833c-ca65-6287-8c45-4b992852773a.htm" />
+  <HelpKINode Title="DataReceivedEventArgs class">
+    <HelpKINode Title="DataReceivedEventArgs Class" Url="html/9414fabf-afc6-065a-f712-d730103bb2de.htm" />
+    <HelpKINode Title="DataReceivedEventArgs Members" Url="html/9062bc40-baba-5b8d-9e2e-351372168325.htm" />
+    <HelpKINode Title="about DataReceivedEventArgs class" Url="html/9414fabf-afc6-065a-f712-d730103bb2de.htm" />
+    <HelpKINode Title="all members" Url="html/9062bc40-baba-5b8d-9e2e-351372168325.htm" />
+    <HelpKINode Title="constructor" Url="html/c4055514-3536-008e-4cc7-703a46aee436.htm" />
+    <HelpKINode Title="methods" Url="html/3ef3127b-76e2-dbc6-7b0d-0dda258b8d7d.htm" />
+    <HelpKINode Title="properties" Url="html/0180f001-6ac2-b9bb-23aa-fc7775b5a26a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DataReceivedEventArgs.Data property" Url="html/3496833c-ca65-6287-8c45-4b992852773a.htm" />
+  <HelpKINode Title="DataReceivedEventArgs.DataReceivedEventArgs constructor" Url="html/c4055514-3536-008e-4cc7-703a46aee436.htm" />
+  <HelpKINode Title="DecreaseCameraFocus field" Url="html/2c5950ca-8575-e808-6956-feb5537928ce.htm" />
+  <HelpKINode Title="Depth property" Url="html/3250ee01-57d2-4783-1140-5ce819333124.htm" />
+  <HelpKINode Title="DesiredResolution field" Url="html/14003051-168b-ce44-6c86-92817c1f9124.htm" />
+  <HelpKINode Title="DisplayCameraProperties method">
+    <HelpKINode Title="Camera.DisplayCameraProperties Method " Url="html/3d063855-ac66-d217-02eb-4a894aabecb3.htm" />
+    <HelpKINode Title="ICamera.DisplayCameraProperties Method " Url="html/06cf8ad0-0e6b-cd01-fec2-ce8cd3b40917.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Dispose method">
+    <HelpKINode Title="Camera.Dispose Method " Url="html/a5dd3102-9585-00e2-89f6-7367ccc76ef9.htm" />
+    <HelpKINode Title="CameraSelectorView.Dispose Method " Url="html/f765b495-7ca8-eed1-b59f-869547e36d5d.htm" />
+    <HelpKINode Title="CameraTesterView.Dispose Method " Url="html/f4522a26-65af-7f9c-9b65-5cc4482c7d63.htm" />
+    <HelpKINode Title="CoPilotView.Dispose Method " Url="html/e0056e8b-93d6-38c9-d455-30190396f520.htm" />
+    <HelpKINode Title="ICamera.Dispose Method " Url="html/30adb135-0a47-f12f-c5e7-3e62080e203f.htm" />
+    <HelpKINode Title="JoystickTrackerView.Dispose Method " Url="html/f280b5a6-3ea5-350e-deba-7c8a48cdcf90.htm" />
+    <HelpKINode Title="LoadingView.Dispose Method " Url="html/71c3276d-ce98-77b6-a8f1-716681884d62.htm" />
+    <HelpKINode Title="PilotView.Dispose Method " Url="html/b3584f42-ddb5-1483-e775-a100fe599dcc.htm" />
+    <HelpKINode Title="ProgramSelectorView.Dispose Method " Url="html/a41ba05b-10b5-9020-314b-41cd130ee6d9.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DisposeAll method">
+    <HelpKINode Title="CameraFactory.DisposeAll Method " Url="html/a3b3395c-945e-6fa3-937e-379aa8d14db1.htm" />
+    <HelpKINode Title="JoystickFactory.DisposeAll Method " Url="html/ed1ee56e-be20-2333-24ec-40649ebedadb.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Distance property" Url="html/0cd872cd-7533-e6e9-8c25-c48f7e893446.htm" />
+  <HelpKINode Title="DistanceToBottom property" Url="html/7de8a220-f2f0-5bc3-1c7c-f9b6e2ae1911.htm" />
+  <HelpKINode Title="Down enumeration member" Url="html/1089e8e6-097c-21f8-270b-5b8a90f33392.htm" />
+  <HelpKINode Title="DownAndLeft enumeration member" Url="html/1089e8e6-097c-21f8-270b-5b8a90f33392.htm" />
+  <HelpKINode Title="DownAndRight enumeration member" Url="html/1089e8e6-097c-21f8-270b-5b8a90f33392.htm" />
+  <HelpKINode Title="Equals method">
+    <HelpKINode Title="Camera.Equals Method " Url="html/dbe5201d-ce42-20b9-9892-0a1660239788.htm" />
+    <HelpKINode Title="ICamera.Equals Method " Url="html/8f4134d4-9687-aa46-6999-41906c962112.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Error property" Url="html/a319769a-6643-04e9-6028-65020b8966b3.htm" />
+  <HelpKINode Title="Focus property" Url="html/a4955e5b-47e4-23b4-1111-82c682c91a32.htm" />
+  <HelpKINode Title="FocusChanged event">
+    <HelpKINode Title="Camera.FocusChanged Event" Url="html/40e23c2f-0ec7-644a-547a-f0a1db3e4986.htm" />
+    <HelpKINode Title="ICamera.FocusChanged Event" Url="html/cb2b6ec0-e27c-906a-7f7c-00a8d78a0eab.htm" />
+  </HelpKINode>
+  <HelpKINode Title="FocusChangedEventArgs class">
+    <HelpKINode Title="FocusChangedEventArgs Class" Url="html/66baf0a1-89e0-cecc-dfa5-fdd1fd19cf74.htm" />
+    <HelpKINode Title="FocusChangedEventArgs Members" Url="html/e905b1c3-2bf9-d11b-c090-1bca601417d2.htm" />
+    <HelpKINode Title="about FocusChangedEventArgs class" Url="html/66baf0a1-89e0-cecc-dfa5-fdd1fd19cf74.htm" />
+    <HelpKINode Title="all members" Url="html/e905b1c3-2bf9-d11b-c090-1bca601417d2.htm" />
+    <HelpKINode Title="constructor" Url="html/fd5bea36-36ee-3e45-9b78-b335ac012665.htm" />
+    <HelpKINode Title="methods" Url="html/f1c768ae-6a8c-e4b4-d191-eb7b72973c58.htm" />
+    <HelpKINode Title="properties" Url="html/a174b725-97b7-ff22-3e82-299cd2e452ae.htm" />
+  </HelpKINode>
+  <HelpKINode Title="FocusChangedEventArgs.Focus property" Url="html/a4955e5b-47e4-23b4-1111-82c682c91a32.htm" />
+  <HelpKINode Title="FocusChangedEventArgs.FocusChangedEventArgs constructor" Url="html/fd5bea36-36ee-3e45-9b78-b335ac012665.htm" />
+  <HelpKINode Title="FrontCameraTilt property" Url="html/542aea27-7f6a-fc64-52bc-dd624aaa4c25.htm" />
+  <HelpKINode Title="GetCamera method">
+    <HelpKINode Title="CoPilotView.GetCamera Method " Url="html/00576f7e-7b74-8db9-3bb3-4bd3943f6b57.htm" />
+    <HelpKINode Title="IView.GetCamera Method " Url="html/2c01239f-7dc0-dec5-a082-1771bdde774f.htm" />
+    <HelpKINode Title="PilotView.GetCamera Method " Url="html/a93326c7-e9d0-7ff5-7772-3782e9b43017.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetHashCode method" Url="html/309d86dc-cd27-934f-ff1c-97ce17c88fda.htm" />
+  <HelpKINode Title="GetMainCamera method" Url="html/daeebf23-2377-5fc1-fe97-2cef4bc12692.htm" />
+  <HelpKINode Title="GetMainController method" Url="html/411bb367-4923-3873-0a0d-8ea653a18a6d.htm" />
+  <HelpKINode Title="GetManipulatorCamera method" Url="html/39fa3e34-ccc7-b3a1-e08a-5109a1f9aedd.htm" />
+  <HelpKINode Title="GetManipulatorLeft method" Url="html/8c39f7a7-8e71-51d7-8b59-cefc84f04299.htm" />
+  <HelpKINode Title="GetManipulatorRight method" Url="html/ae190fca-b2d0-3ef5-036c-5badc64c6370.htm" />
+  <HelpKINode Title="GetNumberOfJoysticks method" Url="html/27b53377-a792-5e04-2864-eca8c6d0cf94.htm" />
+  <HelpKINode Title="GetRearCamera method" Url="html/1a703f7d-a660-b2ae-5137-1f34ed32fb2f.htm" />
+  <HelpKINode Title="HatPov method" Url="html/87ccba82-e1fe-aecb-3999-b578441d7b0e.htm" />
+  <HelpKINode Title="Heading property" Url="html/63b93458-8300-2188-ddce-181501d726a9.htm" />
+  <HelpKINode Title="ICamera interface">
+    <HelpKINode Title="ICamera Interface" Url="html/96911af8-2429-a9c4-4b7d-4fd96c1bfe56.htm" />
+    <HelpKINode Title="ICamera Members" Url="html/2455d546-9988-22f1-e99b-d0ca985fa0cd.htm" />
+    <HelpKINode Title="about ICamera interface" Url="html/96911af8-2429-a9c4-4b7d-4fd96c1bfe56.htm" />
+    <HelpKINode Title="all members" Url="html/2455d546-9988-22f1-e99b-d0ca985fa0cd.htm" />
+    <HelpKINode Title="events" Url="html/5d02b433-6241-1f7f-d392-bde33deddbb3.htm" />
+    <HelpKINode Title="methods" Url="html/72713d50-e5b9-0caa-9ae6-313922522cd4.htm" />
+    <HelpKINode Title="properties" Url="html/1d0e1a97-a341-61cc-792e-cb8c74def8df.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ICamera.AutoFocus method" Url="html/2edc9309-6ef3-6c88-b6bf-ad22f5364cb7.htm" />
+  <HelpKINode Title="ICamera.Canvas property" Url="html/a6dcb54e-e6b7-380d-90a0-e4b56518dfbb.htm" />
+  <HelpKINode Title="ICamera.DisplayCameraProperties method" Url="html/06cf8ad0-0e6b-cd01-fec2-ce8cd3b40917.htm" />
+  <HelpKINode Title="ICamera.Dispose method" Url="html/30adb135-0a47-f12f-c5e7-3e62080e203f.htm" />
+  <HelpKINode Title="ICamera.Equals method" Url="html/8f4134d4-9687-aa46-6999-41906c962112.htm" />
+  <HelpKINode Title="ICamera.FocusChanged event" Url="html/cb2b6ec0-e27c-906a-7f7c-00a8d78a0eab.htm" />
+  <HelpKINode Title="ICamera.Instance property" Url="html/6f42a7bc-2f12-f4cb-8250-03309c3a787a.htm" />
+  <HelpKINode Title="ICamera.IsRecording property" Url="html/4a5c68f9-bdd0-c10c-c41f-08592ea9fc2a.htm" />
+  <HelpKINode Title="ICamera.ManualFocus method" Url="html/4fc1f652-0fdc-adcc-d14a-4304444b344d.htm" />
+  <HelpKINode Title="ICamera.SetFocus method" Url="html/c1639113-fc51-5729-650b-a8d00788d95b.htm" />
+  <HelpKINode Title="ICamera.SetResolution method" Url="html/25575d2c-8c02-88c5-cc27-f3452c6e7132.htm" />
+  <HelpKINode Title="ICamera.Snapshot method" Url="html/c1e3636e-8c24-2c14-f394-f8423441295c.htm" />
+  <HelpKINode Title="ICamera.Start method" Url="html/c8ba1c32-330f-4781-7e8c-c99d88e082c6.htm" />
+  <HelpKINode Title="ICamera.Stop method" Url="html/3c5b09a3-c000-e3c4-8252-c8055c28032d.htm" />
+  <HelpKINode Title="ICamera.ToggleRecording method" Url="html/bbc6096f-95f9-6ce2-baa8-9b4531b918fa.htm" />
+  <HelpKINode Title="ICameraHandler interface">
+    <HelpKINode Title="ICameraHandler Interface" Url="html/7e65b308-ff9a-ccb0-cc41-2260f2fe1fc7.htm" />
+    <HelpKINode Title="ICameraHandler Members" Url="html/2b61732b-4ba3-7c42-668f-cc494477a8b1.htm" />
+    <HelpKINode Title="about ICameraHandler interface" Url="html/7e65b308-ff9a-ccb0-cc41-2260f2fe1fc7.htm" />
+    <HelpKINode Title="all members" Url="html/2b61732b-4ba3-7c42-668f-cc494477a8b1.htm" />
+    <HelpKINode Title="methods" Url="html/c01e1054-a9c0-7759-aa79-798b9e749a39.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ICameraHandler.ChangeCoPilotCamera method" Url="html/c1977360-b026-ea43-8f22-6ca3f8176cd3.htm" />
+  <HelpKINode Title="ICameraHandler.ChangePilotCamera method" Url="html/894489f7-1470-4898-befa-4896a64e01c9.htm" />
+  <HelpKINode Title="ICameraHandler.CoPilotCameraAutofocus method" Url="html/28607370-c24c-dfec-6a80-82b209e6bef6.htm" />
+  <HelpKINode Title="ICameraHandler.CoPilotCameraSetFocus method" Url="html/8a10e0ef-a21f-5ac6-2657-fc8586bfb1e3.htm" />
+  <HelpKINode Title="ICameraHandler.PilotCameraAutofocus method" Url="html/086ecaa2-468c-4cd1-1394-51de77e3d9aa.htm" />
+  <HelpKINode Title="ICameraHandler.PilotCameraSetFocus method" Url="html/3913866a-cb72-cc6e-4b84-92ef167bf0f7.htm" />
+  <HelpKINode Title="ICameraHandler.Snapshot method" Url="html/919a2920-a9e8-aa66-0140-543bb45192f8.htm" />
+  <HelpKINode Title="ICameraHandler.ToggleRecording method" Url="html/e46d1b85-c6a5-24d6-7592-1820d39e352d.htm" />
+  <HelpKINode Title="ICoPilotViewHandler interface">
+    <HelpKINode Title="ICoPilotViewHandler Interface" Url="html/1a2a4cad-bbc8-cd62-4d1b-47eb547760b2.htm" />
+    <HelpKINode Title="ICoPilotViewHandler Members" Url="html/4439444b-0dfe-996a-73c7-8fe3f6799c36.htm" />
+    <HelpKINode Title="about ICoPilotViewHandler interface" Url="html/1a2a4cad-bbc8-cd62-4d1b-47eb547760b2.htm" />
+    <HelpKINode Title="all members" Url="html/4439444b-0dfe-996a-73c7-8fe3f6799c36.htm" />
+    <HelpKINode Title="methods" Url="html/7193217c-c9c6-c041-dc19-4ef077972d48.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ICoPilotViewHandler.SetDepth method" Url="html/a37c6507-d979-e99b-3d28-63699c253cb3.htm" />
+  <HelpKINode Title="ICoPilotViewHandler.SetDistanceToBottom method" Url="html/8143c2aa-a6ff-48fa-209c-83ba396de221.htm" />
+  <HelpKINode Title="ICoPilotViewHandler.SetFrontCameraAngle method" Url="html/f880a78a-e29c-814e-c441-eaefe4543b7f.htm" />
+  <HelpKINode Title="ICoPilotViewHandler.SetHeading method" Url="html/a23dc78f-7827-9a58-7f0d-6c7a8c066d31.htm" />
+  <HelpKINode Title="ICoPilotViewHandler.SetLaserDistanceMeasured method" Url="html/1632f118-b022-80fc-0ef2-c2a13d024213.htm" />
+  <HelpKINode Title="ICoPilotViewHandler.SetRearCameraAngle method" Url="html/0936e575-fa9c-9703-485d-e621c91b2165.htm" />
+  <HelpKINode Title="ICoPilotViewHandler.SomethingIsWrong method" Url="html/e296f156-d9ac-8298-da9c-c076a2b6650b.htm" />
+  <HelpKINode Title="IJoystick interface">
+    <HelpKINode Title="IJoystick Interface" Url="html/f82bef83-16c1-c47b-d58c-0859ea2627e3.htm" />
+    <HelpKINode Title="IJoystick Members" Url="html/f942f4ba-2b85-1f42-f4ed-46857e5bca03.htm" />
+    <HelpKINode Title="about IJoystick interface" Url="html/f82bef83-16c1-c47b-d58c-0859ea2627e3.htm" />
+    <HelpKINode Title="all members" Url="html/f942f4ba-2b85-1f42-f4ed-46857e5bca03.htm" />
+    <HelpKINode Title="methods" Url="html/6618c3ac-eb9e-77a6-22f5-7709a1d32272.htm" />
+    <HelpKINode Title="properties" Url="html/8f9487a9-6b43-151b-99e8-167371702555.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IJoystick.Buttons method" Url="html/6ea0e99a-f73c-9a0d-7386-1a9a37db6592.htm" />
+  <HelpKINode Title="IJoystick.Pitch method" Url="html/181a218a-473e-1274-db5a-ade68cf7d8c2.htm" />
+  <HelpKINode Title="IJoystick.PointOfView method" Url="html/c7a13e8e-a78d-d3e5-96ea-216661425f3c.htm" />
+  <HelpKINode Title="IJoystick.Roll method" Url="html/53aaf851-f8f1-bced-70cf-d5b8fc2c27cd.htm" />
+  <HelpKINode Title="IJoystick.Slider method" Url="html/aa69e8fd-0b26-1b8d-7f97-4c38c8d288af.htm" />
+  <HelpKINode Title="IJoystick.Throttle method" Url="html/7723de4c-80af-e276-8898-c23f809c02f9.htm" />
+  <HelpKINode Title="IJoystick.Type property" Url="html/df4930d0-9953-4c7c-463c-3ecf0384058d.htm" />
+  <HelpKINode Title="IJoystick.Yaw method" Url="html/623cf80a-b337-256c-78fd-a7272d4168f7.htm" />
+  <HelpKINode Title="IncreaseCameraFocus field" Url="html/abb0aece-3c22-bf9f-b8fb-481856a52ea5.htm" />
+  <HelpKINode Title="InitializationPacket field" Url="html/ec5a62ca-ec8a-6885-66f8-f0e247c2e197.htm" />
+  <HelpKINode Title="InputBufferSize field" Url="html/5b9bb052-7f6e-78a0-9e1a-066428680dbf.htm" />
+  <HelpKINode Title="Instance property">
+    <HelpKINode Title="Camera.Instance Property " Url="html/b58b7f99-ab4a-dc11-e5af-a4c883f0d081.htm" />
+    <HelpKINode Title="ICamera.Instance Property " Url="html/6f42a7bc-2f12-f4cb-8250-03309c3a787a.htm" />
+    <HelpKINode Title="SerialPortSingleton.Instance Property " Url="html/03e967ab-46ca-525b-e4d9-8cd12320e769.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IPilotViewHandler interface">
+    <HelpKINode Title="IPilotViewHandler Interface" Url="html/b936842c-58f6-4ba0-c0e4-766e675dcd01.htm" />
+    <HelpKINode Title="IPilotViewHandler Members" Url="html/891b565d-f3c1-d1b5-dfdb-f9891e0dde31.htm" />
+    <HelpKINode Title="about IPilotViewHandler interface" Url="html/b936842c-58f6-4ba0-c0e4-766e675dcd01.htm" />
+    <HelpKINode Title="all members" Url="html/891b565d-f3c1-d1b5-dfdb-f9891e0dde31.htm" />
+    <HelpKINode Title="methods" Url="html/568db424-7188-990c-5398-c3b676df7f95.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IPilotViewHandler.SetDepth method" Url="html/69a5af17-9ff4-8014-db66-05d037c11ff2.htm" />
+  <HelpKINode Title="IPilotViewHandler.SetFocus method" Url="html/d124a881-7fe0-303c-dcdd-4adbe4612810.htm" />
+  <HelpKINode Title="IPilotViewHandler.SetFrontCameraAngle method" Url="html/9a3f38b0-45cf-0031-94ef-e0d78762625c.htm" />
+  <HelpKINode Title="IPilotViewHandler.SetHeading method" Url="html/61bad542-cd1d-c0a5-eadd-84ec29eb7394.htm" />
+  <HelpKINode Title="IPilotViewHandler.SetRearCameraAngle method" Url="html/07b040b7-be94-8170-ced3-5869f4eb7cfa.htm" />
+  <HelpKINode Title="IPilotViewHandler.ToggleGain method" Url="html/4f1e58c9-c2dd-7157-1db6-69229c10e9ec.htm" />
+  <HelpKINode Title="IPilotViewHandler.ToggleStopwatch method" Url="html/e2b73d5f-ac33-c4e0-0e3e-af8de60b1e64.htm" />
+  <HelpKINode Title="IPilotViewHandler.VerticalLeverIsNeutral method" Url="html/466eef88-7036-f54a-e338-97143197367d.htm" />
+  <HelpKINode Title="IsRecording property">
+    <HelpKINode Title="Camera.IsRecording Property " Url="html/51a994aa-4269-a13c-0c91-846cd3c1de0b.htm" />
+    <HelpKINode Title="ICamera.IsRecording Property " Url="html/4a5c68f9-bdd0-c10c-c41f-08592ea9fc2a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IView interface">
+    <HelpKINode Title="IView Interface" Url="html/5d22a9b4-4e10-4ca7-0ee3-a05144dcf308.htm" />
+    <HelpKINode Title="IView Members" Url="html/0e978181-d5c2-79e8-4628-520cbbfd3df5.htm" />
+    <HelpKINode Title="about IView interface" Url="html/5d22a9b4-4e10-4ca7-0ee3-a05144dcf308.htm" />
+    <HelpKINode Title="all members" Url="html/0e978181-d5c2-79e8-4628-520cbbfd3df5.htm" />
+    <HelpKINode Title="methods" Url="html/1054d949-7280-4b6e-8b6a-0e87ddc32d60.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IView.GetCamera method" Url="html/2c01239f-7dc0-dec5-a082-1771bdde774f.htm" />
+  <HelpKINode Title="IView.SetCamera method" Url="html/bec88c99-fafe-ded4-6af7-312383e9f2cd.htm" />
+  <HelpKINode Title="Joystick class">
+    <HelpKINode Title="Joystick Class" Url="html/8e691c5c-6bfc-efb1-f03c-0f3d19e8849a.htm" />
+    <HelpKINode Title="Joystick Members" Url="html/ad8a80ef-b81a-60ca-f3da-7acb7fd0d285.htm" />
+    <HelpKINode Title="about Joystick class" Url="html/8e691c5c-6bfc-efb1-f03c-0f3d19e8849a.htm" />
+    <HelpKINode Title="all members" Url="html/ad8a80ef-b81a-60ca-f3da-7acb7fd0d285.htm" />
+    <HelpKINode Title="constructor" Url="html/504b0884-005d-0da1-bdce-67e2deeb4b0e.htm" />
+    <HelpKINode Title="fields" Url="html/c33c43f4-3f82-d588-dad1-46057baaf78d.htm" />
+    <HelpKINode Title="methods" Url="html/49c2c940-87e2-87fa-ee93-9eff79906fcd.htm" />
+    <HelpKINode Title="properties" Url="html/e2cabc61-4faf-d0eb-3a05-656e87e0640e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="joystick field" Url="html/1a6e6625-4626-9107-4d5b-224e23310e83.htm" />
+  <HelpKINode Title="Joystick property" Url="html/483d3978-533c-802c-687e-a840ab2192cc.htm" />
+  <HelpKINode Title="Joystick.Acquire method" Url="html/de14cec6-29d5-ea32-f69c-261c1c50cb7e.htm" />
+  <HelpKINode Title="Joystick.Buttons method" Url="html/af8d949e-7215-2e95-fee7-7a3963ebb14f.htm" />
+  <HelpKINode Title="Joystick.GetNumberOfJoysticks method" Url="html/27b53377-a792-5e04-2864-eca8c6d0cf94.htm" />
+  <HelpKINode Title="Joystick.Joystick constructor" Url="html/504b0884-005d-0da1-bdce-67e2deeb4b0e.htm" />
+  <HelpKINode Title="Joystick.joystick field" Url="html/1a6e6625-4626-9107-4d5b-224e23310e83.htm" />
+  <HelpKINode Title="Joystick.JoysticksAttached method" Url="html/10b94c8b-b81d-db01-f0d7-291b04a228cf.htm" />
+  <HelpKINode Title="Joystick.Pitch method" Url="html/760e352b-f2f4-3d3e-2ae7-b67612d8c5b1.htm" />
+  <HelpKINode Title="Joystick.PointOfView method" Url="html/84799494-1b19-46c9-c46d-23514ca37bb6.htm" />
+  <HelpKINode Title="Joystick.Roll method" Url="html/1fb5deb0-7e75-0912-b68b-b3d3ed471d1b.htm" />
+  <HelpKINode Title="Joystick.Slider method" Url="html/68a0fcf8-ed8f-96b8-f021-39853f8e081c.htm" />
+  <HelpKINode Title="Joystick.State method" Url="html/3bc7d562-b7e1-8d2a-2785-3b6439a03667.htm" />
+  <HelpKINode Title="Joystick.Throttle method" Url="html/8b08b214-afb8-4227-2869-32a487068f11.htm" />
+  <HelpKINode Title="Joystick.Type property" Url="html/12746464-f691-72a0-cce0-99a061bf6c39.htm" />
+  <HelpKINode Title="Joystick.Unacquire method" Url="html/721aa214-4f61-3201-2cc5-ac2ed37253d4.htm" />
+  <HelpKINode Title="Joystick.WaitHandle property" Url="html/019ac392-befd-ddb3-1efe-eb3dfc72d260.htm" />
+  <HelpKINode Title="Joystick.Yaw method" Url="html/b8917970-4bf9-ce08-1772-5a65ccf144ca.htm" />
+  <HelpKINode Title="JoystickFactory class">
+    <HelpKINode Title="JoystickFactory Class" Url="html/0a481e94-73f8-14a4-e39d-90ae974fa7e6.htm" />
+    <HelpKINode Title="JoystickFactory Members" Url="html/bf096fb9-a217-908c-9671-6a58e894290c.htm" />
+    <HelpKINode Title="about JoystickFactory class" Url="html/0a481e94-73f8-14a4-e39d-90ae974fa7e6.htm" />
+    <HelpKINode Title="all members" Url="html/bf096fb9-a217-908c-9671-6a58e894290c.htm" />
+    <HelpKINode Title="constructor" Url="html/437d64e0-7d72-aa25-07d7-e47ef19d849e.htm" />
+    <HelpKINode Title="methods" Url="html/25af6262-c6a3-94f2-1a4a-6370f86d0c0e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="JoystickFactory.DisposeAll method" Url="html/ed1ee56e-be20-2333-24ec-40649ebedadb.htm" />
+  <HelpKINode Title="JoystickFactory.GetMainController method" Url="html/411bb367-4923-3873-0a0d-8ea653a18a6d.htm" />
+  <HelpKINode Title="JoystickFactory.GetManipulatorLeft method" Url="html/8c39f7a7-8e71-51d7-8b59-cefc84f04299.htm" />
+  <HelpKINode Title="JoystickFactory.GetManipulatorRight method" Url="html/ae190fca-b2d0-3ef5-036c-5badc64c6370.htm" />
+  <HelpKINode Title="JoystickFactory.JoystickFactory constructor" Url="html/437d64e0-7d72-aa25-07d7-e47ef19d849e.htm" />
+  <HelpKINode Title="JoysticksAttached method" Url="html/10b94c8b-b81d-db01-f0d7-291b04a228cf.htm" />
+  <HelpKINode Title="JoystickStateChanged field" Url="html/fff2b30c-d0a2-82a6-42a4-eb6cfae9e2e3.htm" />
+  <HelpKINode Title="JoystickStateListener class">
+    <HelpKINode Title="JoystickStateListener Class" Url="html/2d21cf21-2c63-4a6f-52b8-eee7ce57ac85.htm" />
+    <HelpKINode Title="JoystickStateListener Members" Url="html/d360105f-8508-b6c5-bd06-c997eda4c3d0.htm" />
+    <HelpKINode Title="about JoystickStateListener class" Url="html/2d21cf21-2c63-4a6f-52b8-eee7ce57ac85.htm" />
+    <HelpKINode Title="all members" Url="html/d360105f-8508-b6c5-bd06-c997eda4c3d0.htm" />
+    <HelpKINode Title="constructor" Url="html/2d884acd-3790-5719-8ce2-6e2856a70073.htm" />
+    <HelpKINode Title="fields" Url="html/326aa7ea-d2ef-041f-7af4-d9ddaa4d084b.htm" />
+    <HelpKINode Title="methods" Url="html/c2ae6cdb-f89c-846d-6b94-1bfb3b97b916.htm" />
+    <HelpKINode Title="properties" Url="html/f4e15a0d-c045-dd66-f76e-dbd5a647a039.htm" />
+  </HelpKINode>
+  <HelpKINode Title="JoystickStateListener.Joystick property" Url="html/483d3978-533c-802c-687e-a840ab2192cc.htm" />
+  <HelpKINode Title="JoystickStateListener.JoystickStateChanged field" Url="html/fff2b30c-d0a2-82a6-42a4-eb6cfae9e2e3.htm" />
+  <HelpKINode Title="JoystickStateListener.JoystickStateListener constructor" Url="html/2d884acd-3790-5719-8ce2-6e2856a70073.htm" />
+  <HelpKINode Title="JoystickStateListener.Listen method" Url="html/2a781997-a564-7bba-8d24-0d862f1c7d50.htm" />
+  <HelpKINode Title="JoystickStateListener.OnJoystickStateChanged method" Url="html/990d506f-8ea5-5ac9-3829-8210c26e5fad.htm" />
+  <HelpKINode Title="JoystickStatePacketSize field" Url="html/025715a7-1996-512b-9ced-1cfa38296b6d.htm" />
+  <HelpKINode Title="JoystickStateStore class">
+    <HelpKINode Title="JoystickStateStore Class" Url="html/e5f28c0f-7f24-ae66-b4b5-c1fcdeaa75ff.htm" />
+    <HelpKINode Title="JoystickStateStore Members" Url="html/478d1245-998a-37c7-603d-5381880415bc.htm" />
+    <HelpKINode Title="about JoystickStateStore class" Url="html/e5f28c0f-7f24-ae66-b4b5-c1fcdeaa75ff.htm" />
+    <HelpKINode Title="all members" Url="html/478d1245-998a-37c7-603d-5381880415bc.htm" />
+    <HelpKINode Title="constructor" Url="html/6ea5beca-809a-3faf-6572-8929e401f592.htm" />
+    <HelpKINode Title="methods" Url="html/9e02d9b5-b4e2-4e94-7710-c2a8121a94b3.htm" />
+    <HelpKINode Title="properties" Url="html/4cccc52c-bded-ce73-1510-69cf48f6b8fe.htm" />
+  </HelpKINode>
+  <HelpKINode Title="JoystickStateStore.JoystickStateStore constructor" Url="html/6ea5beca-809a-3faf-6572-8929e401f592.htm" />
+  <HelpKINode Title="JoystickStateStore.Main property" Url="html/7419abf3-36c8-174c-1c2b-76cdcf859142.htm" />
+  <HelpKINode Title="JoystickStateStore.ManipulatorLeft property" Url="html/b2c66535-b476-20e1-7991-0d964adca464.htm" />
+  <HelpKINode Title="JoystickStateStore.ManipulatorRight property" Url="html/5d321728-9fc6-fa24-153a-613909c0af6d.htm" />
+  <HelpKINode Title="JoystickStateStore.StoreState method" Url="html/32f55d77-1c79-d47a-d2d9-3ee1d1685641.htm" />
+  <HelpKINode Title="JoystickTrackerView class">
+    <HelpKINode Title="JoystickTrackerView Class" Url="html/2a3c7a03-2c92-2a45-42f8-686d222535a6.htm" />
+    <HelpKINode Title="JoystickTrackerView Members" Url="html/2a6a6370-aaea-f4d9-d1d8-b7df4bd5f18f.htm" />
+    <HelpKINode Title="about JoystickTrackerView class" Url="html/2a3c7a03-2c92-2a45-42f8-686d222535a6.htm" />
+    <HelpKINode Title="all members" Url="html/2a6a6370-aaea-f4d9-d1d8-b7df4bd5f18f.htm" />
+    <HelpKINode Title="constructor" Url="html/4334f24a-f340-85cb-f320-d70261a4deb8.htm" />
+    <HelpKINode Title="events" Url="html/4a9bdb2b-4aa5-e651-ae35-24e37cda31fe.htm" />
+    <HelpKINode Title="methods" Url="html/21e76b86-925c-4190-0b40-c9456554111d.htm" />
+    <HelpKINode Title="properties" Url="html/cfc20c43-0ce2-191e-b6be-69da1e670997.htm" />
+  </HelpKINode>
+  <HelpKINode Title="JoystickTrackerView.Dispose method" Url="html/f280b5a6-3ea5-350e-deba-7c8a48cdcf90.htm" />
+  <HelpKINode Title="JoystickTrackerView.JoystickTrackerView constructor" Url="html/4334f24a-f340-85cb-f320-d70261a4deb8.htm" />
+  <HelpKINode Title="JoystickTrackerView.OnPaint method" Url="html/68789001-2eb3-0260-c0f7-cb0c98c84e07.htm" />
+  <HelpKINode Title="JoystickType enumeration" Url="html/ddea176b-6bc4-9e26-4d3f-8c4e21a36e06.htm" />
+  <HelpKINode Title="Left enumeration member" Url="html/1089e8e6-097c-21f8-270b-5b8a90f33392.htm" />
+  <HelpKINode Title="Listen method" Url="html/2a781997-a564-7bba-8d24-0d862f1c7d50.htm" />
+  <HelpKINode Title="LoadingView class">
+    <HelpKINode Title="LoadingView Class" Url="html/24abeea3-8074-d839-2e08-5b1a82f07a19.htm" />
+    <HelpKINode Title="LoadingView Members" Url="html/fa9be8f4-a068-aabf-caf0-a46e06fc32f9.htm" />
+    <HelpKINode Title="about LoadingView class" Url="html/24abeea3-8074-d839-2e08-5b1a82f07a19.htm" />
+    <HelpKINode Title="all members" Url="html/fa9be8f4-a068-aabf-caf0-a46e06fc32f9.htm" />
+    <HelpKINode Title="constructor" Url="html/f84664fb-cf4b-e291-2e63-6e16a106ec0f.htm" />
+    <HelpKINode Title="events" Url="html/cab9ae0f-403b-3832-7327-84f42aae7e2c.htm" />
+    <HelpKINode Title="methods" Url="html/1005b5a5-61bb-f0d0-3972-59b443354dcd.htm" />
+    <HelpKINode Title="properties" Url="html/cfe74fe6-5199-7dfa-0c42-e3bae0ce2a47.htm" />
+  </HelpKINode>
+  <HelpKINode Title="LoadingView.Dispose method" Url="html/71c3276d-ce98-77b6-a8f1-716681884d62.htm" />
+  <HelpKINode Title="LoadingView.LoadingView constructor" Url="html/f84664fb-cf4b-e291-2e63-6e16a106ec0f.htm" />
+  <HelpKINode Title="LoadingView.WaitForRovToPowerUp method" Url="html/e753d4e1-cfb9-a952-1122-1e57a4fa3089.htm" />
+  <HelpKINode Title="LogitechAttack3Guid field" Url="html/8db2dd27-4b41-6ac4-c7ed-9808bb924ec0.htm" />
+  <HelpKINode Title="LogitechC920Moniker field" Url="html/621b3d23-c871-db67-b26e-b34df785c74d.htm" />
+  <HelpKINode Title="LogitechC930eMonikerFront field" Url="html/1c30ac3e-b090-14de-0caa-b800e9cf431e.htm" />
+  <HelpKINode Title="LogitechC930eMonikerRear field" Url="html/f47497a1-0c59-ef5d-3d09-716933028ee3.htm" />
+  <HelpKINode Title="LogitechExtreme3DProGuid field" Url="html/873f4688-9198-842c-e791-0dc77b994155.htm" />
+  <HelpKINode Title="Logitechextreme3DProManipulatorGuid field" Url="html/a7f753e7-e46d-0ce9-b78f-ffe2f59c06d4.htm" />
+  <HelpKINode Title="Main property" Url="html/7419abf3-36c8-174c-1c2b-76cdcf859142.htm" />
+  <HelpKINode Title="MainController class">
+    <HelpKINode Title="MainController Class" Url="html/cf6bad8e-5f25-490d-3ebc-93f5ef066925.htm" />
+    <HelpKINode Title="MainController Members" Url="html/2e91a0b2-e57f-4c2a-0f84-0473e1319b26.htm" />
+    <HelpKINode Title="about MainController class" Url="html/cf6bad8e-5f25-490d-3ebc-93f5ef066925.htm" />
+    <HelpKINode Title="all members" Url="html/2e91a0b2-e57f-4c2a-0f84-0473e1319b26.htm" />
+    <HelpKINode Title="constructor" Url="html/53b61a83-30ae-ed37-d31f-d2f23cce88c9.htm" />
+    <HelpKINode Title="fields" Url="html/f14aca64-5b56-5532-ef14-3608a163b928.htm" />
+    <HelpKINode Title="methods" Url="html/21f69d1e-ff39-2119-fc25-3173fa378de3.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MainController enumeration member" Url="html/ddea176b-6bc4-9e26-4d3f-8c4e21a36e06.htm" />
+  <HelpKINode Title="MainController.MainController constructor" Url="html/53b61a83-30ae-ed37-d31f-d2f23cce88c9.htm" />
+  <HelpKINode Title="MainController.pilotView field" Url="html/e77d73cf-f7aa-84de-7cab-78182190aada.htm" />
+  <HelpKINode Title="MainPacketBuilder class">
+    <HelpKINode Title="MainPacketBuilder Class" Url="html/3854f75c-649c-8c57-2841-9b098abac635.htm" />
+    <HelpKINode Title="MainPacketBuilder Members" Url="html/5300d01c-eb6e-b91b-53c6-f8c68cf2294e.htm" />
+    <HelpKINode Title="about MainPacketBuilder class" Url="html/3854f75c-649c-8c57-2841-9b098abac635.htm" />
+    <HelpKINode Title="all members" Url="html/5300d01c-eb6e-b91b-53c6-f8c68cf2294e.htm" />
+    <HelpKINode Title="constructor" Url="html/92c2e0cc-6458-3e43-3a91-942dbd57c3d2.htm" />
+    <HelpKINode Title="methods" Url="html/b12ad583-8a2c-aa2d-7960-f5f7a8a6751e.htm" />
+    <HelpKINode Title="properties" Url="html/43f4376f-f0df-aed5-748c-57a6348e2f85.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MainPacketBuilder.BuildJoystickStatePacket method" Url="html/bbdf0abe-c975-8555-0ceb-226dbbe346b1.htm" />
+  <HelpKINode Title="MainPacketBuilder.MainPacketBuilder constructor" Url="html/92c2e0cc-6458-3e43-3a91-942dbd57c3d2.htm" />
+  <HelpKINode Title="MainPacketBuilder.ToggleGain method" Url="html/cbbeb204-8968-c600-d0f3-a827aaae0e6e.htm" />
+  <HelpKINode Title="MainPacketBuilder.ToggleReverse method" Url="html/cae265a2-198a-1527-2170-7271a290da40.htm" />
+  <HelpKINode Title="ManipulatorLeft enumeration member" Url="html/ddea176b-6bc4-9e26-4d3f-8c4e21a36e06.htm" />
+  <HelpKINode Title="ManipulatorLeft property" Url="html/b2c66535-b476-20e1-7991-0d964adca464.htm" />
+  <HelpKINode Title="ManipulatorLeftPacketBuilder class">
+    <HelpKINode Title="ManipulatorLeftPacketBuilder Class" Url="html/29c5f3a5-8953-8bf3-6369-78911ea928fa.htm" />
+    <HelpKINode Title="ManipulatorLeftPacketBuilder Members" Url="html/50ac9cd4-4c6c-2fe0-6ead-0426ad097dd1.htm" />
+    <HelpKINode Title="about ManipulatorLeftPacketBuilder class" Url="html/29c5f3a5-8953-8bf3-6369-78911ea928fa.htm" />
+    <HelpKINode Title="all members" Url="html/50ac9cd4-4c6c-2fe0-6ead-0426ad097dd1.htm" />
+    <HelpKINode Title="constructor" Url="html/8323f7de-fe1a-ca1b-30e4-8525f422b61b.htm" />
+    <HelpKINode Title="methods" Url="html/fb58f6d3-2d91-acca-5f85-f85abb354ba5.htm" />
+    <HelpKINode Title="properties" Url="html/00c4034d-4b97-ee46-5915-d85880dbbdd1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ManipulatorLeftPacketBuilder.BuildJoystickStatePacket method" Url="html/124d7c7d-5271-fabe-2683-fb7ed53de07e.htm" />
+  <HelpKINode Title="ManipulatorLeftPacketBuilder.ManipulatorLeftPacketBuilder constructor" Url="html/8323f7de-fe1a-ca1b-30e4-8525f422b61b.htm" />
+  <HelpKINode Title="ManipulatorRight enumeration member" Url="html/ddea176b-6bc4-9e26-4d3f-8c4e21a36e06.htm" />
+  <HelpKINode Title="ManipulatorRight property" Url="html/5d321728-9fc6-fa24-153a-613909c0af6d.htm" />
+  <HelpKINode Title="ManipulatorRightPacketBuilder class">
+    <HelpKINode Title="ManipulatorRightPacketBuilder Class" Url="html/46d19775-ed52-bf81-1fa9-e983c403da33.htm" />
+    <HelpKINode Title="ManipulatorRightPacketBuilder Members" Url="html/9b2c5b5d-9bb6-ca1b-9c96-525e6fc673a4.htm" />
+    <HelpKINode Title="about ManipulatorRightPacketBuilder class" Url="html/46d19775-ed52-bf81-1fa9-e983c403da33.htm" />
+    <HelpKINode Title="all members" Url="html/9b2c5b5d-9bb6-ca1b-9c96-525e6fc673a4.htm" />
+    <HelpKINode Title="constructor" Url="html/d6291669-b87e-55f0-8263-9040cdd088a4.htm" />
+    <HelpKINode Title="methods" Url="html/c073673f-6184-64fc-18bf-bcafcef12835.htm" />
+    <HelpKINode Title="properties" Url="html/4bc78081-8338-cc43-f9a1-664bced4be39.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ManipulatorRightPacketBuilder.BuildJoystickStatePacket method" Url="html/336e9f10-7c7e-7085-8f08-91cf6d3ae3f2.htm" />
+  <HelpKINode Title="ManipulatorRightPacketBuilder.ManipulatorRightPacketBuilder constructor" Url="html/d6291669-b87e-55f0-8263-9040cdd088a4.htm" />
+  <HelpKINode Title="ManualFocus method">
+    <HelpKINode Title="Camera.ManualFocus Method " Url="html/f16ca65c-a2eb-e4bf-56f1-a3a96108b05b.htm" />
+    <HelpKINode Title="ICamera.ManualFocus Method " Url="html/4fc1f652-0fdc-adcc-d14a-4304444b344d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MicrosoftLifeCamMoniker field" Url="html/83eceb55-b22a-c7d1-e388-376ed2e3f4d6.htm" />
+  <HelpKINode Title="NumberOfCamerasNeeded field" Url="html/89abe901-e880-30b0-afd2-08f9c0cf4811.htm" />
+  <HelpKINode Title="NumberOfJoysticksNeeded field" Url="html/fff4edd1-a6d7-c8d0-df39-f501fb959d0e.htm" />
+  <HelpKINode Title="OnFocusChanged method" Url="html/9ea5ce3b-eebf-d9c2-20bc-9e7985580dda.htm" />
+  <HelpKINode Title="OnJoystickStateChanged method" Url="html/990d506f-8ea5-5ac9-3829-8210c26e5fad.htm" />
+  <HelpKINode Title="OnPaint method">
+    <HelpKINode Title="CoPilotView.OnPaint Method " Url="html/6d76b14f-6caf-ecec-f55d-aa8487dfbbca.htm" />
+    <HelpKINode Title="JoystickTrackerView.OnPaint Method " Url="html/68789001-2eb3-0260-c0f7-cb0c98c84e07.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OnRovStateReceived method" Url="html/b709d709-f0b3-4a2e-9aac-b6f6f782a7e6.htm" />
+  <HelpKINode Title="OutputBufferSize field" Url="html/8267bada-a5ee-c7e8-406b-b4c55f08f87c.htm" />
+  <HelpKINode Title="PacketBuilder class">
+    <HelpKINode Title="PacketBuilder Class" Url="html/3f06f3c4-86c2-1fa7-1fc0-f445eaf08aaf.htm" />
+    <HelpKINode Title="PacketBuilder Members" Url="html/190de900-7466-5b15-5a2f-85c990f10380.htm" />
+    <HelpKINode Title="about PacketBuilder class" Url="html/3f06f3c4-86c2-1fa7-1fc0-f445eaf08aaf.htm" />
+    <HelpKINode Title="all members" Url="html/190de900-7466-5b15-5a2f-85c990f10380.htm" />
+    <HelpKINode Title="constructor" Url="html/50776307-f39a-0421-2ac4-43319244efab.htm" />
+    <HelpKINode Title="methods" Url="html/71b5e9cc-afa7-b40d-484b-c8b8fb36caa7.htm" />
+    <HelpKINode Title="properties" Url="html/760fc030-c225-e276-c296-586f4543c5a6.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PacketBuilder.BuildJoystickStatePacket method" Url="html/c9ad382c-00f2-886a-902d-315d0782063a.htm" />
+  <HelpKINode Title="PacketBuilder.ButtonsPressed method" Url="html/0d7fb794-2637-491c-77db-60710377a9b6.htm" />
+  <HelpKINode Title="PacketBuilder.HatPov method" Url="html/87ccba82-e1fe-aecb-3999-b578441d7b0e.htm" />
+  <HelpKINode Title="PacketBuilder.PacketBuilder constructor" Url="html/50776307-f39a-0421-2ac4-43319244efab.htm" />
+  <HelpKINode Title="PacketBuilder.Pitch method" Url="html/505d6d23-54dd-5059-3995-fe6a6bc76ad0.htm" />
+  <HelpKINode Title="PacketBuilder.PointOfView enumeration" Url="html/1089e8e6-097c-21f8-270b-5b8a90f33392.htm" />
+  <HelpKINode Title="PacketBuilder.Roll method" Url="html/48d8d54a-24d3-7e60-cf34-8672fd72d93d.htm" />
+  <HelpKINode Title="PacketBuilder.Throttle method" Url="html/5cd32ed4-efd5-040c-221b-85510394f388.htm" />
+  <HelpKINode Title="PacketBuilder.Type property" Url="html/ab87fa5e-4d3a-c7d0-ac13-45235756c0f7.htm" />
+  <HelpKINode Title="PacketBuilder.Yaw method" Url="html/9c4bbef6-a337-5084-f7ec-e5c7c5c5a2ee.htm" />
+  <HelpKINode Title="PilotActionsController class">
+    <HelpKINode Title="PilotActionsController Class" Url="html/9c04f2b5-8e9d-1e02-b0d7-d90394a0d6cf.htm" />
+    <HelpKINode Title="PilotActionsController Members" Url="html/8a35924a-9d85-e132-e3a3-730048b10369.htm" />
+    <HelpKINode Title="about PilotActionsController class" Url="html/9c04f2b5-8e9d-1e02-b0d7-d90394a0d6cf.htm" />
+    <HelpKINode Title="all members" Url="html/8a35924a-9d85-e132-e3a3-730048b10369.htm" />
+    <HelpKINode Title="constructor" Url="html/fb765621-1f6f-4a8d-c58c-a8730464717d.htm" />
+    <HelpKINode Title="methods" Url="html/a4e034c1-e692-161a-9c0b-6b8b0db952b0.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PilotActionsController.PilotActionsController constructor" Url="html/fb765621-1f6f-4a8d-c58c-a8730464717d.htm" />
+  <HelpKINode Title="PilotButton class">
+    <HelpKINode Title="PilotButton Class" Url="html/ee1ecbda-0962-4231-b46d-715eafcfbaa1.htm" />
+    <HelpKINode Title="PilotButton Members" Url="html/4402d3f6-21f9-e85e-39d0-a22db7f241ec.htm" />
+    <HelpKINode Title="about PilotButton class" Url="html/ee1ecbda-0962-4231-b46d-715eafcfbaa1.htm" />
+    <HelpKINode Title="all members" Url="html/4402d3f6-21f9-e85e-39d0-a22db7f241ec.htm" />
+    <HelpKINode Title="fields" Url="html/69e7b7cc-7281-8372-5d9f-6e3e45c2eaa0.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PilotButton.CameraAutofocus field" Url="html/fed27106-a42f-2e79-e715-09b3b8973854.htm" />
+  <HelpKINode Title="PilotButton.ChangeCamera field" Url="html/1c2e8ca1-4c9d-d4df-4c77-30fbcfc99512.htm" />
+  <HelpKINode Title="PilotButton.Reverse field" Url="html/0eaa295f-9385-5f87-f5c9-3e2cdc47b1d0.htm" />
+  <HelpKINode Title="PilotButton.ToggleGain field" Url="html/b5deeb8e-919b-611a-5499-a1ed6c81be56.htm" />
+  <HelpKINode Title="PilotButton.ToggleStopwatch field" Url="html/8eb01587-9ef8-d8ad-a060-657cdcd0d9a0.htm" />
+  <HelpKINode Title="PilotCameraAutofocus method">
+    <HelpKINode Title="CameraController.PilotCameraAutofocus Method " Url="html/7e9d1568-0bd5-6278-edab-b0f3ae48ea5a.htm" />
+    <HelpKINode Title="ICameraHandler.PilotCameraAutofocus Method " Url="html/086ecaa2-468c-4cd1-1394-51de77e3d9aa.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PilotCameraSetFocus method">
+    <HelpKINode Title="CameraController.PilotCameraSetFocus Method " Url="html/a7b3b6ba-6db4-f745-539b-f3bbf6da8b6a.htm" />
+    <HelpKINode Title="ICameraHandler.PilotCameraSetFocus Method " Url="html/3913866a-cb72-cc6e-4b84-92ef167bf0f7.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PilotView class">
+    <HelpKINode Title="PilotView Class" Url="html/ba4d1558-4a85-d239-ae16-558563fe8239.htm" />
+    <HelpKINode Title="PilotView Members" Url="html/acbc9544-79a5-a610-0689-b4703c4d3ea7.htm" />
+    <HelpKINode Title="about PilotView class" Url="html/ba4d1558-4a85-d239-ae16-558563fe8239.htm" />
+    <HelpKINode Title="all members" Url="html/acbc9544-79a5-a610-0689-b4703c4d3ea7.htm" />
+    <HelpKINode Title="constructor" Url="html/751a8c75-f105-90e3-0d1b-bba8a40b9dc6.htm" />
+    <HelpKINode Title="events" Url="html/230fba16-46f1-6938-69d4-12a4244d22fd.htm" />
+    <HelpKINode Title="methods" Url="html/75cbf96a-d1d4-dfe4-3424-1c65373f912b.htm" />
+    <HelpKINode Title="properties" Url="html/489eb8b0-959b-ed14-21dc-629fe6349f21.htm" />
+  </HelpKINode>
+  <HelpKINode Title="pilotView field" Url="html/e77d73cf-f7aa-84de-7cab-78182190aada.htm" />
+  <HelpKINode Title="PilotView.Dispose method" Url="html/b3584f42-ddb5-1483-e775-a100fe599dcc.htm" />
+  <HelpKINode Title="PilotView.GetCamera method" Url="html/a93326c7-e9d0-7ff5-7772-3782e9b43017.htm" />
+  <HelpKINode Title="PilotView.PilotView constructor" Url="html/751a8c75-f105-90e3-0d1b-bba8a40b9dc6.htm" />
+  <HelpKINode Title="PilotView.ProcessCmdKey method" Url="html/0b05059c-e359-44fa-c0e4-8925fd72bb53.htm" />
+  <HelpKINode Title="PilotView.SetCamera method" Url="html/83316d6d-2cde-ac98-04c9-589a6eb8bfb2.htm" />
+  <HelpKINode Title="PilotView.SetDepth method" Url="html/c83b0726-da99-3ad8-a5ea-0154bc6b38b0.htm" />
+  <HelpKINode Title="PilotView.SetFocus method" Url="html/67a2bd71-aaf2-7800-effd-cabe0d8a51d0.htm" />
+  <HelpKINode Title="PilotView.SetFrontCameraAngle method" Url="html/138306eb-e7e9-ccef-221a-9708d51afb53.htm" />
+  <HelpKINode Title="PilotView.SetHeading method" Url="html/ca49bbae-49cd-4175-3808-6ccaeedc7a69.htm" />
+  <HelpKINode Title="PilotView.SetRearCameraAngle method" Url="html/acd2f779-8cd4-2101-b314-e04f81c2afad.htm" />
+  <HelpKINode Title="PilotView.ToggleGain method" Url="html/54d2ebc4-b688-ac6b-72bf-11f0e341b304.htm" />
+  <HelpKINode Title="PilotView.ToggleStopwatch method" Url="html/b1e9fc62-9aea-e716-883f-eb09aab3bfb3.htm" />
+  <HelpKINode Title="PilotView.VerticalLeverIsNeutral method" Url="html/a8e217cb-8693-acfb-51ff-94e592d54062.htm" />
+  <HelpKINode Title="Pitch method">
+    <HelpKINode Title="IJoystick.Pitch Method " Url="html/181a218a-473e-1274-db5a-ade68cf7d8c2.htm" />
+    <HelpKINode Title="Joystick.Pitch Method " Url="html/760e352b-f2f4-3d3e-2ae7-b67612d8c5b1.htm" />
+    <HelpKINode Title="PacketBuilder.Pitch Method " Url="html/505d6d23-54dd-5059-3995-fe6a6bc76ad0.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PointOfView method">
+    <HelpKINode Title="IJoystick.PointOfView Method " Url="html/c7a13e8e-a78d-d3e5-96ea-216661425f3c.htm" />
+    <HelpKINode Title="Joystick.PointOfView Method " Url="html/84799494-1b19-46c9-c46d-23514ca37bb6.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ProcessCmdKey method">
+    <HelpKINode Title="CameraTesterView.ProcessCmdKey Method " Url="html/ee61a548-e525-ea4d-dafa-186642725960.htm" />
+    <HelpKINode Title="CoPilotView.ProcessCmdKey Method " Url="html/e33d6776-13a6-25de-f332-20631998bf0a.htm" />
+    <HelpKINode Title="PilotView.ProcessCmdKey Method " Url="html/0b05059c-e359-44fa-c0e4-8925fd72bb53.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Program property" Url="html/67bd886a-49df-7c90-2404-a6bf8a32671d.htm" />
+  <HelpKINode Title="ProgramSelectorView class">
+    <HelpKINode Title="ProgramSelectorView Class" Url="html/d6dbe253-c1ac-052e-3dec-0c9277975d37.htm" />
+    <HelpKINode Title="ProgramSelectorView Members" Url="html/9d9c649b-fab9-1437-a238-9aeeb37cb0a6.htm" />
+    <HelpKINode Title="about ProgramSelectorView class" Url="html/d6dbe253-c1ac-052e-3dec-0c9277975d37.htm" />
+    <HelpKINode Title="all members" Url="html/9d9c649b-fab9-1437-a238-9aeeb37cb0a6.htm" />
+    <HelpKINode Title="constructor" Url="html/27ed56d0-f75c-26cc-e628-04c2f1f51b84.htm" />
+    <HelpKINode Title="events" Url="html/5a7113e7-449e-8475-1463-fe7f34ff8c09.htm" />
+    <HelpKINode Title="methods" Url="html/62904e6b-f11d-41d1-fad3-ede20a6c76e1.htm" />
+    <HelpKINode Title="properties" Url="html/deefc5c8-ebfe-52e9-f7c7-0a8bd7c7d552.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ProgramSelectorView.Dispose method" Url="html/a41ba05b-10b5-9020-314b-41cd130ee6d9.htm" />
+  <HelpKINode Title="ProgramSelectorView.Program property" Url="html/67bd886a-49df-7c90-2404-a6bf8a32671d.htm" />
+  <HelpKINode Title="ProgramSelectorView.ProgramSelectorView constructor" Url="html/27ed56d0-f75c-26cc-e628-04c2f1f51b84.htm" />
+  <HelpKINode Title="RearCameraTilt property" Url="html/b0ff72c6-6aaf-c947-be9d-d0ac4135552c.htm" />
+  <HelpKINode Title="Record method" Url="html/eb450e4e-4835-f0fa-6f15-b457ccd1d41b.htm" />
+  <HelpKINode Title="Reverse field" Url="html/0eaa295f-9385-5f87-f5c9-3e2cdc47b1d0.htm" />
+  <HelpKINode Title="Right enumeration member" Url="html/1089e8e6-097c-21f8-270b-5b8a90f33392.htm" />
+  <HelpKINode Title="Roll method">
+    <HelpKINode Title="IJoystick.Roll Method " Url="html/53aaf851-f8f1-bced-70cf-d5b8fc2c27cd.htm" />
+    <HelpKINode Title="Joystick.Roll Method " Url="html/1fb5deb0-7e75-0912-b68b-b3d3ed471d1b.htm" />
+    <HelpKINode Title="PacketBuilder.Roll Method " Url="html/48d8d54a-24d3-7e60-cf34-8672fd72d93d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="RovState class">
+    <HelpKINode Title="RovState Class" Url="html/1ab22fa7-86ad-702e-a5e5-b836369dbe95.htm" />
+    <HelpKINode Title="RovState Members" Url="html/327686db-cb84-5fe9-a463-99239b1b5dd2.htm" />
+    <HelpKINode Title="about RovState class" Url="html/1ab22fa7-86ad-702e-a5e5-b836369dbe95.htm" />
+    <HelpKINode Title="all members" Url="html/327686db-cb84-5fe9-a463-99239b1b5dd2.htm" />
+    <HelpKINode Title="constructor" Url="html/0cfc5d59-5eb0-b697-e6dd-92c9114bde36.htm" />
+    <HelpKINode Title="methods" Url="html/575ec3f2-2661-5cae-8b9b-05b1ea948e63.htm" />
+    <HelpKINode Title="properties" Url="html/407836b8-c667-3aee-d7b4-5f498b82a9c3.htm" />
+  </HelpKINode>
+  <HelpKINode Title="RovState.Depth property" Url="html/3250ee01-57d2-4783-1140-5ce819333124.htm" />
+  <HelpKINode Title="RovState.Distance property" Url="html/0cd872cd-7533-e6e9-8c25-c48f7e893446.htm" />
+  <HelpKINode Title="RovState.DistanceToBottom property" Url="html/7de8a220-f2f0-5bc3-1c7c-f9b6e2ae1911.htm" />
+  <HelpKINode Title="RovState.Error property" Url="html/a319769a-6643-04e9-6028-65020b8966b3.htm" />
+  <HelpKINode Title="RovState.FrontCameraTilt property" Url="html/542aea27-7f6a-fc64-52bc-dd624aaa4c25.htm" />
+  <HelpKINode Title="RovState.Heading property" Url="html/63b93458-8300-2188-ddce-181501d726a9.htm" />
+  <HelpKINode Title="RovState.RearCameraTilt property" Url="html/b0ff72c6-6aaf-c947-be9d-d0ac4135552c.htm" />
+  <HelpKINode Title="RovState.RovState constructor" Url="html/0cfc5d59-5eb0-b697-e6dd-92c9114bde36.htm" />
+  <HelpKINode Title="RovStateBuilder class">
+    <HelpKINode Title="RovStateBuilder Class" Url="html/0c017b49-439e-3525-d385-3d38a7dc2c5f.htm" />
+    <HelpKINode Title="RovStateBuilder Members" Url="html/1ddfc44e-731e-8918-05e1-374bd312ca83.htm" />
+    <HelpKINode Title="about RovStateBuilder class" Url="html/0c017b49-439e-3525-d385-3d38a7dc2c5f.htm" />
+    <HelpKINode Title="all members" Url="html/1ddfc44e-731e-8918-05e1-374bd312ca83.htm" />
+    <HelpKINode Title="methods" Url="html/7da82223-cd63-aa49-3f60-47d992e0925b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="RovStateBuilder.BuildRovState method" Url="html/a2d22b33-8887-38dc-3efb-f781da44cafb.htm" />
+  <HelpKINode Title="RovStateReceived event" Url="html/06efd50d-596c-8db8-8671-d69371a720ad.htm" />
+  <HelpKINode Title="RovStateReceivedHandler class">
+    <HelpKINode Title="RovStateReceivedHandler Class" Url="html/09ca1f86-794b-03ae-c164-28f2ba65c805.htm" />
+    <HelpKINode Title="RovStateReceivedHandler Members" Url="html/d7889cf6-1620-320b-ec84-529f23569ec4.htm" />
+    <HelpKINode Title="about RovStateReceivedHandler class" Url="html/09ca1f86-794b-03ae-c164-28f2ba65c805.htm" />
+    <HelpKINode Title="all members" Url="html/d7889cf6-1620-320b-ec84-529f23569ec4.htm" />
+    <HelpKINode Title="constructor" Url="html/dd081264-3caf-bae5-0a0e-4fda337bc378.htm" />
+    <HelpKINode Title="methods" Url="html/7adc5982-6b85-34bf-5571-d9d0a7382d7a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="RovStateReceivedHandler.RovStateReceivedHandler constructor" Url="html/dd081264-3caf-bae5-0a0e-4fda337bc378.htm" />
+  <HelpKINode Title="SerialPortSingleton class">
+    <HelpKINode Title="SerialPortSingleton Class" Url="html/2ae172b3-a52f-f866-a522-be4ea7d9b943.htm" />
+    <HelpKINode Title="SerialPortSingleton Members" Url="html/02747c89-de28-ef2a-5ff9-e08eddc63db4.htm" />
+    <HelpKINode Title="about SerialPortSingleton class" Url="html/2ae172b3-a52f-f866-a522-be4ea7d9b943.htm" />
+    <HelpKINode Title="all members" Url="html/02747c89-de28-ef2a-5ff9-e08eddc63db4.htm" />
+    <HelpKINode Title="methods" Url="html/629f28d7-5ed6-a989-c2aa-6bf2515a2db9.htm" />
+    <HelpKINode Title="properties" Url="html/f757e31b-66cb-000a-f82b-9f3533671149.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SerialPortSingleton.Instance property" Url="html/03e967ab-46ca-525b-e4d9-8cd12320e769.htm" />
+  <HelpKINode Title="Serve method" Url="html/99b0ef02-9260-4dd8-0597-add5e0886bda.htm" />
+  <HelpKINode Title="SetCamera method">
+    <HelpKINode Title="CoPilotView.SetCamera Method " Url="html/21d80f3a-2425-aafd-381a-3df1bcdd39da.htm" />
+    <HelpKINode Title="IView.SetCamera Method " Url="html/bec88c99-fafe-ded4-6af7-312383e9f2cd.htm" />
+    <HelpKINode Title="PilotView.SetCamera Method " Url="html/83316d6d-2cde-ac98-04c9-589a6eb8bfb2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SetDepth method">
+    <HelpKINode Title="CoPilotView.SetDepth Method " Url="html/cf053358-430b-5bb0-7af3-5ae1c7dbc979.htm" />
+    <HelpKINode Title="ICoPilotViewHandler.SetDepth Method " Url="html/a37c6507-d979-e99b-3d28-63699c253cb3.htm" />
+    <HelpKINode Title="IPilotViewHandler.SetDepth Method " Url="html/69a5af17-9ff4-8014-db66-05d037c11ff2.htm" />
+    <HelpKINode Title="PilotView.SetDepth Method " Url="html/c83b0726-da99-3ad8-a5ea-0154bc6b38b0.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SetDistanceToBottom method">
+    <HelpKINode Title="CoPilotView.SetDistanceToBottom Method " Url="html/79eca216-78ba-122c-7598-f45229b30c5a.htm" />
+    <HelpKINode Title="ICoPilotViewHandler.SetDistanceToBottom Method " Url="html/8143c2aa-a6ff-48fa-209c-83ba396de221.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SetFocus method">
+    <HelpKINode Title="Camera.SetFocus Method " Url="html/d9615472-d961-39ea-78a4-9ae2f60d9952.htm" />
+    <HelpKINode Title="ICamera.SetFocus Method " Url="html/c1639113-fc51-5729-650b-a8d00788d95b.htm" />
+    <HelpKINode Title="IPilotViewHandler.SetFocus Method " Url="html/d124a881-7fe0-303c-dcdd-4adbe4612810.htm" />
+    <HelpKINode Title="PilotView.SetFocus Method " Url="html/67a2bd71-aaf2-7800-effd-cabe0d8a51d0.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SetFrontCameraAngle method">
+    <HelpKINode Title="CoPilotView.SetFrontCameraAngle Method " Url="html/af3bcc4a-0008-0857-97dd-4f3b4d5455e6.htm" />
+    <HelpKINode Title="ICoPilotViewHandler.SetFrontCameraAngle Method " Url="html/f880a78a-e29c-814e-c441-eaefe4543b7f.htm" />
+    <HelpKINode Title="IPilotViewHandler.SetFrontCameraAngle Method " Url="html/9a3f38b0-45cf-0031-94ef-e0d78762625c.htm" />
+    <HelpKINode Title="PilotView.SetFrontCameraAngle Method " Url="html/138306eb-e7e9-ccef-221a-9708d51afb53.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SetHeading method">
+    <HelpKINode Title="CoPilotView.SetHeading Method " Url="html/aa179a63-7d19-b303-8b18-e83eec13a442.htm" />
+    <HelpKINode Title="ICoPilotViewHandler.SetHeading Method " Url="html/a23dc78f-7827-9a58-7f0d-6c7a8c066d31.htm" />
+    <HelpKINode Title="IPilotViewHandler.SetHeading Method " Url="html/61bad542-cd1d-c0a5-eadd-84ec29eb7394.htm" />
+    <HelpKINode Title="PilotView.SetHeading Method " Url="html/ca49bbae-49cd-4175-3808-6ccaeedc7a69.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SetLaserDistanceMeasured method">
+    <HelpKINode Title="CoPilotView.SetLaserDistanceMeasured Method " Url="html/07168bf0-29d0-f93a-7127-046de9e4b51e.htm" />
+    <HelpKINode Title="ICoPilotViewHandler.SetLaserDistanceMeasured Method " Url="html/1632f118-b022-80fc-0ef2-c2a13d024213.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SetRearCameraAngle method">
+    <HelpKINode Title="CoPilotView.SetRearCameraAngle Method " Url="html/b5a8e1cf-6712-0af7-1931-9ced18cc4f43.htm" />
+    <HelpKINode Title="ICoPilotViewHandler.SetRearCameraAngle Method " Url="html/0936e575-fa9c-9703-485d-e621c91b2165.htm" />
+    <HelpKINode Title="IPilotViewHandler.SetRearCameraAngle Method " Url="html/07b040b7-be94-8170-ced3-5869f4eb7cfa.htm" />
+    <HelpKINode Title="PilotView.SetRearCameraAngle Method " Url="html/acd2f779-8cd4-2101-b314-e04f81c2afad.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SetResolution method">
+    <HelpKINode Title="Camera.SetResolution Method " Url="html/cf4f50b8-5665-00a4-1042-6ad7d6fe520a.htm" />
+    <HelpKINode Title="ICamera.SetResolution Method " Url="html/25575d2c-8c02-88c5-cc27-f3452c6e7132.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Slider method">
+    <HelpKINode Title="IJoystick.Slider Method " Url="html/aa69e8fd-0b26-1b8d-7f97-4c38c8d288af.htm" />
+    <HelpKINode Title="Joystick.Slider Method " Url="html/68a0fcf8-ed8f-96b8-f021-39853f8e081c.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Snapshot field" Url="html/247dd4b9-8994-4ffb-be4f-402f7e31aaa4.htm" />
+  <HelpKINode Title="Snapshot method">
+    <HelpKINode Title="Camera.Snapshot Method " Url="html/04be1ab1-296b-289e-7629-4554df91ab93.htm" />
+    <HelpKINode Title="CameraController.Snapshot Method " Url="html/d838857d-8b09-1f93-f707-fcadf26d316d.htm" />
+    <HelpKINode Title="ICamera.Snapshot Method " Url="html/c1e3636e-8c24-2c14-f394-f8423441295c.htm" />
+    <HelpKINode Title="ICameraHandler.Snapshot Method " Url="html/919a2920-a9e8-aa66-0140-543bb45192f8.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SomethingIsWrong method">
+    <HelpKINode Title="CoPilotView.SomethingIsWrong Method " Url="html/d10bfca7-7991-c962-6989-e22169eb2f16.htm" />
+    <HelpKINode Title="ICoPilotViewHandler.SomethingIsWrong Method " Url="html/e296f156-d9ac-8298-da9c-c076a2b6650b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Start method">
+    <HelpKINode Title="Camera.Start Method " Url="html/1c820558-a8c6-a0d3-52f3-4201987fd2e7.htm" />
+    <HelpKINode Title="ICamera.Start Method " Url="html/c8ba1c32-330f-4781-7e8c-c99d88e082c6.htm" />
+  </HelpKINode>
+  <HelpKINode Title="StartByte field" Url="html/b2da5aef-7e71-cc62-83c6-cb98afdeff91.htm" />
+  <HelpKINode Title="State method" Url="html/3bc7d562-b7e1-8d2a-2785-3b6439a03667.htm" />
+  <HelpKINode Title="Stop method">
+    <HelpKINode Title="Camera.Stop Method " Url="html/ca5e806d-0423-7b21-b87a-f5bc08d9b7f0.htm" />
+    <HelpKINode Title="ICamera.Stop Method " Url="html/3c5b09a3-c000-e3c4-8252-c8055c28032d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="StopByte field" Url="html/07231b9c-54ea-67ae-493f-3e27b331c25d.htm" />
+  <HelpKINode Title="StoreState method" Url="html/32f55d77-1c79-d47a-d2d9-3ee1d1685641.htm" />
+  <HelpKINode Title="Throttle method">
+    <HelpKINode Title="IJoystick.Throttle Method " Url="html/7723de4c-80af-e276-8898-c23f809c02f9.htm" />
+    <HelpKINode Title="Joystick.Throttle Method " Url="html/8b08b214-afb8-4227-2869-32a487068f11.htm" />
+    <HelpKINode Title="PacketBuilder.Throttle Method " Url="html/5cd32ed4-efd5-040c-221b-85510394f388.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ToggleGain field" Url="html/b5deeb8e-919b-611a-5499-a1ed6c81be56.htm" />
+  <HelpKINode Title="ToggleGain method">
+    <HelpKINode Title="IPilotViewHandler.ToggleGain Method " Url="html/4f1e58c9-c2dd-7157-1db6-69229c10e9ec.htm" />
+    <HelpKINode Title="MainPacketBuilder.ToggleGain Method " Url="html/cbbeb204-8968-c600-d0f3-a827aaae0e6e.htm" />
+    <HelpKINode Title="PilotView.ToggleGain Method " Url="html/54d2ebc4-b688-ac6b-72bf-11f0e341b304.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ToggleRecording field" Url="html/fa42e944-b3ed-e451-271a-33973ae7fb2d.htm" />
+  <HelpKINode Title="ToggleRecording method">
+    <HelpKINode Title="Camera.ToggleRecording Method " Url="html/5a4c85c1-fe07-6759-e639-bad6841f7e9b.htm" />
+    <HelpKINode Title="CameraController.ToggleRecording Method " Url="html/9450fc20-1000-bbb3-0625-c40819b58075.htm" />
+    <HelpKINode Title="ICamera.ToggleRecording Method " Url="html/bbc6096f-95f9-6ce2-baa8-9b4531b918fa.htm" />
+    <HelpKINode Title="ICameraHandler.ToggleRecording Method " Url="html/e46d1b85-c6a5-24d6-7592-1820d39e352d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ToggleReverse method" Url="html/cae265a2-198a-1527-2170-7271a290da40.htm" />
+  <HelpKINode Title="ToggleStopwatch field" Url="html/8eb01587-9ef8-d8ad-a060-657cdcd0d9a0.htm" />
+  <HelpKINode Title="ToggleStopwatch method">
+    <HelpKINode Title="IPilotViewHandler.ToggleStopwatch Method " Url="html/e2b73d5f-ac33-c4e0-0e3e-af8de60b1e64.htm" />
+    <HelpKINode Title="PilotView.ToggleStopwatch Method " Url="html/b1e9fc62-9aea-e716-883f-eb09aab3bfb3.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Type property">
+    <HelpKINode Title="IJoystick.Type Property " Url="html/df4930d0-9953-4c7c-463c-3ecf0384058d.htm" />
+    <HelpKINode Title="Joystick.Type Property " Url="html/12746464-f691-72a0-cce0-99a061bf6c39.htm" />
+    <HelpKINode Title="PacketBuilder.Type Property " Url="html/ab87fa5e-4d3a-c7d0-ac13-45235756c0f7.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Data namespace" Url="html/0e194f29-5760-daaf-bb54-e71f78024f28.htm" />
+  <HelpKINode Title="UisSubsea.RovTopside.Data.Camera class">
+    <HelpKINode Title="Camera Class" Url="html/0bffe866-5520-827a-e059-118232e3e958.htm" />
+    <HelpKINode Title="Camera Members" Url="html/c3a9d7ac-fd8f-c938-1347-5b0bab9fc340.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Data.CameraFactory class">
+    <HelpKINode Title="CameraFactory Class" Url="html/676a8542-3086-66d6-3501-27a887450c0b.htm" />
+    <HelpKINode Title="CameraFactory Members" Url="html/b6231748-3c0d-abcc-fe15-b8a5a37e6955.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Data.CommunicationServer class">
+    <HelpKINode Title="CommunicationServer Class" Url="html/2262ed4d-2d2e-810c-0e88-318256369289.htm" />
+    <HelpKINode Title="CommunicationServer Members" Url="html/35cf763f-bf93-39b1-f370-7332780d0faa.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Data.Constants class">
+    <HelpKINode Title="Constants Class" Url="html/378a17ef-af51-e8ff-9e88-9c5a7f42e5bd.htm" />
+    <HelpKINode Title="Constants Members" Url="html/2211c18e-846a-b799-9d89-018781d188bf.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Data.DataReceivedEventArgs class">
+    <HelpKINode Title="DataReceivedEventArgs Class" Url="html/9414fabf-afc6-065a-f712-d730103bb2de.htm" />
+    <HelpKINode Title="DataReceivedEventArgs Members" Url="html/9062bc40-baba-5b8d-9e2e-351372168325.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Data.FocusChangedEventArgs class">
+    <HelpKINode Title="FocusChangedEventArgs Class" Url="html/66baf0a1-89e0-cecc-dfa5-fdd1fd19cf74.htm" />
+    <HelpKINode Title="FocusChangedEventArgs Members" Url="html/e905b1c3-2bf9-d11b-c090-1bca601417d2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Data.ICamera interface">
+    <HelpKINode Title="ICamera Interface" Url="html/96911af8-2429-a9c4-4b7d-4fd96c1bfe56.htm" />
+    <HelpKINode Title="ICamera Members" Url="html/2455d546-9988-22f1-e99b-d0ca985fa0cd.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Data.IJoystick interface">
+    <HelpKINode Title="IJoystick Interface" Url="html/f82bef83-16c1-c47b-d58c-0859ea2627e3.htm" />
+    <HelpKINode Title="IJoystick Members" Url="html/f942f4ba-2b85-1f42-f4ed-46857e5bca03.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Data.IView interface">
+    <HelpKINode Title="IView Interface" Url="html/5d22a9b4-4e10-4ca7-0ee3-a05144dcf308.htm" />
+    <HelpKINode Title="IView Members" Url="html/0e978181-d5c2-79e8-4628-520cbbfd3df5.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Data.Joystick class">
+    <HelpKINode Title="Joystick Class" Url="html/8e691c5c-6bfc-efb1-f03c-0f3d19e8849a.htm" />
+    <HelpKINode Title="Joystick Members" Url="html/ad8a80ef-b81a-60ca-f3da-7acb7fd0d285.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Data.JoystickFactory class">
+    <HelpKINode Title="JoystickFactory Class" Url="html/0a481e94-73f8-14a4-e39d-90ae974fa7e6.htm" />
+    <HelpKINode Title="JoystickFactory Members" Url="html/bf096fb9-a217-908c-9671-6a58e894290c.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Data.JoystickStateListener class">
+    <HelpKINode Title="JoystickStateListener Class" Url="html/2d21cf21-2c63-4a6f-52b8-eee7ce57ac85.htm" />
+    <HelpKINode Title="JoystickStateListener Members" Url="html/d360105f-8508-b6c5-bd06-c997eda4c3d0.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Data.JoystickStateStore class">
+    <HelpKINode Title="JoystickStateStore Class" Url="html/e5f28c0f-7f24-ae66-b4b5-c1fcdeaa75ff.htm" />
+    <HelpKINode Title="JoystickStateStore Members" Url="html/478d1245-998a-37c7-603d-5381880415bc.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Data.JoystickType enumeration" Url="html/ddea176b-6bc4-9e26-4d3f-8c4e21a36e06.htm" />
+  <HelpKINode Title="UisSubsea.RovTopside.Data.MainPacketBuilder class">
+    <HelpKINode Title="MainPacketBuilder Class" Url="html/3854f75c-649c-8c57-2841-9b098abac635.htm" />
+    <HelpKINode Title="MainPacketBuilder Members" Url="html/5300d01c-eb6e-b91b-53c6-f8c68cf2294e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Data.ManipulatorLeftPacketBuilder class">
+    <HelpKINode Title="ManipulatorLeftPacketBuilder Class" Url="html/29c5f3a5-8953-8bf3-6369-78911ea928fa.htm" />
+    <HelpKINode Title="ManipulatorLeftPacketBuilder Members" Url="html/50ac9cd4-4c6c-2fe0-6ead-0426ad097dd1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Data.ManipulatorRightPacketBuilder class">
+    <HelpKINode Title="ManipulatorRightPacketBuilder Class" Url="html/46d19775-ed52-bf81-1fa9-e983c403da33.htm" />
+    <HelpKINode Title="ManipulatorRightPacketBuilder Members" Url="html/9b2c5b5d-9bb6-ca1b-9c96-525e6fc673a4.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Data.PacketBuilder class">
+    <HelpKINode Title="PacketBuilder Class" Url="html/3f06f3c4-86c2-1fa7-1fc0-f445eaf08aaf.htm" />
+    <HelpKINode Title="PacketBuilder Members" Url="html/190de900-7466-5b15-5a2f-85c990f10380.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Data.PacketBuilder.PointOfView enumeration" Url="html/1089e8e6-097c-21f8-270b-5b8a90f33392.htm" />
+  <HelpKINode Title="UisSubsea.RovTopside.Data.RovState class">
+    <HelpKINode Title="RovState Class" Url="html/1ab22fa7-86ad-702e-a5e5-b836369dbe95.htm" />
+    <HelpKINode Title="RovState Members" Url="html/327686db-cb84-5fe9-a463-99239b1b5dd2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Data.RovStateBuilder class">
+    <HelpKINode Title="RovStateBuilder Class" Url="html/0c017b49-439e-3525-d385-3d38a7dc2c5f.htm" />
+    <HelpKINode Title="RovStateBuilder Members" Url="html/1ddfc44e-731e-8918-05e1-374bd312ca83.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Data.SerialPortSingleton class">
+    <HelpKINode Title="SerialPortSingleton Class" Url="html/2ae172b3-a52f-f866-a522-be4ea7d9b943.htm" />
+    <HelpKINode Title="SerialPortSingleton Members" Url="html/02747c89-de28-ef2a-5ff9-e08eddc63db4.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Data.VideoRecorder class">
+    <HelpKINode Title="VideoRecorder Class" Url="html/ccc51ae0-ddd4-9808-7db5-14775868e0ad.htm" />
+    <HelpKINode Title="VideoRecorder Members" Url="html/24542a6a-d1c5-c135-4cb7-b7d47813638f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Logic namespace" Url="html/20f498e2-03b0-5ec4-916f-e543c1e8e212.htm" />
+  <HelpKINode Title="UisSubsea.RovTopside.Logic.CameraController class">
+    <HelpKINode Title="CameraController Class" Url="html/882d36a1-0599-e596-6bcd-7cb0e71a21e9.htm" />
+    <HelpKINode Title="CameraController Members" Url="html/9810d0bc-3774-69ac-174f-37d56f4d2b3e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Logic.CoPilotActionsController class">
+    <HelpKINode Title="CoPilotActionsController Class" Url="html/7099540a-8e5e-36b3-d9f2-ca6555ff4661.htm" />
+    <HelpKINode Title="CoPilotActionsController Members" Url="html/72e73e26-a79a-cf9b-e296-6a7dc19943fb.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Logic.CoPilotButton class">
+    <HelpKINode Title="CoPilotButton Class" Url="html/38f2f70e-10af-dc9f-b4cf-4f65c0416941.htm" />
+    <HelpKINode Title="CoPilotButton Members" Url="html/b29f7a70-9224-b6f9-ec16-af356daaa89e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Logic.ICameraHandler interface">
+    <HelpKINode Title="ICameraHandler Interface" Url="html/7e65b308-ff9a-ccb0-cc41-2260f2fe1fc7.htm" />
+    <HelpKINode Title="ICameraHandler Members" Url="html/2b61732b-4ba3-7c42-668f-cc494477a8b1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Logic.ICoPilotViewHandler interface">
+    <HelpKINode Title="ICoPilotViewHandler Interface" Url="html/1a2a4cad-bbc8-cd62-4d1b-47eb547760b2.htm" />
+    <HelpKINode Title="ICoPilotViewHandler Members" Url="html/4439444b-0dfe-996a-73c7-8fe3f6799c36.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Logic.IPilotViewHandler interface">
+    <HelpKINode Title="IPilotViewHandler Interface" Url="html/b936842c-58f6-4ba0-c0e4-766e675dcd01.htm" />
+    <HelpKINode Title="IPilotViewHandler Members" Url="html/891b565d-f3c1-d1b5-dfdb-f9891e0dde31.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Logic.MainController class">
+    <HelpKINode Title="MainController Class" Url="html/cf6bad8e-5f25-490d-3ebc-93f5ef066925.htm" />
+    <HelpKINode Title="MainController Members" Url="html/2e91a0b2-e57f-4c2a-0f84-0473e1319b26.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Logic.PilotActionsController class">
+    <HelpKINode Title="PilotActionsController Class" Url="html/9c04f2b5-8e9d-1e02-b0d7-d90394a0d6cf.htm" />
+    <HelpKINode Title="PilotActionsController Members" Url="html/8a35924a-9d85-e132-e3a3-730048b10369.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Logic.PilotButton class">
+    <HelpKINode Title="PilotButton Class" Url="html/ee1ecbda-0962-4231-b46d-715eafcfbaa1.htm" />
+    <HelpKINode Title="PilotButton Members" Url="html/4402d3f6-21f9-e85e-39d0-a22db7f241ec.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Logic.RovStateReceivedHandler class">
+    <HelpKINode Title="RovStateReceivedHandler Class" Url="html/09ca1f86-794b-03ae-c164-28f2ba65c805.htm" />
+    <HelpKINode Title="RovStateReceivedHandler Members" Url="html/d7889cf6-1620-320b-ec84-529f23569ec4.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Presentation namespace" Url="html/7caa6397-b32e-3f1c-27b3-9f9760281b43.htm" />
+  <HelpKINode Title="UisSubsea.RovTopside.Presentation.CameraSelectorView class">
+    <HelpKINode Title="CameraSelectorView Class" Url="html/73ffef57-f846-b8a4-c3e2-df172f87bbbb.htm" />
+    <HelpKINode Title="CameraSelectorView Members" Url="html/50236302-723e-42e6-eb2a-f42785e1ef72.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Presentation.CameraTesterView class">
+    <HelpKINode Title="CameraTesterView Class" Url="html/fdbb1d2b-bb70-b94d-8eab-693049c6193d.htm" />
+    <HelpKINode Title="CameraTesterView Members" Url="html/23493430-2745-5c3f-c040-6ae3b04ef6e0.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Presentation.CoPilotView class">
+    <HelpKINode Title="CoPilotView Class" Url="html/f219dcee-3618-9286-4ddf-b6d5891cd795.htm" />
+    <HelpKINode Title="CoPilotView Members" Url="html/6568c413-337d-b4b8-cbca-c429fb391e5a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Presentation.JoystickTrackerView class">
+    <HelpKINode Title="JoystickTrackerView Class" Url="html/2a3c7a03-2c92-2a45-42f8-686d222535a6.htm" />
+    <HelpKINode Title="JoystickTrackerView Members" Url="html/2a6a6370-aaea-f4d9-d1d8-b7df4bd5f18f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Presentation.LoadingView class">
+    <HelpKINode Title="LoadingView Class" Url="html/24abeea3-8074-d839-2e08-5b1a82f07a19.htm" />
+    <HelpKINode Title="LoadingView Members" Url="html/fa9be8f4-a068-aabf-caf0-a46e06fc32f9.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Presentation.PilotView class">
+    <HelpKINode Title="PilotView Class" Url="html/ba4d1558-4a85-d239-ae16-558563fe8239.htm" />
+    <HelpKINode Title="PilotView Members" Url="html/acbc9544-79a5-a610-0689-b4703c4d3ea7.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UisSubsea.RovTopside.Presentation.ProgramSelectorView class">
+    <HelpKINode Title="ProgramSelectorView Class" Url="html/d6dbe253-c1ac-052e-3dec-0c9277975d37.htm" />
+    <HelpKINode Title="ProgramSelectorView Members" Url="html/9d9c649b-fab9-1437-a238-9aeeb37cb0a6.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Unacquire method" Url="html/721aa214-4f61-3201-2cc5-ac2ed37253d4.htm" />
+  <HelpKINode Title="Up enumeration member" Url="html/1089e8e6-097c-21f8-270b-5b8a90f33392.htm" />
+  <HelpKINode Title="UpAndLeft enumeration member" Url="html/1089e8e6-097c-21f8-270b-5b8a90f33392.htm" />
+  <HelpKINode Title="UpAndRight enumeration member" Url="html/1089e8e6-097c-21f8-270b-5b8a90f33392.htm" />
+  <HelpKINode Title="VerticalLeverIsNeutral method">
+    <HelpKINode Title="IPilotViewHandler.VerticalLeverIsNeutral Method " Url="html/466eef88-7036-f54a-e338-97143197367d.htm" />
+    <HelpKINode Title="PilotView.VerticalLeverIsNeutral Method " Url="html/a8e217cb-8693-acfb-51ff-94e592d54062.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VideoRecorder class">
+    <HelpKINode Title="VideoRecorder Class" Url="html/ccc51ae0-ddd4-9808-7db5-14775868e0ad.htm" />
+    <HelpKINode Title="VideoRecorder Members" Url="html/24542a6a-d1c5-c135-4cb7-b7d47813638f.htm" />
+    <HelpKINode Title="about VideoRecorder class" Url="html/ccc51ae0-ddd4-9808-7db5-14775868e0ad.htm" />
+    <HelpKINode Title="all members" Url="html/24542a6a-d1c5-c135-4cb7-b7d47813638f.htm" />
+    <HelpKINode Title="constructor" Url="html/95358b25-f26c-12d5-e37d-62fbad47dea7.htm" />
+    <HelpKINode Title="methods" Url="html/d4707d9a-a22c-757d-ecd1-4cf3d55e5b0c.htm" />
+  </HelpKINode>
+  <HelpKINode Title="VideoRecorder.Record method" Url="html/eb450e4e-4835-f0fa-6f15-b457ccd1d41b.htm" />
+  <HelpKINode Title="VideoRecorder.VideoRecorder constructor" Url="html/95358b25-f26c-12d5-e37d-62fbad47dea7.htm" />
+  <HelpKINode Title="WaitForRovToPowerUp method" Url="html/e753d4e1-cfb9-a952-1122-1e57a4fa3089.htm" />
+  <HelpKINode Title="WaitHandle property" Url="html/019ac392-befd-ddb3-1efe-eb3dfc72d260.htm" />
+  <HelpKINode Title="Yaw method">
+    <HelpKINode Title="IJoystick.Yaw Method " Url="html/623cf80a-b337-256c-78fd-a7272d4168f7.htm" />
+    <HelpKINode Title="Joystick.Yaw Method " Url="html/b8917970-4bf9-ce08-1772-5a65ccf144ca.htm" />
+    <HelpKINode Title="PacketBuilder.Yaw Method " Url="html/9c4bbef6-a337-5084-f7ec-e5c7c5c5a2ee.htm" />
+  </HelpKINode>
+</HelpKI>
