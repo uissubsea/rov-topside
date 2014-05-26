@@ -14,16 +14,16 @@ namespace UisSubsea.RovTopside.Logic
 
     public class CoPilotActionsController
     {
-        private JoystickStateListener coPilotLeftStickListener;
-        private JoystickStateListener coPilotRightStickListener;
+        private IJoystickStateListener coPilotLeftStickListener;
+        private IJoystickStateListener coPilotRightStickListener;
         private ICameraHandler cameraHandler;
         private ICoPilotViewHandler coPilotView;
 
         private int leftFocusSlider = 0;
         private int rightFocusSlider = 0;
         
-        public CoPilotActionsController(JoystickStateListener coPilotLeftStickListener, 
-            JoystickStateListener coPilotRightStickListener, ICameraHandler cameraHandler, 
+        public CoPilotActionsController(IJoystickStateListener coPilotLeftStickListener, 
+            IJoystickStateListener coPilotRightStickListener, ICameraHandler cameraHandler, 
             ICoPilotViewHandler coPilotView)
         {
             this.coPilotLeftStickListener = coPilotLeftStickListener;

@@ -19,7 +19,7 @@ namespace UisSubsea.RovTopside.Data
     {
         private IJoystick joystick;
 
-        public ManipulatorRightPacketBuilder(Joystick joystick) : base(joystick) { this.joystick = joystick; }
+        public ManipulatorRightPacketBuilder(IJoystick joystick) : base(joystick) { this.joystick = joystick; }
 
         public override byte[] BuildJoystickStatePacket()
         {       

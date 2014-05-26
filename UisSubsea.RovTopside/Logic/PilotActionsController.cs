@@ -13,13 +13,13 @@ namespace UisSubsea.RovTopside.Logic
 
     public class PilotActionsController
     {        
-        private JoystickStateListener pilotStickListener;
+        private IJoystickStateListener pilotStickListener;
         private ICameraHandler cameraHandler;
         private IPilotViewHandler pilotView;
 
         private bool buttonPressed = false;
         
-        public PilotActionsController(JoystickStateListener pilotStickListener, 
+        public PilotActionsController(IJoystickStateListener pilotStickListener, 
             ICameraHandler cameraHandler, IPilotViewHandler pilotView)
         {
             this.pilotStickListener = pilotStickListener;

@@ -49,11 +49,20 @@ namespace UisSubsea.RovTopside
                         case "Stress Test":
                             launchStressTest();
                             break;
+                        case "ROV Control System Debug":
+                            launchControlSystemDebug();
+                            break;
                         default:
                             return;
                     }
                 }
             }
+        }
+
+        private static void launchControlSystemDebug()
+        {
+            MainControllerDebug main = new MainControllerDebug();
+            Application.Run(main.pilotView);
         }
 
         private static void launchControlSystem()

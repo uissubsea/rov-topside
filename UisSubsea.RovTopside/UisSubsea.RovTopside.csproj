@@ -96,8 +96,14 @@
   <ItemGroup>
     <Compile Include="Data\Camera.cs" />
     <Compile Include="Data\CameraFactory.cs" />
+    <Compile Include="Data\CameraMock.cs" />
     <Compile Include="Data\CommunicationServer.cs" />
+    <Compile Include="Data\CommunicationServerMock.cs" />
     <Compile Include="Data\FocusChangedEventArgs.cs" />
+    <Compile Include="Data\ICommunicationServer.cs" />
+    <Compile Include="Data\IJoystickStateListener.cs" />
+    <Compile Include="Data\JoystickMock.cs" />
+    <Compile Include="Data\JoystickStateListenerMock.cs" />
     <Compile Include="Logic\Constants.cs" />
     <Compile Include="Data\DataReceivedEventArgs.cs" />
     <Compile Include="Logic\CoPilotActionsController.cs" />
@@ -105,6 +111,7 @@
     <Compile Include="Data\ICamera.cs" />
     <Compile Include="Logic\CameraController.cs" />
     <Compile Include="Logic\ICameraHandler.cs" />
+    <Compile Include="Logic\MainControllerDebug.cs" />
     <Compile Include="Presentation\CameraSelectorView.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -16,15 +16,15 @@ namespace UisSubsea.RovTopside.Logic
     /// </summary>
 
     public class MainController
-    {       
+    {
         public Form pilotView;
         private Form coPilotView;
-        private Joystick pilotJoystick;
-        private Joystick coPilotLeftJoystick;
-        private Joystick coPilotRightJoystick;
+        private IJoystick pilotJoystick;
+        private IJoystick coPilotLeftJoystick;
+        private IJoystick coPilotRightJoystick;
         private PilotActionsController pilotActionsController;
         private CoPilotActionsController coPilotActionsController;
-        private JoystickStateListener pilotStickListener, coPilotLeftStickListener, coPilotRightStickListener;
+        private IJoystickStateListener pilotStickListener, coPilotLeftStickListener, coPilotRightStickListener;
         private ICameraHandler cameraController;
 
         public MainController()
@@ -49,7 +49,7 @@ namespace UisSubsea.RovTopside.Logic
             pilotView.Show();
             coPilotView.Show();
 
-            SerialPortSingleton.Instance.Write(Constants.InitializationPacket, 
+            SerialPortSingleton.Instance.Write(Constants.InitializationPacket,
                 0, Constants.InitializationPacket.Length);
         }
 
@@ -74,10 +74,8 @@ namespace UisSubsea.RovTopside.Logic
 
         private void initializeCommunicationServer(JoystickStateStore stateStore)
         {
-            CommunicationServer comServer = new CommunicationServer(stateStore);
-            Thread comThread = new Thread(comServer.Serve);
-            comThread.IsBackground = true;
-            comThread.Start();
+            ICommunicationServer comServer = new CommunicationServer(stateStore);
+            RunInBackgroundThread(comServer.Serve);
             new RovStateReceivedHandler(comServer, (IPilotViewHandler)pilotView, (ICoPilotViewHandler)coPilotView);
         }
 
@@ -114,7 +112,7 @@ namespace UisSubsea.RovTopside.Logic
             pilotStickListener = new JoystickStateListener(pilotJoystick,
                 mainPacketBuilder, stateStore);
 
-            RunInBackgroundThread(pilotStickListener.Listen); 
+            RunInBackgroundThread(pilotStickListener.Listen);
         }
 
         private void initializeJoysticks()

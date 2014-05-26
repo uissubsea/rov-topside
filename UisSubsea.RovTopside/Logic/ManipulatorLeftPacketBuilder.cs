@@ -16,7 +16,7 @@ namespace UisSubsea.RovTopside.Data
     
     public class ManipulatorLeftPacketBuilder : PacketBuilder
     {
-        public  ManipulatorLeftPacketBuilder(Joystick joystick): base(joystick){}
+        public  ManipulatorLeftPacketBuilder(IJoystick joystick): base(joystick){}
 
         public override byte[] BuildJoystickStatePacket()
       {

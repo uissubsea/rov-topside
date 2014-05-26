@@ -1,12 +1,11 @@
-﻿using UisSubsea.RovTopside.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 
-namespace UisSubsea.RovTopside.Tests
+namespace UisSubsea.RovTopside.Data
 {
     public class JoystickMock : IJoystick
     {

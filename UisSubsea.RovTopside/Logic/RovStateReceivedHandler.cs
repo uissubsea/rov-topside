@@ -16,11 +16,11 @@ namespace UisSubsea.RovTopside.Logic
 
     public class RovStateReceivedHandler
     {        
-        private CommunicationServer comServer;
+        private ICommunicationServer comServer;
         private IPilotViewHandler pilotViewHandler;
         private ICoPilotViewHandler copilotViewhandler;
 
-        public RovStateReceivedHandler(CommunicationServer comServer, 
+        public RovStateReceivedHandler(ICommunicationServer comServer, 
             IPilotViewHandler overlayHandler, ICoPilotViewHandler copilotviewhandler)
         {
             this.comServer = comServer;

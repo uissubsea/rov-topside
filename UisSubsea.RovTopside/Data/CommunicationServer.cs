@@ -25,7 +25,7 @@ namespace UisSubsea.RovTopside.Data
     /// packet of its state).
     /// </summary>
 
-    public class CommunicationServer
+    public class CommunicationServer : ICommunicationServer
     {
         public event EventHandler<DataReceivedEventArgs> RovStateReceived;
         
@@ -48,6 +48,7 @@ namespace UisSubsea.RovTopside.Data
 
         public void Serve()
         {
+            Thread.Sleep(1000);
             while(true)
             {
                 try

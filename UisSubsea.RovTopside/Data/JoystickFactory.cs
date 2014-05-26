@@ -20,13 +20,13 @@ namespace UisSubsea.RovTopside.Data
 
     public class JoystickFactory
     {
-        private static Joystick mainController;
-        private static Joystick manipulatorLeft;
-        private static Joystick manipulatorRight;
+        private static IJoystick mainController;
+        private static IJoystick manipulatorLeft;
+        private static IJoystick manipulatorRight;
         
         private static IList<DeviceInstance> gameControls;
 
-        public static Joystick GetMainController(IntPtr windowHandle)
+        public static IJoystick GetMainController(IntPtr windowHandle)
         {
             if (JoystickFactory.mainController != null)
                 return mainController;
@@ -36,7 +36,7 @@ namespace UisSubsea.RovTopside.Data
                     JoystickType.MainController);
         }
 
-        public static Joystick GetManipulatorLeft(IntPtr windowHandle)
+        public static IJoystick GetManipulatorLeft(IntPtr windowHandle)
         {
             if (JoystickFactory.manipulatorLeft != null)
                 return manipulatorLeft;
@@ -46,7 +46,7 @@ namespace UisSubsea.RovTopside.Data
                     JoystickType.ManipulatorLeft);
         }
 
-        public static Joystick GetManipulatorRight(IntPtr windowHandle)
+        public static IJoystick GetManipulatorRight(IntPtr windowHandle)
         {
             if (JoystickFactory.manipulatorRight != null)
                 return manipulatorRight;

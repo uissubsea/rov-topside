@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace UisSubsea.RovTopside.Data
 {
@@ -69,6 +70,14 @@ namespace UisSubsea.RovTopside.Data
         /// Type property.
         /// </summary>
         JoystickType Type
+        {
+            get;
+        }
+
+        void Acquire(WaitHandle handle);
+        void Unacquire();
+
+        WaitHandle WaitHandle
         {
             get;
         }

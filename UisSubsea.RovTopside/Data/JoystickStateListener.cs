@@ -21,16 +21,16 @@ namespace UisSubsea.RovTopside.Data
     /// state that is being sent to the CCU is always the most recent.
     /// </summary>
 
-    public class JoystickStateListener
+    public class JoystickStateListener : IJoystickStateListener
     {
         private WaitHandle handle;
-        private Joystick joystick;
+        private IJoystick joystick;
         private PacketBuilder packetBuilder;
         private JoystickStateStore holder;
 
-        public EventHandler JoystickStateChanged;
+        public event EventHandler JoystickStateChanged;
 
-        public JoystickStateListener(Joystick js, PacketBuilder pb, JoystickStateStore holder)
+        public JoystickStateListener(IJoystick js, PacketBuilder pb, JoystickStateStore holder)
         {
             this.joystick = js;
             this.handle = js.WaitHandle;
@@ -62,7 +62,7 @@ namespace UisSubsea.RovTopside.Data
             }
         }
       
-        public Joystick Joystick
+        public IJoystick Joystick
         {
             get
             {

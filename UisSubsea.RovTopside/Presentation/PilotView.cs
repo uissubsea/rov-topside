@@ -139,6 +139,7 @@ namespace UisSubsea.RovTopside.Presentation
         public void SetHeading(int heading)
         {
             this.heading = heading;
+            this.Invoke(new MethodInvoker(delegate { this.Refresh(); }));
         }
 
         public void SetFrontCameraAngle(int angle)
