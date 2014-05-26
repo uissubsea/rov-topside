@@ -25,9 +25,9 @@ namespace UisSubsea.RovTopside.Data
 
         public JoystickStateStore()
         {
-            Main = new byte[0];
-            ManipulatorLeft = new byte[0];
-            ManipulatorRight = new byte[0];
+            Main = new byte[] { 125, 125, 125, 125, 0, 0 };
+            ManipulatorLeft = new byte[] { 125, 125, 0 };
+            ManipulatorRight = new byte[] { 125, 125, 125, 0, 0 };
         }
 
         public void StoreState(byte[] statePacket, JoystickType type)
