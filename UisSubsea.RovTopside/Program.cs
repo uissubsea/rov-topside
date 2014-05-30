@@ -69,7 +69,7 @@ namespace UisSubsea.RovTopside
         {
             Application.ApplicationExit += Application_ApplicationExit;
 
-            string[] ports = SerialPort.GetPortNames();
+           /* string[] ports = SerialPort.GetPortNames();
             if (!ports.Contains("COM1"))
             {
                 MessageBox.Show("Make sure USART is connected");
@@ -81,7 +81,7 @@ namespace UisSubsea.RovTopside
                 MessageBox.Show("Make sure all joysticks are connected");
                 return;
             }
-
+            */
             using (var waitingView = new LoadingView())
             {
                 var result = waitingView.ShowDialog();
