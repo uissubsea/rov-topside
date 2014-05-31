@@ -21,6 +21,7 @@ namespace UisSubsea.RovTopside.Presentation
     public partial class JoystickTrackerView : Form
     {
         private Joystick joystick;
+        private Joystick joystick2;
 
         private int roll = 125;
         private int pitch = 125;
@@ -37,6 +38,9 @@ namespace UisSubsea.RovTopside.Presentation
         private MainPacketBuilder mainpacketbuilder;
         private Thread listener;
         private Thread comThread;
+
+        private Thread listener2;
+        private ManipulatorRightPacketBuilder manipPacketBuilder;
 
         private JoystickStateStore stateStore;
 
@@ -111,12 +115,16 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void JoystickTracker_Load(object sender, EventArgs e)
         {
-            joystick = new Joystick(this.Handle, 0, 250);
+            joystick = new Joystick(this.Handle, 0, 250, JoystickType.MainController);
             System.Threading.WaitHandle waitHandle = new System.Threading.AutoResetEvent(false);
-
             joystick.Acquire(waitHandle);
 
+            joystick2 = new Joystick(this.Handle, 0, 250, JoystickType.ManipulatorLeft);
+            System.Threading.WaitHandle waitHandle2 = new System.Threading.AutoResetEvent(false);
+            joystick2.Acquire(waitHandle2);
+
             mainpacketbuilder = new MainPacketBuilder(joystick);
+            manipPacketBuilder = new ManipulatorRightPacketBuilder(joystick2);
 
             stateStore = new JoystickStateStore();
 
@@ -125,6 +133,11 @@ namespace UisSubsea.RovTopside.Presentation
             listener = new Thread(interruptListener.Listen);
             listener.IsBackground = true;
             listener.Start();
+
+            JoystickStateListener interruptListener2 = new JoystickStateListener(joystick2, manipPacketBuilder, stateStore);
+            listener2 = new Thread(interruptListener2.Listen);
+            listener2.IsBackground = true;
+            listener2.Start();
 
             CommunicationServer comServer = new CommunicationServer(stateStore);
             comServer.RovStateReceived += RovState_Received;
