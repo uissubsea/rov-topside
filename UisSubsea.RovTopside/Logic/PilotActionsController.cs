@@ -40,7 +40,7 @@ namespace UisSubsea.RovTopside.Logic
             if (toggleStopwatch())
                 pilotView.ToggleStopwatch();       
 
-            pilotView.VerticalLeverIsNeutral(VerticalLeverIsNeutral());
+            pilotView.SetThrottle(pilotStickListener.Joystick.Throttle());
         }
 
         private bool toggleGain()
@@ -82,11 +82,6 @@ namespace UisSubsea.RovTopside.Logic
         private bool toggleStopwatch()
         {
             return pilotStickListener.Joystick.Buttons()[PilotButton.ToggleStopwatch];
-        }
-
-        private bool VerticalLeverIsNeutral()
-        {
-            return pilotStickListener.Joystick.Throttle() == 125;
         }
 
         private bool AllAxisesAreInNeutral(Joystick joystick)

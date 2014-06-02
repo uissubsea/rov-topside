@@ -110,6 +110,7 @@
     <Compile Include="Logic\CoPilotButton.cs" />
     <Compile Include="Data\ICamera.cs" />
     <Compile Include="Logic\CameraController.cs" />
+    <Compile Include="Logic\HeadUpDisplay.cs" />
     <Compile Include="Logic\ICameraHandler.cs" />
     <Compile Include="Logic\MainControllerDebug.cs" />
     <Compile Include="Presentation\CameraSelectorView.cs">

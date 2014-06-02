@@ -50,7 +50,7 @@ namespace UisSubsea.RovTopside.Logic
         {
             pilotViewHandler.SetHeading(state.Heading);
             pilotViewHandler.SetFrontCameraAngle(state.FrontCameraTilt);
-            pilotViewHandler.SetDepth(state.Depth);
+            pilotViewHandler.SetAltitude(state.DistanceToBottom);
             pilotViewHandler.SetRearCameraAngle(state.RearCameraTilt);
         }
 
