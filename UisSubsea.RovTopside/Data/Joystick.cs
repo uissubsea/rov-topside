@@ -139,13 +139,9 @@ namespace UisSubsea.RovTopside.Data
                     if (gameControls.Count >= 1)
                         createJoystick(0);
                     break;
-                case JoystickType.ManipulatorLeft:
+                case JoystickType.ManipulatorRight:
                     if (gameControls.Count >= 2)
                         createJoystick(1);
-                    break;
-                case JoystickType.ManipulatorRight:
-                    if (gameControls.Count >= 3)
-                        createJoystick(2);
                     break;
             }
         }

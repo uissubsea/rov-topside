@@ -24,7 +24,7 @@ namespace UisSubsea.RovTopside.Logic
         private IJoystick coPilotRightJoystick;
         private PilotActionsController pilotActionsController;
         private CoPilotActionsController coPilotActionsController;
-        private IJoystickStateListener pilotStickListener, coPilotLeftStickListener, coPilotRightStickListener;
+        private IJoystickStateListener pilotStickListener, coPilotRightStickListener;
         private ICameraHandler cameraController;
 
         public MainController()
@@ -68,8 +68,7 @@ namespace UisSubsea.RovTopside.Logic
         private void initializeTopSideActionsControllers()
         {
             pilotActionsController = new PilotActionsController(pilotStickListener, cameraController, (IPilotViewHandler)pilotView);
-            coPilotActionsController = new CoPilotActionsController(coPilotLeftStickListener,
-                coPilotRightStickListener, cameraController, (ICoPilotViewHandler)coPilotView);
+            coPilotActionsController = new CoPilotActionsController(coPilotRightStickListener, cameraController, (ICoPilotViewHandler)coPilotView);
         }
 
         private void initializeCommunicationServer(JoystickStateStore stateStore)
@@ -82,7 +81,6 @@ namespace UisSubsea.RovTopside.Logic
         private void initializeJoystickListeners(JoystickStateStore stateStore)
         {
             initializePilotJoystickListener(stateStore);
-            initializeCoPilotLeftJoystickListener(stateStore);
             initializeCoPilotRightJoystickListener(stateStore);
         }
 
@@ -96,15 +94,6 @@ namespace UisSubsea.RovTopside.Logic
             RunInBackgroundThread(coPilotRightStickListener.Listen);
         }
 
-        private void initializeCoPilotLeftJoystickListener(JoystickStateStore stateStore)
-        {
-            ManipulatorLeftPacketBuilder leftPacketBuilder =
-                new ManipulatorLeftPacketBuilder(coPilotLeftJoystick);
-            coPilotLeftStickListener = new JoystickStateListener(coPilotLeftJoystick,
-                leftPacketBuilder, stateStore);
-
-            RunInBackgroundThread(coPilotLeftStickListener.Listen);
-        }
 
         private void initializePilotJoystickListener(JoystickStateStore stateStore)
         {
@@ -118,7 +107,6 @@ namespace UisSubsea.RovTopside.Logic
         private void initializeJoysticks()
         {
             initializePilotJoystick();
-            initializeCoPilotLeftJoystick();
             initializeCoPilotRightJoystick();
         }
 
@@ -127,13 +115,6 @@ namespace UisSubsea.RovTopside.Logic
             WaitHandle handle = new AutoResetEvent(false);
             pilotJoystick = JoystickFactory.GetMainController(pilotView.Handle);
             pilotJoystick.Acquire(handle);
-        }
-
-        private void initializeCoPilotLeftJoystick()
-        {
-            WaitHandle handle = new AutoResetEvent(false);
-            coPilotLeftJoystick = JoystickFactory.GetManipulatorLeft(pilotView.Handle);
-            coPilotLeftJoystick.Acquire(handle);
         }
 
         private void initializePilotJoystick()

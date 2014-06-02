@@ -13,7 +13,6 @@ namespace UisSubsea.RovTopside.Data
     public enum JoystickType
     {
         MainController,
-        ManipulatorLeft,
         ManipulatorRight
     }
 }

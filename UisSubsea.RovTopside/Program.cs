@@ -76,7 +76,7 @@ namespace UisSubsea.RovTopside
                 return;
             }
 
-            if (Joystick.JoysticksAttached().Count < 3)
+            if (Joystick.JoysticksAttached().Count < 2)
             {
                 MessageBox.Show("Make sure all joysticks are connected");
                 return;

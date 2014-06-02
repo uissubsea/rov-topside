@@ -43,7 +43,7 @@ namespace UisSubsea.RovTopside.Data
          * One main controller to control the ROV
          * and two to control the manipulator arm.
          * */
-        public const int NumberOfJoysticksNeeded = 3;
+        public const int NumberOfJoysticksNeeded = 2;
 
         /**
          * One tiltable camera on top of the ROV,
@@ -64,7 +64,6 @@ namespace UisSubsea.RovTopside.Data
          * are connected. Use these in camera factory to initialize 
          * the correct cameras.
          * */
-        public const string MicrosoftLifeCamMoniker = "vid_045e&pid_0772&mi_00#7";
         public const string LogitechC930eMonikerRear = "vid_046d&pid_0843&mi_00#6&313bb";
         public const string LogitechC920Moniker = "vid_046d&pid_082d&mi_00#6&3eda";
         public const string LogitechC930eMonikerFront = "vid_046d&pid_0843&mi_00#6&1fdd";
@@ -75,7 +74,6 @@ namespace UisSubsea.RovTopside.Data
          * is not unic for the same type of joystick
          * */
         public const string LogitechExtreme3DProGuid = "8e25a690";
-        public const string LogitechAttack3Guid = "a7625630";
         public const string Logitechextreme3DProManipulatorGuid = "132e2630";
 
         public static byte[] InitializationPacket = {
@@ -85,9 +83,6 @@ namespace UisSubsea.RovTopside.Data
                                                        125,
                                                        125,
                                                        0,
-                                                       0,
-                                                       125,
-                                                       125,
                                                        0,
                                                        125,
                                                        125,

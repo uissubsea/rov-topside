@@ -132,7 +132,6 @@
     <Compile Include="Data\JoystickStateStore.cs" />
     <Compile Include="Data\JoystickType.cs" />
     <Compile Include="Logic\MainPacketBuilder.cs" />
-    <Compile Include="Logic\ManipulatorLeftPacketBuilder.cs" />
     <Compile Include="Logic\ManipulatorRightPacketBuilder.cs" />
     <Compile Include="Logic\PacketBuilder.cs" />
     <Compile Include="Logic\RovStateBuilder.cs" />

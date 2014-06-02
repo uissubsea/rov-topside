@@ -91,9 +91,7 @@ namespace UisSubsea.RovTopside.Data
             outputBuffer.Add(Constants.StartByte);
 
             foreach (byte b in stateStore.Main)
-                outputBuffer.Add(b);
-            foreach (byte b in stateStore.ManipulatorLeft)
-                outputBuffer.Add(b);
+                outputBuffer.Add(b);        
             foreach (byte b in stateStore.ManipulatorRight)
                 outputBuffer.Add(b);
 

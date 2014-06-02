@@ -119,7 +119,7 @@ namespace UisSubsea.RovTopside.Presentation
             System.Threading.WaitHandle waitHandle = new System.Threading.AutoResetEvent(false);
             joystick.Acquire(waitHandle);
 
-            joystick2 = new Joystick(this.Handle, 0, 250, JoystickType.ManipulatorLeft);
+            joystick2 = new Joystick(this.Handle, 0, 250, JoystickType.ManipulatorRight);
             System.Threading.WaitHandle waitHandle2 = new System.Threading.AutoResetEvent(false);
             joystick2.Acquire(waitHandle2);
 

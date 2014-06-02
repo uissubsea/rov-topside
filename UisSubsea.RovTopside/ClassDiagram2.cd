@@ -21,6 +21,7 @@
       <HashCode>kBAgQAAAAAAACAgAAAAAAEAAEAAAAAwAAAAAQgEQAAQ=</HashCode>
       <FileName>Data\CommunicationServer.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="UisSubsea.RovTopside.Data.DataReceivedEventArgs" Collapsed="true">
     <Position X="25.5" Y="1.5" Width="2" />
@@ -47,7 +48,7 @@
   <Class Name="UisSubsea.RovTopside.Data.JoystickFactory" Collapsed="true">
     <Position X="16.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAQgAAAAAAAgABAAgAAAAAAEAAAQAAgACAAAAAAAAA=</HashCode>
+      <HashCode>AAAAgAAAAAAAgABAAgAAAAAAAAAAQAAgACAAAAAAAAA=</HashCode>
       <FileName>Data\JoystickFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -57,11 +58,12 @@
       <HashCode>AAAACQAAAAEAAEAAAAAAAAAAAAAAAAAAAIASAABAAAA=</HashCode>
       <FileName>Data\JoystickStateListener.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="UisSubsea.RovTopside.Data.JoystickStateStore" Collapsed="true">
     <Position X="19.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAABAAAEAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Data\JoystickStateStore.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -82,7 +84,7 @@
   <Class Name="UisSubsea.RovTopside.Data.Constants">
     <Position X="10" Y="7.25" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAgABAAAAAQACAADACgBAEAAAAAAAAAAFAQAAEABAA=</HashCode>
+      <HashCode>AAAgABAAAAAQACAABAAgBAEAAAAAAAAAAFAQAAEABAA=</HashCode>
       <FileName>Logic\Constants.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -91,13 +93,6 @@
     <TypeIdentifier>
       <HashCode>BAAACAAAAAMAAAAgAIABAQQAAAAUAIIACAAAACAAAAE=</HashCode>
       <FileName>Logic\MainPacketBuilder.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="UisSubsea.RovTopside.Data.ManipulatorLeftPacketBuilder" Collapsed="true">
-    <Position X="0.5" Y="4.75" Width="2.25" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Logic\ManipulatorLeftPacketBuilder.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UisSubsea.RovTopside.Data.ManipulatorRightPacketBuilder" Collapsed="true">
@@ -139,7 +134,7 @@
   <Class Name="UisSubsea.RovTopside.Logic.CoPilotActionsController" Collapsed="true">
     <Position X="16.25" Y="1.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AEIwACAAAACgCAAAAAIAAAAAEAEAAACQAAAAIACIAAA=</HashCode>
+      <HashCode>AEAwACAAAAAgCAAAAAAAAAAAEAEAAACQAAAAIAAIAAA=</HashCode>
       <FileName>Logic\CoPilotActionsController.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -153,7 +148,7 @@
   <Class Name="UisSubsea.RovTopside.Logic.MainController" Collapsed="true">
     <Position X="14.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABoEgAQAAABABAKEAAAAAQECAUAEACAAAAECASIAAA=</HashCode>
+      <HashCode>AABoEgAQAAAAABACEAAAAAQECAUAEACAAAAECAQIAAA=</HashCode>
       <FileName>Logic\MainController.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -203,7 +198,7 @@
   <Class Name="UisSubsea.RovTopside.Presentation.JoystickTrackerView" Collapsed="true">
     <Position X="21.5" Y="2.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>QALAAEiAFSWAFWCAQBiIAIAzAYACAEAAAAgAgAAACAQ=</HashCode>
+      <HashCode>QALAAEiAFSWAFWCAQBiIAIAzAYACAECAAAgAgAAACAQ=</HashCode>
       <FileName>Presentation\JoystickTrackerView.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -281,7 +276,7 @@
   <Class Name="UisSubsea.RovTopside.Program" Collapsed="true">
     <Position X="21.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACBAACAAAAAAAAAAAAAAAAAAAAIACAACAAAABAAAAAA=</HashCode>
+      <HashCode>ACBAACAAAAAAAAAAAAAAAAAAAAIACAASAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -321,7 +316,7 @@
   <Interface Name="UisSubsea.RovTopside.Data.IJoystick" Collapsed="true">
     <Position X="19.75" Y="8" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAAAAAAAAAgAAEABCAAAAAAAAAAAAAAAQBAAAAABAA=</HashCode>
+      <HashCode>ACAAAAAAAAAgAAEABiAAAAAAIAAAAAAAAQBAQAAABAA=</HashCode>
       <FileName>Data\IJoystick.cs</FileName>
     </TypeIdentifier>
   </Interface>
@@ -356,7 +351,7 @@
   <Enum Name="UisSubsea.RovTopside.Data.JoystickType" Collapsed="true">
     <Position X="16.25" Y="9" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAACAAAAAAAAAAAAAAEAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Data\JoystickType.cs</FileName>
     </TypeIdentifier>
   </Enum>

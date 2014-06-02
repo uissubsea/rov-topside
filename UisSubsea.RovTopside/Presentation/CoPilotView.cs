@@ -45,10 +45,6 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void CoPilotView_FormClosing(object sender, FormClosedEventArgs e)
         {         
-            // Is this really needed?
-            if (camera != null)
-                camera.Dispose();
-
             Application.Exit();
         }
 

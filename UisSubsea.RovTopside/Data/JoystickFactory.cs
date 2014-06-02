@@ -21,7 +21,6 @@ namespace UisSubsea.RovTopside.Data
     public class JoystickFactory
     {
         private static IJoystick mainController;
-        private static IJoystick manipulatorLeft;
         private static IJoystick manipulatorRight;
         
         private static IList<DeviceInstance> gameControls;
@@ -34,16 +33,6 @@ namespace UisSubsea.RovTopside.Data
                 return JoystickFactory.mainController = new Joystick(
                     windowHandle,getJoystickIndex(Constants.LogitechExtreme3DProGuid), 
                     JoystickType.MainController);
-        }
-
-        public static IJoystick GetManipulatorLeft(IntPtr windowHandle)
-        {
-            if (JoystickFactory.manipulatorLeft != null)
-                return manipulatorLeft;
-            else
-                return JoystickFactory.manipulatorLeft = new Joystick(
-                    windowHandle, getJoystickIndex(Constants.LogitechAttack3Guid), 
-                    JoystickType.ManipulatorLeft);
         }
 
         public static IJoystick GetManipulatorRight(IntPtr windowHandle)
@@ -64,8 +53,6 @@ namespace UisSubsea.RovTopside.Data
         {
             if (JoystickFactory.mainController != null)
                 JoystickFactory.mainController.Unacquire();
-            if (JoystickFactory.manipulatorLeft != null)
-                JoystickFactory.manipulatorLeft.Unacquire();
             if (JoystickFactory.manipulatorRight != null)
                 JoystickFactory.manipulatorRight.Unacquire();
         }
