@@ -7,6 +7,7 @@ using UisSubsea.RovTopside.Data;
 using UisSubsea.RovTopside.Presentation;
 using System.Threading;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace UisSubsea.RovTopside.Logic
 {
@@ -37,7 +38,7 @@ namespace UisSubsea.RovTopside.Logic
 
         private void initializeViews()
         {
-            pilotView = new PilotView(new CameraMock());
+            pilotView = new PilotView(new CameraMock(), new HeadUpDisplay(Color.Red));
             coPilotView = new CoPilotView(new CameraMock());
         }
 

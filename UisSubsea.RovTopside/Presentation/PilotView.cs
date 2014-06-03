@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using UisSubsea.RovTopside.Data;
 using System.Threading;
 using UisSubsea.RovTopside.Logic;
+using System.Diagnostics;
 
 namespace UisSubsea.RovTopside.Presentation
 {
@@ -18,24 +19,7 @@ namespace UisSubsea.RovTopside.Presentation
     /// </summary>
 
     public partial class PilotView : Form, IPilotViewHandler, IView
-    {
-        private const char degreeSymbol = (char)176;
-
-        // Font and brushed for overlay drawing.
-        private Font font;
-        private Brush redBrush;
-        private Brush greenBrush;
-
-        // Points for overlay drawing.
-        private Point pointAltitude;
-        private PointF pointFocus;
-        private Point pointHeading;
-        private PointF pointStopwatch;
-        private PointF pointFrontCameraAngle;
-        private PointF pointRearCameraAngle;
-        private PointF pointHalveGain;
-        private Point pointThrottle;    
-
+    {         
         private int throttle = 25;
         private bool halveGain = false;
         private int focus = -1;
@@ -45,39 +29,15 @@ namespace UisSubsea.RovTopside.Presentation
         private int altitude;
 
         private ICamera camera;
-        private System.Diagnostics.Stopwatch stopwatch;
-        private HeadUpDisplay hud;
-        
-        // A member to keep track of whether the window is fullscreen or not.
-        private bool fullScreen = false;
+        private Stopwatch stopwatch;
+        private IHeadUpDisplay hud;
 
-        public PilotView(ICamera camera)
+        public PilotView(ICamera camera, IHeadUpDisplay hud)
         {
             InitializeComponent();
-            setFullScreen(Constants.PilotScreen);
-            hud = new HeadUpDisplay(Color.Red);
+            
+            this.hud = hud;
 
-            font = new Font("Arial", 18);
-            redBrush = new SolidBrush(Color.Red);
-
-            //Top right
-            pointStopwatch = new PointF(1100.0f, 30.0f);
-
-            //Bottom left
-            pointFocus = new PointF(30.0f, 660.0f);
-
-            //Bottomright
-            pointFrontCameraAngle = new PointF(1100.0f, 620.0f);
-            pointRearCameraAngle = new PointF(1100.0f, 660.0f);
-
-            //Top left
-            pointHalveGain = new PointF(30.0f, 30.0f);
-
-            pointHeading = new Point(495, 50);
-            pointAltitude = new Point(1150, 250);           
-            pointThrottle = new Point(30, 270);
-
-            greenBrush = new SolidBrush(Color.Green);
             stopwatch = new System.Diagnostics.Stopwatch();
 
             // Subscribe to the picturebox paint event so that we can draw the overlay.
@@ -107,25 +67,15 @@ namespace UisSubsea.RovTopside.Presentation
         private void PaintOverlay(object sender, PaintEventArgs args)
         {
             Graphics g = args.Graphics;
-
-            if (focus != -1)
-                g.DrawString("MF: " + focus.ToString(), font, redBrush, pointFocus);
-            else
-                g.DrawString("AF", font, redBrush, pointFocus);
-
-            hud.drawHeadingIndicator(g, pointHeading, heading);
-            hud.drawThrottleIndicator(g, pointThrottle, throttle);
-            hud.drawAltitudeIndicator(g, pointAltitude, altitude);
-
-            TimeSpan span = stopwatch.Elapsed;
-            string stopwatchstring = string.Format("{0}:{1}", Math.Floor(span.TotalMinutes), span.ToString("ss"));
-
-            g.DrawString("CAM1: " + frontCameraAngle + degreeSymbol, font, redBrush, pointFrontCameraAngle);
-            g.DrawString("CAM2: " + rearCameraAngle + degreeSymbol, font, redBrush, pointRearCameraAngle);
-
-            g.DrawString(stopwatchstring, font, redBrush, pointStopwatch);             
-
-            g.DrawString("GAIN: " + (halveGain == true ? "HALF" : "FULL"), font, redBrush, pointHalveGain);
+           
+            hud.SetFocus(g, focus);
+            hud.SetHeading(g, heading);
+            hud.SetThrottle(g, throttle);
+            hud.SetAltitude(g, altitude);
+            hud.SetElapsedTime(g, stopwatch);
+            hud.SetFrontCameraAngle(g, frontCameraAngle);
+            hud.SetRearCameraAngle(g, rearCameraAngle);
+            hud.SetGain(g, halveGain);         
         }
 
         private void PilotView_FormClosed(object sender, FormClosedEventArgs e)
@@ -191,7 +141,7 @@ namespace UisSubsea.RovTopside.Presentation
             this.focus = focus;
         }
 
-        public void setFullScreen(int screen)
+        public void SetFullScreen(int screen)
         {
             Screen[] sc;
             sc = Screen.AllScreens;

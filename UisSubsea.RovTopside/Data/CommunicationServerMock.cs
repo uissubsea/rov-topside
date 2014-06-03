@@ -13,6 +13,7 @@ namespace UisSubsea.RovTopside.Data
         public event EventHandler<DataReceivedEventArgs> RovStateReceived;
         private ICollection<byte> inputBuffer;
         private Random random;
+        int data = 0;
 
         public CommunicationServerMock(JoystickStateStore stateStore)
         {
@@ -27,12 +28,16 @@ namespace UisSubsea.RovTopside.Data
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    inputBuffer.Add((byte)(random.Next(0, 251)));
+                    inputBuffer.Add((byte)(data));
                 }
                 invokePacketReceived();
                 inputBuffer.Clear();
-                Thread.Sleep(500);
-            }       
+                Thread.Sleep(100);
+
+                data++;
+                if (data == 251)
+                    data = 0;
+            }
         }
 
         private void invokePacketReceived()

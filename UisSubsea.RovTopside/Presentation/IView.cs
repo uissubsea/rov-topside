@@ -15,5 +15,6 @@ namespace UisSubsea.RovTopside.Data
     {
         ICamera GetCamera();
         void SetCamera(ICamera camera);
+        void SetFullScreen(int screen);
     }
 }

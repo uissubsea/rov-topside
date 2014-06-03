@@ -21,14 +21,12 @@ namespace UisSubsea.RovTopside.Presentation
     public partial class CoPilotView : Form, ICoPilotViewHandler, IView
     {
         private ICamera camera;
-        private bool fullScreen;
         private bool leak;
         private bool laserActive;
 
         public CoPilotView(ICamera camera)
         {       
             InitializeComponent();
-            setFullScreen(Constants.CoPilotScreen);
             this.camera = camera;
             this.camera.Canvas = videoPictureBox;
             this.camera.Start();
@@ -49,7 +47,7 @@ namespace UisSubsea.RovTopside.Presentation
             Application.Exit();
         }
        
-        private void setFullScreen(int screen)
+        public void SetFullScreen(int screen)
         {
             Screen[] sc;
             sc = Screen.AllScreens;
@@ -77,6 +75,7 @@ namespace UisSubsea.RovTopside.Presentation
                 laserActive = false;
             }
         }
+
         public void SetHeading(int heading)
         {
             this.Invoke(new MethodInvoker(delegate {
@@ -139,9 +138,7 @@ namespace UisSubsea.RovTopside.Presentation
                 return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);
-        }
-    
-        
+        }        
     }
 }
 

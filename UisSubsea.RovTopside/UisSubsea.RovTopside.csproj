@@ -112,6 +112,7 @@
     <Compile Include="Logic\CameraController.cs" />
     <Compile Include="Logic\HeadUpDisplay.cs" />
     <Compile Include="Logic\ICameraHandler.cs" />
+    <Compile Include="Logic\IHeadUpDisplay.cs" />
     <Compile Include="Logic\MainControllerDebug.cs" />
     <Compile Include="Presentation\CameraSelectorView.cs">
       <SubType>Form</SubType>

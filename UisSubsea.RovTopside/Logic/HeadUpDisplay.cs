@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing.Drawing2D;
 using System.Drawing;
+using System.Diagnostics;
 
 namespace UisSubsea.RovTopside.Logic
 {
-    public class HeadUpDisplay
+    public class HeadUpDisplay : IHeadUpDisplay
     {
         private Dictionary<int, string> course;
 
@@ -19,9 +20,15 @@ namespace UisSubsea.RovTopside.Logic
         private Brush greenBrush;
         private Pen redPen;
 
-        private Point throttlePoint;
-        private Point headingPoint;
-        private Point altitudePoint;
+        // Points for overlay drawing.
+        private Point pointAltitude;
+        private Point pointFocus;
+        private Point pointHeading;
+        private Point pointStopwatch;
+        private Point pointFrontCameraAngle;
+        private Point pointRearCameraAngle;
+        private Point pointHalveGain;
+        private Point pointThrottle;  
 
         public HeadUpDisplay(Color hudColor)
         {
@@ -31,9 +38,27 @@ namespace UisSubsea.RovTopside.Logic
             greenBrush = new SolidBrush(Color.Green);
             redPen = new Pen(brush);
 
-            throttlePoint = new Point(100, 50);
-            headingPoint = new Point(295, 50);
-            altitudePoint = new Point(650, 70);
+            //Top right
+            pointStopwatch = new Point(1150, 30);
+
+            //Bottom left
+            pointFocus = new Point(30, 660);
+
+            //Bottomright
+            pointFrontCameraAngle = new Point(1150, 620);
+            pointRearCameraAngle = new Point(1150, 660);
+
+            //Top left
+            pointHalveGain = new Point(30, 30);
+
+            //Top center
+            pointHeading = new Point(550, 50);
+
+            //Right center
+            pointAltitude = new Point(1150, 250);
+
+            //Left center
+            pointThrottle = new Point(30, 270);
 
             course = new Dictionary<int, string>()
             {
@@ -52,32 +77,32 @@ namespace UisSubsea.RovTopside.Logic
             };
         }
 
-        public void drawThrottleIndicator(Graphics g, Point p, int value)
+        public void SetThrottle(Graphics g, int throttle)
         {
-            g.DrawRectangle(redPen, p.X - 1, p.Y - 1, 16, 151);
+            g.DrawRectangle(redPen, pointThrottle.X - 1, pointThrottle.Y - 1, 16, 151);
 
-            if (value == 125)
+            if (throttle == 125)
             {
-                g.FillRectangle(greenBrush, p.X, p.Y, 15, 150);
+                g.FillRectangle(greenBrush, pointThrottle.X, pointThrottle.Y, 15, 150);
             }
-            else if (value < 125)
+            else if (throttle < 125)
             {
-                int deflection = (int)((125 - value) * 0.6);
-                g.FillRectangle(brush, p.X, p.Y + 75, 15, deflection);
+                int deflection = (int)((125 - throttle) * 0.6);
+                g.FillRectangle(brush, pointThrottle.X, pointThrottle.Y + 75, 15, deflection);
             }
             else
             {
-                int deflection = (int)((value - 125) * 0.6);
-                g.FillRectangle(brush, p.X, p.Y + (75 - deflection), 15, deflection);
+                int deflection = (int)((throttle - 125) * 0.6);
+                g.FillRectangle(brush, pointThrottle.X, pointThrottle.Y + (75 - deflection), 15, deflection);
             }
         }
 
-        public void drawHeadingIndicator(Graphics g, Point p, int heading)
+        public void SetHeading(Graphics g, int heading)
         {
             //Border
-            g.DrawLine(redPen, p.X, p.Y, p.X, p.Y + 15);
-            g.DrawLine(redPen, p.X, p.Y, p.X + 18 * 10, p.Y);
-            g.DrawLine(redPen, p.X + 18 * 10, p.Y, p.X + 18 * 10, p.Y + 15);
+            g.DrawLine(redPen, pointHeading.X, pointHeading.Y, pointHeading.X, pointHeading.Y + 15);
+            g.DrawLine(redPen, pointHeading.X, pointHeading.Y, pointHeading.X + 18 * 10, pointHeading.Y);
+            g.DrawLine(redPen, pointHeading.X + 18 * 10, pointHeading.Y, pointHeading.X + 18 * 10, pointHeading.Y + 15);
 
             //Offset
             int offset = heading % 10;
@@ -88,34 +113,34 @@ namespace UisSubsea.RovTopside.Logic
                 if (offset < 5)
                 {
                     if (i % 2 == 0)
-                        g.DrawLine(redPen, p.X + 10 * i + (5 - offset) * 2, p.Y,
-                            p.X + 10 * i + (5 - offset) * 2, p.Y + 10);
+                        g.DrawLine(redPen, pointHeading.X + 10 * i + (5 - offset) * 2, pointHeading.Y,
+                            pointHeading.X + 10 * i + (5 - offset) * 2, pointHeading.Y + 10);
                     else
-                        g.DrawLine(redPen, p.X + 10 * i + (5 - offset) * 2,
-                            p.Y, p.X + 10 * i + (5 - offset) * 2, p.Y + 5);
+                        g.DrawLine(redPen, pointHeading.X + 10 * i + (5 - offset) * 2,
+                            pointHeading.Y, pointHeading.X + 10 * i + (5 - offset) * 2, pointHeading.Y + 5);
                 }
                 else
                 {
                     if (i % 2 == 0)
-                        g.DrawLine(redPen, p.X + 10 * i + (10 - offset) * 2,
-                            p.Y, p.X + 10 * i + (10 - offset) * 2, p.Y + 5);
+                        g.DrawLine(redPen, pointHeading.X + 10 * i + (10 - offset) * 2,
+                            pointHeading.Y, pointHeading.X + 10 * i + (10 - offset) * 2, pointHeading.Y + 5);
                     else
-                        g.DrawLine(redPen, p.X + 10 * i + (10 - offset) * 2,
-                            p.Y, p.X + 10 * i + (10 - offset) * 2, p.Y + 10);
+                        g.DrawLine(redPen, pointHeading.X + 10 * i + (10 - offset) * 2,
+                            pointHeading.Y, pointHeading.X + 10 * i + (10 - offset) * 2, pointHeading.Y + 10);
                 }
             }
 
             GraphicsPath numberBox = new GraphicsPath(
             new Point[]
             { 
-                new Point(p.X + 65, p.Y - 30),
-                new Point(p.X + 115, p.Y - 30),
-                new Point(p.X + 115, p.Y - 10),
-                new Point(p.X + 95, p.Y - 10), 
-                new Point(p.X + 90, p.Y),
-                new Point(p.X + 85, p.Y - 10),
-                new Point(p.X + 65, p.Y - 10), 
-                new Point(p.X + 65, p.Y - 30)
+                new Point(pointHeading.X + 65, pointHeading.Y - 30),
+                new Point(pointHeading.X + 115, pointHeading.Y - 30),
+                new Point(pointHeading.X + 115, pointHeading.Y - 10),
+                new Point(pointHeading.X + 95, pointHeading.Y - 10), 
+                new Point(pointHeading.X + 90, pointHeading.Y),
+                new Point(pointHeading.X + 85, pointHeading.Y - 10),
+                new Point(pointHeading.X + 65, pointHeading.Y - 10), 
+                new Point(pointHeading.X + 65, pointHeading.Y - 30)
             },
             new byte[] {
                 (byte)PathPointType.Start,
@@ -130,8 +155,8 @@ namespace UisSubsea.RovTopside.Logic
 
             //Number box
             g.DrawPath(redPen, numberBox);
-            float x = heading < 100 ? (heading < 10 ? p.X + 82 : p.X + 75) : p.X + 70;
-            g.DrawString(heading.ToString(), font, brush, new PointF(x, p.Y - 30));
+            float x = heading < 100 ? (heading < 10 ? pointHeading.X + 82 : pointHeading.X + 75) : pointHeading.X + 70;
+            g.DrawString(heading.ToString(), font, brush, new PointF(x, pointHeading.Y - 30));
 
             //Compass course
             int nearestTen = ((int)Math.Round(heading / 10.0)) * 10;
@@ -151,7 +176,7 @@ namespace UisSubsea.RovTopside.Logic
                         stringWidth = -3;
                     else
                         stringWidth = 2;
-                    g.DrawString(course[hdg], font, brush, p.X + xOffset*2 + stringWidth, p.Y + 20);
+                    g.DrawString(course[hdg], font, brush, pointHeading.X + xOffset*2 + stringWidth, pointHeading.Y + 20);
                     i += 30;
                 }
                 else
@@ -161,12 +186,12 @@ namespace UisSubsea.RovTopside.Logic
             }
         }
 
-        public void drawAltitudeIndicator(Graphics g, Point p, int altitude)
+        public void SetAltitude(Graphics g, int altitude)
         {
             //Border
-            g.DrawLine(redPen, p.X, p.Y, p.X + 15, p.Y);
-            g.DrawLine(redPen, p.X, p.Y, p.X, p.Y + 18 * 10);
-            g.DrawLine(redPen, p.X, p.Y + 18 * 10, p.X + 15, p.Y + 18 * 10);
+            g.DrawLine(redPen, pointAltitude.X, pointAltitude.Y, pointAltitude.X + 15, pointAltitude.Y);
+            g.DrawLine(redPen, pointAltitude.X, pointAltitude.Y, pointAltitude.X, pointAltitude.Y + 18 * 10);
+            g.DrawLine(redPen, pointAltitude.X, pointAltitude.Y + 18 * 10, pointAltitude.X + 15, pointAltitude.Y + 18 * 10);
 
             //Offset
             int offset = altitude % 10;
@@ -177,34 +202,34 @@ namespace UisSubsea.RovTopside.Logic
                 if (offset < 5)
                 {
                     if (i % 2 == 0)
-                        g.DrawLine(redPen, p.X, p.Y + 10 * (i+1) - (5 - offset) * 2,
-                            p.X + 5, p.Y + 10 * (i+1) - (5 - offset) * 2);
+                        g.DrawLine(redPen, pointAltitude.X, pointAltitude.Y + 10 * (i+1) - (5 - offset) * 2,
+                            pointAltitude.X + 5, pointAltitude.Y + 10 * (i+1) - (5 - offset) * 2);
                     else
-                        g.DrawLine(redPen, p.X, p.Y + 10 * (i+1) - (5 - offset) * 2,
-                            p.X + 10, p.Y + 10 * (i+1) - (5 - offset) * 2);
+                        g.DrawLine(redPen, pointAltitude.X, pointAltitude.Y + 10 * (i+1) - (5 - offset) * 2,
+                            pointAltitude.X + 10, pointAltitude.Y + 10 * (i+1) - (5 - offset) * 2);
                 }
                 else
                 {
                     if (i % 2 == 0)
-                        g.DrawLine(redPen, p.X, p.Y + 10 * (i+1) - (10 - offset) * 2, 
-                            p.X + 10, p.Y + 10 * (i+1) - (10 - offset) * 2);
+                        g.DrawLine(redPen, pointAltitude.X, pointAltitude.Y + 10 * (i+1) - (10 - offset) * 2, 
+                            pointAltitude.X + 10, pointAltitude.Y + 10 * (i+1) - (10 - offset) * 2);
                     else
-                        g.DrawLine(redPen, p.X, p.Y + 10 * (i+1) - (10 - offset) * 2, 
-                            p.X + 5, p.Y + 10 * (i+1) - (10 - offset) * 2);
+                        g.DrawLine(redPen, pointAltitude.X, pointAltitude.Y + 10 * (i+1) - (10 - offset) * 2, 
+                            pointAltitude.X + 5, pointAltitude.Y + 10 * (i+1) - (10 - offset) * 2);
                 }
             }
 
             GraphicsPath numberBox = new GraphicsPath(
             new Point[]
             { 
-                new Point(p.X - 55, p.Y + 77),
-                new Point(p.X - 5, p.Y + 77),
-                new Point(p.X - 5, p.Y + 85),
-                new Point(p.X, p.Y + 90), 
-                new Point(p.X - 5, p.Y + 95),
-                new Point(p.X - 5, p.Y + 103),
-                new Point(p.X - 55, p.Y + 103), 
-                new Point(p.X - 55, p.Y + 77)
+                new Point(pointAltitude.X - 55, pointAltitude.Y + 77),
+                new Point(pointAltitude.X - 5, pointAltitude.Y + 77),
+                new Point(pointAltitude.X - 5, pointAltitude.Y + 85),
+                new Point(pointAltitude.X, pointAltitude.Y + 90), 
+                new Point(pointAltitude.X - 5, pointAltitude.Y + 95),
+                new Point(pointAltitude.X - 5, pointAltitude.Y + 103),
+                new Point(pointAltitude.X - 55, pointAltitude.Y + 103), 
+                new Point(pointAltitude.X - 55, pointAltitude.Y + 77)
             },
             new byte[] {
                 (byte)PathPointType.Start,
@@ -220,7 +245,7 @@ namespace UisSubsea.RovTopside.Logic
             //Number box
             g.DrawPath(redPen, numberBox);
             float xOffset = altitude < 100 ? (altitude < 10 ? 7.0F : 5.0F) : 0.0F;
-            g.DrawString(altitude.ToString(), font, brush, new PointF(p.X - 50 + xOffset, p.Y + 79));
+            g.DrawString(altitude.ToString(), font, brush, new PointF(pointAltitude.X - 50 + xOffset, pointAltitude.Y + 79));
 
             //Altitude
             int nearestTen = ((int)Math.Round(altitude / 10.0)) * 10;
@@ -229,8 +254,38 @@ namespace UisSubsea.RovTopside.Logic
             {
                 int y = ((i - nearestTen) + 40)*2 - (nearestTen - altitude)*2;
                 if(nearestTen + (nearestTen - i) >= 0)
-                    g.DrawString((nearestTen + (nearestTen - i)).ToString(), fontAltitude, brush, p.X + 40, p.Y + y);
+                    g.DrawString((nearestTen + (nearestTen - i)).ToString(), fontAltitude, brush, pointAltitude.X + 40, pointAltitude.Y + y);
             }
+        }
+
+        public void SetFrontCameraAngle(Graphics g, int angle)
+        {
+            g.DrawString("CAM1: " + angle + (char)176, font, brush, pointFrontCameraAngle);
+        }
+
+        public void SetRearCameraAngle(Graphics g, int angle)
+        {
+            g.DrawString("CAM2: " + angle + (char)176, font, brush, pointRearCameraAngle);
+        }
+
+        public void SetFocus(Graphics g, int focus)
+        {
+            if (focus != -1)
+                g.DrawString("MF: " + focus.ToString(), font, brush, pointFocus);
+            else
+                g.DrawString("AF", font, brush, pointFocus);
+        }
+
+        public void SetGain(Graphics g, bool half)
+        {
+            g.DrawString("GAIN: " + (half == true ? "HALF" : "FULL"), font, brush, pointHalveGain);
+        }
+
+        public void SetElapsedTime(Graphics g, Stopwatch stopwatch)
+        {
+            TimeSpan span = stopwatch.Elapsed;
+            string stopwatchstring = string.Format("{0}:{1}", Math.Floor(span.TotalMinutes), span.ToString("ss"));
+            g.DrawString(stopwatchstring, font, brush, pointStopwatch);
         }
     }
 }
