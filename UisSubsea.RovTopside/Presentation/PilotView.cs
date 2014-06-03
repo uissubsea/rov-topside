@@ -159,7 +159,14 @@ namespace UisSubsea.RovTopside.Presentation
             {
                 this.Close();
                 return true;
-            }                       
+            }
+            else if(keyData == Keys.S)
+            {
+                Bitmap bitmap = new Bitmap(1280, 720);
+                Rectangle bounds = new Rectangle(0, 0, 1280, 720);
+                pictureBoxVideo.DrawToBitmap(bitmap, bounds);
+                bitmap.Save(Environment.CurrentDirectory + "test.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            }
             return base.ProcessCmdKey(ref msg, keyData);
         }
     }
