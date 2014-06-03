@@ -85,14 +85,12 @@ namespace UisSubsea.RovTopside.Presentation
          * byte to actuale depth in cm.
          * */
         public void SetDepth(int depth)
-        {
-            this.Invoke(new MethodInvoker(delegate() { altimeterInstrumentControl.SetAlimeterParameters((int)depth); }));
-            //altimeterInstrumentControl1.SetAlimeterParameters((int)depth *3);
+        {          
         }
 
         public void SetDistanceToBottom(int distance)
         {
-            this.Invoke(new MethodInvoker(delegate() { distanceToBottomLabel.Text=distance.ToString(); }));
+            this.Invoke(new MethodInvoker(delegate() { altimeterInstrumentControl.SetAlimeterParameters((int)distance); }));
         }
 
         /* Set the distiance ahead the ROV. Because we get 1 byte(0-250) for the value of the distance. 
@@ -100,8 +98,7 @@ namespace UisSubsea.RovTopside.Presentation
          * byte to actuale depth in cm.
          * */
         public void SetLaserDistanceMeasured(int distance)
-        {
-            this.Invoke(new MethodInvoker(delegate() { laserDistanceLabel.Text = distance.ToString(); }));         
+        {         
         }
         
         //Set the state of the sensordata we get from the ROV.

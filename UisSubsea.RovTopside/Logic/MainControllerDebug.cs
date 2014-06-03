@@ -15,7 +15,6 @@ namespace UisSubsea.RovTopside.Logic
         public Form pilotView;
         private Form coPilotView;
         private IJoystick pilotJoystick;
-        private IJoystick coPilotLeftJoystick;
         private IJoystick coPilotRightJoystick;
 
         public MainControllerDebug()
@@ -52,7 +51,6 @@ namespace UisSubsea.RovTopside.Logic
         private void initializeJoysticks()
         {
             initializePilotJoystick();
-            initializeCoPilotLeftJoystick();
             initializeCoPilotRightJoystick();
         }
 
@@ -61,10 +59,6 @@ namespace UisSubsea.RovTopside.Logic
             pilotJoystick = new JoystickMock();
         }
 
-        private void initializeCoPilotLeftJoystick()
-        {
-            coPilotLeftJoystick = new JoystickMock();
-        }
 
         private void initializePilotJoystick()
         {

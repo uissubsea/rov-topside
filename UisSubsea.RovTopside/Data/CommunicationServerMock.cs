@@ -17,7 +17,7 @@ namespace UisSubsea.RovTopside.Data
         public CommunicationServerMock(JoystickStateStore stateStore)
         {
             this.stateStore = stateStore;
-            inputBuffer = new List<byte>(7);
+            inputBuffer = new List<byte>(5);
             random = new Random();
         }
 
@@ -25,7 +25,7 @@ namespace UisSubsea.RovTopside.Data
         {
             while(true)
             {
-                for (int i = 0; i < 7; i++)
+                for (int i = 0; i < 5; i++)
                 {
                     inputBuffer.Add((byte)(random.Next(0, 251)));
                 }

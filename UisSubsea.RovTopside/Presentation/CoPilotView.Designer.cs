@@ -33,10 +33,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.headingLabelText = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.distanceToBottomLabel = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.laserDistanceLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.SensorAlarmLabel = new System.Windows.Forms.Label();
             this.videoPictureBox = new System.Windows.Forms.PictureBox();
@@ -158,52 +154,16 @@
             this.headingLabelText.AutoSize = true;
             this.headingLabelText.Cursor = System.Windows.Forms.Cursors.Default;
             this.headingLabelText.ForeColor = System.Drawing.Color.Yellow;
-            this.headingLabelText.Location = new System.Drawing.Point(1106, 341);
+            this.headingLabelText.Location = new System.Drawing.Point(1191, 506);
             this.headingLabelText.Name = "headingLabelText";
             this.headingLabelText.Size = new System.Drawing.Size(13, 13);
             this.headingLabelText.TabIndex = 17;
             this.headingLabelText.Text = "0";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1071, 665);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "HGT: ";
-            // 
-            // distanceToBottomLabel
-            // 
-            this.distanceToBottomLabel.AutoSize = true;
-            this.distanceToBottomLabel.Location = new System.Drawing.Point(1106, 665);
-            this.distanceToBottomLabel.Name = "distanceToBottomLabel";
-            this.distanceToBottomLabel.Size = new System.Drawing.Size(13, 13);
-            this.distanceToBottomLabel.TabIndex = 22;
-            this.distanceToBottomLabel.Text = "0";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1071, 503);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(33, 13);
-            this.label5.TabIndex = 23;
-            this.label5.Text = "DTO:";
-            // 
-            // laserDistanceLabel
-            // 
-            this.laserDistanceLabel.AutoSize = true;
-            this.laserDistanceLabel.Location = new System.Drawing.Point(1106, 503);
-            this.laserDistanceLabel.Name = "laserDistanceLabel";
-            this.laserDistanceLabel.Size = new System.Drawing.Size(13, 13);
-            this.laserDistanceLabel.TabIndex = 24;
-            this.laserDistanceLabel.Text = "0";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1071, 341);
+            this.label4.Location = new System.Drawing.Point(1158, 506);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 13);
             this.label4.TabIndex = 26;
@@ -215,7 +175,7 @@
             this.SensorAlarmLabel.BackColor = System.Drawing.Color.Green;
             this.SensorAlarmLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SensorAlarmLabel.ForeColor = System.Drawing.Color.Black;
-            this.SensorAlarmLabel.Location = new System.Drawing.Point(1158, 685);
+            this.SensorAlarmLabel.Location = new System.Drawing.Point(1145, 685);
             this.SensorAlarmLabel.Name = "SensorAlarmLabel";
             this.SensorAlarmLabel.Padding = new System.Windows.Forms.Padding(5);
             this.SensorAlarmLabel.Size = new System.Drawing.Size(110, 26);
@@ -226,7 +186,7 @@
             // 
             this.videoPictureBox.Location = new System.Drawing.Point(0, 0);
             this.videoPictureBox.Name = "videoPictureBox";
-            this.videoPictureBox.Size = new System.Drawing.Size(1069, 720);
+            this.videoPictureBox.Size = new System.Drawing.Size(1104, 720);
             this.videoPictureBox.TabIndex = 0;
             this.videoPictureBox.TabStop = false;
             // 
@@ -241,7 +201,7 @@
             // 
             // altimeterInstrumentControl
             // 
-            this.altimeterInstrumentControl.Location = new System.Drawing.Point(1130, 509);
+            this.altimeterInstrumentControl.Location = new System.Drawing.Point(1130, 538);
             this.altimeterInstrumentControl.Name = "altimeterInstrumentControl";
             this.altimeterInstrumentControl.Size = new System.Drawing.Size(138, 144);
             this.altimeterInstrumentControl.TabIndex = 18;
@@ -255,10 +215,6 @@
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.SensorAlarmLabel);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.laserDistanceLabel);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.distanceToBottomLabel);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.headingIndicatorInstrumentControl);
             this.Controls.Add(this.altimeterInstrumentControl);
             this.Controls.Add(this.headingLabelText);
@@ -288,10 +244,6 @@
         private System.Windows.Forms.Label headingLabelText;
         private Controls.HeadingIndicatorInstrumentControl headingIndicatorInstrumentControl;
         private Controls.AltimeterInstrumentControl altimeterInstrumentControl;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label distanceToBottomLabel;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label laserDistanceLabel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label SensorAlarmLabel;
 

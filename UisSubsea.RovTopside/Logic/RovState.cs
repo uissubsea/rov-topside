@@ -17,18 +17,14 @@ namespace UisSubsea.RovTopside.Data
         public bool Error { get; private set; }
         public int RearCameraTilt { get; private set; }
         public int FrontCameraTilt { get; private set; }
-        public int Depth { get; private set; }
         public int DistanceToBottom { get; private set; }
-        public int Distance { get; private set; }
 
-        public RovState(int heading, int frontCameraTilt, int rearCameraTilt, bool error, int distance, int depth, int distanceToBottom)
+        public RovState(int heading, int frontCameraTilt, int rearCameraTilt, bool error, int distanceToBottom)
         {
             this.Heading = heading;
             this.FrontCameraTilt = frontCameraTilt;
             this.RearCameraTilt = rearCameraTilt;
             this.Error = error; 
-            this.Distance = distance;
-            this.Depth = depth;
             this.DistanceToBottom = distanceToBottom;   
         }
     }

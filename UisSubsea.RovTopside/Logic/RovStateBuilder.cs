@@ -16,11 +16,9 @@ namespace UisSubsea.RovTopside.Data
         // We need to multiply the heading by 2 because
         // the number received goes from 0 - 180.
         private const int headingResolution = 2;
-        private const int distanceToObjectResolution = 2;
         private const int altitudeAboveGroundLevelResolution = 3;
-        private const int depthBelowSeaLevelResolution = 3;
 
-        private const int numberOfBytes = 7;
+        private const int numberOfBytes = 5;
 
         public static RovState BuildRovState(byte[] data)
         {
@@ -30,14 +28,12 @@ namespace UisSubsea.RovTopside.Data
                 int hdg = heading(data[1]);
                 int frontCamTilt = frontCameraTilt(data[2]);
                 int rearCamTilt = rearCameraTilt(data[3]);   
-                int distance = distanceToObject(data[4]);
-                int depth = depthBelowSeaLevel(data[5]);
-                int distanceBottom = AltitudeAboveGroundLevel(data[6]);
+                int distanceBottom = AltitudeAboveGroundLevel(data[4]);
 
-                return new RovState(hdg, frontCamTilt, rearCamTilt, err, distance, depth, distanceBottom);
+                return new RovState(hdg, frontCamTilt, rearCamTilt, err, distanceBottom);
             }
             else
-                return new RovState(0, 0, 0, false, 0, 0, 0);
+                return new RovState(0, 0, 0, false, 0);
         }
 
         private static bool error(byte statusByte)
@@ -69,20 +65,10 @@ namespace UisSubsea.RovTopside.Data
         {
             return package.Count() == numberOfBytes;
         }
-        
-        private static int depthBelowSeaLevel(byte centrimetresBelowSeaLevel)
-        {
-            return (int)centrimetresBelowSeaLevel*depthBelowSeaLevelResolution; 
-        }
 
         private static int AltitudeAboveGroundLevel(byte centimetresToBottom)
         {
             return (int)centimetresToBottom*altitudeAboveGroundLevelResolution;
-        }
-
-        private static int distanceToObject(byte centrimetresToObject)
-        {
-            return (int)centrimetresToObject*distanceToObjectResolution;
         }
     }
 }

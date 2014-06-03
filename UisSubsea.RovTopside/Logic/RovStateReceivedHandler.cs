@@ -49,9 +49,9 @@ namespace UisSubsea.RovTopside.Logic
         private void presentRovStateOnPilotView(RovState state)
         {
             pilotViewHandler.SetHeading(state.Heading);
-            pilotViewHandler.SetFrontCameraAngle(state.FrontCameraTilt);
+            pilotViewHandler.SetFrontCameraAngle(state.FrontCameraTilt);          
+            pilotViewHandler.SetRearCameraAngle(state.RearCameraTilt);  
             pilotViewHandler.SetAltitude(state.DistanceToBottom);
-            pilotViewHandler.SetRearCameraAngle(state.RearCameraTilt);
         }
 
         private void presentRovStateOnCoPilotView(RovState state)
@@ -59,9 +59,7 @@ namespace UisSubsea.RovTopside.Logic
             copilotViewhandler.SetHeading(state.Heading);
             copilotViewhandler.SetFrontCameraAngle(state.FrontCameraTilt);
             copilotViewhandler.SetRearCameraAngle(state.RearCameraTilt);
-            copilotViewhandler.SetDepth(state.Depth);
             copilotViewhandler.SetDistanceToBottom(state.DistanceToBottom);
-            copilotViewhandler.SetLaserDistanceMeasured(state.Distance);
             copilotViewhandler.SomethingIsWrong(state.Error);
         }
     }
