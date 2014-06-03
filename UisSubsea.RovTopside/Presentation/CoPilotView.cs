@@ -23,6 +23,7 @@ namespace UisSubsea.RovTopside.Presentation
         private ICamera camera;
         private bool fullScreen;
         private bool leak;
+        private bool laserActive;
 
         public CoPilotView(ICamera camera)
         {       
@@ -59,8 +60,23 @@ namespace UisSubsea.RovTopside.Presentation
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
             
-        }   
-        
+        }
+
+        public void LaserStatus()
+        {
+            if (!laserActive)
+            {
+                LaserLabel.BackColor = System.Drawing.Color.Red;
+                LaserLabel.Text = "Laser On";
+                laserActive = true;
+            }
+            else
+            {
+                LaserLabel.BackColor = System.Drawing.Color.Green;
+                LaserLabel.Text = "Laser off";
+                laserActive = false;
+            }
+        }
         public void SetHeading(int heading)
         {
             this.Invoke(new MethodInvoker(delegate {
@@ -124,6 +140,8 @@ namespace UisSubsea.RovTopside.Presentation
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
+    
+        
     }
 }
 

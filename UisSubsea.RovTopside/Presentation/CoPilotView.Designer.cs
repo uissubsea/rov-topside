@@ -38,6 +38,7 @@
             this.videoPictureBox = new System.Windows.Forms.PictureBox();
             this.headingIndicatorInstrumentControl = new UisSubsea.RovTopside.Presentation.Controls.HeadingIndicatorInstrumentControl();
             this.altimeterInstrumentControl = new UisSubsea.RovTopside.Presentation.Controls.AltimeterInstrumentControl();
+            this.LaserLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.videoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -173,12 +174,12 @@
             // 
             this.SensorAlarmLabel.AutoSize = true;
             this.SensorAlarmLabel.BackColor = System.Drawing.Color.Green;
-            this.SensorAlarmLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SensorAlarmLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SensorAlarmLabel.ForeColor = System.Drawing.Color.Black;
-            this.SensorAlarmLabel.Location = new System.Drawing.Point(1145, 685);
+            this.SensorAlarmLabel.Location = new System.Drawing.Point(1191, 685);
             this.SensorAlarmLabel.Name = "SensorAlarmLabel";
-            this.SensorAlarmLabel.Padding = new System.Windows.Forms.Padding(5);
-            this.SensorAlarmLabel.Size = new System.Drawing.Size(110, 26);
+            this.SensorAlarmLabel.Padding = new System.Windows.Forms.Padding(1);
+            this.SensorAlarmLabel.Size = new System.Drawing.Size(70, 15);
             this.SensorAlarmLabel.TabIndex = 28;
             this.SensorAlarmLabel.Text = "Sensor alarm";
             // 
@@ -207,12 +208,26 @@
             this.altimeterInstrumentControl.TabIndex = 18;
             this.altimeterInstrumentControl.Text = "altimeterInstrumentControl1";
             // 
+            // LaserLabel
+            // 
+            this.LaserLabel.AutoSize = true;
+            this.LaserLabel.BackColor = System.Drawing.Color.Green;
+            this.LaserLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LaserLabel.ForeColor = System.Drawing.Color.Black;
+            this.LaserLabel.Location = new System.Drawing.Point(1127, 685);
+            this.LaserLabel.Name = "LaserLabel";
+            this.LaserLabel.Padding = new System.Windows.Forms.Padding(1);
+            this.LaserLabel.Size = new System.Drawing.Size(50, 15);
+            this.LaserLabel.TabIndex = 29;
+            this.LaserLabel.Text = "Laser off";
+            // 
             // CoPilotView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowText;
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Controls.Add(this.LaserLabel);
             this.Controls.Add(this.SensorAlarmLabel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.headingIndicatorInstrumentControl);
@@ -246,6 +261,7 @@
         private Controls.AltimeterInstrumentControl altimeterInstrumentControl;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label SensorAlarmLabel;
+        private System.Windows.Forms.Label LaserLabel;
 
     }
 }

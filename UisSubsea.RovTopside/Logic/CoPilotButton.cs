@@ -19,5 +19,6 @@ namespace UisSubsea.RovTopside.Logic
         public const int IncreaseCameraFocus = 7;
         public const int DecreaseCameraFocus = 6;
         public const int CameraAutofocus = 0;
+        public const int laser = 2; 
     }
 }

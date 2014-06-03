@@ -21,28 +21,21 @@ namespace UisSubsea.RovTopside.Tests
             int headingInDegrees = (int)(2 * (int)heading);
             int frontCameraInDegrees = (int)frontTilt - 75;
             int rearCameraInDegrees = (int)(rearTilt*-1)+30;
-            int depthInCm = (int)(3 * (int)depth);
             int distanceToBottomInCm = (int)(3 * (int)distanceToBottom);
-            int distanceInCm = (int)(2 * (int)distance);
 
-            byte[] packet = new byte[] {status, heading, frontTilt, rearTilt, distance, 
-                depth, distanceToBottom};
+            byte[] packet = new byte[] {status, heading, frontTilt, rearTilt, distanceToBottom};
             RovState state = RovStateBuilder.BuildRovState(packet);
 
             System.Diagnostics.Debug.WriteLine(status + "\t" + state.Error);
             System.Diagnostics.Debug.WriteLine(headingInDegrees + "\t" + state.Heading);
             System.Diagnostics.Debug.WriteLine(frontCameraInDegrees + "\t" + state.FrontCameraTilt);
             System.Diagnostics.Debug.WriteLine(rearCameraInDegrees + "\t" + state.RearCameraTilt);
-            System.Diagnostics.Debug.WriteLine(distanceInCm + "\t" + state.Distance);
-            System.Diagnostics.Debug.WriteLine(depthInCm + "\t" + state.Depth);
             System.Diagnostics.Debug.WriteLine(distanceToBottomInCm + "\t" + state.DistanceToBottom);
 
             Assert.IsTrue(state.Error);
             Assert.IsTrue(state.Heading == headingInDegrees);
             Assert.IsTrue(state.FrontCameraTilt == frontCameraInDegrees);
             Assert.IsTrue(state.RearCameraTilt == rearCameraInDegrees);
-            Assert.IsTrue(state.Distance == distanceInCm);
-            Assert.IsTrue(state.Depth == depthInCm);
             Assert.IsTrue(state.DistanceToBottom == distanceToBottomInCm);           
         }
     }

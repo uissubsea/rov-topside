@@ -42,5 +42,7 @@ namespace UisSubsea.RovTopside.Logic
         /// </summary>
         /// <param name="error">Tha value used to alert the user that something is wrong</param>
         void SomethingIsWrong(bool error);
+
+        void LaserStatus();
     }
 }

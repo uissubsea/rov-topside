@@ -56,6 +56,11 @@ namespace UisSubsea.RovTopside.Logic
                 cameraHandler.PilotCameraAutofocus();
             }
 
+            if(activateLaser())
+            {
+                coPilotView.LaserStatus();
+            }
+
         }
 
         private bool toggleRecording()
@@ -91,6 +96,11 @@ namespace UisSubsea.RovTopside.Logic
                 return true;
             }
             return false;
+        }
+        
+        private bool activateLaser()
+        {
+            return coPilotRightStickListener.Joystick.Buttons()[CoPilotButton.laser];
         }
     }
 }
