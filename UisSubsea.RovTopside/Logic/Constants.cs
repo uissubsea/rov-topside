@@ -91,6 +91,13 @@ namespace UisSubsea.RovTopside.Data
                                                        0,
                                                        StopByte
                                                    };
-
+        
+       /*
+        * These int's will be used to set fullscreen to spesific screens.
+        * */ 
+        public const int PilotScreen = 0;
+        public const int CoPilotScreen = 1;
     }
+    
+    
 }

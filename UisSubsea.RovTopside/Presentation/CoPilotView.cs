@@ -27,7 +27,7 @@ namespace UisSubsea.RovTopside.Presentation
         public CoPilotView(ICamera camera)
         {       
             InitializeComponent();
-           // setFullScreen();
+            setFullScreen(Constants.CoPilotScreen);
             this.camera = camera;
             this.camera.Canvas = videoPictureBox;
             this.camera.Start();
@@ -47,35 +47,20 @@ namespace UisSubsea.RovTopside.Presentation
         {         
             Application.Exit();
         }
-        /*
-        private void setFullScreen()
+       
+        private void setFullScreen(int screen)
         {
             Screen[] sc;
             sc = Screen.AllScreens;
 
             this.StartPosition = FormStartPosition.Manual;
-            this.Location = new Point(sc[1].Bounds.Left, sc[1].Bounds.Top);
+            this.Location = new Point(sc[screen].Bounds.Left, sc[screen].Bounds.Top);
             this.WindowState = FormWindowState.Normal;
             this.FormBorderStyle = FormBorderStyle.None;
-            this.WindowState = FormWindowState.Minimized;
-        }   */
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (!fullScreen)
-            {
-                fullScreen = true;
-                this.WindowState = FormWindowState.Normal;
-                this.FormBorderStyle = FormBorderStyle.None;
-                this.WindowState = FormWindowState.Maximized;
-            }
-            else
-            {
-                fullScreen = false;
-                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
-                this.WindowState = FormWindowState.Normal;
-            }
-        }
-
+            this.WindowState = FormWindowState.Maximized;
+            
+        }   
+        
         public void SetHeading(int heading)
         {
             this.Invoke(new MethodInvoker(delegate {
@@ -145,22 +130,6 @@ namespace UisSubsea.RovTopside.Presentation
             {
                 this.Close();
                 return true;
-            }
-            else if (keyData == Keys.F11)
-            {
-                if (!fullScreen)
-                {
-                    fullScreen = true;
-                    this.WindowState = FormWindowState.Normal;
-                    this.FormBorderStyle = FormBorderStyle.None;
-                    this.WindowState = FormWindowState.Maximized;
-                }
-                else
-                {
-                    fullScreen = false;
-                    this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
-                    this.WindowState = FormWindowState.Normal;
-                }
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }

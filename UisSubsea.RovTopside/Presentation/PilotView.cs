@@ -54,7 +54,7 @@ namespace UisSubsea.RovTopside.Presentation
         public PilotView(ICamera camera)
         {
             InitializeComponent();
-
+            setFullScreen(Constants.PilotScreen);
             hud = new HeadUpDisplay(Color.Red);
 
             font = new Font("Arial", 18);
@@ -191,29 +191,25 @@ namespace UisSubsea.RovTopside.Presentation
             this.focus = focus;
         }
 
+        public void setFullScreen(int screen)
+        {
+            Screen[] sc;
+            sc = Screen.AllScreens;
+
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(sc[screen].Bounds.Left, sc[screen].Bounds.Top);
+            this.WindowState = FormWindowState.Normal;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
+        }
+
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == Keys.Escape)
             {
                 this.Close();
                 return true;
-            }
-            else if (keyData == Keys.F11)
-            {
-                if (!fullScreen)
-                {
-                    fullScreen = true;
-                    this.WindowState = FormWindowState.Normal;
-                    this.FormBorderStyle = FormBorderStyle.None;
-                    this.WindowState = FormWindowState.Maximized;
-                }
-                else
-                {
-                    fullScreen = false;
-                    this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
-                    this.WindowState = FormWindowState.Normal;
-                }
-            }
+            }                       
             return base.ProcessCmdKey(ref msg, keyData);
         }
     }
