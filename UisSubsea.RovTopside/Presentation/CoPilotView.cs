@@ -84,9 +84,6 @@ namespace UisSubsea.RovTopside.Presentation
          * We need to multiple with 3 () to convert from 
          * byte to actuale depth in cm.
          * */
-        public void SetDepth(int depth)
-        {          
-        }
 
         public void SetDistanceToBottom(int distance)
         {
@@ -97,9 +94,6 @@ namespace UisSubsea.RovTopside.Presentation
          * We need to multiple with 2 () to convert from 
          * byte to actuale depth in cm.
          * */
-        public void SetLaserDistanceMeasured(int distance)
-        {         
-        }
         
         //Set the state of the sensordata we get from the ROV.
         public void SomethingIsWrong(bool sensorstate)
