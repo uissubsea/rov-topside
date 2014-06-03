@@ -22,12 +22,12 @@ namespace UisSubsea.RovTopside.Presentation
     {
         private ICamera camera;
         private bool fullScreen;
-        private System.Drawing.SolidBrush Brush;
         private bool leak;
 
         public CoPilotView(ICamera camera)
         {       
             InitializeComponent();
+           // setFullScreen();
             this.camera = camera;
             this.camera.Canvas = videoPictureBox;
             this.camera.Start();
@@ -47,7 +47,18 @@ namespace UisSubsea.RovTopside.Presentation
         {         
             Application.Exit();
         }
+        /*
+        private void setFullScreen()
+        {
+            Screen[] sc;
+            sc = Screen.AllScreens;
 
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(sc[1].Bounds.Left, sc[1].Bounds.Top);
+            this.WindowState = FormWindowState.Normal;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Minimized;
+        }   */
         private void button1_Click(object sender, EventArgs e)
         {
             if (!fullScreen)
