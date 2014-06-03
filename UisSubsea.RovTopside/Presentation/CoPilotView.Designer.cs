@@ -50,7 +50,7 @@
             this.frontCamGauge.BaseArcWidth = 1;
             this.frontCamGauge.Center = new System.Drawing.Point(100, 100);
             this.frontCamGauge.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frontCamGauge.Location = new System.Drawing.Point(1087, -11);
+            this.frontCamGauge.Location = new System.Drawing.Point(1087, -20);
             this.frontCamGauge.MaxValue = 135F;
             this.frontCamGauge.MinValue = -45F;
             this.frontCamGauge.Name = "frontCamGauge";
@@ -93,7 +93,7 @@
             this.rearCamGauge.BaseArcSweep = 180;
             this.rearCamGauge.BaseArcWidth = 1;
             this.rearCamGauge.Center = new System.Drawing.Point(100, 100);
-            this.rearCamGauge.Location = new System.Drawing.Point(1093, 151);
+            this.rearCamGauge.Location = new System.Drawing.Point(1093, 165);
             this.rearCamGauge.MaxValue = 30F;
             this.rearCamGauge.MinValue = -150F;
             this.rearCamGauge.Name = "rearCamGauge";
