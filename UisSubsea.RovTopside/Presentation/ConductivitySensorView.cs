@@ -66,8 +66,6 @@ namespace UisSubsea.RovTopside.Presentation
             else
             {
                 worker.Abort();
-                worker.Join();
-                port.Close();
                 btnConnect.Text = "Connect";
                 cmbPorts.Enabled = true;
                 lblPorts.Enabled = true;
@@ -93,11 +91,8 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void ConductivitySensorView_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (port != null)
-            {
-                if (port.IsOpen)
-                    port.Close();
-            }
+            if (worker.IsAlive)
+                worker.Abort();
         }
 
         private void readUntilCarriageReturn()
