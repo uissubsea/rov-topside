@@ -51,7 +51,7 @@
             this.frontCamGauge.BaseArcWidth = 1;
             this.frontCamGauge.Center = new System.Drawing.Point(100, 100);
             this.frontCamGauge.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frontCamGauge.Location = new System.Drawing.Point(1087, -20);
+            this.frontCamGauge.Location = new System.Drawing.Point(1097, -38);
             this.frontCamGauge.MaxValue = 135F;
             this.frontCamGauge.MinValue = -45F;
             this.frontCamGauge.Name = "frontCamGauge";
@@ -81,7 +81,7 @@
             this.frontCamGauge.ScaleNumbersRotation = 0;
             this.frontCamGauge.ScaleNumbersStartScaleLine = 0;
             this.frontCamGauge.ScaleNumbersStepScaleLines = 2;
-            this.frontCamGauge.Size = new System.Drawing.Size(191, 179);
+            this.frontCamGauge.Size = new System.Drawing.Size(184, 179);
             this.frontCamGauge.TabIndex = 3;
             this.frontCamGauge.Text = "FrontCam";
             this.frontCamGauge.Value = 0F;
@@ -94,7 +94,7 @@
             this.rearCamGauge.BaseArcSweep = 180;
             this.rearCamGauge.BaseArcWidth = 1;
             this.rearCamGauge.Center = new System.Drawing.Point(100, 100);
-            this.rearCamGauge.Location = new System.Drawing.Point(1093, 165);
+            this.rearCamGauge.Location = new System.Drawing.Point(1099, 138);
             this.rearCamGauge.MaxValue = 30F;
             this.rearCamGauge.MinValue = -150F;
             this.rearCamGauge.Name = "rearCamGauge";
@@ -155,7 +155,7 @@
             this.headingLabelText.AutoSize = true;
             this.headingLabelText.Cursor = System.Windows.Forms.Cursors.Default;
             this.headingLabelText.ForeColor = System.Drawing.Color.Yellow;
-            this.headingLabelText.Location = new System.Drawing.Point(1191, 506);
+            this.headingLabelText.Location = new System.Drawing.Point(1198, 479);
             this.headingLabelText.Name = "headingLabelText";
             this.headingLabelText.Size = new System.Drawing.Size(13, 13);
             this.headingLabelText.TabIndex = 17;
@@ -164,7 +164,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1158, 506);
+            this.label4.Location = new System.Drawing.Point(1164, 479);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 13);
             this.label4.TabIndex = 26;
@@ -176,7 +176,7 @@
             this.SensorAlarmLabel.BackColor = System.Drawing.Color.Green;
             this.SensorAlarmLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SensorAlarmLabel.ForeColor = System.Drawing.Color.Black;
-            this.SensorAlarmLabel.Location = new System.Drawing.Point(1191, 685);
+            this.SensorAlarmLabel.Location = new System.Drawing.Point(1198, 685);
             this.SensorAlarmLabel.Name = "SensorAlarmLabel";
             this.SensorAlarmLabel.Padding = new System.Windows.Forms.Padding(1);
             this.SensorAlarmLabel.Size = new System.Drawing.Size(70, 15);
@@ -187,14 +187,14 @@
             // 
             this.videoPictureBox.Location = new System.Drawing.Point(0, 0);
             this.videoPictureBox.Name = "videoPictureBox";
-            this.videoPictureBox.Size = new System.Drawing.Size(1104, 720);
+            this.videoPictureBox.Size = new System.Drawing.Size(1097, 720);
             this.videoPictureBox.TabIndex = 0;
             this.videoPictureBox.TabStop = false;
             // 
             // headingIndicatorInstrumentControl
             // 
             this.headingIndicatorInstrumentControl.ForeColor = System.Drawing.Color.Yellow;
-            this.headingIndicatorInstrumentControl.Location = new System.Drawing.Point(1123, 352);
+            this.headingIndicatorInstrumentControl.Location = new System.Drawing.Point(1126, 325);
             this.headingIndicatorInstrumentControl.Name = "headingIndicatorInstrumentControl";
             this.headingIndicatorInstrumentControl.Size = new System.Drawing.Size(155, 151);
             this.headingIndicatorInstrumentControl.TabIndex = 19;
@@ -202,7 +202,7 @@
             // 
             // altimeterInstrumentControl
             // 
-            this.altimeterInstrumentControl.Location = new System.Drawing.Point(1130, 538);
+            this.altimeterInstrumentControl.Location = new System.Drawing.Point(1136, 495);
             this.altimeterInstrumentControl.Name = "altimeterInstrumentControl";
             this.altimeterInstrumentControl.Size = new System.Drawing.Size(138, 144);
             this.altimeterInstrumentControl.TabIndex = 18;
@@ -214,7 +214,7 @@
             this.LaserLabel.BackColor = System.Drawing.Color.Green;
             this.LaserLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LaserLabel.ForeColor = System.Drawing.Color.Black;
-            this.LaserLabel.Location = new System.Drawing.Point(1127, 685);
+            this.LaserLabel.Location = new System.Drawing.Point(1133, 685);
             this.LaserLabel.Name = "LaserLabel";
             this.LaserLabel.Padding = new System.Windows.Forms.Padding(1);
             this.LaserLabel.Size = new System.Drawing.Size(50, 15);
