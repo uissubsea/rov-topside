@@ -125,10 +125,7 @@ namespace UisSubsea.RovTopside.Presentation
                 }
                 catch (ThreadAbortException)
                 {
-                    txtDataReceived.Invoke(new MethodInvoker(delegate
-                    {
-                        txtDataReceived.AppendText("Stopped listening on port " + port.PortName + "\r\n");
-                    }));
+                    //Not yet implemented
                 }
             }
         }
