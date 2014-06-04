@@ -52,6 +52,9 @@ namespace UisSubsea.RovTopside
                         case "ROV Control System Debug":
                             launchControlSystemDebug();
                             break;
+                        case "Conductivity Sensor":
+                            launchConductivitySensor();
+                            break;
                         default:
                             return;
                     }
@@ -152,6 +155,11 @@ namespace UisSubsea.RovTopside
         {
             Application.Run(new IndexOfEquipmentView());
         } 
+
+        private static void launchConductivitySensor()
+        {
+            Application.Run(new ConductivitySensorView());
+        }
 
         private static void Application_ApplicationExit(object sender, EventArgs e)
         {

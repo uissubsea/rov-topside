@@ -44,7 +44,8 @@
             "Camera Tester",
             "Camera and Joystick ID",
             "Stress Test",
-            "ROV Control System Debug"});
+            "ROV Control System Debug",
+            "Conductivity Sensor"});
             this.cmbProgram.Location = new System.Drawing.Point(12, 12);
             this.cmbProgram.Name = "cmbProgram";
             this.cmbProgram.Size = new System.Drawing.Size(178, 21);

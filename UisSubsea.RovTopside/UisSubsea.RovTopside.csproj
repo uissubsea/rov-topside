@@ -127,6 +127,12 @@
     <Compile Include="Presentation\CameraTesterView.Designer.cs">
       <DependentUpon>CameraTesterView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\ConductivitySensorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\ConductivitySensorView.Designer.cs">
+      <DependentUpon>ConductivitySensorView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\ICoPilotViewHandler.cs" />
     <Compile Include="Data\IJoystick.cs" />
     <Compile Include="Data\JoystickStateListener.cs" />
