@@ -66,6 +66,7 @@ namespace UisSubsea.RovTopside.Presentation
             else
             {
                 worker.Abort();
+                worker.Join();
                 port.Close();
                 btnConnect.Text = "Connect";
                 cmbPorts.Enabled = true;
@@ -125,7 +126,10 @@ namespace UisSubsea.RovTopside.Presentation
                 }
                 catch (ThreadAbortException)
                 {
-                    //Not yet implemented
+                    txtDataReceived.Invoke(new MethodInvoker(delegate
+                    {
+                        txtDataReceived.AppendText("Stopped listening on port " + port.PortName + "\r\n");
+                    }));
                 }
             }
         }
