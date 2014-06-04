@@ -22,11 +22,18 @@ namespace UisSubsea.RovTopside.Presentation
     {
         private ICamera camera;
         private bool leak;
-        private bool laserActive;
+        private bool laserActive = true;
+        private float y = 1160f;
+        private float x = 685f;
+        private float size = 20f;
+        private SolidBrush greenBrush;
+        private SolidBrush redBrush;
 
         public CoPilotView(ICamera camera)
-        {       
+        {
             InitializeComponent();
+            greenBrush = new SolidBrush(Color.Green);
+            redBrush = new SolidBrush(Color.Red);
             this.camera = camera;
             this.camera.Canvas = videoPictureBox;
             this.camera.Start();
@@ -35,11 +42,19 @@ namespace UisSubsea.RovTopside.Presentation
         protected override void OnPaint(PaintEventArgs e)
         {          
             base.OnPaint(e);
-            if (!leak)
-                SensorAlarmLabel.BackColor = System.Drawing.Color.Green;
-            
-            else
-                SensorAlarmLabel.BackColor = System.Drawing.Color.Red;                
+            Graphics g = e.Graphics;
+
+           if (!laserActive)
+            {   
+                g.FillEllipse(redBrush, y, x, size, size);
+                g.DrawEllipse(System.Drawing.Pens.DarkRed, y, x, size, size);
+            }
+                
+            else 
+           { 
+                g.FillEllipse(greenBrush, y, x, size, size);
+                g.DrawEllipse(System.Drawing.Pens.DarkGreen, y, x, size, size);
+            }                          
         }
 
         private void CoPilotView_FormClosing(object sender, FormClosedEventArgs e)
@@ -64,15 +79,23 @@ namespace UisSubsea.RovTopside.Presentation
         {
             if (!laserActive)
             {
-                LaserLabel.BackColor = System.Drawing.Color.Red;
-                LaserLabel.Text = "Laser On";
-                laserActive = true;
+                //LaserLabel.BackColor = System.Drawing.Color.Red;
+                this.Invoke(new MethodInvoker(delegate
+                {
+                   // LaserLabel.Text = "Laser On";
+                    laserActive = true;
+                }));
+                
             }
             else
             {
-                LaserLabel.BackColor = System.Drawing.Color.Green;
-                LaserLabel.Text = "Laser off";
-                laserActive = false;
+                //LaserLabel.BackColor = System.Drawing.Color.Green;
+                this.Invoke(new MethodInvoker(delegate
+                {
+                    //LaserLabel.Text = "Laser off";
+                    laserActive = false;
+                }));
+                
             }
         }
 
@@ -114,6 +137,12 @@ namespace UisSubsea.RovTopside.Presentation
         public void SomethingIsWrong(bool sensorstate)
         {
             leak = sensorstate;
+            
+            if (!leak)
+                SensorAlarmLabel.BackColor = System.Drawing.Color.Green;
+            else 
+                SensorAlarmLabel.BackColor = System.Drawing.Color.Red;
+            
         }
 
         //Get called from CamController
