@@ -22,6 +22,7 @@ namespace UisSubsea.RovTopside.Presentation
         private PointF pointRecordingLabel;
         private PointF pointSnapshotLabel;
         private int snapshotTimeCounter = 0;
+        private ScreenRecorder screenRecorder;
 
         public CameraTesterView(int cameraIndex)
         {
@@ -33,6 +34,7 @@ namespace UisSubsea.RovTopside.Presentation
             pointSnapshotLabel = new PointF(50.0f, 90.0f);
 
             camera = new Camera(cameraIndex, new Size(1280, 720));
+            screenRecorder = new ScreenRecorder(videoCanvas);
 
             camera.Instance.VideoSourceError += new AForge.Video.VideoSourceErrorEventHandler(CameraTesterView_VideoSourceError);
             videoCanvas.Paint += new PaintEventHandler(PaintOverlay);
@@ -90,7 +92,7 @@ namespace UisSubsea.RovTopside.Presentation
             if (keyData == Keys.V) 
             {
                 recording = !recording;
-                camera.ToggleRecording();
+                screenRecorder.ToggleRecording();
             }
             if (keyData == Keys.S)
             {

@@ -119,12 +119,21 @@ namespace UisSubsea.RovTopside.Presentation
             System.Threading.WaitHandle waitHandle = new System.Threading.AutoResetEvent(false);
             joystick.Acquire(waitHandle);
 
-            joystick2 = new Joystick(this.Handle, 0, 250, JoystickType.ManipulatorRight);
-            System.Threading.WaitHandle waitHandle2 = new System.Threading.AutoResetEvent(false);
-            joystick2.Acquire(waitHandle2);
+            if(Joystick.GetNumberOfJoysticks() > 1)
+            {
+                joystick2 = new Joystick(this.Handle, 0, 250, JoystickType.ManipulatorRight);
+                System.Threading.WaitHandle waitHandle2 = new System.Threading.AutoResetEvent(false);
+                joystick2.Acquire(waitHandle2);
+                manipPacketBuilder = new ManipulatorRightPacketBuilder(joystick2);
+
+                JoystickStateListener interruptListener2 = new JoystickStateListener(joystick2, manipPacketBuilder, stateStore);
+                listener2 = new Thread(interruptListener2.Listen);
+                listener2.IsBackground = true;
+                listener2.Start();
+            }         
 
             mainpacketbuilder = new MainPacketBuilder(joystick);
-            manipPacketBuilder = new ManipulatorRightPacketBuilder(joystick2);
+            
 
             stateStore = new JoystickStateStore();
 
@@ -133,12 +142,7 @@ namespace UisSubsea.RovTopside.Presentation
             listener = new Thread(interruptListener.Listen);
             listener.IsBackground = true;
             listener.Start();
-
-            JoystickStateListener interruptListener2 = new JoystickStateListener(joystick2, manipPacketBuilder, stateStore);
-            listener2 = new Thread(interruptListener2.Listen);
-            listener2.IsBackground = true;
-            listener2.Start();
-
+            
             CommunicationServer comServer = new CommunicationServer(stateStore);
             comServer.RovStateReceived += RovState_Received;
             comThread = new Thread(comServer.Serve);

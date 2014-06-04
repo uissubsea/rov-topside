@@ -104,6 +104,7 @@
     <Compile Include="Data\IJoystickStateListener.cs" />
     <Compile Include="Data\JoystickMock.cs" />
     <Compile Include="Data\JoystickStateListenerMock.cs" />
+    <Compile Include="Data\ScreenRecorder.cs" />
     <Compile Include="Logic\Constants.cs" />
     <Compile Include="Data\DataReceivedEventArgs.cs" />
     <Compile Include="Logic\CoPilotActionsController.cs" />

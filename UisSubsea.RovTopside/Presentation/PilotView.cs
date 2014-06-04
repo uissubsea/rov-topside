@@ -90,6 +90,8 @@ namespace UisSubsea.RovTopside.Presentation
         public void SetHeading(int heading)
         {
             this.heading = heading;
+
+            //Uncomment the following line for debug mode
             this.Invoke(new MethodInvoker(delegate { this.Refresh(); }));
         }
 

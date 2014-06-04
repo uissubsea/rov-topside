@@ -21,7 +21,6 @@ namespace UisSubsea.RovTopside.Logic
         public Form pilotView;
         private Form coPilotView;
         private IJoystick pilotJoystick;
-        private IJoystick coPilotLeftJoystick;
         private IJoystick coPilotRightJoystick;
         private PilotActionsController pilotActionsController;
         private CoPilotActionsController coPilotActionsController;
