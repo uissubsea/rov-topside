@@ -66,7 +66,6 @@ namespace UisSubsea.RovTopside.Presentation
             else
             {
                 worker.Abort();
-                worker.Join();
                 port.Close();
                 btnConnect.Text = "Connect";
                 cmbPorts.Enabled = true;

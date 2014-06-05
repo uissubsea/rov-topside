@@ -22,18 +22,20 @@ namespace UisSubsea.RovTopside.Presentation
     {
         private ICamera camera;
         private bool leak;
-        private bool laserActive = true;
+        private bool laserActive = false;
         private float y = 1160f;
         private float x = 685f;
         private float size = 20f;
         private SolidBrush greenBrush;
-        private SolidBrush redBrush;
+        private Pen darkGreen;
+
 
         public CoPilotView(ICamera camera)
         {
             InitializeComponent();
+            //SetFullScreen(Constants.CoPilotScreen);
             greenBrush = new SolidBrush(Color.Green);
-            redBrush = new SolidBrush(Color.Red);
+            darkGreen = new Pen(Color.DarkGreen,2);
             this.camera = camera;
             this.camera.Canvas = videoPictureBox;
             this.camera.Start();
@@ -46,15 +48,9 @@ namespace UisSubsea.RovTopside.Presentation
 
            if (!laserActive)
             {   
-                g.FillEllipse(redBrush, y, x, size, size);
-                g.DrawEllipse(System.Drawing.Pens.DarkRed, y, x, size, size);
-            }
-                
-            else 
-           { 
-                g.FillEllipse(greenBrush, y, x, size, size);
-                g.DrawEllipse(System.Drawing.Pens.DarkGreen, y, x, size, size);
-            }                          
+               g.FillEllipse(greenBrush, y, x, size, size);
+               g.DrawEllipse(darkGreen, y, x, size, size);
+            }                       
         }
 
         private void CoPilotView_FormClosing(object sender, FormClosedEventArgs e)
@@ -79,23 +75,11 @@ namespace UisSubsea.RovTopside.Presentation
         {
             if (!laserActive)
             {
-                //LaserLabel.BackColor = System.Drawing.Color.Red;
-                this.Invoke(new MethodInvoker(delegate
-                {
-                   // LaserLabel.Text = "Laser On";
-                    laserActive = true;
-                }));
-                
+                    laserActive = true;                
             }
             else
             {
-                //LaserLabel.BackColor = System.Drawing.Color.Green;
-                this.Invoke(new MethodInvoker(delegate
-                {
-                    //LaserLabel.Text = "Laser off";
-                    laserActive = false;
-                }));
-                
+                    laserActive = false;              
             }
         }
 
