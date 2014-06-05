@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
 using System.Threading;
+
 namespace UisSubsea.RovTopside.Presentation
 {
     public partial class ConductivitySensorView : Form
     {
         private SerialPort port;
         private Thread worker;
+        private List<byte> unparsedData;
 
         public ConductivitySensorView()
         {
@@ -50,8 +52,10 @@ namespace UisSubsea.RovTopside.Presentation
                     port.DataBits = 8;
                     port.StopBits = StopBits.One;
                     port.Parity = Parity.None;
+                    port.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+                    unparsedData = new List<byte>();
                     port.Open();
-                    RunInBackgroundThread(readUntilCarriageReturn);
+                    //RunInBackgroundThread(readUntilCarriageReturn);
 
                     btnConnect.Text = "Disconnect";
                     cmbPorts.Enabled = false;
@@ -65,7 +69,10 @@ namespace UisSubsea.RovTopside.Presentation
             }
             else
             {
-                worker.Abort();
+                //worker.Abort();
+                presentData("Stopped listening to port " + port.PortName);
+                port.DataReceived -= DataReceivedHandler;
+                port.Close();
                 btnConnect.Text = "Connect";
                 cmbPorts.Enabled = true;
                 lblPorts.Enabled = true;
@@ -75,6 +82,39 @@ namespace UisSubsea.RovTopside.Presentation
                 grpOperational.Enabled = false;
                 btnClear.Enabled = false;
             }
+        }
+
+        private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
+        {
+            SerialPort sp = (SerialPort)sender;
+            byte[] indata = new byte[sp.BytesToRead];
+            sp.Read(indata, 0, sp.BytesToRead);
+            processData(indata);
+        }
+
+        private void processData(byte[] data)
+        {
+            foreach (byte b in data)
+            {
+                if(b == 13)
+                {
+                    string dataString = System.Text.Encoding.ASCII.GetString(unparsedData.ToArray());
+                    presentData(dataString);
+                    unparsedData.Clear();
+                }
+                else
+                {
+                    unparsedData.Add(b);
+                }
+            }
+        }
+
+        private void presentData(string data)
+        {
+            txtDataReceived.Invoke(new MethodInvoker(delegate
+            {
+                txtDataReceived.AppendText(data + "\r\n\r\n");
+            }));
         }
 
         private void btnSend_Click(object sender, EventArgs e)
@@ -91,8 +131,11 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void ConductivitySensorView_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (worker.IsAlive)
-                worker.Abort();
+            if (port != null)
+                if (port.IsOpen)
+                    port.Close();
+            //if (worker.IsAlive)
+                //worker.Abort();
         }
 
         private void readUntilCarriageReturn()

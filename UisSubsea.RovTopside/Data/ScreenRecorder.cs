@@ -14,76 +14,77 @@ namespace UisSubsea.RovTopside.Data
     public class ScreenRecorder
     {
         private Control control;
-        private Thread worker;
-        private VideoFileWriter writer;
-        bool recording;
+        private Queue<Bitmap> frameBuffer;
+        private Thread videoRecorder;
+        private System.Threading.Timer timer;
+        private bool isRecording;
 
         public ScreenRecorder(Control control)
         {
             this.control = control;
             Size resolution = new Size(control.Width, control.Height);
-            this.writer = new VideoFileWriter();
-            string filepath = Environment.CurrentDirectory + "\\videos\\";
-
-            if (!Directory.Exists(filepath))
-                Directory.CreateDirectory(Path.GetDirectoryName(filepath));
-
-            string name = Guid.NewGuid().ToString() + ".avi";
-            string filename = Path.Combine(filepath, name);
-            
-            if (!writer.IsOpen)
-                writer.Open(filename, resolution.Width, resolution.Height, 24, VideoCodec.MPEG2, 10000000);
+            frameBuffer = new Queue<Bitmap>();
         }
 
         public void Record()
         {
-            RunInBackgroundThread(RecordControl);
+            
         }
 
         public void Stop()
         {
-            worker.Abort();
+            
         }
 
         public void ToggleRecording()
         {
-            if (!recording)
-                Record();
+            if (!isRecording)
+            {        
+                frameBuffer = new Queue<Bitmap>();
+                videoRecorder = new Thread(new VideoRecorder(frameBuffer,
+                    new Size(control.Width, control.Height)).Record);
+                videoRecorder.IsBackground = true;
+                videoRecorder.Start();
+                isRecording = true;
+                timer = new System.Threading.Timer(RecordControl, null, 10, Timeout.Infinite);
+            }
             else
-                Stop();
-
-            recording = !recording;
-        }
-
-        private void RecordControl()
-        {           
-            while(true)
             {
-                try
-                {
-                    Rectangle sourceRect = control.ClientRectangle;
-                    using (Bitmap tmp = new Bitmap(sourceRect.Width, sourceRect.Height))
-                    {
-                        control.Invoke(new MethodInvoker(delegate 
-                        { 
-                            control.DrawToBitmap(tmp, sourceRect); 
-                        }));
-                        writer.WriteVideoFrame(tmp);
-                    }
-                    Thread.Sleep(30);
-                }
-                catch (ThreadAbortException)
-                {
-                    writer.Close();
-                }
+                timer.Change(Timeout.Infinite, Timeout.Infinite);
+                isRecording = false;  
+                videoRecorder.Abort();
+
+                while (frameBuffer.Count > 0) { }
+                frameBuffer.Clear();
+                frameBuffer = null;
             }
         }
 
-        private void RunInBackgroundThread(ThreadStart methodToRun)
+        private void RecordControl(Object state)
+        {
+            if(isRecording)
+            {
+                System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
+                watch.Start();
+
+                Rectangle sourceRect = control.ClientRectangle;
+                Bitmap tmp = new Bitmap(sourceRect.Width, sourceRect.Height);
+                control.Invoke(new MethodInvoker(delegate
+                {
+                    control.DrawToBitmap(tmp, sourceRect);
+                }));
+                if(frameBuffer != null)
+                    frameBuffer.Enqueue(tmp);
+                GC.Collect();
+                timer.Change((long)Math.Max(0, 10 - watch.ElapsedMilliseconds), Timeout.Infinite);
+            }
+        }
+
+        /*private void RunInBackgroundThread(ThreadStart methodToRun)
         {
             worker = new Thread(methodToRun);
             worker.IsBackground = true;
             worker.Start();
-        }
+        }*/
     }
 }
