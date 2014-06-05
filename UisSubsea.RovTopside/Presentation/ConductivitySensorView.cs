@@ -92,11 +92,13 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void ConductivitySensorView_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (port != null)
+            if(port != null)
             {
                 if (port.IsOpen)
                     port.Close();
             }
+            if (worker.IsAlive)
+                worker.Abort();
         }
 
         private void readUntilCarriageReturn()
