@@ -18,7 +18,8 @@ namespace UisSubsea.CountPixels
         private Bitmap image;
         private int countClicks = 0;
         private int countPar = 0;
-        int Xdistance, Ydistance, svar1, svar2, avstandInt;
+        int Xdistance, Ydistance; 
+        float svar1, svar2;
 
         public CountPixelsView()
         {
@@ -67,11 +68,11 @@ namespace UisSubsea.CountPixels
 
         private void calculateFirstStep()
         {
-            int avstand;
-            if(Int32.TryParse(AvstandLasertxb.Text, out avstand))
+            float avstand;
+            if(float.TryParse(AvstandLasertxb.Text, out avstand))
             {                                      
                 svar1 = avstand / Xdistance;
-                answertxt.AppendText("avstand: " +avstand +"X: " + Xdistance + "svar: " + svar1 ); 
+                answertxt.AppendText("avstand per piksel: " + svar1 + "\r\n"); 
             }                    
         }
 
@@ -79,7 +80,7 @@ namespace UisSubsea.CountPixels
         {
 
             svar2 = svar1 * Xdistance;     
-            answertxt.AppendText("Avstand: " + svar2);
+            answertxt.AppendText("Total avstand: " + svar2 + "\r\n");
             countClicks = 0;                     
         }
 
