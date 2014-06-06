@@ -17,6 +17,8 @@ namespace UisSubsea.CountPixels
         private Graphics g;
         private Bitmap image;
         private int countClicks = 0;
+        private int countPar = 0;
+        int Xdistance, Ydistance, svar1, svar2, avstandInt;
 
         public CountPixelsView()
         {
@@ -39,18 +41,46 @@ namespace UisSubsea.CountPixels
                 clicked = true;
                 point1 = e.Location;
                 g.DrawEllipse(System.Drawing.Pens.Red, point1.X - 3, point1.Y - 3, 5, 5);
-
+                countPar++;
             }
             else if (clicked == true)
             {
                 clicked = false;
                 point2 = e.Location;
                 g.DrawEllipse(System.Drawing.Pens.Red, point2.X - 3, point2.Y - 3, 5, 5);
-                int distance = Math.Abs(point1.X - point2.X);
+                Xdistance = Math.Abs(point1.X - point2.X);
+                Ydistance = Math.Abs(point1.Y - point2.Y);
                 countClicks++;
-                textBox.AppendText("Attempt " + countClicks + ": " + "Number of pixels is: " + distance + "\r\n");
-
+                textBox.AppendText("Attempt " + countClicks + ": " + "Number of pixels is: "+ " X: " +  + Xdistance  + " Y:" + Ydistance + "\r\n");
+                countPar++;
             }
+            if(countPar == 2)
+            {
+                    calculateFirstStep();                    
+            }
+            else if (countPar == 4)
+            {
+                calculateSecondStep();
+                countPar = 0;
+            }
+        }
+
+        private void calculateFirstStep()
+        {
+            int avstand;
+            if(Int32.TryParse(AvstandLasertxb.Text, out avstand))
+            {                                      
+                svar1 = avstand / Xdistance;
+                answertxt.AppendText("avstand: " +avstand +"X: " + Xdistance + "svar: " + svar1 ); 
+            }                    
+        }
+
+        private void calculateSecondStep()
+        {
+
+            svar2 = svar1 * Xdistance;     
+            answertxt.AppendText("Avstand: " + svar2);
+            countClicks = 0;                     
         }
 
         private void loadimagebtn_Click(object sender, EventArgs e)
@@ -68,6 +98,8 @@ namespace UisSubsea.CountPixels
         private void refreshbtn_Click(object sender, EventArgs e)
         {
             textBox.Clear();
+            answertxt.Clear();
+
             pictureBox.Image = image;
             countClicks = 1;
         }
