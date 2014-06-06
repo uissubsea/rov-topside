@@ -298,6 +298,10 @@
       <Project>{dfc9f1e6-3112-4cde-a84c-ac54a57b7b60}</Project>
       <Name>UisSubsea.RovTopside.IndexOfEquipment</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UisSubsea.CountPixels\UisSubsea.CountPixels.csproj">
+      <Project>{08489fb4-2549-4fff-bc66-231cccdff039}</Project>
+      <Name>UisSubsea.CountPixels</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UisSubsea.RovTopside.StressTest\UisSubsea.RovTopside.StressTest.csproj">
       <Project>{096fb045-cef4-4f71-b284-732136f089b1}</Project>
       <Name>UisSubsea.RovTopside.StressTest</Name>
