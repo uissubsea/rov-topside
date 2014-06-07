@@ -48,7 +48,6 @@ namespace UisSubsea.RovTopside.Data
 
         public void Serve()
         {
-            Thread.Sleep(1000);
             while(true)
             {
                 try

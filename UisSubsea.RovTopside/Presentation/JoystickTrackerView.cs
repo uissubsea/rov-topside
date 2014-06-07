@@ -148,6 +148,9 @@ namespace UisSubsea.RovTopside.Presentation
             comThread = new Thread(comServer.Serve);
             comThread.IsBackground = true;
             comThread.Start();
+
+            SerialPortSingleton.Instance.Write(Constants.InitializationPacket,
+                0, Constants.InitializationPacket.Length);
         }
 
         private void RovState_Received(object sender, DataReceivedEventArgs e)
