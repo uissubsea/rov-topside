@@ -119,6 +119,8 @@ namespace UisSubsea.RovTopside.Presentation
             System.Threading.WaitHandle waitHandle = new System.Threading.AutoResetEvent(false);
             joystick.Acquire(waitHandle);
 
+            stateStore = new JoystickStateStore();
+
             if(Joystick.GetNumberOfJoysticks() > 1)
             {
                 joystick2 = new Joystick(this.Handle, 0, 250, JoystickType.ManipulatorRight);
@@ -133,9 +135,6 @@ namespace UisSubsea.RovTopside.Presentation
             }         
 
             mainpacketbuilder = new MainPacketBuilder(joystick);
-            
-
-            stateStore = new JoystickStateStore();
 
             JoystickStateListener interruptListener = new JoystickStateListener(joystick, mainpacketbuilder, stateStore);
             interruptListener.JoystickStateChanged += JoystickState_Changed;
