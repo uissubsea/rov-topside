@@ -127,12 +127,6 @@
     <Compile Include="Presentation\CameraTesterView.Designer.cs">
       <DependentUpon>CameraTesterView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\ConductivitySensorView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Presentation\ConductivitySensorView.Designer.cs">
-      <DependentUpon>ConductivitySensorView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Presentation\ICoPilotViewHandler.cs" />
     <Compile Include="Data\IJoystick.cs" />
     <Compile Include="Data\JoystickStateListener.cs" />
@@ -297,6 +291,10 @@
     <ProjectReference Include="..\IndexOfEquipment\UisSubsea.RovTopside.IndexOfEquipment.csproj">
       <Project>{dfc9f1e6-3112-4cde-a84c-ac54a57b7b60}</Project>
       <Name>UisSubsea.RovTopside.IndexOfEquipment</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UisSubsea.ConductivitySensor\UisSubsea.ConductivitySensor.csproj">
+      <Project>{8d8f7b8b-9211-4185-99c3-06db4d284820}</Project>
+      <Name>UisSubsea.ConductivitySensor</Name>
     </ProjectReference>
     <ProjectReference Include="..\UisSubsea.CountPixels\UisSubsea.CountPixels.csproj">
       <Project>{08489fb4-2549-4fff-bc66-231cccdff039}</Project>

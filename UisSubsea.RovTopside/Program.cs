@@ -11,6 +11,7 @@ using AForge.Video.DirectShow;
 using UisSubsea.RovTopside.StressTest;
 using UisSubsea.RovTopside.IndexOfEquipment;
 using UisSubsea.CountPixels;
+using UisSubsea.ConductivitySensor;
 
 namespace UisSubsea.RovTopside
 {
@@ -57,7 +58,7 @@ namespace UisSubsea.RovTopside
                             launchConductivitySensor();
                             break;
                         case "Count Pixels":
-                            LaunchCountPixels();
+                            launchCountPixels();
                             break;
                         default:
                             return;
@@ -165,7 +166,7 @@ namespace UisSubsea.RovTopside
             Application.Run(new ConductivitySensorView());
         }
 
-        private static void LaunchCountPixels()
+        private static void launchCountPixels()
         {
             Application.Run(new CountPixelsView());
         }

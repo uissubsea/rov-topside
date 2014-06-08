@@ -10,12 +10,11 @@ using System.Windows.Forms;
 using System.IO.Ports;
 using System.Threading;
 
-namespace UisSubsea.RovTopside.Presentation
+namespace UisSubsea.ConductivitySensor
 {
     public partial class ConductivitySensorView : Form
     {
         private SerialPort port;
-        private Thread worker;
         private List<byte> unparsedData;
 
         public ConductivitySensorView()
@@ -55,7 +54,6 @@ namespace UisSubsea.RovTopside.Presentation
                     port.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
                     unparsedData = new List<byte>();
                     port.Open();
-                    //RunInBackgroundThread(readUntilCarriageReturn);
 
                     btnConnect.Text = "Disconnect";
                     cmbPorts.Enabled = false;
@@ -69,7 +67,6 @@ namespace UisSubsea.RovTopside.Presentation
             }
             else
             {
-                //worker.Abort();
                 presentData("Stopped listening to port " + port.PortName);
                 port.DataReceived -= DataReceivedHandler;
                 port.Close();
@@ -134,49 +131,6 @@ namespace UisSubsea.RovTopside.Presentation
             if (port != null)
                 if (port.IsOpen)
                     port.Close();
-            //if (worker.IsAlive)
-                //worker.Abort();
-        }
-
-        private void readUntilCarriageReturn()
-        {
-            List<byte> asciiList = new List<byte>();
-
-            while (true)
-            {
-                try
-                {
-                    byte indata = (byte)port.ReadByte();
-                    asciiList.Add(indata);
-
-                    //ASCII 13 is equal to carriage return
-                    if (indata == 13)
-                    {
-                        string dataString = System.Text.Encoding.ASCII.GetString(asciiList.ToArray());
-
-                        txtDataReceived.Invoke(new MethodInvoker(delegate
-                        {
-                            txtDataReceived.AppendText(dataString + "\r\n\r\n");
-                        }));
-
-                        asciiList.Clear();
-                    }
-                }
-                catch (ThreadAbortException)
-                {
-                    txtDataReceived.Invoke(new MethodInvoker(delegate
-                    {
-                        txtDataReceived.AppendText("Stopped listening on port " + port.PortName + "\r\n");
-                    }));
-                }
-            }
-        }
-
-        private void RunInBackgroundThread(ThreadStart methodToRun)
-        {
-            worker = new Thread(methodToRun);
-            worker.IsBackground = true;
-            worker.Start();
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)

@@ -1,4 +1,4 @@
-﻿namespace UisSubsea.RovTopside.Presentation
+﻿namespace UisSubsea.ConductivitySensor
 {
     partial class ConductivitySensorView
     {
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtCommand = new System.Windows.Forms.TextBox();
             this.lblCommand = new System.Windows.Forms.Label();
             this.cmbPorts = new System.Windows.Forms.ComboBox();
@@ -50,6 +51,7 @@
             this.btnC = new System.Windows.Forms.Button();
             this.btnL1 = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.tooltip = new System.Windows.Forms.ToolTip(this.components);
             this.grpCalibration.SuspendLayout();
             this.grpOperational.SuspendLayout();
             this.SuspendLayout();
@@ -207,6 +209,7 @@
             this.btnI.Size = new System.Drawing.Size(75, 23);
             this.btnI.TabIndex = 6;
             this.btnI.Text = "I";
+            this.tooltip.SetToolTip(this.btnI, "Device info");
             this.btnI.UseVisualStyleBackColor = true;
             this.btnI.Click += new System.EventHandler(this.btnI_Click);
             // 
@@ -217,6 +220,7 @@
             this.btnX.Size = new System.Drawing.Size(75, 23);
             this.btnX.TabIndex = 5;
             this.btnX.Text = "X";
+            this.tooltip.SetToolTip(this.btnX, "Factory reset");
             this.btnX.UseVisualStyleBackColor = true;
             this.btnX.Click += new System.EventHandler(this.btnX_Click);
             // 
@@ -227,6 +231,7 @@
             this.btnR.Size = new System.Drawing.Size(75, 23);
             this.btnR.TabIndex = 4;
             this.btnR.Text = "R";
+            this.tooltip.SetToolTip(this.btnR, "Single reading");
             this.btnR.UseVisualStyleBackColor = true;
             this.btnR.Click += new System.EventHandler(this.btnR_Click);
             // 
@@ -237,6 +242,7 @@
             this.btnL0.Size = new System.Drawing.Size(75, 23);
             this.btnL0.TabIndex = 3;
             this.btnL0.Text = "L0";
+            this.tooltip.SetToolTip(this.btnL0, "Disable both debugging LEDs");
             this.btnL0.UseVisualStyleBackColor = true;
             this.btnL0.Click += new System.EventHandler(this.btnL0_Click);
             // 
@@ -247,6 +253,7 @@
             this.btnE.Size = new System.Drawing.Size(75, 23);
             this.btnE.TabIndex = 2;
             this.btnE.Text = "E";
+            this.tooltip.SetToolTip(this.btnE, "End continous mode and enter standby mode");
             this.btnE.UseVisualStyleBackColor = true;
             this.btnE.Click += new System.EventHandler(this.btnE_Click);
             // 
@@ -257,6 +264,7 @@
             this.btnC.Size = new System.Drawing.Size(75, 23);
             this.btnC.TabIndex = 1;
             this.btnC.Text = "C";
+            this.tooltip.SetToolTip(this.btnC, "Continous reading every 1000ms");
             this.btnC.UseVisualStyleBackColor = true;
             this.btnC.Click += new System.EventHandler(this.btnC_Click);
             // 
@@ -267,6 +275,7 @@
             this.btnL1.Size = new System.Drawing.Size(75, 23);
             this.btnL1.TabIndex = 0;
             this.btnL1.Text = "L1";
+            this.tooltip.SetToolTip(this.btnL1, "Enable both debugging LEDs");
             this.btnL1.UseVisualStyleBackColor = true;
             this.btnL1.Click += new System.EventHandler(this.btnL1_Click);
             // 
@@ -332,5 +341,6 @@
         private System.Windows.Forms.Button btnC;
         private System.Windows.Forms.Button btnL1;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.ToolTip tooltip;
     }
 }
