@@ -26,7 +26,7 @@ namespace UisSubsea.CountPixels
         {
             InitializeComponent();
             g = pictureBox.CreateGraphics();
-            Informationlbl.Text = "Works best with HD picture or smaller pictures.";
+            Informationlbl.Text = " Works with HD(1280x720) picture or smaller pictures.";
         }
 
         private void Form1_Load(object sender, EventArgs e)
