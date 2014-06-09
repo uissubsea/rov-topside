@@ -20,6 +20,7 @@ namespace UisSubsea.CountPixels
         private int countPar = 0;
         int Xdistance, Ydistance; 
         float svar1, svar2;
+        private Boolean empty;
 
         public CountPixelsView()
         {
@@ -43,6 +44,7 @@ namespace UisSubsea.CountPixels
                 point1 = e.Location;
                 g.DrawEllipse(System.Drawing.Pens.Red, point1.X - 3, point1.Y - 3, 5, 5);
                 countPar++;
+                
             }
             else if (clicked == true)
             {
@@ -57,13 +59,24 @@ namespace UisSubsea.CountPixels
             }
             if(countPar == 2)
             {
+                checkTextboxForText();
+                if(!empty)
                     calculateFirstStep();                    
             }
             else if (countPar == 4)
             {
+                if (!empty)
                 calculateSecondStep();
                 countPar = 0;
             }
+        }
+
+        private void checkTextboxForText()
+        {
+            if (string.IsNullOrEmpty(AvstandLasertxb.Text))
+                empty = true;
+            else
+                empty = false;
         }
 
         private void calculateFirstStep()
@@ -80,8 +93,7 @@ namespace UisSubsea.CountPixels
         {
 
             svar2 = svar1 * Xdistance;     
-            answertxt.AppendText("Total avstand: " + svar2 + "\r\n");
-            countClicks = 0;                     
+            answertxt.AppendText("Total avstand: " + svar2 + "\r\n");                  
         }
 
         private void loadimagebtn_Click(object sender, EventArgs e)
@@ -102,7 +114,8 @@ namespace UisSubsea.CountPixels
             answertxt.Clear();
 
             pictureBox.Image = image;
-            countClicks = 1;
+            countClicks = 0;
+            countPar = 0;
         }
 
     }
