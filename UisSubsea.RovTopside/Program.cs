@@ -107,11 +107,11 @@ namespace UisSubsea.RovTopside
         private static void launchJoystickTester()
         {
             string[] ports = SerialPort.GetPortNames();
-            if (!ports.Contains("COM1"))
+            /*if (!ports.Contains("COM1"))
             {
                 MessageBox.Show("Make sure USART is connected");
                 return;
-            }
+            }*/
 
             if (Joystick.JoysticksAttached().Count == 0)
             {

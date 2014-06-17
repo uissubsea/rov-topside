@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO.Ports;
 using System.Threading;
+using System.IO;
 
 namespace UisSubsea.RovTopside.Data
 {
@@ -138,11 +139,26 @@ namespace UisSubsea.RovTopside.Data
             bool startByteReceived = false;
             
             while(!startByteReceived)
-            {   
-                int data = port.ReadByte();
+            {
+                int data = 0;
+                try
+                {
+                    data = port.ReadByte();
+                }
+                catch(IOException)
+                {
+                    disconnect();
+                }
+                
                 if ((byte)data == Constants.StartByte)
                     startByteReceived = true;
             }
+        }
+
+        private void disconnect()
+        {
+            if (port.IsOpen)
+                port.Close();
         }
 
         // This method is virtual to ensure that it can be overridden in a derived class.

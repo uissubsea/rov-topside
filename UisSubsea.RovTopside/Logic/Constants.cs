@@ -64,9 +64,10 @@ namespace UisSubsea.RovTopside.Data
          * are connected. Use these in camera factory to initialize 
          * the correct cameras.
          * */
-        public const string LogitechC930eMonikerRear = "vid_046d&pid_0843&mi_00#6&313bb";
+        public const string MicrosoftLifeCamMoniker = "vid_045e&pid_0772&mi_00#7";
+        public const string LogitechC930eMonikerRear = "vid_046d&pid_0843&mi_00#7&1fddb";
         public const string LogitechC920Moniker = "vid_046d&pid_082d&mi_00#6&3eda";
-        public const string LogitechC930eMonikerFront = "vid_046d&pid_0843&mi_00#6&1fdd";
+        public const string LogitechC930eMonikerFront = "vid_046d&pid_0843&mi_00#7&313bb";
 
         /*
          * These strings will be used to identify the joysticks that

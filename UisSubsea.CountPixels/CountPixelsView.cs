@@ -19,7 +19,7 @@ namespace UisSubsea.CountPixels
         private int countClicks = 0;
         private int countPar = 0;
         int Xdistance, Ydistance; 
-        float svar1, svar2;
+        float distancePerPixel, distanceXDirection, distanceYDirection;
         private Boolean empty;
 
         public CountPixelsView()
@@ -67,6 +67,11 @@ namespace UisSubsea.CountPixels
             {
                 if (!empty)
                 calculateSecondStep();
+            }
+            else if ( countPar == 6)
+            {
+                if (!empty)
+                    calculateLastStep();
                 countPar = 0;
             }
         }
@@ -84,16 +89,22 @@ namespace UisSubsea.CountPixels
             float avstand;
             if(float.TryParse(AvstandLasertxb.Text, out avstand))
             {                                      
-                svar1 = avstand / Xdistance;
-                answertxt.AppendText("avstand per piksel: " + svar1 + "\r\n"); 
+                distancePerPixel = avstand / Xdistance;
+                distancePerPixeltxt.AppendText("avstand per piksel: " + distancePerPixel + "\r\n"); 
             }                    
         }
 
         private void calculateSecondStep()
         {
 
-            svar2 = svar1 * Xdistance;     
-            answertxt.AppendText("Total avstand: " + svar2 + "\r\n");                  
+            distanceXDirection = distancePerPixel * Xdistance;     
+            answerXtxt.AppendText("Total lengde: " + distanceXDirection + "\r\n");                  
+        }
+
+        private void calculateLastStep()
+        {
+            distanceYDirection = distancePerPixel * Ydistance;
+            answerYtxt.AppendText("Total høyde: " + distanceYDirection + "\r\n");
         }
 
         private void loadimagebtn_Click(object sender, EventArgs e)
@@ -111,12 +122,13 @@ namespace UisSubsea.CountPixels
         private void refreshbtn_Click(object sender, EventArgs e)
         {
             textBox.Clear();
-            answertxt.Clear();
+            answerXtxt.Clear();
+            answerYtxt.Clear();
+            distancePerPixeltxt.Clear();
 
             pictureBox.Image = image;
             countClicks = 0;
             countPar = 0;
         }
-
     }
 }

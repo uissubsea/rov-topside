@@ -46,6 +46,8 @@ namespace UisSubsea.RovTopside.Presentation
 
         public JoystickTrackerView()
         {
+            while (!(SerialPort.GetPortNames().Contains("COM1"))) { }
+
             InitializeComponent();
 
             pen = new Pen(Color.Black);

@@ -35,8 +35,12 @@
             this.Informationlbl = new System.Windows.Forms.Label();
             this.AvstandLasertxb = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.answertxt = new System.Windows.Forms.TextBox();
+            this.answerXtxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.answerYtxt = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.distancePerPixeltxt = new System.Windows.Forms.TextBox();
+            this.label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,7 +73,7 @@
             // 
             // refreshbtn
             // 
-            this.refreshbtn.Location = new System.Drawing.Point(1433, 718);
+            this.refreshbtn.Location = new System.Drawing.Point(1511, 718);
             this.refreshbtn.Name = "refreshbtn";
             this.refreshbtn.Size = new System.Drawing.Size(75, 23);
             this.refreshbtn.TabIndex = 3;
@@ -103,30 +107,74 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Avstand på laserene i cm:";
             // 
-            // answertxt
+            // answerXtxt
             // 
-            this.answertxt.Location = new System.Drawing.Point(1303, 292);
-            this.answertxt.Multiline = true;
-            this.answertxt.Name = "answertxt";
-            this.answertxt.Size = new System.Drawing.Size(315, 171);
-            this.answertxt.TabIndex = 7;
+            this.answerXtxt.Location = new System.Drawing.Point(1306, 404);
+            this.answerXtxt.Multiline = true;
+            this.answerXtxt.Name = "answerXtxt";
+            this.answerXtxt.ReadOnly = true;
+            this.answerXtxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.answerXtxt.Size = new System.Drawing.Size(323, 67);
+            this.answerXtxt.TabIndex = 7;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1300, 276);
+            this.label2.Location = new System.Drawing.Point(1303, 388);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 13);
+            this.label2.Size = new System.Drawing.Size(94, 13);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Svar:";
+            this.label2.Text = "Lengde i x retning:";
+            // 
+            // answerYtxt
+            // 
+            this.answerYtxt.Location = new System.Drawing.Point(1306, 507);
+            this.answerYtxt.Multiline = true;
+            this.answerYtxt.Name = "answerYtxt";
+            this.answerYtxt.ReadOnly = true;
+            this.answerYtxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.answerYtxt.Size = new System.Drawing.Size(323, 73);
+            this.answerYtxt.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(1312, 491);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(89, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Høyde i y retning:";
+            // 
+            // distancePerPixeltxt
+            // 
+            this.distancePerPixeltxt.Location = new System.Drawing.Point(1303, 295);
+            this.distancePerPixeltxt.Multiline = true;
+            this.distancePerPixeltxt.Name = "distancePerPixeltxt";
+            this.distancePerPixeltxt.ReadOnly = true;
+            this.distancePerPixeltxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.distancePerPixeltxt.Size = new System.Drawing.Size(323, 71);
+            this.distancePerPixeltxt.TabIndex = 11;
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Location = new System.Drawing.Point(1304, 275);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(97, 13);
+            this.label.TabIndex = 12;
+            this.label.Text = "Avstand per piksel:";
             // 
             // CountPixelsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1649, 753);
+            this.Controls.Add(this.label);
+            this.Controls.Add(this.distancePerPixeltxt);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.answerYtxt);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.answertxt);
+            this.Controls.Add(this.answerXtxt);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AvstandLasertxb);
             this.Controls.Add(this.Informationlbl);
@@ -152,8 +200,12 @@
         private System.Windows.Forms.Label Informationlbl;
         private System.Windows.Forms.TextBox AvstandLasertxb;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox answertxt;
+        private System.Windows.Forms.TextBox answerXtxt;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox answerYtxt;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox distancePerPixeltxt;
+        private System.Windows.Forms.Label label;
     }
 }
 
