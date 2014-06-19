@@ -292,6 +292,10 @@
       <Project>{dfc9f1e6-3112-4cde-a84c-ac54a57b7b60}</Project>
       <Name>UisSubsea.RovTopside.IndexOfEquipment</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TypeOfShip\UisSubsea.IdentifyTheShipwreck.csproj">
+      <Project>{b53b4ac3-c85b-438f-9fad-1e3fc22faad8}</Project>
+      <Name>UisSubsea.IdentifyTheShipwreck</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UisSubsea.ConductivitySensor\UisSubsea.ConductivitySensor.csproj">
       <Project>{8d8f7b8b-9211-4185-99c3-06db4d284820}</Project>
       <Name>UisSubsea.ConductivitySensor</Name>

@@ -12,6 +12,7 @@ using UisSubsea.RovTopside.StressTest;
 using UisSubsea.RovTopside.IndexOfEquipment;
 using UisSubsea.CountPixels;
 using UisSubsea.ConductivitySensor;
+using UisSubsea.IdentifyTheShipWreck;
 
 namespace UisSubsea.RovTopside
 {
@@ -59,6 +60,9 @@ namespace UisSubsea.RovTopside
                             break;
                         case "Count Pixels":
                             launchCountPixels();
+                            break;
+                        case "Identify The Shipwreck":
+                            LaunchIdentifyTheShipWreck();
                             break;
                         default:
                             return;
@@ -171,6 +175,10 @@ namespace UisSubsea.RovTopside
             Application.Run(new CountPixelsView());
         }
 
+        private static void LaunchIdentifyTheShipWreck()
+        {
+            Application.Run(new IdentifyTheShipWreckView());
+        }
         private static void Application_ApplicationExit(object sender, EventArgs e)
         {
             CameraFactory.DisposeAll();

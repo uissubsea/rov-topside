@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UisSubsea.CountPixels", "Ui
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UisSubsea.ConductivitySensor", "UisSubsea.ConductivitySensor\UisSubsea.ConductivitySensor.csproj", "{8D8F7B8B-9211-4185-99C3-06DB4D284820}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UisSubsea.IdentifyTheShipwreck", "TypeOfShip\UisSubsea.IdentifyTheShipwreck.csproj", "{B53B4AC3-C85B-438F-9FAD-1E3FC22FAAD8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -104,6 +106,16 @@ Global
 		{8D8F7B8B-9211-4185-99C3-06DB4D284820}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{8D8F7B8B-9211-4185-99C3-06DB4D284820}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{8D8F7B8B-9211-4185-99C3-06DB4D284820}.Release|x86.ActiveCfg = Release|Any CPU
+		{B53B4AC3-C85B-438F-9FAD-1E3FC22FAAD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B53B4AC3-C85B-438F-9FAD-1E3FC22FAAD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B53B4AC3-C85B-438F-9FAD-1E3FC22FAAD8}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{B53B4AC3-C85B-438F-9FAD-1E3FC22FAAD8}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{B53B4AC3-C85B-438F-9FAD-1E3FC22FAAD8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B53B4AC3-C85B-438F-9FAD-1E3FC22FAAD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B53B4AC3-C85B-438F-9FAD-1E3FC22FAAD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B53B4AC3-C85B-438F-9FAD-1E3FC22FAAD8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{B53B4AC3-C85B-438F-9FAD-1E3FC22FAAD8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{B53B4AC3-C85B-438F-9FAD-1E3FC22FAAD8}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
